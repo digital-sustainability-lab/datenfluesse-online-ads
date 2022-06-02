@@ -86,7 +86,7 @@ export class BarchartComponent implements OnInit {
       .call(d3.axisLeft(y));
 
     // Create and fill the bars
-    this.svg.selectAll("bars")
+    const test = this.svg.selectAll("bars")
       .data(data)
       .enter()
       .append("rect")
@@ -107,7 +107,7 @@ export class BarchartComponent implements OnInit {
           .style('top', e.pageY + 'px')
       );
 
-
+    console.log(test, "test")
 
 
   }
