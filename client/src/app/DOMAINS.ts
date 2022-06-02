@@ -1,4 +1,4 @@
-import { Domain } from './piechart.component';
+import { Domain } from './interfaces';
 
 export const DOMAINS: Domain[] = [
   {
