@@ -11,7 +11,7 @@ const network = {
 };
 
 // const parsedReport = papa.parse(
-//   fs.readFileSync("./per_site_network_report.csv", { encoding: "utf8" })
+//   fs.readFileSync("./per_site_network_report_full.csv", { encoding: "utf8" })
 // );
 // const domainRows = parsedReport.data.slice(1);
 // const domainMap = domainRows.reduce((map, row, index) => {

@@ -26,6 +26,8 @@ export class NetworkComponent implements OnInit {
 
   private svg: any;
 
+  selectedNetwork = "network"
+
   link: any
 
   node: any
@@ -94,8 +96,8 @@ export class NetworkComponent implements OnInit {
       .data(this.data.nodes)
       .enter().append("circle")
       .attr("r", this.getRadius)
-      .on("click", function (event: any) {
-        alert(event.target['__data__'].name)
+      .on("click", (event: any) => {
+        this.selectedNetwork = event.target['__data__'].name
       })
       .call(d3.drag().on("drag", dragged));
 
