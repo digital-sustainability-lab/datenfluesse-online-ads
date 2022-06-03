@@ -22,6 +22,8 @@ const FORCES = {
 
 export class NetworkComponent implements OnInit {
 
+  data1 = { "nodes": [{ "id": "A" }, { "id": "B" }, { "id": "C" }, { "id": "D" }], "links": [{ "source": "A", "target": "B" }, { "source": "B", "target": "C" }, { "source": "C", "target": "A" }, { "source": "D", "target": "A" }] }
+
   data: any = network
 
   private svg: any;
@@ -38,20 +40,18 @@ export class NetworkComponent implements OnInit {
 
   simulation: any
 
+  dragSimulation: any
+
   constructor() {
-    // this.initSimulation({ width: 500, height: 500 })
   }
 
-
+  getRadius(d: any) {
+    return d.count + 10
+  }
 
   ngOnInit(): void {
     this.createSvg()
     this.createNetwork()
-    this.animate()
-
-  }
-
-  animate() {
 
   }
 
@@ -60,20 +60,20 @@ export class NetworkComponent implements OnInit {
       .append("svg")
       .attr("width", window.innerWidth)
       .attr("height", window.innerHeight)
-      .append("g")
   }
 
-  getRadius(d: any) {
-    return d.count + 10
-  }
 
   dragged(d: any) {
-    console.log(d)
-    // d.x = d.x, d.y = d.y;
-    this.link.filter(function (l: any) { return l.source === d; }).attr("x1", d.x).attr("y1", d.y);
-    this.link.filter(function (l: any) { return l.target === d; }).attr("x2", d.x).attr("y2", d.y);
+    console.log(d.fx)
+    d.subject.fx = d.x
+    d.subject.fy = d.y
+    console.log(d, " after")
   }
 
+  dragend(d: any) {
+    d.subject.fx = d.x
+    d.subject.fy = d.y
+  }
 
   createNetwork() {
 
@@ -86,56 +86,45 @@ export class NetworkComponent implements OnInit {
       .attr("class", "links")
       .style("stroke", "#aaa")
 
-    const dragged = function (d: any) {
-      link.filter(function (l: any) { return l.source === d; }).attr("x1", d.x).attr("y1", d.y);
-      link.filter(function (l: any) { return l.target === d; }).attr("x2", d.x).attr("y2", d.y);
-    }
-    var node = this.svg.append("g")
-      .attr("class", "node")
+    let node = this.svg.append("g")
       .selectAll("circle")
       .data(this.data.nodes)
-      .enter().append("circle")
+      .enter()
+      .append("circle")
       .attr("r", this.getRadius)
+      .call(d3.drag()
+        .on('drag', this.dragged)
+        .on('end', this.dragend))
+      .style("fill", "#69b3a2")
       .on("click", (event: any) => {
         this.selectedNetwork = event.target['__data__'].name
       })
-      .call(d3.drag().on("drag", dragged));
 
 
-    // let node = this.svg
-    // .selectAll("circle")
-    // .data(this.data.nodes)
-    // .enter()
-    // .append("g")
-    // .append("circle")
-    // .attr("r", this.getRadius)
-    // .style("fill", "#69b3a2")
-    // .on("click", function (event: any) {
-    //   alert(event.target['__data__'].name)
-    // });
 
     this.simulation = d3.forceSimulation(this.data.nodes)                 // Force algorithm is applied to data.nodes
       .force("link", d3.forceLink()                               // This force provides links between nodes
         .id(function (d: any) { return d.id; })                     // This provide  the id of a node
         .links(this.data.links))
       .force("charge", d3.forceManyBody().strength(-300))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-      .force("center", d3.forceCenter(2000 / 2, 800 / 2))     // This force attracts nodes to the center of the svg area
+      .force("center", d3.forceCenter(2000 / 2, 800 / 2))
 
 
     this.simulation.nodes(this.data.nodes)
       .on("tick", function () {
         link
-          .attr("x1", function (d: any) { return d.source.x + 1; })
+          .attr("x1", function (d: any) { return d.source.x; })
           .attr("y1", function (d: any) { return d.source.y; })
           .attr("x2", function (d: any) { return d.target.x; })
           .attr("y2", function (d: any) { return d.target.y; });
         node
           .attr("cx", function (d: any) { return d.x; })
-          .attr("cy", function (d: any) { return d.y; });
+          .attr("cy", function (d: any) { return d.y; })
       })
-
+      .alphaDecay(0)
+      .force("link")
+      .links(this.data.links);
   }
-
 
 
 
