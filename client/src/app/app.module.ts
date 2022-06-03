@@ -8,7 +8,8 @@ import { BarchartComponent } from './barchart/barchart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { NetworkComponent } from './network/network.component'
 
 
 
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon'
     AppComponent,
     PiechartComponent,
     BarchartComponent,
-    NavbarComponent
+    NavbarComponent,
+    NetworkComponent
   ],
   imports: [
     MatIconModule,
