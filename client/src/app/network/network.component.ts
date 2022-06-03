@@ -31,6 +31,8 @@ export class NetworkComponent implements OnInit {
 
   node: any;
 
+  zoom = d3.zoom()
+
   margin = { top: 100, right: 30, bottom: 30, left: 40 };
 
   private tooltip: any;
@@ -38,6 +40,16 @@ export class NetworkComponent implements OnInit {
   simulation: any;
 
   dragSimulation: any
+
+  handleZoom(e: any) {
+    this.svg
+      .attr('transform', e.transform)
+  }
+
+  initZoom() {
+    this.svg
+      .call(this.zoom)
+  }
 
   constructor() {
   }
@@ -49,14 +61,10 @@ export class NetworkComponent implements OnInit {
   ngOnInit(): void {
     this.createSvg()
     this.createNetwork()
-
   }
 
   createSvg() {
-    this.svg = d3.select("figure#network")
-      .append("svg")
-      .attr("width", window.innerWidth)
-      .attr("height", window.innerHeight)
+
   }
 
 
@@ -73,15 +81,34 @@ export class NetworkComponent implements OnInit {
   }
 
   createNetwork() {
+
+    const zoom: any = d3.zoom()
+      .on('zoom', (event) => {
+        this.svg.append('g').attr('transform', event.transform);
+      })
+
+
+    this.svg = d3.select("figure#network")
+      .append("svg")
+      .attr("width", window.innerWidth)
+      .attr("height", window.innerHeight)
+
+
+
+
+
+
+
     let link = this.svg
       .selectAll('line')
       .data(this.data.links)
       .enter()
       .append('line')
       .attr('class', 'links')
-      .style('stroke', '#aaa');
+      .style('stroke', '#aaa')
 
-    let node = this.svg.append("g")
+
+    let node = this.svg
       .selectAll("circle")
       .data(this.data.nodes)
       .enter()
@@ -97,11 +124,13 @@ export class NetworkComponent implements OnInit {
 
 
 
+
     this.simulation = d3.forceSimulation(this.data.nodes)                 // Force algorithm is applied to data.nodes
-      .force("link", d3.forceLink()                               // This force provides links between nodes
+      .force("link", d3.forceLink()
+        .distance(500)                              // This force provides links between nodes
         .id(function (d: any) { return d.id; })                     // This provide  the id of a node
         .links(this.data.links))
-      .force("charge", d3.forceManyBody().strength(-300))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+      .force("charge", d3.forceManyBody().strength(-200))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
       .force("center", d3.forceCenter(2000 / 2, 800 / 2))
 
 
