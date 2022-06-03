@@ -1,0 +1,11 @@
+.link_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.link_wrapper a {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+}
