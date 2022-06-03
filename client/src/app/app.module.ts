@@ -9,7 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
-import { NetworkComponent } from './network/network.component'
+import { NetworkComponent } from './network/network.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component'
 
 
 
@@ -19,7 +20,8 @@ import { NetworkComponent } from './network/network.component'
     PiechartComponent,
     BarchartComponent,
     NavbarComponent,
-    NetworkComponent
+    NetworkComponent,
+    BarChartComponent
   ],
   imports: [
     MatIconModule,
