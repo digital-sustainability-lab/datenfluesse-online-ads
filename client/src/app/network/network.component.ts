@@ -42,8 +42,8 @@ export class NetworkComponent implements OnInit {
   dragSimulation: any
 
   handleZoom(e: any) {
-    this.svg
-      .attr('transform', e.transform)
+    d3.select('svg g')
+      .attr('transform', e.tranform)
   }
 
   initZoom() {
@@ -82,18 +82,10 @@ export class NetworkComponent implements OnInit {
 
   createNetwork() {
 
-    const zoom: any = d3.zoom()
-      .on('zoom', (event) => {
-        this.svg.append('g').attr('transform', event.transform);
-      })
-
-
     this.svg = d3.select("figure#network")
       .append("svg")
       .attr("width", window.innerWidth)
       .attr("height", window.innerHeight)
-
-
 
 
 
@@ -121,6 +113,10 @@ export class NetworkComponent implements OnInit {
       .on("click", (event: any) => {
         this.selectedNetwork = event.target['__data__'].name
       })
+
+
+
+
 
 
 
