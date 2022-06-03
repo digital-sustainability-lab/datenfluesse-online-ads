@@ -9,17 +9,14 @@ import { Link } from './link';
 const FORCES = {
   LINKS: 1 / 50,
   COLLISION: 1,
-  CHARGE: -1
-}
+  CHARGE: -1,
+};
 
 @Component({
   selector: 'app-network',
   templateUrl: './network.component.html',
-  styleUrls: ['./network.component.css']
+  styleUrls: ['./network.component.css'],
 })
-
-
-
 export class NetworkComponent implements OnInit {
 
   data1 = { "nodes": [{ "id": "A" }, { "id": "B" }, { "id": "C" }, { "id": "D" }], "links": [{ "source": "A", "target": "B" }, { "source": "B", "target": "C" }, { "source": "C", "target": "A" }, { "source": "D", "target": "A" }] }
@@ -28,17 +25,17 @@ export class NetworkComponent implements OnInit {
 
   private svg: any;
 
-  selectedNetwork = "network"
+  selectedNetwork = 'network';
 
-  link: any
+  link: any;
 
-  node: any
+  node: any;
 
-  margin = { top: 100, right: 30, bottom: 30, left: 40 }
+  margin = { top: 100, right: 30, bottom: 30, left: 40 };
 
   private tooltip: any;
 
-  simulation: any
+  simulation: any;
 
   dragSimulation: any
 
@@ -76,15 +73,13 @@ export class NetworkComponent implements OnInit {
   }
 
   createNetwork() {
-
-
     let link = this.svg
-      .selectAll("line")
+      .selectAll('line')
       .data(this.data.links)
       .enter()
-      .append("line")
-      .attr("class", "links")
-      .style("stroke", "#aaa")
+      .append('line')
+      .attr('class', 'links')
+      .style('stroke', '#aaa');
 
     let node = this.svg.append("g")
       .selectAll("circle")

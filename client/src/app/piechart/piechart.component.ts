@@ -3,8 +3,6 @@ import { DOMAINS } from '../DOMAINS';
 import * as d3 from 'd3';
 import { Domain } from '../interfaces';
 
-
-
 @Component({
   selector: 'app-piechart',
   templateUrl: './piechart.component.html',
@@ -24,7 +22,7 @@ export class PiechartComponent implements OnInit {
   private radius = Math.min(this.witdh, this.height) / 2 - this.margin;
   private colors: any | undefined;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.svg = d3
@@ -50,7 +48,6 @@ export class PiechartComponent implements OnInit {
 
   private drawChart() {
     const pie = d3.pie<any>().value((d: any) => Number(d.thirdParties.length));
-    debugger
     this.svg
       .selectAll('pieces')
       .data(pie(this.domains))
@@ -104,7 +101,6 @@ export class PiechartComponent implements OnInit {
     const domain = this.domains.find((d) => d.name === name);
     const names = domain?.thirdParties.map((tp) => tp.requestDomain);
     const list = names?.join('</li><li>');
-    debugger
     return `<ul><li>${list}</li></ul>`;
   }
 }
