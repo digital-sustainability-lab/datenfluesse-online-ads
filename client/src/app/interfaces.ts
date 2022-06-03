@@ -6,4 +6,5 @@ export interface ThirdParty {
   requestDomain: string;
   owner: string;
   ownerCountry: string;
+  ownerLineage?: string;
 }
