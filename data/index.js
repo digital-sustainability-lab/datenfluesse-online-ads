@@ -35,17 +35,19 @@ networkStructure.forEach((element, i) => {
   if (network.nodes.length > 0) {
     idx = getHighestIdx(network.nodes) + 1;
   }
-  network.nodes.push({ id: idx, name: element.name });
+  network.nodes.push({ id: idx, name: element.name, count: 0 });
   element.thirdParties.forEach((nested, k) => {
-    let networkmap = network.nodes.map((el) => el.name);
-    if (networkmap.includes(nested.requestDomain)) {
-      const obj = network.nodes.find(
-        (node) => node.name == nested.requestDomain
-      );
+    let plus = network.nodes.find((node) => node.id == idx);
+    let plusIdx = network.nodes.indexOf(plus);
+    network.nodes[plusIdx]["count"] += 1;
+    const obj = network.nodes.find((node) => node.name == nested.requestDomain);
+    if (obj) {
+      let objIdx = network.nodes.indexOf(obj);
+      network.nodes[objIdx].count += 1;
       network.links.push({ source: obj.id, target: idx });
     } else {
       let index = getHighestIdx(network.nodes) + 1;
-      network.nodes.push({ id: index, name: nested.requestDomain });
+      network.nodes.push({ id: index, name: nested.requestDomain, count: 1 });
       network.links.push({ source: index, target: idx });
     }
   });
