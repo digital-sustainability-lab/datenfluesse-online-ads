@@ -69,10 +69,8 @@ export class NetworkComponent implements OnInit {
 
 
   dragged(d: any) {
-    console.log(d.fx)
     d.subject.fx = d.x
     d.subject.fy = d.y
-    console.log(d, " after")
   }
 
   dragend(d: any) {
@@ -82,13 +80,16 @@ export class NetworkComponent implements OnInit {
 
   createNetwork() {
 
-    this.svg = d3.select("figure#network")
+
+    this.svg = d3.select("#network")
       .append("svg")
       .attr("width", window.innerWidth)
       .attr("height", window.innerHeight)
-
-
-
+      // @ts-ignore
+      .call(d3.zoom().on("zoom", (event: any) => {
+        this.svg.attr("transform", event.transform)
+      }))
+      .append('g')
 
 
     let link = this.svg
@@ -99,20 +100,32 @@ export class NetworkComponent implements OnInit {
       .attr('class', 'links')
       .style('stroke', '#aaa')
 
+    let textAndNodes = this.svg.selectAll("g").data(this.data.nodes).enter().append("g").call(d3.drag()
+      .on('drag', this.dragged)
+      .on('end', this.dragend))
 
-    let node = this.svg
-      .selectAll("circle")
-      .data(this.data.nodes)
-      .enter()
-      .append("circle")
-      .attr("r", this.getRadius)
-      .call(d3.drag()
-        .on('drag', this.dragged)
-        .on('end', this.dragend))
-      .style("fill", "#69b3a2")
-      .on("click", (event: any) => {
-        this.selectedNetwork = event.target['__data__'].name
-      })
+
+
+    let circles = textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
+
+    let text = textAndNodes.append('text').text(function (d: any) { return d.name })
+
+
+
+
+    // let node = this.svg
+    //   .selectAll("circle")
+    //   .data(this.data.nodes)
+    //   .enter()
+    //   .append("circle")
+    //   .attr("r", this.getRadius)
+    //   .call(d3.drag()
+    //     .on('drag', this.dragged)
+    //     .on('end', this.dragend))
+    //   .style("fill", "#69b3a2")
+    //   .on("click", (event: any) => {
+    //     this.selectedNetwork = event.target['__data__'].name
+    //   })
 
 
 
@@ -137,9 +150,10 @@ export class NetworkComponent implements OnInit {
           .attr("y1", function (d: any) { return d.source.y; })
           .attr("x2", function (d: any) { return d.target.x; })
           .attr("y2", function (d: any) { return d.target.y; });
-        node
-          .attr("cx", function (d: any) { return d.x; })
-          .attr("cy", function (d: any) { return d.y; })
+        textAndNodes
+          .attr("transform", function (d: any) {
+            return `translate(${d.x},${d.y})`;
+          })
       })
       .alphaDecay(0)
       .force("link")
