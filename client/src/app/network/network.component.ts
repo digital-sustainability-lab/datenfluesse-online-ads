@@ -27,6 +27,8 @@ export class NetworkComponent implements OnInit {
 
   selectedNetwork = 'network';
 
+  textAndNodes: any
+
   link: any;
 
   node: any;
@@ -46,6 +48,29 @@ export class NetworkComponent implements OnInit {
       .attr('transform', e.tranform)
   }
 
+  filterLinks(id: number) {
+    this.data.links = this.data.links.filter((el: any) => {
+      if (el.source.id == id) return true
+      if (el.target.id == id) return true
+      return false
+    })
+  }
+
+  filterNodes(links: any[]) {
+    const ids = links.flatMap((el: any) => {
+      return [el.source.id, el.target.id]
+    })
+    console.log(ids, "links")
+    this.data.nodes = this.data.nodes.filter((el: any) => {
+      if (ids.includes(el.id)) return true
+      return false
+    })
+  }
+
+  assignData() {
+
+  }
+
   initZoom() {
     this.svg
       .call(this.zoom)
@@ -60,7 +85,10 @@ export class NetworkComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg()
-    this.createNetwork()
+    this.createNetwork(this.data)
+    this.filterLinks(1)
+    this.filterNodes(this.data.links)
+    this.createNetwork(this.data)
   }
 
   createSvg() {
@@ -78,8 +106,7 @@ export class NetworkComponent implements OnInit {
     d.subject.fy = d.y
   }
 
-  createNetwork() {
-
+  createNetwork(data: any) {
 
     this.svg = d3.select("#network")
       .append("svg")
@@ -92,72 +119,47 @@ export class NetworkComponent implements OnInit {
       .append('g')
 
 
-    let link = this.svg
+    this.link = this.svg
       .selectAll('line')
-      .data(this.data.links)
+      .data(data.links)
       .enter()
       .append('line')
       .attr('class', 'links')
       .style('stroke', '#aaa')
 
-    let textAndNodes = this.svg.selectAll("g").data(this.data.nodes).enter().append("g").call(d3.drag()
+    this.textAndNodes = this.svg.selectAll("g").data(data.nodes).enter().append("g").call(d3.drag()
       .on('drag', this.dragged)
       .on('end', this.dragend))
 
 
+    let circles = this.textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
 
-    let circles = textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
+    let text = this.textAndNodes.append('text').text(function (d: any) { return d.name })
 
-    let text = textAndNodes.append('text').text(function (d: any) { return d.name })
-
-
-
-
-    // let node = this.svg
-    //   .selectAll("circle")
-    //   .data(this.data.nodes)
-    //   .enter()
-    //   .append("circle")
-    //   .attr("r", this.getRadius)
-    //   .call(d3.drag()
-    //     .on('drag', this.dragged)
-    //     .on('end', this.dragend))
-    //   .style("fill", "#69b3a2")
-    //   .on("click", (event: any) => {
-    //     this.selectedNetwork = event.target['__data__'].name
-    //   })
-
-
-
-
-
-
-
-
-    this.simulation = d3.forceSimulation(this.data.nodes)                 // Force algorithm is applied to data.nodes
+    this.simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
       .force("link", d3.forceLink()
         .distance(500)                              // This force provides links between nodes
         .id(function (d: any) { return d.id; })                     // This provide  the id of a node
-        .links(this.data.links))
+        .links(data.links))
       .force("charge", d3.forceManyBody().strength(-200))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
       .force("center", d3.forceCenter(2000 / 2, 800 / 2))
 
 
-    this.simulation.nodes(this.data.nodes)
-      .on("tick", function () {
-        link
+    this.simulation.nodes(data.nodes)
+      .on("tick", () => {
+        this.link
           .attr("x1", function (d: any) { return d.source.x; })
           .attr("y1", function (d: any) { return d.source.y; })
           .attr("x2", function (d: any) { return d.target.x; })
           .attr("y2", function (d: any) { return d.target.y; });
-        textAndNodes
+        this.textAndNodes
           .attr("transform", function (d: any) {
             return `translate(${d.x},${d.y})`;
           })
       })
       .alphaDecay(0)
       .force("link")
-      .links(this.data.links);
+      .links(data.links);
   }
 
 
