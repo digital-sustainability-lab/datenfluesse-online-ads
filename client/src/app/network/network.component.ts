@@ -5,6 +5,7 @@ import { Domain } from '../interfaces';
 import { network } from './network';
 import { Node } from './node';
 import { Link } from './link';
+import { network_subset } from './network_subset';
 
 const FORCES = {
   LINKS: 1 / 50,
@@ -22,6 +23,8 @@ export class NetworkComponent implements OnInit {
   data1 = { "nodes": [{ "id": "A" }, { "id": "B" }, { "id": "C" }, { "id": "D" }], "links": [{ "source": "A", "target": "B" }, { "source": "B", "target": "C" }, { "source": "C", "target": "A" }, { "source": "D", "target": "A" }] }
 
   data: any = network
+
+  data_subset = network_subset
 
   private svg: any;
 
@@ -67,9 +70,6 @@ export class NetworkComponent implements OnInit {
     })
   }
 
-  assignData() {
-
-  }
 
   initZoom() {
     this.svg
@@ -85,9 +85,6 @@ export class NetworkComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg()
-    this.createNetwork(this.data)
-    this.filterLinks(1)
-    this.filterNodes(this.data.links)
     this.createNetwork(this.data)
   }
 
@@ -106,6 +103,42 @@ export class NetworkComponent implements OnInit {
     d.subject.fy = d.y
   }
 
+  checkData(data: any) {
+
+    let node = this.svg
+      .select('g')
+      .selectAll('g')
+      .selectAll('circles')
+      .data(data.nodes, (d: any) => { return d })
+      .enter()
+
+    let lines = this.svg
+      .selectAll('lines')
+      .data(data.nodes, (d: any) => { return d })
+      .enter()
+
+    node.exit().remove()
+
+    lines.exit().remove()
+
+  }
+
+  assignData(data: any) {
+
+    this.link = this.link
+      .data(data.links)
+      .enter()
+      .append('line')
+      .attr('class', 'links')
+      .style('stroke', '#aaa')
+
+    this.textAndNodes = this.textAndNodes.data(data.nodes).enter().append("g").call(d3.drag()
+      .on('drag', this.dragged)
+      .on('end', this.dragend))
+
+  }
+
+
   createNetwork(data: any) {
 
     this.svg = d3.select("#network")
@@ -121,16 +154,11 @@ export class NetworkComponent implements OnInit {
 
     this.link = this.svg
       .selectAll('line')
-      .data(data.links)
-      .enter()
-      .append('line')
-      .attr('class', 'links')
-      .style('stroke', '#aaa')
 
-    this.textAndNodes = this.svg.selectAll("g").data(data.nodes).enter().append("g").call(d3.drag()
-      .on('drag', this.dragged)
-      .on('end', this.dragend))
 
+    this.textAndNodes = this.svg.selectAll("g")
+
+    this.assignData(data)
 
     let circles = this.textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
 
@@ -143,6 +171,7 @@ export class NetworkComponent implements OnInit {
         .links(data.links))
       .force("charge", d3.forceManyBody().strength(-200))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
       .force("center", d3.forceCenter(2000 / 2, 800 / 2))
+      .alpha(1).restart()
 
 
     this.simulation.nodes(data.nodes)

@@ -14,7 +14,7 @@ const network = {
 };
 
 // const parsedReport = papa.parse(
-//   fs.readFileSync("./per_site_network_report_full.csv", { encoding: "utf8" })
+//   fs.readFileSync("./per_site_network_report_subset.csv", { encoding: "utf8" })
 // );
 // const domainRows = parsedReport.data.slice(1);
 // const domainMap = domainRows.reduce((map, row, index) => {
@@ -26,13 +26,14 @@ const network = {
 //   return { name: key, ...domainMap[key] };
 // });
 // console.log(domains);
-// fs.writeFileSync("./domains.json", JSON.stringify(domains), {
+// fs.writeFileSync("./domains_subset.json", JSON.stringify(domains), {
 //   encoding: "utf8",
 // });
 // function createThirdPartyDomain(row) {
 //   return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
 // }
-const networkStructure = JSON.parse(fs.readFileSync("./domains.json"));
+
+const networkStructure = JSON.parse(fs.readFileSync("./domains_subset.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {

@@ -1,4 +1,4 @@
-{
+export const network_subset = {
   "nodes": [
     { "id": 1, "name": "20min.ch", "count": 20 },
     { "id": 2, "name": "adnxs.com", "count": 1 },
