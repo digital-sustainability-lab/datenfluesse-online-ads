@@ -7,3 +7,11 @@
   stroke: gray;
   stroke-width: 4px;
 }
+
+body {
+  background-color: black;
+}
+
+.select {
+  position: absolute;
+}

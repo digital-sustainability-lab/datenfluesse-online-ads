@@ -37,6 +37,8 @@ export class NetworkNewComponent implements OnInit {
 
   text_nodes: any
 
+  text_element: any
+
 
 
   constructor() { }
@@ -89,34 +91,22 @@ export class NetworkNewComponent implements OnInit {
 
 
 
-    this.link = this.svg.selectAll(".link");
-    this.node = this.svg.selectAll(".nodes");
+    this.link = this.svg.append('g').selectAll(".link");
+    this.node = this.svg.append('g').selectAll(".nodes");
+    this.text_element = this.svg.append('g').selectAll("text")
 
 
     this.simulation = d3.forceSimulation()
       .force("link", d3.forceLink()
         .distance(500)
         .id(function (d: any) { return d.id; }))
-
       .force("charge", d3.forceManyBody()
         .strength(function (d: any) { return -500; }))
       .force("center", d3.forceCenter(this.width / 2, this.height / 2));
+
   }
 
   update(data: any) {
-    //	UPDATE
-    this.node = this.node.data(data.nodes, function (d: any) { return d.id; });
-    //	EXIT
-    this.node.exit().remove();
-    //	ENTER
-    var newNode = this.node.enter().append("circle")
-      .attr("class", "node")
-      .attr("r", (d: any) => this.getRadius(d))
-
-    newNode.append("title")
-      .text(function (d: any) { return "group: " + d.group + "\n" + "id: " + d.id; });
-    //	ENTER + UPDATE
-    this.node = this.node.merge(newNode);
 
     //	UPDATE
     this.link = this.link.data(data.links, function (d: any) { return d.id; });
@@ -132,6 +122,31 @@ export class NetworkNewComponent implements OnInit {
       .text(function (d: any) { return "source: " + d.source + "\n" + "target: " + d.target; });
     //	ENTER + UPDATE
     this.link = this.link.merge(newLink);
+    //	UPDATE
+    this.node = this.node.data(data.nodes, function (d: any) { return d.id; });
+
+    //	EXIT
+    this.node.exit().remove();
+
+    this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
+
+    this.text_element.exit().remove();
+    //	ENTER
+    let newText = this.text_element.enter().append("text")
+      .text((node: any) => node.name)
+
+    this.text_element = this.text_element.merge(newText)
+
+    var newNode = this.node.enter().append("circle")
+      .attr("class", "node")
+      .attr("r", (d: any) => this.getRadius(d))
+      .attr("fill", "#226a94")
+
+    newNode.append("title")
+      .text(function (d: any) { return "group: " + d.group + "\n" + "id: " + d.id; });
+    //	ENTER + UPDATE
+    this.node = this.node.merge(newNode);
+
     //	update simulation nodes, links, and alpha
     this.simulation
       .nodes(data.nodes)
@@ -149,12 +164,14 @@ export class NetworkNewComponent implements OnInit {
     this.node
       .attr("cx", (d: any) => { return d.x })
       .attr("cy", (d: any) => { return d.y });
-
     this.link
       .attr("x1", function (d: any) { return d.source.x; })
       .attr("y1", function (d: any) { return d.source.y; })
       .attr("x2", function (d: any) { return d.target.x; })
       .attr("y2", function (d: any) { return d.target.y; });
+    this.text_element
+      .attr("x", (d: any) => { return d.x })
+      .attr("y", (d: any) => { return d.y });
   }
 
 
