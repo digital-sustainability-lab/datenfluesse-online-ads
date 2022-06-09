@@ -10,7 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NetworkComponent } from './network/network.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component'
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { NetworkNewComponent } from './network-new/network-new.component'
 
 
 
@@ -21,7 +22,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component'
     BarchartComponent,
     NavbarComponent,
     NetworkComponent,
-    BarChartComponent
+    BarChartComponent,
+    NetworkNewComponent
   ],
   imports: [
     MatIconModule,

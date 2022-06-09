@@ -2,10 +2,10 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DOMAINS } from '../DOMAINS';
 import * as d3 from 'd3';
 import { Domain } from '../interfaces';
-import { network } from './network';
+import { network } from '../network-new/network';
 import { Node } from './node';
 import { Link } from './link';
-import { network_subset } from './network_subset';
+import { network_subset } from '../network-new/network_subset';
 
 const FORCES = {
   LINKS: 1 / 50,
@@ -32,9 +32,9 @@ export class NetworkComponent implements OnInit {
 
   textAndNodes: any
 
-  link: any;
+  link: any = []
 
-  node: any;
+  node: any = []
 
   zoom = d3.zoom()
 
@@ -86,6 +86,12 @@ export class NetworkComponent implements OnInit {
   ngOnInit(): void {
     this.createSvg()
     this.createNetwork(this.data)
+    this.assignData(this.data)
+    debugger
+    setTimeout(() => {
+      this.pop()
+      this.assignData(this.data_subset)
+    }, 2000)
   }
 
   createSvg() {
@@ -103,44 +109,60 @@ export class NetworkComponent implements OnInit {
     d.subject.fy = d.y
   }
 
-  checkData(data: any) {
-
-    let node = this.svg
-      .select('g')
-      .selectAll('g')
-      .selectAll('circles')
-      .data(data.nodes, (d: any) => { return d })
-      .enter()
-
-    let lines = this.svg
-      .selectAll('lines')
-      .data(data.nodes, (d: any) => { return d })
-      .enter()
-
-    node.exit().remove()
-
-    lines.exit().remove()
-
-  }
 
   assignData(data: any) {
+    // this.link = this.link
+    //   .data(data.links)
+    //   .enter()
+    //   .append('line')
+    //   .attr('class', 'links')
+    //   .style('stroke', '#aaa')
 
-    this.link = this.link
-      .data(data.links)
-      .enter()
-      .append('line')
-      .attr('class', 'links')
-      .style('stroke', '#aaa')
+    console.log("getting executed inside")
+    this.textAndNodes = this.textAndNodes.data(this.data.nodes, (d: any) => { return d.id })
 
-    this.textAndNodes = this.textAndNodes.data(data.nodes).enter().append("g").call(d3.drag()
+
+    this.textAndNodes.exit().remove()
+
+    this.textAndNodes = this.textAndNodes.enter().append("g").call(d3.drag()
       .on('drag', this.dragged)
       .on('end', this.dragend))
 
+    this.textAndNodes = this.textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
+
+    let text = this.textAndNodes.append('text').text(function (d: any) { return d.name })
+
+    this.simulation = this.simulation.nodes(this.data.nodes)
+    // this.simulation.force(data.links)
+    this.simulation.alpha(1).restart()
+
+
+
+    // this.simulation.nodes(data.nodes)
+    //   .on("tick", () => {
+    //     this.link
+    //       .attr("x1", function (d: any) { return d.source.x; })
+    //       .attr("y1", function (d: any) { return d.source.y; })
+    //       .attr("x2", function (d: any) { return d.target.x; })
+    //       .attr("y2", function (d: any) { return d.target.y; });
+    //     this.textAndNodes
+    //       .attr("transform", function (d: any) {
+    //         return `translate(${d.x},${d.y})`;
+    //       })
+    //   })
+    //   .alphaDecay(0)
+    //   .force("link")
+    //   .links(data.links);
+
+  }
+
+  pop() {
+    this.data.nodes.pop()
+    console.log(this.data.nodes)
   }
 
 
   createNetwork(data: any) {
-
     this.svg = d3.select("#network")
       .append("svg")
       .attr("width", window.innerWidth)
@@ -149,32 +171,23 @@ export class NetworkComponent implements OnInit {
       .call(d3.zoom().on("zoom", (event: any) => {
         this.svg.attr("transform", event.transform)
       }))
-      .append('g')
+    // .append('g')
+
 
 
     this.link = this.svg
       .selectAll('line')
 
-
     this.textAndNodes = this.svg.selectAll("g")
 
-    this.assignData(data)
-
-    let circles = this.textAndNodes.append('circle').attr('r', (d: any) => this.getRadius(d)).attr("fill", "#69b3a2")
-
-    let text = this.textAndNodes.append('text').text(function (d: any) { return d.name })
-
-    this.simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
+    this.simulation = d3.forceSimulation(this.data.nodes)                 // Force algorithm is applied to data.nodes
       .force("link", d3.forceLink()
         .distance(500)                              // This force provides links between nodes
         .id(function (d: any) { return d.id; })                     // This provide  the id of a node
-        .links(data.links))
+        .links(this.data.links))
       .force("charge", d3.forceManyBody().strength(-200))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
       .force("center", d3.forceCenter(2000 / 2, 800 / 2))
-      .alpha(1).restart()
-
-
-    this.simulation.nodes(data.nodes)
+      .alphaTarget(1)
       .on("tick", () => {
         this.link
           .attr("x1", function (d: any) { return d.source.x; })
@@ -186,14 +199,15 @@ export class NetworkComponent implements OnInit {
             return `translate(${d.x},${d.y})`;
           })
       })
-      .alphaDecay(0)
-      .force("link")
-      .links(data.links);
+
+
+
+
+
+
+
+
+
+
   }
-
-
-
-
-
-
 }
