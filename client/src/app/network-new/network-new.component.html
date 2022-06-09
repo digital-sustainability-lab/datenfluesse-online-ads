@@ -1,3 +1,16 @@
 <div>
-  <svg width="960" height="500"></svg>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Nodes</mat-label>
+    <mat-select [formControl]="toppings" multiple (selectionChange)="changeSelection($event.value)">
+      <mat-select-trigger>
+        {{toppings.value?.[0] || ''}}
+        <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+          (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let node of nodeList" [value]="node.name">{{node.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div id="network">
 </div>

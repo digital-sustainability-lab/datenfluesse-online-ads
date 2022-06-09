@@ -33,7 +33,7 @@ const network = {
 //   return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
 // }
 
-const networkStructure = JSON.parse(fs.readFileSync("./domains.json"));
+const networkStructure = JSON.parse(fs.readFileSync("./domains_subset.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
@@ -63,7 +63,7 @@ networkStructure.forEach((element, i) => {
 
 console.log(network);
 
-fs.writeFileSync("./network.json", JSON.stringify(network), {
+fs.writeFileSync("./network_subset.json", JSON.stringify(network), {
   encoding: "utf8",
 });
 

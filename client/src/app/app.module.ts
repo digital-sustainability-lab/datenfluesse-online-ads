@@ -12,6 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { NetworkComponent } from './network/network.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { NetworkNewComponent } from './network-new/network-new.component'
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -26,6 +30,9 @@ import { NetworkNewComponent } from './network-new/network-new.component'
     NetworkNewComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     MatIconModule,
     MatToolbarModule,
     BrowserModule,
