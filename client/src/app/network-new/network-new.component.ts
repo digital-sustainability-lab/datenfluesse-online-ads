@@ -128,6 +128,12 @@ export class NetworkNewComponent implements OnInit {
     //	EXIT
     this.node.exit().remove();
 
+    var newNode = this.node.enter().append("circle")
+      .attr("class", "node")
+      .attr("r", (d: any) => this.getRadius(d))
+      .attr("fill", "#226a94")
+      .on('click', this.selectNode.bind(this))
+
     this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
 
     this.text_element.exit().remove();
@@ -137,10 +143,7 @@ export class NetworkNewComponent implements OnInit {
 
     this.text_element = this.text_element.merge(newText)
 
-    var newNode = this.node.enter().append("circle")
-      .attr("class", "node")
-      .attr("r", (d: any) => this.getRadius(d))
-      .attr("fill", "#226a94")
+
 
     newNode.append("title")
       .text(function (d: any) { return "group: " + d.group + "\n" + "id: " + d.id; });
@@ -155,6 +158,7 @@ export class NetworkNewComponent implements OnInit {
       .links(data.links);
     this.simulation.alpha(1).alphaTarget(0).restart();
   }
+
 
   ticked() {
     // set this if we want to trap it within a div
@@ -180,9 +184,32 @@ export class NetworkNewComponent implements OnInit {
     this.filterNodes(this.data.links)
   }
 
+  selectNode(event: any) {
+    let id = event.target.__data__.id
+    debugger
+    let linksToAdd = this.alldata.links.filter((link: any) => {
+      if (link.source == id) return true
+      if (link.source.id == id) return true
+      return false
+    })
+    this.data.links.push(...linksToAdd)
+    const ids = linksToAdd.map((el: any) => {
+      if (el.source.id) {
+        return el.target.id
+      } else {
+        return el.target
+      }
+    })
+    let nodesToAdd = this.alldata.nodes.filter((node: any) => {
+      if (ids.includes(node.id)) return true
+      return false
+    })
+    this.data.nodes.push(...nodesToAdd)
+    this.update(this.data)
+  }
+
 
   filterLinks(id: number[]) {
-    debugger
     this.data.links = this.alldata.links.filter((el: any) => {
       if (id.includes(el.source)) return true
       if (id.includes(el.target)) return true
@@ -201,7 +228,6 @@ export class NetworkNewComponent implements OnInit {
       }
 
     })
-    debugger
     this.data.nodes = this.alldata.nodes.filter((el: any) => {
       if (ids.includes(el.id)) return true
       return false
