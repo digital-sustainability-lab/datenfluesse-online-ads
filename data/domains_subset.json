@@ -1,0 +1,60 @@
+[
+  {
+    "name": "20min.ch",
+    "thirdParties": [
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adsafeprotected.com",
+        "owner": "Integral Ad Science",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "cookielaw.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "da-services.ch", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "fooby.ch", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mpod.ch", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "onetrust.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "opecloud.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "scorecardresearch.com",
+        "owner": "ScorecardResearch",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tamedia.link", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "tda.link", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "tiktok.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "unitycms.io", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  { "name": "", "thirdParties": [{}] }
+]

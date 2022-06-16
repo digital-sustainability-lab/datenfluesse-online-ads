@@ -14,7 +14,7 @@ const network = {
 };
 
 // const parsedReport = papa.parse(
-//   fs.readFileSync("./per_site_network_report_full.csv", { encoding: "utf8" })
+//   fs.readFileSync("./per_site_network_report_subset.csv", { encoding: "utf8" })
 // );
 // const domainRows = parsedReport.data.slice(1);
 // const domainMap = domainRows.reduce((map, row, index) => {
@@ -26,17 +26,18 @@ const network = {
 //   return { name: key, ...domainMap[key] };
 // });
 // console.log(domains);
-// fs.writeFileSync("./domains.json", JSON.stringify(domains), {
+// fs.writeFileSync("./domains_subset.json", JSON.stringify(domains), {
 //   encoding: "utf8",
 // });
 // function createThirdPartyDomain(row) {
 //   return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
 // }
-const networkStructure = JSON.parse(fs.readFileSync("./domains.json"));
+
+const networkStructure = JSON.parse(fs.readFileSync("./domains_subset.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
-    idx = getHighestIdx(network.nodes) + 1;
+    idx = network.nodes[network.nodes.length - 1].id + 1;
   }
   network.nodes.push({ id: idx, name: element.name, count: 0 });
   element.thirdParties.forEach((nested, k) => {
@@ -44,21 +45,23 @@ networkStructure.forEach((element, i) => {
     let plusIdx = network.nodes.indexOf(plus);
     network.nodes[plusIdx]["count"] += 1;
     const obj = network.nodes.find((node) => node.name == nested.requestDomain);
+    let idl = 1;
+    if (network.links.length > 0) {
+      idl = network.links[network.links.length - 1].id + 1;
+    }
     if (obj) {
       let objIdx = network.nodes.indexOf(obj);
       network.nodes[objIdx].count += 1;
-      network.links.push({ source: obj.id, target: idx });
+      network.links.push({ source: obj.id, target: idx, id: idl });
     } else {
       let index = getHighestIdx(network.nodes) + 1;
       network.nodes.push({ id: index, name: nested.requestDomain, count: 1 });
-      network.links.push({ source: index, target: idx });
+      network.links.push({ source: index, target: idx, id: idl });
     }
   });
 });
 
-console.log(network);
-
-fs.writeFileSync("./network.json", JSON.stringify(network), {
+fs.writeFileSync("./network_subset.json", JSON.stringify(network), {
   encoding: "utf8",
 });
 
