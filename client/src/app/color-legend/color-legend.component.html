@@ -1,0 +1,13 @@
+<div class="colorMapping">
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title> Legende </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <div class="list" *ngFor="let element of data | keyvalue">
+                <div class="list-element" [style.background-color]="element.value"></div>
+                {{ element.key }}
+            </div>
+        </div>
+    </mat-expansion-panel>
+</div>

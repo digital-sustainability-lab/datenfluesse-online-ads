@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import * as d3 from 'd3';
 import { network } from './network';
-import { network_subset } from './network_subset'
+import { colors } from './colors'
+import { category_data } from './category_data';
 
 @Component({
   selector: 'app-network-new',
@@ -13,13 +14,15 @@ export class NetworkNewComponent implements OnInit {
 
   alldata = JSON.parse(JSON.stringify(network))
 
+  colors: any = colors
+
   toppings = new FormControl('');
 
   nodeList: any[] = [];
 
   data = network
 
-  data_subset = network_subset
+  categories: any = category_data
 
   svg: any
 
@@ -45,7 +48,6 @@ export class NetworkNewComponent implements OnInit {
 
   changeSelection(value: any) {
     this.filterById(this.getIdByName((value)))
-    debugger
     this.update(this.data)
   }
 
@@ -131,7 +133,7 @@ export class NetworkNewComponent implements OnInit {
     var newNode = this.node.enter().append("circle")
       .attr("class", "node")
       .attr("r", (d: any) => this.getRadius(d))
-      .attr("fill", "#226a94")
+      .attr("fill", (d: any) => this.getColor(d))
       .on('click', this.selectNode.bind(this))
 
     this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
@@ -157,6 +159,21 @@ export class NetworkNewComponent implements OnInit {
     this.simulation.force("link")
       .links(data.links);
     this.simulation.alpha(1).alphaTarget(0).restart();
+  }
+
+  getColor(element: any) {
+    let toAdd = 'https://www.'
+    if (element.name) {
+      element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
+    }
+    let name = toAdd += element.name
+    debugger
+    if (this.categories[name]) {
+      debugger
+      const category = this.categories[name].categories[0]
+      return this.colors[category]
+    }
+    return '#226a94'
   }
 
 

@@ -1,0 +1,22 @@
+.colorMapping {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 600;
+  line-height: 18px;
+  background: white;
+  background: rgba(255, 255, 255);
+  box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+}
+
+.list-element {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 5px;
+}

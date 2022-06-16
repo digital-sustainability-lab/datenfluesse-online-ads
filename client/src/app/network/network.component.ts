@@ -5,7 +5,7 @@ import { Domain } from '../interfaces';
 import { network } from '../network-new/network';
 import { Node } from './node';
 import { Link } from './link';
-import { network_subset } from '../network-new/network_subset';
+
 
 const FORCES = {
   LINKS: 1 / 50,
@@ -24,7 +24,6 @@ export class NetworkComponent implements OnInit {
 
   data: any = network
 
-  data_subset = network_subset
 
   private svg: any;
 

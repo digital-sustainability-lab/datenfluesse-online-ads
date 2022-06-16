@@ -14,6 +14,9 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { NetworkNewComponent } from './network-new/network-new.component'
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ColorLegendComponent } from './color-legend/color-legend.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -27,9 +30,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     NetworkComponent,
     BarChartComponent,
-    NetworkNewComponent
+    NetworkNewComponent,
+    ColorLegendComponent
   ],
   imports: [
+    MatExpansionModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,

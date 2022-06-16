@@ -61,8 +61,6 @@ networkStructure.forEach((element, i) => {
   });
 });
 
-console.log(network);
-
 fs.writeFileSync("./network_subset.json", JSON.stringify(network), {
   encoding: "utf8",
 });
