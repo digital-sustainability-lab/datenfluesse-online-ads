@@ -1,0 +1,9 @@
+<div class="information">
+    <div style="display: flex; justify-content:center">
+        <h3>{{name}}</h3>
+    </div>
+
+    <ul *ngIf="node">
+        <li *ngFor="let element of node | keyvalue">{{element.key}}: {{element.value}}</li>
+    </ul>
+</div>

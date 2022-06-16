@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { network } from './network';
 import { colors } from './colors'
 import { category_data } from './category_data';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-network-new',
@@ -44,7 +45,7 @@ export class NetworkNewComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   changeSelection(value: any) {
     this.filterById(this.getIdByName((value)))
@@ -135,6 +136,7 @@ export class NetworkNewComponent implements OnInit {
       .attr("r", (d: any) => this.getRadius(d))
       .attr("fill", (d: any) => this.getColor(d))
       .on('click', this.selectNode.bind(this))
+      .on('mouseover', this.setSelectedNode.bind(this))
 
     this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
 
@@ -167,13 +169,17 @@ export class NetworkNewComponent implements OnInit {
       element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
     }
     let name = toAdd += element.name
-    debugger
     if (this.categories[name]) {
-      debugger
       const category = this.categories[name].categories[0]
       return this.colors[category]
     }
     return '#226a94'
+  }
+
+  setSelectedNode(node: any) {
+    let toAdd = 'https://www.'
+    let name = toAdd += node.target.__data__.name
+    this.dataService.setSelectedNode(name);
   }
 
 
@@ -203,7 +209,6 @@ export class NetworkNewComponent implements OnInit {
 
   selectNode(event: any) {
     let id = event.target.__data__.id
-    debugger
     let linksToAdd = this.alldata.links.filter((link: any) => {
       if (link.source == id) return true
       if (link.source.id == id) return true

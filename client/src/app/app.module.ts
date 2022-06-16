@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ColorLegendComponent } from './color-legend/color-legend.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { InformationComponent } from './information/information.component';
 
 
 
@@ -31,7 +32,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     NetworkComponent,
     BarChartComponent,
     NetworkNewComponent,
-    ColorLegendComponent
+    ColorLegendComponent,
+    InformationComponent
   ],
   imports: [
     MatExpansionModule,
