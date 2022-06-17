@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ColorLegendComponent } from './color-legend/color-legend.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { InformationComponent } from './information/information.component';
+import { BarComponent } from './bar/bar.component';
 
 
 
@@ -33,7 +34,8 @@ import { InformationComponent } from './information/information.component';
     BarChartComponent,
     NetworkNewComponent,
     ColorLegendComponent,
-    InformationComponent
+    InformationComponent,
+    BarComponent
   ],
   imports: [
     MatExpansionModule,

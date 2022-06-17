@@ -22,4 +22,14 @@ export class DataService {
     return this.selecetedNode
   }
 
+  createDomains3Data(data: any) {
+    debugger
+    const barData = data.map((element: any) => {
+      let count = element.thirdParties.length - 1
+      let name = element.thirdParties[0].requestDomain += `u. ${count} weitere`
+      return { value: element.name, name }
+    })
+    return barData
+  }
+
 }
