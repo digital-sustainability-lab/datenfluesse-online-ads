@@ -23,7 +23,6 @@ export class InformationComponent implements OnInit {
         this.node = this.categoryData[node]
         this.name = node
       }
-      debugger
     })
 
   }
