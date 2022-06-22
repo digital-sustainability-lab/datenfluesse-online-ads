@@ -28,11 +28,11 @@ export class BarchartComponent implements OnInit {
     this.drawBars(this.data);
   }
 
-  private data : Domain[] = DOMAINS;
+  private data : Domain[] = DOMAINS.sort(this.compare).reverse();
   private svg:any;
-  private margin = 50;
-  private width = 750 - (this.margin * 2);
-  private height = 700 - (this.margin * 2);
+  private margin = 100;
+  private width = 900 - (this.margin * 2);
+  private height = 800 - (this.margin * 2);
 
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
@@ -68,6 +68,7 @@ export class BarchartComponent implements OnInit {
     this.svg.append("g")
     .call(d3.axisLeft(y));
 
+
     // Create and fill the bars
     this.svg.selectAll("bars")
     .data(data)
@@ -89,6 +90,17 @@ export class BarchartComponent implements OnInit {
     });
     max += 10 - (max % 10);
     return max;
+  }
+
+  private compare(a:Domain, b:Domain) {
+    console.log("++++++++++++++++++++compare called")
+    if ( a.thirdParties.length < b.thirdParties.length ){
+      return -1;
+    }
+    if ( a.thirdParties.length > b.thirdParties.length ){
+      return 1;
+    }
+    return 0;
   }
 
 
