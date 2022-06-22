@@ -6,6 +6,7 @@ const fs = require("fs");
 const { Interface } = require("readline");
 
 const domainParser = require("./parse-domains");
+const { privateDecrypt } = require("crypto");
 
 domainParser.parseDomains();
 const network = {
@@ -33,13 +34,18 @@ const network = {
 //   return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
 // }
 
-const networkStructure = JSON.parse(fs.readFileSync("./domains_subset.json"));
+const networkStructure = JSON.parse(fs.readFileSync("./domains.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
     idx = network.nodes[network.nodes.length - 1].id + 1;
   }
-  network.nodes.push({ id: idx, name: element.name, count: 0 });
+  let found = network.nodes.find((node) => node.name == element.name);
+  if (!found) {
+    network.nodes.push({ id: idx, name: element.name, count: 0 });
+  } else {
+    idx = found.id;
+  }
   element.thirdParties.forEach((nested, k) => {
     let plus = network.nodes.find((node) => node.id == idx);
     let plusIdx = network.nodes.indexOf(plus);
@@ -61,7 +67,7 @@ networkStructure.forEach((element, i) => {
   });
 });
 
-fs.writeFileSync("./network_subset.json", JSON.stringify(network), {
+fs.writeFileSync("./network.json", JSON.stringify(network), {
   encoding: "utf8",
 });
 

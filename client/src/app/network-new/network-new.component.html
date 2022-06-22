@@ -8,7 +8,7 @@
           (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
         </span>
       </mat-select-trigger>
-      <mat-option *ngFor="let node of nodeList" [value]="node.name">{{node.name}}</mat-option>
+      <mat-option *ngFor="let node of nodeList" [value]="node.id">{{node.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>

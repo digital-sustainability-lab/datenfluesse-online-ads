@@ -323,5 +323,4 @@ export const DOMAINS3 = [
       { "requestDomain": "ubimet.com", "owner": "", "ownerCountry": "" }
     ]
   },
-  { "name": "", "thirdParties": [{}] }
 ]

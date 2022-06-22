@@ -14,12 +14,20 @@ export class DataService {
   constructor() { }
 
   setSelectedNode(node: any) {
-    debugger
     this.selectedNodeSource.next(node)
   }
 
   getSelectedNode() {
     return this.selecetedNode
+  }
+
+  createDomains3Data(data: any) {
+    const barData = data.map((element: any) => {
+      let count = element.thirdParties.length - 1
+      let name = element.thirdParties[0].requestDomain += `u. ${count} weitere`
+      return { value: element.name, name }
+    })
+    return barData
   }
 
 }
