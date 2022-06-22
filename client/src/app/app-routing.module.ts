@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'pie', component: PiechartComponent },
   { path: 'bar', component: BarComponent },
-  { path: 'bar-chart', component: BarChartComponent },
+  { path: 'bar-chart', component: BarchartComponent },
   { path: 'network', component: NetworkComponent },
   { path: 'network-new', component: NetworkNewComponent },
 ];

@@ -14,25 +14,85 @@ export interface ThirdPartyShare extends ThirdParty {
   styleUrls: ['./barchart.component.css'],
 })
 export class BarchartComponent implements OnInit {
-  domains = DOMAINS3;
-  private svg: any;
-  private margin = 50;
-  private width = 750 - this.margin * 2;
-  private height = 400 - this.margin * 2;
-  private tooltip: any;
 
-  private data: ThirdPartyShare[] | undefined;
+  /*private svg: ;
+  private margin = {top: 30, right: 30, bottom: 70, left: 60};
+  private width = 460 - this.margin.left - this.margin.right;
+  private height = 400 - this.margin.top - this.margin.bottom;*/
+
 
   constructor() {}
 
   ngOnInit(): void {
-    this.calculateThirdPartyParts();
     this.createSvg();
-    this.drawBars(this.data!);
-    this.createTooltip();
+    this.drawBars(this.data);
   }
 
-  private calculateThirdPartyParts() {
+  private data : Domain[] = DOMAINS;
+  private svg:any;
+  private margin = 50;
+  private width = 750 - (this.margin * 2);
+  private height = 700 - (this.margin * 2);
+
+  private createSvg(): void {
+    this.svg = d3.select("figure#bar")
+    .append("svg")
+    .attr("width", this.width + (this.margin * 2))
+    .attr("height", this.height + (this.margin * 2))
+    .append("g")
+    .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
+  }
+
+  private drawBars(data: any[]): void {
+
+    // Create the X-axis band scale
+    const x = d3.scaleLinear()
+    .domain([0, this.getMaxCountAndRound()])
+    .range([0, this.width]);
+
+    // Draw the X-axis on the DOM
+    this.svg.append("g")
+    .attr("transform", "translate(0," + this.height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+    //.attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "center");
+    
+    // Create the Y-axis band scale
+    const y = d3.scaleBand()
+    .range([0, this.height])
+    .domain(data.map(d => d.name)) // based on data
+    .padding(0.1);
+
+    // Draw the Y-axis on the DOM
+    this.svg.append("g")
+    .call(d3.axisLeft(y));
+
+    // Create and fill the bars
+    this.svg.selectAll("bars")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("x", x(0) )
+    .attr("y", (d: { name: string; }) => y(d.name)) // based on data
+    .attr("width", (d: { thirdParties: ThirdParty[] }) => x(d.thirdParties.length)) // based on data
+    .attr("height", y.bandwidth() )
+    .attr("fill", "#c6a120");
+  }
+
+  private getMaxCountAndRound()  {
+    var max = 0;
+    DOMAINS.forEach(e => {
+      if(max < e.thirdParties.length) {
+        max = e.thirdParties.length;
+      }
+    });
+    max += 10 - (max % 10);
+    return max;
+  }
+
+
+  /*private calculateThirdPartyParts() {
     const thirdParties: ThirdParty[] = [];
     const aggregatedThirdparties: { [key: string]: number } = {};
     DOMAINS.forEach((domain) => thirdParties.push(...domain.thirdParties));
@@ -61,6 +121,8 @@ export class BarchartComponent implements OnInit {
     this.data = thirdPartyShares;
   }
 
+  
+
   private createTooltip() {
     this.tooltip = d3
       .select('figure#bar')
@@ -69,17 +131,17 @@ export class BarchartComponent implements OnInit {
       .style('visibility', 'hidden')
       .style('background-color', 'white')
       .style('border', 'solid')
-      .style('border-width', '1px')
+      .style('border-this.width', '1px')
       .style('border-radius', '5px')
       .style('padding', '10px')
       .style('z-index', '1');
   }
 
   private createSvg(): void {
-    this.svg = d3
+    this.this.svg = d3
       .select('figure#bar')
-      .append('svg')
-      .attr('width', this.width + this.margin * 2)
+      .append('this.svg')
+      .attr('this.width', this.this.width + this.margin * 2)
       .attr('height', this.height + this.margin * 2)
       .append('g')
       .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
@@ -89,12 +151,12 @@ export class BarchartComponent implements OnInit {
     // Create the X-axis band scale
     const x = d3
       .scaleBand()
-      .range([0, this.width])
+      .range([0, this.this.width])
       .domain(data.map((d) => d.requestDomain))
       .padding(0.2);
 
     // Draw the X-axis on the DOM
-    this.svg
+    this.this.svg
       .append('g')
       .attr('transform', 'translate(0,' + this.height + ')')
       .call(d3.axisBottom(x))
@@ -106,17 +168,17 @@ export class BarchartComponent implements OnInit {
     const y = d3.scaleLinear().domain([0, 100]).range([this.height, 0]);
 
     // Draw the Y-axis on the DOM
-    this.svg.append('g').call(d3.axisLeft(y));
+    this.this.svg.append('g').call(d3.axisLeft(y));
 
     // Create and fill the bars
-    const test = this.svg
+    const test = this.this.svg
       .selectAll('bars')
       .data(d3.sort(data, (d) => d.share))
       .enter()
       .append('rect')
       .attr('x', (d: ThirdPartyShare) => x(d.requestDomain))
       .attr('y', (d: ThirdPartyShare) => y(d.share))
-      .attr('width', x.bandwidth())
+      .attr('this.width', x.bandwidth())
       .attr('height', (d: any) => this.height - y(d.share))
       .attr('fill', '#d04a35')
       .on('mouseover', (d: any, i: any) =>
@@ -139,5 +201,5 @@ export class BarchartComponent implements OnInit {
     const domain = this.data!.find((d) => d.share === value);
     const list = ['names?'].join('</li><li>');
     return `<ul><li>${list}</li></ul>`;
-  }
+  }*/
 }
