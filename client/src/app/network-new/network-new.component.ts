@@ -21,7 +21,7 @@ export class NetworkNewComponent implements OnInit {
 
   nodeList: any[] = [];
 
-  data = network
+  data = JSON.parse(JSON.stringify(network))
 
   categories: any = category_data
 
@@ -47,26 +47,15 @@ export class NetworkNewComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  changeSelection(value: any) {
-    this.filterById(this.getIdByName((value)))
+  changeSelection(value: number[]) {
+    this.filterById(value)
     this.update(this.data)
-  }
-
-  getIdByName(name: string[]) {
-    let ids: any = []
-    name.forEach(element => {
-      let node = this.alldata.nodes.find((el: any) =>
-        el.name == element
-      )
-      if (node) ids.push(node.id)
-    });
-    return ids
   }
 
   initNodeList() {
     this.alldata.nodes.forEach((node: any) => {
       if (node.name) {
-        this.nodeList.push({ name: node.name, count: node.count })
+        this.nodeList.push({ name: node.name, count: node.count, id: node.id })
       }
     })
     this.nodeList.sort(function (a, b) {
@@ -106,7 +95,6 @@ export class NetworkNewComponent implements OnInit {
       .force("charge", d3.forceManyBody()
         .strength(function (d: any) { return -500; }))
       .force("center", d3.forceCenter(this.width / 2, this.height / 2));
-
   }
 
   update(data: any) {
@@ -232,11 +220,10 @@ export class NetworkNewComponent implements OnInit {
 
 
   filterLinks(id: number[]) {
-    this.data.links = this.alldata.links.filter((el: any) => {
+    debugger
+    this.data.links = JSON.parse(JSON.stringify(this.alldata.links)).filter((el: any) => {
       if (id.includes(el.source)) return true
       if (id.includes(el.target)) return true
-      if (id.includes(el.source.id)) return true
-      if (id.includes(el.target.id)) return true
       return false
     })
   }

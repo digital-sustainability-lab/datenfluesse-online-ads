@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'pie', component: PiechartComponent },
   { path: 'bar', component: BarComponent },
-  { path: 'bar-chart', component: BarChartComponent },
-  { path: 'network', component: NetworkNewComponent },
+  { path: 'bar-chart', component: BarchartComponent },
+  { path: 'network-new', component: NetworkNewComponent },
 ];
 
 @NgModule({

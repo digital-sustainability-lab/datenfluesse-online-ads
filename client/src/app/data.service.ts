@@ -14,7 +14,6 @@ export class DataService {
   constructor() { }
 
   setSelectedNode(node: any) {
-    debugger
     this.selectedNodeSource.next(node)
   }
 
@@ -23,7 +22,6 @@ export class DataService {
   }
 
   createDomains3Data(data: any) {
-    debugger
     const barData = data.map((element: any) => {
       let count = element.thirdParties.length - 1
       let name = element.thirdParties[0].requestDomain += `u. ${count} weitere`
