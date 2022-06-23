@@ -4,7 +4,6 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { BarComponent } from './bar/bar.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { NetworkNewComponent } from './network-new/network-new.component';
-import { NetworkComponent } from './network/network.component';
 import { PiechartComponent } from './piechart/piechart.component';
 
 const routes: Routes = [
@@ -12,8 +11,7 @@ const routes: Routes = [
   { path: 'pie', component: PiechartComponent },
   { path: 'bar', component: BarComponent },
   { path: 'bar-chart', component: BarChartComponent },
-  { path: 'network', component: NetworkComponent },
-  { path: 'network-new', component: NetworkNewComponent },
+  { path: 'network', component: NetworkNewComponent },
 ];
 
 @NgModule({

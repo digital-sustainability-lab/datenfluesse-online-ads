@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
-import { NetworkComponent } from './network/network.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { NetworkNewComponent } from './network-new/network-new.component'
 import { MatSelectModule } from '@angular/material/select';
@@ -30,7 +29,6 @@ import { BarComponent } from './bar/bar.component';
     PiechartComponent,
     BarchartComponent,
     NavbarComponent,
-    NetworkComponent,
     BarChartComponent,
     NetworkNewComponent,
     ColorLegendComponent,
