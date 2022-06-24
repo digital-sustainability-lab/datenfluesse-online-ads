@@ -18,6 +18,7 @@ import { ColorLegendComponent } from './color-legend/color-legend.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { InformationComponent } from './information/information.component';
 import { BarComponent } from './bar/bar.component';
+import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
 
 
 
@@ -33,7 +34,8 @@ import { BarComponent } from './bar/bar.component';
     NetworkNewComponent,
     ColorLegendComponent,
     InformationComponent,
-    BarComponent
+    BarComponent,
+    HierarchBarComponent
   ],
   imports: [
     MatExpansionModule,
