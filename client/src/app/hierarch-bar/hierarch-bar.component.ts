@@ -13,10 +13,7 @@ export class HierarchBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let a = this.x(5000)
-    debugger
-    let test: any = this.create()
-
+    this.create()
   }
 
 
@@ -54,7 +51,7 @@ export class HierarchBarComponent implements OnInit {
 
   duration = 750
 
-  width = 1000
+  width = 800
 
   height = 894
 
@@ -113,9 +110,7 @@ export class HierarchBarComponent implements OnInit {
     this.bar.append("rect")
       .attr("x", this.x(0))
       .attr("width", (d: any) => {
-        let test = this.x(d.data.value) - this.x(0)
-        debugger
-        return test
+        return this.x(d.data.value) - this.x(0)
       })
       .attr("height", this.barStep * (1 - this.barPadding));
 
@@ -155,8 +150,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("fill-opacity", 1);
 
     // Transition entering bars to their new y-position.
-    // this is g error
-    debugger
+    // this is g error    
     enter.selectAll("g")
       .attr("transform", this.stack(d.index))
       .transition(transition1)

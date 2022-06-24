@@ -272,17 +272,6 @@
     },
     "api_usage": { "this_month_api_calls": 12, "remaining_api_calls": 88 }
   },
-  "duckduckgo.com": {
-    "domain": {
-      "categories": [{ "confidence": 0.8, "name": "/People & Society" }],
-      "domain_url": "https://duckduckgo.com",
-      "logo_url": "https://klazify.s3.amazonaws.com/559490797163417265561677eef13c350.89088761.png",
-      "social_media": null,
-      "updated_at": "2021-10-14T00:50:55.000000Z"
-    },
-    "success": true,
-    "api_usage": { "this_month_api_calls": 11, "remaining_api_calls": 89 }
-  },
   "ricardo.ch": {
     "domain": {
       "categories": [
@@ -2853,46 +2842,6 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 18, "remaining_api_calls": 82 }
   },
-  "deepl.com": {
-    "domain": {
-      "categories": [
-        {
-          "confidence": 0.93,
-          "name": "/Reference/Language Resources/Foreign Language Resources"
-        }
-      ],
-      "domain_url": "https://deepl.com",
-      "social_media": null,
-      "logo_url": "https://klazify.s3.amazonaws.com/10232076291618940444607f121c8ede61.75448898.png",
-      "updated_at": "2021-10-23T13:15:15.000000Z"
-    },
-    "success": true,
-    "objects": {
-      "company": {
-        "name": "DeepL",
-        "city": "Köln",
-        "stateCode": "NRW",
-        "countryCode": "DE",
-        "employeesRange": "51-250",
-        "revenue": null,
-        "raised": null,
-        "tags": ["Internet"],
-        "tech": [
-          "zendesk",
-          "microsoft_exchange_online",
-          "outlook",
-          "microsoft_office_365",
-          "amazon_ses",
-          "stripe",
-          "ios",
-          "atlassian_jira",
-          "postgresql",
-          "mysql"
-        ]
-      }
-    },
-    "api_usage": { "this_month_api_calls": 31, "remaining_api_calls": 69 }
-  },
   "paypal.com": {
     "domain": {
       "categories": [
@@ -3629,23 +3578,5 @@
       }
     },
     "api_usage": { "this_month_api_calls": 24, "remaining_api_calls": 76 }
-  },
-  "t.co": {
-    "domain": {
-      "categories": [
-        { "confidence": 0.95, "name": "/Online Communities/Social Networks" },
-        {
-          "confidence": 0.69,
-          "name": "/Online Communities/Blogging Resources & Services"
-        },
-        { "confidence": 0.66, "name": "/Internet & Telecom/Email & Messaging" }
-      ],
-      "domain_url": "https://www.t.co",
-      "logo_url": "https://klazify.s3.amazonaws.com/1105628521165537593162ab083bd5b9c7.38892683.png",
-      "social_media": null,
-      "updated_at": "2021-04-05T15:59:45.000000Z"
-    },
-    "success": true,
-    "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   }
 }
