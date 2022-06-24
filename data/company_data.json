@@ -1,5 +1,5 @@
 {
-  "https://www.Youtube.com": {
+  "youtube.com": {
     "domain": {
       "categories": [
         {
@@ -132,7 +132,7 @@
     },
     "api_usage": { "this_month_api_calls": 7, "remaining_api_calls": 93 }
   },
-  "https://www.Office.com": {
+  "office.com": {
     "domain": {
       "categories": [
         {
@@ -194,7 +194,7 @@
     },
     "api_usage": { "this_month_api_calls": 7, "remaining_api_calls": 93 }
   },
-  "https://www.Post.ch": {
+  "post.ch": {
     "domain": {
       "categories": [
         {
@@ -234,7 +234,7 @@
     },
     "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   },
-  "https://www.20min.ch": {
+  "20min.ch": {
     "domain": {
       "categories": [{ "confidence": 0.64, "name": "/News", "IAB12": "News" }],
       "domain_url": "https://www.20min.ch/",
@@ -272,7 +272,7 @@
     },
     "api_usage": { "this_month_api_calls": 12, "remaining_api_calls": 88 }
   },
-  "https://www.Duckduckgo.com": {
+  "duckduckgo.com": {
     "domain": {
       "categories": [{ "confidence": 0.8, "name": "/People & Society" }],
       "domain_url": "https://duckduckgo.com",
@@ -283,7 +283,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 11, "remaining_api_calls": 89 }
   },
-  "https://www.Ricardo.ch": {
+  "ricardo.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.57, "name": "/Shopping", "IAB22": "Shopping" }
@@ -362,7 +362,7 @@
     },
     "api_usage": { "this_month_api_calls": 14, "remaining_api_calls": 86 }
   },
-  "https://www.Sbb.ch": {
+  "sbb.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.75, "name": "/Travel/Bus & Rail", "IAB20": "Travel" },
@@ -467,7 +467,7 @@
     },
     "api_usage": { "this_month_api_calls": 7, "remaining_api_calls": 93 }
   },
-  "https://www.Watson.ch": {
+  "watson.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.58, "name": "/Computers & Electronics" }
@@ -480,7 +480,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 14, "remaining_api_calls": 86 }
   },
-  "https://www.Wikipedia.org": {
+  "wikipedia.org": {
     "domain": {
       "categories": [{ "confidence": 0.55, "name": "/Reference" }],
       "social_media": null,
@@ -564,7 +564,7 @@
     },
     "api_usage": { "this_month_api_calls": 7, "remaining_api_calls": 93 }
   },
-  "https://www.Booking.com": {
+  "booking.com": {
     "domain": {
       "categories": [
         {
@@ -647,7 +647,7 @@
     },
     "api_usage": { "this_month_api_calls": 10, "remaining_api_calls": 90 }
   },
-  "https://www.Reddit.com": {
+  "reddit.com": {
     "domain": {
       "categories": [
         { "confidence": 0.54, "name": "/Online Communities/Social Networks" }
@@ -757,7 +757,7 @@
     },
     "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   },
-  "https://www.Live.com": {
+  "live.com": {
     "domain": {
       "categories": [
         { "confidence": 0.96, "name": "/Internet & Telecom/Email & Messaging" },
@@ -786,7 +786,7 @@
     },
     "api_usage": { "this_month_api_calls": 11, "remaining_api_calls": 89 }
   },
-  "https://www.Twitter.com": {
+  "twitter.com": {
     "domain": {
       "categories": [
         { "confidence": 0.76, "name": "/Online Communities/Social Networks" },
@@ -933,7 +933,7 @@
     },
     "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   },
-  "https://www.Zoom.us": {
+  "zoom.us": {
     "domain": {
       "categories": [
         {
@@ -1063,7 +1063,7 @@
     },
     "api_usage": { "this_month_api_calls": 8, "remaining_api_calls": 92 }
   },
-  "https://www.Bing.com": {
+  "bing.com": {
     "domain": {
       "categories": [{ "confidence": 0.85, "name": "/Internet & Telecom" }],
       "logo_url": "https://klazify.s3.amazonaws.com/16425731771611736402601125528465c9.08320990.png",
@@ -1097,7 +1097,7 @@
     },
     "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   },
-  "https://www.Srf.ch": {
+  "srf.ch": {
     "domain": {
       "categories": [
         {
@@ -1173,7 +1173,7 @@
     },
     "api_usage": { "this_month_api_calls": 10, "remaining_api_calls": 90 }
   },
-  "https://www.Digitec.ch": {
+  "digitec.ch": {
     "domain": {
       "categories": [
         {
@@ -1229,7 +1229,7 @@
     },
     "api_usage": { "this_month_api_calls": 17, "remaining_api_calls": 83 }
   },
-  "https://www.Blick.ch": {
+  "blick.ch": {
     "domain": {
       "categories": [{ "confidence": 0.52, "name": "/Business & Industrial" }],
       "domain_url": "https://www.blick.ch/",
@@ -1268,7 +1268,7 @@
     },
     "api_usage": { "this_month_api_calls": 18, "remaining_api_calls": 82 }
   },
-  "https://www.9gag.com": {
+  "9gag.com": {
     "domain": {
       "categories": [
         {
@@ -1291,7 +1291,7 @@
     },
     "api_usage": { "this_month_api_calls": 12, "remaining_api_calls": 88 }
   },
-  "https://www.Stackoverflow.com": {
+  "stackoverflow.com": {
     "domain": {
       "categories": [
         {
@@ -1399,7 +1399,7 @@
     },
     "api_usage": { "this_month_api_calls": 16, "remaining_api_calls": 84 }
   },
-  "https://www.Swisscom.ch": {
+  "swisscom.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.83, "name": "/Internet & Telecom/Service Providers" }
@@ -1412,7 +1412,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Bluewin.ch": {
+  "bluewin.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.73, "name": "/Sports", "IAB17": "Sports" },
@@ -1464,7 +1464,7 @@
     },
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Rts.ch": {
+  "rts.ch": {
     "domain": {
       "categories": [
         {
@@ -1551,7 +1551,7 @@
     },
     "api_usage": { "this_month_api_calls": 14, "remaining_api_calls": 86 }
   },
-  "https://www.Amazon.de": {
+  "amazon.de": {
     "domain": {
       "categories": [
         {
@@ -1646,7 +1646,7 @@
     },
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Netflix.com": {
+  "netflix.com": {
     "domain": {
       "categories": [
         {
@@ -1801,7 +1801,7 @@
     },
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Facebook.com": {
+  "facebook.com": {
     "domain": {
       "categories": [
         { "confidence": 0.98, "name": "/Online Communities/Social Networks" }
@@ -1826,7 +1826,7 @@
     },
     "api_usage": { "this_month_api_calls": 9, "remaining_api_calls": 91 }
   },
-  "https://www.Twitch.tv": {
+  "twitch.tv": {
     "domain": {
       "categories": [
         {
@@ -1951,7 +1951,7 @@
     },
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Microsoft.com": {
+  "microsoft.com": {
     "domain": {
       "categories": [
         { "confidence": 0.68, "name": "/Computers & Electronics/Software" }
@@ -1973,7 +1973,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 7, "remaining_api_calls": 93 }
   },
-  "https://www.Admin.ch": {
+  "admin.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.88, "name": "/Law & Government/Government" }
@@ -1995,7 +1995,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 25, "remaining_api_calls": 75 }
   },
-  "https://www.Tutti.ch": {
+  "tutti.ch": {
     "domain": {
       "categories": [{ "confidence": 0.82, "name": "/Shopping/Classifieds" }],
       "domain_url": "https://tutti.ch",
@@ -2043,7 +2043,7 @@
     },
     "api_usage": { "this_month_api_calls": 26, "remaining_api_calls": 74 }
   },
-  "https://www.Github.com": {
+  "github.com": {
     "domain": {
       "categories": [
         { "confidence": 0.81, "name": "/Computers & Electronics/Software" },
@@ -2173,7 +2173,7 @@
     },
     "api_usage": { "this_month_api_calls": 23, "remaining_api_calls": 77 }
   },
-  "https://www.Whatsapp.com": {
+  "whatsapp.com": {
     "domain": {
       "categories": [
         {
@@ -2248,7 +2248,7 @@
     },
     "api_usage": { "this_month_api_calls": 21, "remaining_api_calls": 79 }
   },
-  "https://www.Galaxus.ch": {
+  "galaxus.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.67, "name": "/Shopping", "IAB22": "Shopping" }
@@ -2292,7 +2292,7 @@
     },
     "api_usage": { "this_month_api_calls": 29, "remaining_api_calls": 71 }
   },
-  "https://www.Linkedin.com": {
+  "linkedin.com": {
     "domain": {
       "categories": [
         { "confidence": 0.86, "name": "/Online Communities/Social Networks" }
@@ -2444,7 +2444,7 @@
     },
     "api_usage": { "this_month_api_calls": 20, "remaining_api_calls": 80 }
   },
-  "https://www.Tiktok.com": {
+  "tiktok.com": {
     "domain": {
       "categories": [
         {
@@ -2491,7 +2491,7 @@
     },
     "api_usage": { "this_month_api_calls": 22, "remaining_api_calls": 78 }
   },
-  "https://www.Aliexpress.com": {
+  "aliexpress.com": {
     "domain": {
       "categories": [
         { "confidence": 0.55, "name": "/Shopping/Apparel", "IAB22": "Shopping" }
@@ -2539,7 +2539,7 @@
     },
     "api_usage": { "this_month_api_calls": 24, "remaining_api_calls": 76 }
   },
-  "https://www.Instagram.com": {
+  "instagram.com": {
     "domain": {
       "categories": [
         {
@@ -2632,7 +2632,7 @@
     },
     "api_usage": { "this_month_api_calls": 13, "remaining_api_calls": 87 }
   },
-  "https://www.Amazon.com": {
+  "amazon.com": {
     "domain": {
       "categories": [
         { "confidence": 0.77, "name": "/Business & Industrial" },
@@ -2838,7 +2838,7 @@
     },
     "api_usage": { "this_month_api_calls": 10, "remaining_api_calls": 90 }
   },
-  "https://www.Microsoftonline.com": {
+  "microsoftonline.com": {
     "domain": {
       "categories": [
         { "confidence": 0.61, "name": "/Computers & Electronics/Software" },
@@ -2853,7 +2853,7 @@
     "success": true,
     "api_usage": { "this_month_api_calls": 18, "remaining_api_calls": 82 }
   },
-  "https://www.Deepl.com": {
+  "deepl.com": {
     "domain": {
       "categories": [
         {
@@ -2893,7 +2893,7 @@
     },
     "api_usage": { "this_month_api_calls": 31, "remaining_api_calls": 69 }
   },
-  "https://www.Paypal.com": {
+  "paypal.com": {
     "domain": {
       "categories": [
         {
@@ -3082,7 +3082,7 @@
     },
     "api_usage": { "this_month_api_calls": 31, "remaining_api_calls": 69 }
   },
-  "https://www.Google.ch": {
+  "google.ch": {
     "domain": {
       "categories": [
         { "confidence": 0.68, "name": "/Internet & Telecom/Web Services" },
@@ -3290,7 +3290,7 @@
     },
     "api_usage": { "this_month_api_calls": 32, "remaining_api_calls": 68 }
   },
-  "https://www.Yahoo.com": {
+  "yahoo.com": {
     "domain": {
       "categories": [{ "confidence": 0.58, "name": "/News", "IAB12": "News" }],
       "social_media": null,
@@ -3313,7 +3313,7 @@
     },
     "api_usage": { "this_month_api_calls": 21, "remaining_api_calls": 79 }
   },
-  "https://www.Google.com": {
+  "google.com": {
     "domain": {
       "categories": [{ "confidence": 0.91, "name": "/Internet & Telecom" }],
       "logo_url": "https://klazify.s3.amazonaws.com/17444383516109863936005b3998f9a68.42097781.png",
@@ -3517,7 +3517,7 @@
     },
     "api_usage": { "this_month_api_calls": 14, "remaining_api_calls": 86 }
   },
-  "https://www.Fandom.com": {
+  "fandom.com": {
     "domain": {
       "categories": [
         {
@@ -3630,7 +3630,7 @@
     },
     "api_usage": { "this_month_api_calls": 24, "remaining_api_calls": 76 }
   },
-  "https://www.T.co": {
+  "t.co": {
     "domain": {
       "categories": [
         { "confidence": 0.95, "name": "/Online Communities/Social Networks" },
