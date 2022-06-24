@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { flare } from './flare';
+import { example } from './example';
 
 @Component({
   selector: 'app-hierarch-bar',
@@ -12,18 +13,20 @@ export class HierarchBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let a = this.x(5000)
+    debugger
     let test: any = this.create()
 
   }
 
+
   create() {
-    debugger
     const svg = d3.select('#my_dataviz')
       .append("svg")
       .attr("width", this.width)
       .attr("height", this.height)
 
-    this.x.domain([0, this.root.value]);
+    this.x.domain([0, this.root.data.value]);
 
     svg.append("rect")
       .attr("class", "background")
@@ -43,7 +46,7 @@ export class HierarchBarComponent implements OnInit {
     this.down(svg, this.root);
   }
 
-  data = flare
+  data = example
 
   barStep = 27
 
@@ -77,10 +80,15 @@ export class HierarchBarComponent implements OnInit {
 
   x: any = d3.scaleLinear().range([this.margin.left, this.width - this.margin.right])
 
-  root = d3.hierarchy(this.data)
-    .sum((d: any) => d.value)
-    .sort((a: any, b: any) => b.value - a.value)
+  // root = d3.hierarchy(this.data)
+  // .sum((d: any) => d.value)
+
+  // .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
+
+  root = d3.hierarchy(example)
+    .sort((a: any, b: any) => b.data.value - a.data.value)
     .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
+
 
   // Creates a set of bars for the given data node, at the specified index.
   create_bar(svg: any, down: any, d: any, selector: any) {
@@ -89,7 +97,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("transform", `translate(0,${this.margin.top + this.barStep * this.barPadding})`)
       .attr("text-anchor", "end")
       .style("font", "10px sans-serif");
-    console.log(d, "")
+
     this.bar = g.selectAll("g")
       .data(d.children)
       .join("g")
@@ -104,14 +112,17 @@ export class HierarchBarComponent implements OnInit {
 
     this.bar.append("rect")
       .attr("x", this.x(0))
-      .attr("width", (d: any) => this.x(d.value) - this.x(0))
+      .attr("width", (d: any) => {
+        let test = this.x(d.data.value) - this.x(0)
+        debugger
+        return test
+      })
       .attr("height", this.barStep * (1 - this.barPadding));
 
     return g;
   }
 
   down(svg: any, d: any) {
-    debugger
     if (!d.children || d3.active(svg.node())) return;
 
     // Rebind the current node to the background.
@@ -144,13 +155,17 @@ export class HierarchBarComponent implements OnInit {
       .attr("fill-opacity", 1);
 
     // Transition entering bars to their new y-position.
+    // this is g error
+    debugger
     enter.selectAll("g")
       .attr("transform", this.stack(d.index))
       .transition(transition1)
       .attr("transform", this.stagger());
 
     // Update the x-scale domain.
-    this.x.domain([0, d3.max(d.children, (d: any) => d.value)]);
+    this.x.domain([0, d3.max(d.children, (d: any) => {
+      return d.data.value
+    })]);
 
     // Update the x-axis.
     svg.selectAll(".x-axis").transition(transition2)
@@ -166,7 +181,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("fill-opacity", 1)
       .transition(transition2)
       .attr("fill", (d: any) => this.color(!!d.children))
-      .attr("width", (d: any) => this.x(d.value) - this.x(0));
+      .attr("width", (d: any) => this.x(d.data.value) - this.x(0));
   }
 
   up(svg: any, d: any) {
@@ -184,7 +199,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("class", "exit");
 
     // Update the x-scale domain.
-    this.x.domain([0, d3.max(d.parent.children, (d: any) => d.value)]);
+    this.x.domain([0, d3.max(d.parent.children, (d: any) => d.data.value)]);
 
     // Update the x-axis.
     svg.selectAll(".x-axis").transition(transition1)
@@ -200,7 +215,7 @@ export class HierarchBarComponent implements OnInit {
 
     // Transition exiting rects to the new scale and fade to parent color.
     exit.selectAll("rect").transition(transition1)
-      .attr("width", (d: any) => this.x(d.value) - this.x(0))
+      .attr("width", (d: any) => this.x(d.data.value) - this.x(0))
       .attr("fill", this.color(true));
 
     // Transition exiting text to fade out.
@@ -211,7 +226,7 @@ export class HierarchBarComponent implements OnInit {
 
     // Enter the new bars for the clicked-on data's parent.
     const enter = this.create_bar(svg, this.down, d.parent, ".exit")
-      .attr("fill-opacity", 1);
+      .attr("fill-opacity", 0);
 
     enter.selectAll("g")
       .attr("transform", (d: any, i: any) => `translate(0,${this.barStep * i})`);
@@ -225,11 +240,11 @@ export class HierarchBarComponent implements OnInit {
     // Transition entering rects to the new x-scale.
     // When the entering parent rect is done, make it visible!
 
-    let test = enter.selectAll("rect")
+    enter.selectAll("rect")
       .attr("fill", (d: any) => this.color(!!d.children))
       .attr("fill-opacity", (p: any) => p === d ? 0 : null)
       .transition(transition2)
-      .attr("width", (d: any) => this.x(d.value) - this.x(0))
+      .attr("width", (d: any) => this.x(d.data.value) - this.x(0))
       .on("end", function (p: any) { d3.selectAll('rect').attr("fill-opacity", 1); });
 
 
@@ -239,8 +254,9 @@ export class HierarchBarComponent implements OnInit {
   stack(i: any) {
     let value = 0;
     return (d: any) => {
+      debugger
       const t = `translate(${this.x(value) - this.x(0)},${this.barStep * i})`;
-      value += d.value;
+      value += d.data.value;
       return t;
     };
   }
@@ -249,7 +265,7 @@ export class HierarchBarComponent implements OnInit {
     let value = 0;
     return (d: any, i: any) => {
       const t = `translate(${this.x(value) - this.x(0)},${this.barStep * i})`;
-      value += d.value;
+      value += d.data.value;
       return t;
     };
   }
