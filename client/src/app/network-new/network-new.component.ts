@@ -33,9 +33,9 @@ export class NetworkNewComponent implements OnInit {
 
   simulation: any
 
-  width: any = window.innerWidth
+  width: any = 2000
 
-  height: any = window.innerHeight
+  height: any = 900
 
   radius = 10
 
@@ -172,11 +172,13 @@ export class NetworkNewComponent implements OnInit {
 
 
   ticked() {
-    // set this if we want to trap it within a div
-    // .attr("cx", (d: any) => { return d.x = Math.max(this.radius, Math.min(this.width - this.radius, d.x)); })
-    // .attr("cy", (d: any) => { return d.y = Math.max(this.radius, Math.min(this.height - this.radius, d.y)); });
+
+
 
     this.node
+      // set this if we want to trap it within a div
+      // .attr("cx", (d: any) => { return d.x = Math.max(this.radius, Math.min(this.width - this.radius, d.x)); })
+      // .attr("cy", (d: any) => { return d.y = Math.max(this.radius, Math.min(this.height - this.radius, d.y)); })
       .attr("cx", (d: any) => { return d.x })
       .attr("cy", (d: any) => { return d.y });
     this.link

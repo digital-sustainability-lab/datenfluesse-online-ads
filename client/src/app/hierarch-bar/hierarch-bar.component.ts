@@ -34,8 +34,13 @@ export class HierarchBarComponent implements OnInit {
       .attr("pointer-events", "all")
       .attr("width", this.width)
       .attr("height", this.height)
+      .attr("fill", "#f2f1ed")
+      .attr("x", (d: any) => { return this.margin.left })
+      .attr("width", this.width - this.margin.left)
       .attr("cursor", "pointer")
       .on("click", (event, d) => this.up(svg, d));
+
+
 
     svg.append("g")
       .call(this.xAxis);
@@ -54,7 +59,7 @@ export class HierarchBarComponent implements OnInit {
 
   duration = 750
 
-  width = 800
+  width = 1300
 
   height = 1300
 
@@ -62,7 +67,7 @@ export class HierarchBarComponent implements OnInit {
 
   color = d3.scaleOrdinal([true, false], ["steelblue", "#aaa"])
 
-  margin = ({ top: 30, right: 150, bottom: 0, left: 170 })
+  margin = ({ top: 30, right: 170, bottom: 0, left: 170 })
 
   xAxis = (g: any) => g
     .attr("class", "x-axis")
@@ -179,7 +184,7 @@ export class HierarchBarComponent implements OnInit {
       label = '# 3.party_requestDomains'
     }
     if (d.depth == '2') {
-      label = '%occurence within listed sites'
+      label = '% occurence within sites'
     }
 
     debugger
@@ -193,6 +198,8 @@ export class HierarchBarComponent implements OnInit {
         .attr("x", this.width)
         .attr("y", -5)
         .attr("fill", "currentColor")
+        .style("font-size", "12px")
+        .style("font-style", "italic")
         .attr("text-anchor", "end")
         .text(label))
       .transition(transition2)
