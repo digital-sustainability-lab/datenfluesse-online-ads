@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { flare } from './flare';
 import { example } from './example';
 
+
 @Component({
   selector: 'app-hierarch-bar',
   templateUrl: './hierarch-bar.component.html',
@@ -10,9 +11,11 @@ import { example } from './example';
 })
 export class HierarchBarComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+    debugger
     this.create()
   }
 
@@ -53,19 +56,23 @@ export class HierarchBarComponent implements OnInit {
 
   width = 800
 
-  height = 894
+  height = 1300
 
   bar: any
 
   color = d3.scaleOrdinal([true, false], ["steelblue", "#aaa"])
 
-  margin = ({ top: 30, right: 30, bottom: 0, left: 100 })
+  margin = ({ top: 30, right: 150, bottom: 0, left: 170 })
 
   xAxis = (g: any) => g
     .attr("class", "x-axis")
     .attr("transform", `translate(0,${this.margin.top})`)
     .call(d3.axisTop(this.x).ticks(this.width / 80, "s"))
     .call((g: any) => (g.selection ? g.selection() : g).select(".domain").remove())
+
+
+
+
 
   yAxis = (g: any) => g
     .attr("class", "y-axis")
@@ -74,6 +81,11 @@ export class HierarchBarComponent implements OnInit {
       .attr("stroke", "currentColor")
       .attr("y1", this.margin.top)
       .attr("y2", this.height - this.margin.bottom))
+
+
+
+
+
 
   x: any = d3.scaleLinear().range([this.margin.left, this.width - this.margin.right])
 
@@ -142,6 +154,7 @@ export class HierarchBarComponent implements OnInit {
 
     // Enter the new bars for the clicked-on data.
     // Per above, entering bars are immediately visible.
+    debugger
     const enter = this.create_bar(svg, this.down, d, ".y-axis")
       .attr("fill-opacity", 0);
 
@@ -150,7 +163,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("fill-opacity", 1);
 
     // Transition entering bars to their new y-position.
-    // this is g error    
+    // this is g error
     enter.selectAll("g")
       .attr("transform", this.stack(d.index))
       .transition(transition1)
@@ -161,9 +174,31 @@ export class HierarchBarComponent implements OnInit {
       return d.data.value
     })]);
 
+    let label = "websites per category"
+    if (d.depth == 1) {
+      label = '# 3.party_requestDomains'
+    }
+    if (d.depth == '2') {
+      label = '%occurence within listed sites'
+    }
+
+    debugger
     // Update the x-axis.
-    svg.selectAll(".x-axis").transition(transition2)
-      .call(this.xAxis);
+
+    svg.select('#description').remove()
+
+    svg.selectAll(".x-axis")
+      .call((g: any) => g.append("text")
+        .attr('id', 'description')
+        .attr("x", this.width)
+        .attr("y", -5)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "end")
+        .text(label))
+      .transition(transition2)
+
+      .call(this.xAxis)
+
 
     // Transition entering bars to the new x-scale.
     enter.selectAll("g").transition(transition2)
@@ -208,6 +243,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("transform", this.stack(d.index));
 
     // Transition exiting rects to the new scale and fade to parent color.
+    debugger
     exit.selectAll("rect").transition(transition1)
       .attr("width", (d: any) => this.x(d.data.value) - this.x(0))
       .attr("fill", this.color(true));
@@ -218,6 +254,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("fill-opacity", 0)
       .remove();
 
+    debugger
     // Enter the new bars for the clicked-on data's parent.
     const enter = this.create_bar(svg, this.down, d.parent, ".exit")
       .attr("fill-opacity", 0);
@@ -246,9 +283,9 @@ export class HierarchBarComponent implements OnInit {
   }
 
   stack(i: any) {
+    debugger
     let value = 0;
     return (d: any) => {
-      debugger
       const t = `translate(${this.x(value) - this.x(0)},${this.barStep * i})`;
       value += d.data.value;
       return t;
