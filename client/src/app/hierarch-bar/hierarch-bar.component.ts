@@ -30,11 +30,10 @@ export class HierarchBarComponent implements OnInit {
 
     svg.append("rect")
       .attr("class", "background")
-      .attr("fill", "none")
       .attr("pointer-events", "all")
       .attr("width", this.width)
       .attr("height", this.height)
-      .attr("fill", "#f2f1ed")
+      .style("fill", "#f2f1ed")
       .attr("x", (d: any) => { return this.margin.left })
       .attr("width", this.width - this.margin.left)
       .attr("cursor", "pointer")
