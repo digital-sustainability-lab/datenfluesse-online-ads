@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PiechartComponent } from './piechart/piechart.component';
@@ -19,6 +20,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { InformationComponent } from './information/information.component';
 import { BarComponent } from './bar/bar.component';
 import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -38,6 +41,7 @@ import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
     HierarchBarComponent
   ],
   imports: [
+    FontAwesomeModule,
     MatExpansionModule,
     HttpClientModule,
     FormsModule,
