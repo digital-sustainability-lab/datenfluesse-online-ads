@@ -33,7 +33,7 @@ export class HierarchBarComponent implements OnInit {
       .attr("pointer-events", "all")
       .attr("width", this.width)
       .attr("height", this.height)
-      .style("fill", "#f2f1ed")
+      .style("fill", "none")
       .attr("x", (d: any) => { return this.margin.left })
       .attr("width", this.width - this.margin.left)
       .attr("cursor", "pointer")
