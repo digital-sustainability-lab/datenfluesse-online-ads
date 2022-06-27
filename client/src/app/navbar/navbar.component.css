@@ -1,18 +1,17 @@
 .link_wrapper {
   display: flex;
-  justify-content: center;
   width: 100%;
 }
 
 .link_wrapper a {
-  margin: 10px;
+  margin-right: 10px;
   text-decoration: none;
   color: black;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  font-size: x-large;
+  font-family: "Merriweather", serif;
 }
 
 .toolbar {
-  border-bottom: 5px solid #000000;
+  border-bottom: 1px solid #000000;
+  height: min-content;
+  padding: 2px;
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NetworkComponent } from './network.component';
+import { NetworkMenuComponent } from './network-menu.component';
 
-describe('NetworkComponent', () => {
-  let component: NetworkComponent;
-  let fixture: ComponentFixture<NetworkComponent>;
+describe('NetworkMenuComponent', () => {
+  let component: NetworkMenuComponent;
+  let fixture: ComponentFixture<NetworkMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NetworkComponent ]
+      declarations: [ NetworkMenuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NetworkComponent);
+    fixture = TestBed.createComponent(NetworkMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

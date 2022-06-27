@@ -8,10 +8,38 @@
   stroke-width: 4px;
 }
 
-body {
-  background-color: black;
-}
-
 .select {
   position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+#intro {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h4 {
+  font-family: "Stick No Bills", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.wrapper {
+  background-image: url("../../assets/img/bg-striped.png");
 }

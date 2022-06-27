@@ -1,9 +1,24 @@
-<app-navbar></app-navbar>
-<div style="
+<!-- <app-navbar></app-navbar> -->
+<div class="nav">
+  <div class="icon_wrapper">
+    <a mat-button [routerLink]="'/bar'" routerLinkActive="active">
+      <div class="icon">
+        <fa-icon [icon]="faChartBar"></fa-icon>
+      </div>
+    </a>
+    <a mat-button [routerLink]="'/network'" routerLinkActive="active">
+      <div class="icon">
+        <fa-icon [icon]="fadiagram"></fa-icon>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="wrapper" style="
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
   ">
+
   <router-outlet></router-outlet>
 </div>

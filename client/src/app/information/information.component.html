@@ -1,9 +1,8 @@
 <div class="information">
     <div style="display: flex; justify-content:center; margin-bottom:0">
-        <h3>{{name}}</h3>
+        <h3 style="margin: 0;">{{name}}</h3>
     </div>
-
-    <div class="info" style="padding: 5px;" *ngIf="node">
+    <div class="info" style="padding: 2px;" *ngIf="node">
         <ul>
             <li *ngFor="let element of node | keyvalue">{{element.key}}: {{element.value}}</li>
         </ul>
