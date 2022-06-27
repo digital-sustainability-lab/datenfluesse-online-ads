@@ -73,8 +73,8 @@ export class NetworkNewComponent implements OnInit {
   initSVGs() {
     this.svg = d3.select("#network")
       .append("svg")
-      .attr("width", this.width)
-      .attr("height", this.height)
+      .attr("width", window.innerWidth)
+      .attr("height", window.innerHeight)
       // @ts-ignore
       .call(d3.zoom().on("zoom", (event: any) => {
         this.svg.attr("transform", event.transform)

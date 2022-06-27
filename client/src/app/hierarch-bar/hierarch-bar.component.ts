@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { flare } from './flare';
 import { example } from './example';
+import { MatLabel } from '@angular/material/form-field';
 
 
 @Component({
@@ -178,18 +179,12 @@ export class HierarchBarComponent implements OnInit {
       return d.data.value
     })]);
 
-    let label = "websites per category"
-    if (d.depth == 1) {
-      label = '# 3.party_requestDomains'
-    }
-    if (d.depth == '2') {
-      label = '% occurence within sites'
-    }
+    //let label = this.updateLabel(d.depth);
+    let label = this.updateLabel(d.depth);
 
-    debugger
     // Update the x-axis.
 
-    svg.select('#description').remove()
+    svg.select('#description').remove();
 
     svg.selectAll(".x-axis")
       .call((g: any) => g.append("text")
@@ -236,7 +231,11 @@ export class HierarchBarComponent implements OnInit {
     // Update the x-scale domain.
     this.x.domain([0, d3.max(d.parent.children, (d: any) => d.data.value)]);
 
+    
+    let label = this.updateLabel(d.depth); 
+
     // Update the x-axis.
+
     svg.selectAll(".x-axis").transition(transition1)
       .call(this.xAxis);
 
@@ -286,6 +285,17 @@ export class HierarchBarComponent implements OnInit {
 
 
 
+  }
+
+  updateLabel (depth: any)  {
+    if (depth == '1') {
+      return '# 3rd party request Domains';
+    } else if (depth == '2') {
+      return '% occurence within sites';
+    } else {
+      return "# websites per category";
+    }
+    return "hello";
   }
 
   stack(i: any) {
