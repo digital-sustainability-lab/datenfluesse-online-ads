@@ -35,7 +35,7 @@ export class NetworkNewComponent implements OnInit {
 
   width: any = 2000
 
-  height: any = 900
+  height: any = 1000
 
   radius = 10
 
