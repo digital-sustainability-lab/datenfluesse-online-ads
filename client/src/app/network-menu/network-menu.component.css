@@ -1,15 +1,36 @@
 .menuWrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 700;
-    line-height: 18px;
-    background-color: #fff;
-    box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
-    border-radius: 5px;
-    font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 700;
+  line-height: 18px;
+  background-color: #fff;
+  box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.checkBox{
-    display:flex;    
+.controls {
+  display: flex;
+  justify-content: space-around;
+  font-size: 25px;
+}
+
+.checkBox {
+  display: flex;
+}
+
+.wrapping {
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.list-element {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 5px;
+}
+
+.list {
+  display: flex;
 }

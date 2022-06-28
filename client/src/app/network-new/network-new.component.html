@@ -15,7 +15,6 @@
   </div>
   <div id="network">
   </div>
-  <app-color-legend></app-color-legend>
   <app-information></app-information>
-  <app-network-menu></app-network-menu>
+  <app-network-menu (actionEvent)="action($event)"></app-network-menu>
 </div>
