@@ -43,7 +43,7 @@ export class NetworkMenuComponent implements OnInit {
   domains : Domain[] = DOMAINS;
   ids:number[] = [];
   network = network;
-  categories = example.children;
+  categories = example.children.slice(); // makes categories not reference the category data
   
   allComplete: boolean = false;
 
