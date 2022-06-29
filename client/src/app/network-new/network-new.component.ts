@@ -13,6 +13,8 @@ import { DataService } from '../data.service';
 })
 export class NetworkNewComponent implements OnInit {
 
+  history: any[] = []
+
   alldata = JSON.parse(JSON.stringify(network))
 
   colors: any = colors
@@ -43,6 +45,8 @@ export class NetworkNewComponent implements OnInit {
 
   text_element: any
 
+  historyIndex = -1
+
 
 
   constructor(private dataService: DataService) { }
@@ -50,6 +54,11 @@ export class NetworkNewComponent implements OnInit {
   changeSelection(value: number[]) {
     this.filterById(value)
     this.update(this.data)
+  }
+
+  updateHistory(data: any) {
+    this.history.push(data)
+    this.historyIndex += 1
   }
 
   initNodeList() {
@@ -69,12 +78,18 @@ export class NetworkNewComponent implements OnInit {
     this.initSVGs()
     this.update(this.data)
   }
+  
+  onResize(event: any) {
+    d3.select(".svg-content").attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight);
+  }
 
   initSVGs() {
+    
     this.svg = d3.select("#network")
       .append("svg")
-      .attr("width", window.innerWidth)
-      .attr("height", window.innerHeight)
+      .attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight)
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .classed("svg-content", true)
       // @ts-ignore
       .call(d3.zoom().on("zoom", (event: any) => {
         this.svg.attr("transform", event.transform)
@@ -98,7 +113,8 @@ export class NetworkNewComponent implements OnInit {
   }
 
   update(data: any) {
-
+    debugger
+    this.updateHistory(JSON.parse(JSON.stringify(data)))
     //	UPDATE
     this.link = this.link.data(data.links, function (d: any) { return d.id; });
     //	EXIT
@@ -152,11 +168,7 @@ export class NetworkNewComponent implements OnInit {
   }
 
   getColor(element: any) {
-    let toAdd = 'https://www.'
-    if (element.name) {
-      element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1)
-    }
-    let name = toAdd += element.name
+    let name = element.name
     if (this.categories[name]) {
       const category = this.categories[name].categories[0]
       return this.colors[category]
@@ -165,15 +177,12 @@ export class NetworkNewComponent implements OnInit {
   }
 
   setSelectedNode(node: any) {
-    let toAdd = 'https://www.'
-    let name = toAdd += node.target.__data__.name
+    let name = node.target.__data__.name
     this.dataService.setSelectedNode(name);
   }
 
 
   ticked() {
-
-
 
     this.node
       // set this if we want to trap it within a div
@@ -199,19 +208,13 @@ export class NetworkNewComponent implements OnInit {
 
   selectNode(event: any) {
     let id = event.target.__data__.id
-    let linksToAdd = this.alldata.links.filter((link: any) => {
-      if (link.source == id) return true
-      if (link.source.id == id) return true
-      return false
-    })
+    let linksToAdd = JSON.parse(JSON.stringify(this.alldata.links)).filter((link: any) => (link.source == id || link.target == id))
+    linksToAdd = this.filterExistingLinks(linksToAdd)
     this.data.links.push(...linksToAdd)
-    const ids = linksToAdd.map((el: any) => {
-      if (el.source.id) {
-        return el.target.id
-      } else {
-        return el.target
-      }
+    const ids = linksToAdd.flatMap((el: any) => {
+      return [el.target, el.source]
     })
+    debugger
     let nodesToAdd = this.alldata.nodes.filter((node: any) => {
       if (ids.includes(node.id)) return true
       return false
@@ -220,9 +223,31 @@ export class NetworkNewComponent implements OnInit {
     this.update(this.data)
   }
 
+  filterExistingLinks(links: any) {
+    for (let link of this.data.links) {
+      links = links.filter((element: any) => element.id != link.id)
+    }
+    return links
+  }
+
+  action(event: any) {
+    if (event == 'forward') {
+      if (this.historyIndex != this.history.length) {
+        this.update(this.history[this.historyIndex + 1])
+      }
+    }
+    if (event == 'backward') {
+      debugger
+      if (this.historyIndex != 0) {
+        this.update(this.history[this.historyIndex - 1])
+      }
+    }
+    if (event == 'reset') {
+      this.update(this.alldata)
+    }
+  }
 
   filterLinks(id: number[]) {
-    debugger
     this.data.links = JSON.parse(JSON.stringify(this.alldata.links)).filter((el: any) => {
       if (id.includes(el.source)) return true
       if (id.includes(el.target)) return true
@@ -232,12 +257,7 @@ export class NetworkNewComponent implements OnInit {
 
   filterNodes(links: any[]) {
     const ids = links.flatMap((el: any) => {
-      if (el.source.id) {
-        return [el.source.id, el.target.id]
-      } else {
-        return [el.source, el.target]
-      }
-
+      return [el.source, el.target]
     })
     this.data.nodes = this.alldata.nodes.filter((el: any) => {
       if (ids.includes(el.id)) return true
