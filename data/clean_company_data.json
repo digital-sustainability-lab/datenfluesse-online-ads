@@ -1,5 +1,5 @@
 {
-  "https://www.Youtube.com": {
+  "youtube.com": {
     "categories": [
       "Arts & Entertainment",
       "TV & Video",
@@ -14,7 +14,7 @@
     "raised": 200000,
     "tags": ["Internet", "Technology", "B2C", "Mobile"]
   },
-  "https://www.Office.com": {
+  "office.com": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -27,7 +27,7 @@
     "employeesRange": "100K+",
     "tags": ["Technology", "Web Services & Apps", "Internet", "B2C", "B2B"]
   },
-  "https://www.Post.ch": {
+  "post.ch": {
     "categories": [
       "Business & Industrial",
       "Transportation & Logistics",
@@ -40,7 +40,7 @@
     "employeesRange": "5K-10K",
     "tags": ["Shipping & Logistics", "B2B", "B2C"]
   },
-  "https://www.20min.ch": {
+  "20min.ch": {
     "categories": ["News"],
     "name": "20 Minuten",
     "city": "Zürich",
@@ -49,8 +49,7 @@
     "employeesRange": "51-250",
     "tags": ["Media"]
   },
-  "https://www.Duckduckgo.com": { "categories": ["People & Society"] },
-  "https://www.Ricardo.ch": {
+  "ricardo.ch": {
     "categories": ["Shopping"],
     "name": "Ricardo",
     "city": "Zug",
@@ -59,7 +58,7 @@
     "employeesRange": "51-250",
     "tags": ["Internet"]
   },
-  "https://www.Sbb.ch": {
+  "sbb.ch": {
     "categories": ["Travel", "Bus & Rail", "Business & Industrial"],
     "name": "SBB CFF FFS",
     "city": "Bern",
@@ -69,8 +68,8 @@
     "revenue": 8991870000,
     "tags": ["Transportation", "B2B"]
   },
-  "https://www.Watson.ch": { "categories": ["Computers & Electronics"] },
-  "https://www.Wikipedia.org": {
+  "watson.ch": { "categories": ["Computers & Electronics"] },
+  "wikipedia.org": {
     "categories": ["Reference"],
     "name": "Wikipedia",
     "city": "Dhaka",
@@ -84,7 +83,7 @@
       "B2C"
     ]
   },
-  "https://www.Booking.com": {
+  "booking.com": {
     "categories": ["Travel", "Hotels & Accommodations"],
     "name": "Booking.com",
     "city": "Amsterdam",
@@ -93,7 +92,7 @@
     "employeesRange": "10K-50K",
     "tags": ["Internet", "Technology", "B2C", "Marketplace"]
   },
-  "https://www.Reddit.com": {
+  "reddit.com": {
     "categories": ["Online Communities", "Social Networks"],
     "name": "Reddit",
     "city": "San Francisco",
@@ -110,7 +109,7 @@
       "B2C"
     ]
   },
-  "https://www.Live.com": {
+  "live.com": {
     "categories": [
       "Internet & Telecom",
       "Email & Messaging",
@@ -119,7 +118,7 @@
       "Business & Productivity Software"
     ]
   },
-  "https://www.Twitter.com": {
+  "twitter.com": {
     "categories": [
       "Online Communities",
       "Social Networks",
@@ -135,7 +134,7 @@
     "revenue": 3459329000,
     "tags": ["Internet", "Technology", "B2C", "Mobile"]
   },
-  "https://www.Zoom.us": {
+  "zoom.us": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -159,7 +158,7 @@
       "Enterprise"
     ]
   },
-  "https://www.Bing.com": {
+  "bing.com": {
     "categories": ["Internet & Telecom"],
     "name": "Microsoft Bing",
     "city": "Redmond",
@@ -169,7 +168,7 @@
     "raised": 20600000,
     "tags": ["Technology", "Web Services & Apps", "Internet", "B2B"]
   },
-  "https://www.Srf.ch": {
+  "srf.ch": {
     "categories": ["Arts & Entertainment", "Music & Audio", "Radio"],
     "name": "SRF Schweizer Radio und Fernsehen",
     "city": "Zürich",
@@ -178,7 +177,7 @@
     "employeesRange": "1K-5K",
     "tags": ["Broadcasting", "B2C"]
   },
-  "https://www.Digitec.ch": {
+  "digitec.ch": {
     "categories": [
       "Computers & Electronics",
       "Consumer Electronics",
@@ -199,7 +198,7 @@
       "B2C"
     ]
   },
-  "https://www.Blick.ch": {
+  "blick.ch": {
     "categories": ["Business & Industrial"],
     "name": "Blick",
     "city": "Zürich",
@@ -208,10 +207,10 @@
     "employeesRange": "1-10",
     "tags": []
   },
-  "https://www.9gag.com": {
+  "9gag.com": {
     "categories": ["Arts & Entertainment", "Humor", "Funny Pictures & Videos"]
   },
-  "https://www.Stackoverflow.com": {
+  "stackoverflow.com": {
     "categories": [
       "Science",
       "Computer Science",
@@ -229,17 +228,15 @@
     "raised": 153000000,
     "tags": ["Forums", "Internet", "B2B", "Marketplace"]
   },
-  "https://www.Swisscom.ch": {
-    "categories": ["Internet & Telecom", "Service Providers"]
-  },
-  "https://www.Bluewin.ch": {
+  "swisscom.ch": { "categories": ["Internet & Telecom", "Service Providers"] },
+  "bluewin.ch": {
     "categories": ["Sports", "News"],
     "name": "blue News",
     "countryCode": "CH",
     "employeesRange": "1-10",
     "tags": []
   },
-  "https://www.Rts.ch": {
+  "rts.ch": {
     "categories": ["Arts & Entertainment", "Music & Audio", "Radio"],
     "name": "RTS",
     "city": "Geneva",
@@ -248,7 +245,7 @@
     "employeesRange": "1K-5K",
     "tags": ["Broadcasting"]
   },
-  "https://www.Amazon.de": {
+  "amazon.de": {
     "categories": [
       "Computers & Electronics",
       "Consumer Electronics",
@@ -267,7 +264,7 @@
       "B2B"
     ]
   },
-  "https://www.Netflix.com": {
+  "netflix.com": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -283,10 +280,8 @@
     "revenue": 20156447000,
     "tags": ["Entertainment & Recreation", "B2C", "Mobile"]
   },
-  "https://www.Facebook.com": {
-    "categories": ["Online Communities", "Social Networks"]
-  },
-  "https://www.Twitch.tv": {
+  "facebook.com": { "categories": ["Online Communities", "Social Networks"] },
+  "twitch.tv": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -303,11 +298,9 @@
     "raised": 35000000,
     "tags": ["Internet", "Technology", "Mobile", "B2C"]
   },
-  "https://www.Microsoft.com": {
-    "categories": ["Computers & Electronics", "Software"]
-  },
-  "https://www.Admin.ch": { "categories": ["Law & Government", "Government"] },
-  "https://www.Tutti.ch": {
+  "microsoft.com": { "categories": ["Computers & Electronics", "Software"] },
+  "admin.ch": { "categories": ["Law & Government", "Government"] },
+  "tutti.ch": {
     "categories": ["Shopping", "Classifieds"],
     "name": "tutti.ch",
     "city": "Zürich",
@@ -316,7 +309,7 @@
     "employeesRange": "11-50",
     "tags": ["Internet", "Technology", "Web Services & Apps", "B2C"]
   },
-  "https://www.Github.com": {
+  "github.com": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -339,7 +332,7 @@
       "B2C"
     ]
   },
-  "https://www.Whatsapp.com": {
+  "whatsapp.com": {
     "categories": [
       "Internet & Telecom",
       "Email & Messaging",
@@ -353,7 +346,7 @@
     "employeesRange": "1K-5K",
     "tags": ["Internet", "Technology", "Web Services & Apps", "Mobile", "B2C"]
   },
-  "https://www.Galaxus.ch": {
+  "galaxus.ch": {
     "categories": ["Shopping"],
     "name": "Digitec Galaxus",
     "city": "Zürich",
@@ -369,7 +362,7 @@
       "B2C"
     ]
   },
-  "https://www.Linkedin.com": {
+  "linkedin.com": {
     "categories": ["Online Communities", "Social Networks"],
     "name": "LinkedIn",
     "city": "Sunnyvale",
@@ -379,7 +372,7 @@
     "revenue": 2990911000,
     "tags": ["Internet", "Technology", "SAAS", "B2C", "Mobile", "B2B"]
   },
-  "https://www.Tiktok.com": {
+  "tiktok.com": {
     "categories": ["Arts & Entertainment"],
     "name": "TikTok",
     "city": "Culver City",
@@ -389,7 +382,7 @@
     "raised": 116600000,
     "tags": ["Internet", "Technology", "Web Services & Apps", "Mobile", "B2C"]
   },
-  "https://www.Aliexpress.com": {
+  "aliexpress.com": {
     "categories": ["Shopping", "Apparel"],
     "name": "AliExpress",
     "city": "San Mateo",
@@ -404,7 +397,7 @@
       "B2C"
     ]
   },
-  "https://www.Instagram.com": {
+  "instagram.com": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -429,7 +422,7 @@
       "B2C"
     ]
   },
-  "https://www.Amazon.com": {
+  "amazon.com": {
     "categories": ["Business & Industrial", "News"],
     "name": "Amazon",
     "city": "Seattle",
@@ -445,7 +438,7 @@
       "B2C"
     ]
   },
-  "https://www.Microsoftonline.com": {
+  "microsoftonline.com": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -456,20 +449,7 @@
       "Engineering & Technology"
     ]
   },
-  "https://www.Deepl.com": {
-    "categories": [
-      "Reference",
-      "Language Resources",
-      "Foreign Language Resources"
-    ],
-    "name": "DeepL",
-    "city": "Köln",
-    "stateCode": "NRW",
-    "countryCode": "DE",
-    "employeesRange": "51-250",
-    "tags": ["Internet"]
-  },
-  "https://www.Paypal.com": {
+  "paypal.com": {
     "categories": [
       "Business & Industrial",
       "Business Services",
@@ -491,7 +471,7 @@
       "B2C"
     ]
   },
-  "https://www.Google.ch": {
+  "google.ch": {
     "categories": ["Internet & Telecom", "Web Services", "Reference"],
     "name": "Google",
     "countryCode": "CH",
@@ -505,8 +485,8 @@
       "Mobile"
     ]
   },
-  "https://www.Yahoo.com": { "categories": ["News"] },
-  "https://www.Google.com": {
+  "yahoo.com": { "categories": ["News"] },
+  "google.com": {
     "categories": ["Internet & Telecom"],
     "name": "Google",
     "city": "Mountain View",
@@ -522,7 +502,7 @@
       "Mobile"
     ]
   },
-  "https://www.Fandom.com": {
+  "fandom.com": {
     "categories": ["Arts & Entertainment", "Movies"],
     "name": "Fandom",
     "city": "San Francisco",
@@ -531,14 +511,5 @@
     "employeesRange": "251-1K",
     "raised": 22750000,
     "tags": ["Internet", "Technology", "Media", "B2C", "Mobile"]
-  },
-  "https://www.T.co": {
-    "categories": [
-      "Online Communities",
-      "Social Networks",
-      "Blogging Resources & Services",
-      "Internet & Telecom",
-      "Email & Messaging"
-    ]
   }
 }
