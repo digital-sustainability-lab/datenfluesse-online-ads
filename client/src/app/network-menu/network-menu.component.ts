@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DOMAINS } from '../DOMAINS';
 // import { colors } from './colors';
 import { DataService } from '../data.service';
@@ -6,6 +6,7 @@ import { Domain } from '../interfaces';
 import { NetworkNewComponent } from '../network-new/network-new.component';
 import { network } from '../network-new/network';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+<<<<<<< HEAD
 import {ThemePalette} from '@angular/material/core';
 import {example} from '../hierarch-bar/example';
 import { index } from 'd3';
@@ -18,6 +19,15 @@ export interface CheckBox {
   color: ThemePalette;
   subCheckBoxes?: CheckBox[];
 }
+=======
+import { faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { faStepForward } from '@fortawesome/free-solid-svg-icons';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
+import { colors } from '../network-new/colors'
+import { ComponentFixtureNoNgZone, waitForAsync } from '@angular/core/testing';
+
+
+>>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
 
 @Component({
   selector: 'app-network-menu',
@@ -26,6 +36,7 @@ export interface CheckBox {
 })
 export class NetworkMenuComponent implements OnInit {
 
+<<<<<<< HEAD
   domainCheckBoxes: CheckBox = {
     name: 'all',
     completed: false,
@@ -42,13 +53,29 @@ export class NetworkMenuComponent implements OnInit {
 
   domains : Domain[] = DOMAINS;
   ids:number[] = [];
+=======
+  legend = colors
+
+  faUndo = faUndo
+
+  faStepBackward = faStepBackward
+
+  faStepForward = faStepForward
+
+  domains: Domain[] = DOMAINS;
+  ids: number[] = [];
+>>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
   network = network;
   categories = example.children;
   
   allComplete: boolean = false;
 
+<<<<<<< HEAD
   constructor(private networkComp : NetworkNewComponent) {
   }
+=======
+  constructor(private networkComp: NetworkNewComponent) { }
+>>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
 
   ngOnInit(): void {
       this.domains.forEach(element => {
@@ -82,6 +109,7 @@ export class NetworkMenuComponent implements OnInit {
       return checkBox.subCheckBoxes.filter(t => t.completed).length > 0;
     }
 
+<<<<<<< HEAD
     setAll(completed:boolean, checkBox:CheckBox) {
       let id = this.getId(checkBox.name);
       if(checkBox.subCheckBoxes) {
@@ -93,9 +121,19 @@ export class NetworkMenuComponent implements OnInit {
       } else {
         this.removeId(id);
         checkBox.completed = completed;
+=======
+  @Output() actionEvent = new EventEmitter();
+
+  getId(name: string): number {
+    let id = 0;
+    network.nodes.forEach(element => {
+      if (element.name && element.name == name) {
+        id = element.id;
+>>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
       }
     }
 
+<<<<<<< HEAD
     getId(name:string): number {
       let id = -1;
       network.nodes.forEach(element => {
@@ -117,9 +155,24 @@ export class NetworkMenuComponent implements OnInit {
     }
 
 
+=======
+  controlAction(action: string) {
+    this.actionEvent.emit(action)
+  }
+
+  checkBoxChange(event: MatCheckboxChange, name: string) {
+    let id = this.getId(name);
+    if (event.checked) {
+      this.ids.push(id);
+    } else {
+      this.ids = this.ids.filter(number => number !== id);
+    }
+    console.log(this.ids);
+  }
+>>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
 
   changeSelection() {
-      this.networkComp.changeSelection(this.ids);
+    this.networkComp.changeSelection(this.ids);
   }
 
 }
