@@ -1,5 +1,4 @@
 <div class="menuWrapper">
-<<<<<<< HEAD
     <mat-card><h2>Filter</h2></mat-card>
 
     <mat-accordion class="networkMenuWrapper">
@@ -86,70 +85,3 @@
     </mat-accordion>
     
 </div>
-=======
-  <mat-card>
-    <h2>Menu</h2>
-  </mat-card>
-  <mat-accordion class="networkMenuWrapper">
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Controls
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="controls">
-        <fa-icon (click)="controlAction('forward')" [icon]="faStepForward"></fa-icon>
-        <fa-icon (click)="controlAction('backward')" [icon]="faStepBackward"></fa-icon>
-        <fa-icon (click)="controlAction('reset')" [icon]="faUndo"></fa-icon>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Website Selection
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <!--s<section class="checkBoxContainer">
-                <span class="example-list-section">
-                  <mat-checkbox
-                                [checked]="allComplete"
-                                [indeterminate]="someComplete()"
-                                (change)="setAll($event.checked)">
-                    all
-                  </mat-checkbox>
-                </span>
-                <span class="example-list-section">
-                  <ul>
-                    <li *ngFor="let domain of domains">
-                      <mat-checkbox [(ngModel)]="subtask.completed"
-                                    [color]="subtask.color"
-                                    (ngModelChange)="updateAllComplete()">
-                        {{subtask.name}}
-                      </mat-checkbox>
-                    </li>
-                  </ul>
-                </span>
-              </section>-->
-      <div class="wrapping">
-        <section class="checkBoxContainer" id="domainCheckBoxContainer">
-          <mat-checkbox class="checkBox" *ngFor="let domain of domains"
-            (change)="this.checkBoxChange($event, domain.name)" class="checkBox">{{domain.name}}</mat-checkbox>
-        </section>
-        <button (click)="this.changeSelection()" mat-flat-button color="primary">Apply</button>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel [expanded]="false">
-      <mat-expansion-panel-header>
-        <mat-panel-title> Legende </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div>
-        <div class="list" *ngFor="let element of legend | keyvalue">
-          <div class="list-element" [style.background-color]="element.value"></div>
-          {{ element.key }}
-        </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-
-</div>
->>>>>>> 3615fe504339cca69ac98f964edd25035c790c58
