@@ -78,13 +78,13 @@ export class NetworkNewComponent implements OnInit {
     this.initSVGs()
     this.update(this.data)
   }
-  
+
   onResize(event: any) {
     d3.select(".svg-content").attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight);
   }
 
   initSVGs() {
-    
+
     this.svg = d3.select("#network")
       .append("svg")
       .attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight)
@@ -113,7 +113,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   update(data: any) {
-    debugger
     this.updateHistory(JSON.parse(JSON.stringify(data)))
     //	UPDATE
     this.link = this.link.data(data.links, function (d: any) { return d.id; });
