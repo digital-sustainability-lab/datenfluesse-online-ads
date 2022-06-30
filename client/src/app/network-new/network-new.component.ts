@@ -121,8 +121,8 @@ export class NetworkNewComponent implements OnInit {
     //	ENTER
     let newLink = this.link.enter().append("line")
       .attr("class", "link")
-      .attr('class', 'links')
       .style('stroke', '#aaa')
+      .style('stroke-width', '1')
 
     newLink.append("title")
       .text(function (d: any) { return "source: " + d.source + "\n" + "target: " + d.target; });
@@ -140,6 +140,24 @@ export class NetworkNewComponent implements OnInit {
       .attr("fill", (d: any) => this.getColor(d))
       .on('click', this.selectNode.bind(this))
       .on('mouseover', this.setSelectedNode.bind(this))
+      .on('mouseover', (d: any) => {
+        // Highlight the nodes: every node is green except of him
+        newNode.style('fill', "#B8B8B8")
+        debugger
+        // d3.select(this).style('fill', '#69b3b2')
+        // Highlight the connections
+        newLink
+          .style('stroke', (link_d: any) => {
+            return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? '#69b3b2' : '#b8b8b8';
+          })
+          .style('stroke-width', (link_d: any) => { return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? 4 : 1; })
+      })
+      .on('mouseout', (d: any) => {
+        newNode.style('fill', (d: any) => this.getColor(d))
+        newLink
+          .style('stroke', '#aaa')
+          .style('stroke-width', '1')
+      })
 
     this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
 
