@@ -142,9 +142,11 @@ export class NetworkNewComponent implements OnInit {
       .on('mouseover', this.setSelectedNode.bind(this))
       .on('mouseover', (d: any) => {
         // Highlight the nodes: every node is green except of him
-        newNode.style('fill', "#B8B8B8")
+        newNode.style('fill', (node: any) => {
+          if (node.id == d.currentTarget.__data__.id) return this.getColor(d)
+          return "#B8B8B8"
+        })
         debugger
-        // d3.select(this).style('fill', '#69b3b2')
         // Highlight the connections
         newLink
           .style('stroke', (link_d: any) => {
