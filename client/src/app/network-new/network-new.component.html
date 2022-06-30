@@ -1,21 +1,6 @@
 <div class="wrapper">
-  <div class="select">
-    <mat-form-field appearance="fill">
-      <mat-label>Select Nodes</mat-label>
-      <mat-select [formControl]="toppings" multiple (selectionChange)="changeSelection($event.value)">
-        <mat-select-trigger>
-          {{toppings.value?.[0] || ''}}
-          <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
-            (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-          </span>
-        </mat-select-trigger>
-        <mat-option *ngFor="let node of nodeList" [value]="node.id">{{node.name}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div id="network">
-  </div>
-  <app-color-legend></app-color-legend>
+  <div id="network" (window:resize)="onResize($event)"></div>
   <app-information></app-information>
+  <app-color-legend></app-color-legend>
   <app-network-menu></app-network-menu>
 </div>

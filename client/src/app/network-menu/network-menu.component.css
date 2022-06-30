@@ -8,8 +8,21 @@
     box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
     border-radius: 5px;
     font-size: 1rem;
+    max-height: 1000px;
+    overflow-y: auto;
 }
 
 .checkBox{
     display:flex;    
 }
+
+.applyButton {
+    margin-top: 10px;
+}
+
+.checkBoxes ul {
+    padding: 0 0 0 10px;
+    margin: 0;
+    list-style: none;
+}
+

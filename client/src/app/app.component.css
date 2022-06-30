@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .icon_wrapper {
   cursor: pointer;
   display: flex;
