@@ -5,6 +5,7 @@ body {
 .icon_wrapper {
   cursor: pointer;
   display: flex;
+  z-index: 200;
 }
 
 .active {

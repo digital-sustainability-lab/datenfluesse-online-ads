@@ -136,30 +136,8 @@ export class NetworkNewComponent implements OnInit {
 
     var newNode = this.node.enter().append("circle")
       .attr("class", "node")
-      .attr("r", (d: any) => this.getRadius(d))
-      .attr("fill", (d: any) => this.getColor(d))
-      .on('click', this.selectNode.bind(this))
-      .on('mouseover', this.setSelectedNode.bind(this))
-      .on('mouseover', (d: any) => {
-        // Highlight the nodes: every node is green except of him
-        newNode.style('fill', (node: any) => {
-          if (node.id == d.currentTarget.__data__.id) return this.getColor(d)
-          return "#B8B8B8"
-        })
-        debugger
-        // Highlight the connections
-        newLink
-          .style('stroke', (link_d: any) => {
-            return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? '#69b3b2' : '#b8b8b8';
-          })
-          .style('stroke-width', (link_d: any) => { return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? 4 : 1; })
-      })
-      .on('mouseout', (d: any) => {
-        newNode.style('fill', (d: any) => this.getColor(d))
-        newLink
-          .style('stroke', '#aaa')
-          .style('stroke-width', '1')
-      })
+
+
 
     this.text_element = this.text_element.data(data.nodes, function (d: any) { return d.id });
 
@@ -170,13 +148,33 @@ export class NetworkNewComponent implements OnInit {
 
     this.text_element = this.text_element.merge(newText)
 
-
-
-    newNode.append("title")
-      .text(function (d: any) { return "group: " + d.group + "\n" + "id: " + d.id; });
     //	ENTER + UPDATE
     this.node = this.node.merge(newNode);
 
+    this.node
+      .attr("r", (d: any) => this.getRadius(d))
+      .attr("fill", (d: any) => this.getColor(d))
+      .on('click', this.selectNode.bind(this))
+      .on('mouseover', (d: any) => {
+        this.setSelectedNode(d)
+        this.node.style('fill', (node: any) => {
+          if (node.id == d.currentTarget.__data__.id) return this.getColor(d)
+          return "#B8B8B8"
+        })
+        this.link
+          .style('stroke', (link_d: any) => {
+            return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? '#69b3b2' : '#b8b8b8';
+          })
+          .style('stroke-width', (link_d: any) => { return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? 4 : 1; })
+      })
+      .on('mouseout', () => {
+        this.node.style('fill', (d: any) => this.getColor(d))
+        this.link
+          .style('stroke', '#aaa')
+          .style('stroke-width', '1')
+      })
+
+    // this.node.style('fill', 'black')
     //	update simulation nodes, links, and alpha
     this.simulation
       .nodes(data.nodes)
@@ -196,6 +194,7 @@ export class NetworkNewComponent implements OnInit {
   }
 
   setSelectedNode(node: any) {
+    debugger
     let name = node.target.__data__.name
     this.dataService.setSelectedNode(name);
   }
