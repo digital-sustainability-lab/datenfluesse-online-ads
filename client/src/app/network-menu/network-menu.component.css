@@ -1,28 +1,31 @@
 .menuWrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 700;
-    line-height: 18px;
-    background-color: #fff;
-    box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
-    border-radius: 5px;
-    font-size: 1rem;
-    max-height: 1000px;
-    overflow-y: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 700;
+  line-height: 18px;
+  background-color: #fff;
+  box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
+  border-radius: 5px;
+  font-size: 1rem;
+  max-height: 80vh;
 }
 
-.checkBox{
-    display:flex;    
+.checkBox {
+  display: flex;
 }
 
 .applyButton {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .checkBoxes ul {
-    padding: 0 0 0 10px;
-    margin: 0;
-    list-style: none;
+  padding: 0 0 0 10px;
+  margin: 0;
+  list-style: none;
 }
 
+.wrapping {
+  max-height: 50vh;
+  overflow: auto;
+}
