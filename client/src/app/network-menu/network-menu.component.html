@@ -38,7 +38,7 @@
     <hr />
 
     <mat-expansion-panel #expansionPanel>
-      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)" >
         <mat-panel-title>
           filter by category
         </mat-panel-title>
@@ -55,7 +55,7 @@
           <mat-accordion>
             <div *ngFor="let subCheckBox of categoryCheckBoxes.subCheckBoxes">
               <mat-expansion-panel #expansionPanel>
-                <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+                <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)" [expandedHeight]="'25px'" [collapsedHeight]="'25px'">
                   <mat-panel-title>
                     <mat-checkbox [(ngModel)]="subCheckBox.completed" [color]="subCheckBox.color"
                       [indeterminate]="someComplete(this.subCheckBox)"
