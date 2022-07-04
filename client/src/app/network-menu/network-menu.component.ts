@@ -116,20 +116,6 @@ export class NetworkMenuComponent implements OnInit {
       this.ids = this.ids.filter(number => number !== id);
     }
 
-    expandPanel(matExpansionPanel: any, event: any): void {
-      event.stopPropagation(); // Preventing event bubbling
-
-      if (!this._isExpansionIndicator(event.target)) {
-        matExpansionPanel.close(); // Here's the magic
-      }
-    }
-
-    private _isExpansionIndicator(target: any): boolean {
-      const expansionIndicatorClass = 'mat-expansion-indicator';
-
-      return (target['classList'] && target['classList'].contains(expansionIndicatorClass) );
-    }
-
 
 
   changeSelection() {

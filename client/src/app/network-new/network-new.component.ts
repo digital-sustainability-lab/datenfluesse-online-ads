@@ -194,7 +194,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   setSelectedNode(node: any) {
-    debugger
     let name = node.target.__data__.name
     this.dataService.setSelectedNode(name);
   }
@@ -232,7 +231,7 @@ export class NetworkNewComponent implements OnInit {
     const ids = linksToAdd.flatMap((el: any) => {
       return [el.target, el.source]
     })
-    debugger
+    
     let nodesToAdd = this.alldata.nodes.filter((node: any) => {
       if (ids.includes(node.id)) return true
       return false
@@ -255,7 +254,7 @@ export class NetworkNewComponent implements OnInit {
       }
     }
     if (event == 'backward') {
-      debugger
+      
       if (this.historyIndex != 0) {
         this.update(this.history[this.historyIndex - 1])
       }
