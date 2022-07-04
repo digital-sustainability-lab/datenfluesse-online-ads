@@ -179,9 +179,6 @@ export class HierarchBarComponent implements OnInit {
       return d.data.value
     })]);
 
-    //let label = this.updateLabel(d.depth);
-    let label = this.updateLabel(d.depth);
-
     // Update the x-axis.
 
     svg.select('#description').remove();
@@ -195,7 +192,7 @@ export class HierarchBarComponent implements OnInit {
         .style("font-size", "12px")
         .style("font-style", "italic")
         .attr("text-anchor", "end")
-        .text(label))
+        .text(this.updateLabel(d.depth)))
       .transition(transition2)
 
       .call(this.xAxis)
@@ -231,11 +228,11 @@ export class HierarchBarComponent implements OnInit {
     // Update the x-scale domain.
     this.x.domain([0, d3.max(d.parent.children, (d: any) => d.data.value)]);
 
-    
-    let label = this.updateLabel(d.depth); 
+    // update the label
+    svg.selectAll("#description").text(this.updateLabel(d.depth - 1));
+
 
     // Update the x-axis.
-
     svg.selectAll(".x-axis").transition(transition1)
       .call(this.xAxis);
 
