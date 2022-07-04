@@ -1,87 +1,91 @@
 <div class="menuWrapper">
-    <mat-card><h2>Filter</h2></mat-card>
+  <mat-card>
+    <h2>Menu</h2>
+  </mat-card>
 
-    <mat-accordion class="networkMenuWrapper">
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    by domain
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <section class="checkBoxes">
-              <span class="superCheckBox">
-                <mat-checkbox class="example-margin"
-                              [color]="domainCheckBoxes.color"
-                              [indeterminate]="someComplete(this.domainCheckBoxes)"
-                              (change)="setAll($event.checked, this.domainCheckBoxes)">
-                  {{domainCheckBoxes.name}}
+  <hr />
+
+  <mat-accordion class="networkPanelWrapper">
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+        <mat-panel-title>
+          filter by domain
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="wrapping">
+        <section class="checkBoxes">
+          <span class="superCheckBox">
+            <mat-checkbox class="example-margin" [color]="domainCheckBoxes.color"
+              [indeterminate]="someComplete(this.domainCheckBoxes)"
+              (change)="setAll($event.checked, this.domainCheckBoxes)">
+              {{domainCheckBoxes.name}}
+            </mat-checkbox>
+          </span>
+          <span>
+            <ul>
+              <li *ngFor="let subCheckBox of domainCheckBoxes.subCheckBoxes">
+                <mat-checkbox [(ngModel)]="subCheckBox.completed" [color]="subCheckBox.color"
+                  (ngModelChange)="updateAllComplete(domainCheckBoxes)" (change)="setAll($event.checked, subCheckBox)">
+                  {{subCheckBox.name}}
                 </mat-checkbox>
-              </span>
-              <span>
-                <ul>
-                  <li *ngFor="let subCheckBox of domainCheckBoxes.subCheckBoxes">
-                    <mat-checkbox [(ngModel)]="subCheckBox.completed"
-                                  [color]="subCheckBox.color"
-                                  (ngModelChange)="updateAllComplete(domainCheckBoxes)"
-                                  (change)="setAll($event.checked, subCheckBox)">
+              </li>
+            </ul>
+          </span>
+        </section>
+      </div>
+      <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
+    </mat-expansion-panel>
+    <hr />
+
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+        <mat-panel-title>
+          filter by category
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="wrapping">
+        <section class="checkBoxes">
+          <span class="superCheckBox">
+            <mat-checkbox class="example-margin" [color]="domainCheckBoxes.color"
+              [indeterminate]="someComplete(this.categoryCheckBoxes)"
+              (change)="setAll($event.checked, this.categoryCheckBoxes)">
+              {{categoryCheckBoxes.name}}
+            </mat-checkbox>
+          </span>
+          <mat-accordion>
+            <div *ngFor="let subCheckBox of categoryCheckBoxes.subCheckBoxes">
+              <mat-expansion-panel #expansionPanel>
+                <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+                  <mat-panel-title>
+                    <mat-checkbox [(ngModel)]="subCheckBox.completed" [color]="subCheckBox.color"
+                      [indeterminate]="someComplete(this.subCheckBox)"
+                      (ngModelChange)="updateAllComplete(categoryCheckBoxes)"
+                      (change)="setAll($event.checked, subCheckBox)">
                       {{subCheckBox.name}}
                     </mat-checkbox>
-                  </li>
-                </ul>
-              </span>
-            </section>
-            <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
-        </mat-expansion-panel>
-        
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    by category
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <section class="checkBoxes">
-              <span class="superCheckBox">
-                <mat-checkbox class="example-margin"
-                              [color]="domainCheckBoxes.color"
-                              [indeterminate]="someComplete(this.categoryCheckBoxes)"
-                              (change)="setAll($event.checked, this.categoryCheckBoxes)">
-                  {{categoryCheckBoxes.name}}
-                </mat-checkbox>
-              </span>
-              <mat-accordion>
-                <div *ngFor="let subCheckBox of categoryCheckBoxes.subCheckBoxes">
-                  <mat-expansion-panel hideToggle>
-                    <mat-expansion-panel-header>
-                      <mat-panel-title>
-                        <mat-checkbox [(ngModel)]="subCheckBox.completed"
-                                      [color]="subCheckBox.color"
-                                      [indeterminate]="someComplete(this.subCheckBox)"
-                                      (ngModelChange)="updateAllComplete(categoryCheckBoxes)"
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <section>
+                  <ul *ngFor="let subSubCheckBox of subCheckBox.subCheckBoxes">
+                    <li>
+                      <mat-checkbox [(ngModel)]="subSubCheckBox.completed" [color]="subSubCheckBox.color"
+                        (ngModelChange)="updateAllComplete(subCheckBox)"
+                        (change)="setAll($event.checked, subSubCheckBox)">
+                        {{subSubCheckBox.name}}
+                      </mat-checkbox>
+                    </li>
+                  </ul>
+                </section>
+              </mat-expansion-panel>
+            </div>
+          </mat-accordion>
+        </section>
+      </div>
+      <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
+    </mat-expansion-panel>
+    <hr />
+    <app-color-legend></app-color-legend>
 
-                                      (change)="setAll($event.checked, subCheckBox)">
-                          {{subCheckBox.name}}
-                        </mat-checkbox>
-                      </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <section>
-                      <ul *ngFor="let subSubCheckBox of subCheckBox.subCheckBoxes">
-                        <li>
-                          <mat-checkbox [(ngModel)]="subSubCheckBox.completed"
-                                        [color]="subSubCheckBox.color"
-                                        (ngModelChange)="updateAllComplete(subCheckBox)"
-                                        (change)="setAll($event.checked, subSubCheckBox)">
-                            {{subSubCheckBox.name}}
-                          </mat-checkbox>
-                        </li>
-                      </ul>
-                    </section>
-                  </mat-expansion-panel>
-                </div>
-              </mat-accordion>
-            </section>
-            <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
-        </mat-expansion-panel>
-      
-    </mat-accordion>
-    
+  </mat-accordion>
+
 </div>

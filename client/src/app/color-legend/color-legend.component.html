@@ -1,13 +1,11 @@
-<div class="colorMapping">
-    <mat-expansion-panel [expanded]="false">
-        <mat-expansion-panel-header>
-            <mat-panel-title> Legende </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-            <div class="list" *ngFor="let element of data | keyvalue">
-                <div class="list-element" [style.background-color]="element.value"></div>
-                {{ element.key }}
-            </div>
-        </div>
-    </mat-expansion-panel>
-</div>
+<mat-expansion-panel [expanded]="false" #expansionPanel>
+  <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
+    <mat-panel-title>legend</mat-panel-title>
+  </mat-expansion-panel-header>
+  <div>
+    <div class="list" *ngFor="let element of data | keyvalue">
+      <div class="list-element" [style.background-color]="element.value"></div>
+      {{ element.key }}
+    </div>
+  </div>
+</mat-expansion-panel>
