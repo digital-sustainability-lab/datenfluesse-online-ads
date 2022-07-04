@@ -3,9 +3,11 @@
     <h2>Menu</h2>
   </mat-card>
 
-  <mat-accordion class="networkMenuWrapper">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
+  <hr />
+
+  <mat-accordion class="networkPanelWrapper">
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
         <mat-panel-title>
           filter by domain
         </mat-panel-title>
@@ -33,9 +35,10 @@
       </div>
       <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
     </mat-expansion-panel>
+    <hr />
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
         <mat-panel-title>
           filter by category
         </mat-panel-title>
@@ -51,8 +54,8 @@
           </span>
           <mat-accordion>
             <div *ngFor="let subCheckBox of categoryCheckBoxes.subCheckBoxes">
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
+              <mat-expansion-panel #expansionPanel>
+                <mat-expansion-panel-header (click)="expandPanel(expansionPanel, $event)">
                   <mat-panel-title>
                     <mat-checkbox [(ngModel)]="subCheckBox.completed" [color]="subCheckBox.color"
                       [indeterminate]="someComplete(this.subCheckBox)"
@@ -80,6 +83,7 @@
       </div>
       <button (click)="this.changeSelection()" mat-flat-button class="applyButton" color="primary">Apply</button>
     </mat-expansion-panel>
+    <hr />
     <app-color-legend></app-color-legend>
 
   </mat-accordion>
