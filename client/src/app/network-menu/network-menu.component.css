@@ -11,6 +11,10 @@
   max-height: 80vh;
 }
 
+::ng-deep .mat-accordion, .mat-card, .mat-expansion-panel {
+  box-shadow: none;
+}
+
 .checkBox {
   display: flex;
 }
