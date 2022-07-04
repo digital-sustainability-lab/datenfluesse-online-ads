@@ -59,6 +59,7 @@ export class NetworkMenuComponent implements OnInit {
 
     this.categories.shift();
     if (this.categories) {
+      let noCat = this.domainCheckBoxes.subCheckBoxes?.slice();
       this.categories.forEach((element) => {
         if (this.categoryCheckBoxes.subCheckBoxes) {
           let subChildren: CheckBox[] = [];
@@ -68,6 +69,9 @@ export class NetworkMenuComponent implements OnInit {
               completed: false,
               color: 'primary',
             });
+            if (noCat) {
+              noCat = noCat.filter((t) => t.name != subElement.name);
+            }
           });
           this.categoryCheckBoxes.subCheckBoxes.push({
             name: element.name,
@@ -76,6 +80,13 @@ export class NetworkMenuComponent implements OnInit {
             subCheckBoxes: subChildren,
           });
         }
+      });
+      // adding in categoryless domains
+      this.categoryCheckBoxes.subCheckBoxes?.push({
+        name: 'No Category',
+        completed: false,
+        color: 'primary',
+        subCheckBoxes: noCat,
       });
     }
   }
