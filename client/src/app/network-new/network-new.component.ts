@@ -158,7 +158,8 @@ export class NetworkNewComponent implements OnInit {
       .on('mouseover', (d: any) => {
         this.setSelectedNode(d)
         this.node.style('fill', (node: any) => {
-          if (node.id == d.currentTarget.__data__.id) return this.getColor(d)
+          if (node.id == d.currentTarget.__data__.id) return this.getColor(node)
+          if (this.belongsToGroup(d.currentTarget.__data__.id, node)) return this.getColor(node)
           return "#B8B8B8"
         })
         this.link
@@ -198,6 +199,17 @@ export class NetworkNewComponent implements OnInit {
     this.dataService.setSelectedNode(name);
   }
 
+  belongsToGroup(id: any, node: any) {
+    if (id == node.id) return true
+    let statement = false
+    this.data.links.forEach((link: any) => {
+      if (link.source.id == id && link.target.id == node.id) statement = true
+      if (link.source.id == node.id && link.target.id == id) statement = true
+      return false
+    })
+    return statement
+  }
+
 
   ticked() {
 
@@ -231,7 +243,7 @@ export class NetworkNewComponent implements OnInit {
     const ids = linksToAdd.flatMap((el: any) => {
       return [el.target, el.source]
     })
-    
+
     let nodesToAdd = this.alldata.nodes.filter((node: any) => {
       if (ids.includes(node.id)) return true
       return false
@@ -254,7 +266,7 @@ export class NetworkNewComponent implements OnInit {
       }
     }
     if (event == 'backward') {
-      
+
       if (this.historyIndex != 0) {
         this.update(this.history[this.historyIndex - 1])
       }
