@@ -5,7 +5,7 @@ const network = {
   links: [],
 };
 
-const networkStructure = JSON.parse(fs.readFileSync("./domains_swiss.json"));
+const networkStructure = JSON.parse(fs.readFileSync("./domains_alt.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
@@ -41,7 +41,7 @@ networkStructure.forEach((element, i) => {
       network.links.push({
         source: index,
         target: idx,
-        id: idl,
+        id: `${idl}_swiss`,
         name: nested.requestDomain,
       });
     }

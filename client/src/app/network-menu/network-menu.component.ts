@@ -4,7 +4,6 @@ import { DOMAINS } from '../DOMAINS';
 import { DataService } from '../data.service';
 import { Domain } from '../interfaces';
 import { NetworkNewComponent } from '../network-new/network-new.component';
-import { network_swiss } from '../data/network_swiss';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ThemePalette } from '@angular/material/core';
 import { example } from '../hierarch-bar/example';
@@ -42,16 +41,20 @@ export class NetworkMenuComponent implements OnInit {
   domains: any
   ids: number[] = [];
   network: any
+  color: any
+  color3p: any
   categories = example.children.slice(); // makes categories not reference the category data
 
   constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getDataSet().subscribe((data: any) => {
-      this.network = JSON.parse(JSON.stringify(data))
-    })
-    this.dataService.getDomain().subscribe((data: any) => {
-      this.domains = data
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.color = data.color
+      this.color3p = data.color3p
+      debugger
+      this.network = JSON.parse(JSON.stringify(data.network))
+      this.domains = data.domain
+      debugger
       this.domainCheckBoxes.subCheckBoxes = []
       this.domains.forEach((element: any) => {
         if (this.domainCheckBoxes.subCheckBoxes) {
@@ -63,6 +66,7 @@ export class NetworkMenuComponent implements OnInit {
         }
       });
     })
+
 
 
 

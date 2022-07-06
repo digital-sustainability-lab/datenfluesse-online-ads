@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { flare } from './flare';
-import { MatLabel } from '@angular/material/form-field';
 import { DataService } from '../data.service';
 
 
@@ -19,9 +17,9 @@ export class HierarchBarComponent implements OnInit {
   svg: any
 
   ngOnInit(): void {
-    this.dataService.getHierarchy().subscribe((data: any) => {
-      this.data = data
-      this.root = d3.hierarchy(this.data)
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.data = data.hierarchy
+      this.root = d3.hierarchy(data.hierarchy)
         .sort((a: any, b: any) => b.data.value - a.data.value)
         .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
       this.create()

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import * as d3 from 'd3';
-import { colors } from './colors'
-import { category_data } from './category_data';
+
 import { DataService } from '../data.service';
-import { network_alt } from '../data/network_alt';
+
 
 
 @Component({
@@ -18,7 +17,7 @@ export class NetworkNewComponent implements OnInit {
 
   alldata: any
 
-  colors: any = colors
+  colors: any
 
   toppings = new FormControl('');
 
@@ -26,7 +25,7 @@ export class NetworkNewComponent implements OnInit {
 
   data: any
 
-  categories: any = category_data
+  categories: any
 
   svg: any
 
@@ -40,6 +39,8 @@ export class NetworkNewComponent implements OnInit {
 
   height: any = 1000
 
+  domain: any
+
   radius = 10
 
   text_nodes: any
@@ -48,19 +49,23 @@ export class NetworkNewComponent implements OnInit {
 
   historyIndex = -1
 
+  color3p: any
 
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    // this.initNodeList()
     this.initSVGs()
-    this.dataService.getDataSet().subscribe((data: any) => {
-      debugger
-      this.data = JSON.parse(JSON.stringify(data))
-      this.alldata = JSON.parse(JSON.stringify(data))
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.data = JSON.parse(JSON.stringify(data.network))
+      this.alldata = JSON.parse(JSON.stringify(data.network))
+      this.categories = data.category
+      this.domain = JSON.parse(JSON.stringify(data.domain))
+      this.colors = data.color
+      this.color3p = data.color3p
       this.update(this.data)
     })
+    // this.initNodeList()
 
 
   }
@@ -93,7 +98,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   initSVGs() {
-
     this.svg = d3.select("#network")
       .append("svg")
       .attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight)
@@ -122,7 +126,7 @@ export class NetworkNewComponent implements OnInit {
   }
 
   update(data: any) {
-    this.updateHistory(JSON.parse(JSON.stringify(data)))
+    // this.updateHistory(JSON.parse(JSON.stringify(data)))
     //	UPDATE
     this.link = this.link.data(data.links, function (d: any) { return d.id; });
     //	EXIT
@@ -153,13 +157,15 @@ export class NetworkNewComponent implements OnInit {
     this.text_element.exit().remove();
     //	ENTER
     let newText = this.text_element.enter().append("text")
-      .text((node: any) => node.name)
+      .text((node: any) => {
+        return node.name
+      })
 
     this.text_element = this.text_element.merge(newText)
 
     //	ENTER + UPDATE
     this.node = this.node.merge(newNode);
-
+    debugger
     this.node
       .attr("r", (d: any) => this.getRadius(d))
       .attr("fill", (d: any) => this.getColor(d))
@@ -196,11 +202,21 @@ export class NetworkNewComponent implements OnInit {
 
   getColor(element: any) {
     let name = element.name
+    debugger
     if (this.categories[name]) {
       const category = this.categories[name].categories[0]
       return this.colors[category]
+    } else if (this.categories['https://' + name + '/']) {
+      const category = this.categories['https://' + name + '/'].categories[0]
+      return this.colors[category]
+    } else if (this.categories['https://www.' + name + '/']) {
+      const category = this.categories['https://www.' + name + '/'].categories[0]
+      return this.colors[category]
     }
-    return '#226a94'
+    if (this.color3p[element.country]) {
+      return this.color3p[element.country]
+    }
+    return '#808080'
   }
 
   setSelectedNode(node: any) {

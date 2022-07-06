@@ -1452,5 +1452,4 @@ export const domain_alt = [
             }
         ]
     },
-    { "name": "", "thirdParties": [{}] }
 ]

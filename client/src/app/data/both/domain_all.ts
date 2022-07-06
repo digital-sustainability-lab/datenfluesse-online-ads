@@ -5131,5 +5131,4 @@ export const domain_all = [
             }
         ]
     },
-    { "name": "", "thirdParties": [{}] }
 ]
