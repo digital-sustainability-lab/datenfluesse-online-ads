@@ -11,7 +11,7 @@ const { privateDecrypt } = require("crypto");
 domainParser.parseDomains();
 
 const parsedReport = papa.parse(
-  fs.readFileSync("./3p_domains.csv", {
+  fs.readFileSync("./per_site_network_report.csv", {
     encoding: "utf8",
   })
 );
@@ -25,7 +25,7 @@ const domains = Object.keys(domainMap).map((key) => {
   return { name: key, ...domainMap[key] };
 });
 console.log(domains);
-fs.writeFileSync("./domains_alt3.json", JSON.stringify(domains), {
+fs.writeFileSync("./domains_alt.json", JSON.stringify(domains), {
   encoding: "utf8",
 });
 function createThirdPartyDomain(row) {
