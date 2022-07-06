@@ -1,0 +1,283 @@
+{
+  "https://www.wochenblick.at/": {
+    "domain": {
+      "categories": [
+        { "confidence": 0.93, "name": "/Reference/Language Resources" }
+      ],
+      "domain_url": "https://wochenblick.at",
+      "logo_url": "https://klazify.s3.amazonaws.com/1649387361164381024761fa8dc7645324.12590705.png",
+      "social_media": null,
+      "updated_at": "2022-02-02T13:57:27.000000Z"
+    },
+    "success": true,
+    "api_usage": { "this_month_api_calls": 1, "remaining_api_calls": 99 }
+  },
+  "https://de.news-front.info/": {
+    "domain": {
+      "categories": [{ "confidence": 0.9, "name": "/News" }],
+      "domain_url": "https://en.news-front.info",
+      "logo_url": "https://klazify.s3.amazonaws.com/1542402899163533978761794e0b401a41.42796236.png",
+      "social_media": null,
+      "updated_at": "2021-10-27T13:03:07.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "News Front",
+        "city": null,
+        "stateCode": null,
+        "countryCode": null,
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": ["yandex_metrica", "wordpress", "nginx"]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 4, "remaining_api_calls": 96 }
+  },
+  "https://report24.news/": {
+    "domain": {
+      "categories": [
+        {
+          "confidence": 0.52,
+          "name": "/Law & Government/Public Safety/Crime & Justice"
+        }
+      ],
+      "domain_url": "https://www.report24.news/",
+      "logo_url": "https://klazify.s3.amazonaws.com/939331936164087689061cdcb5adb6710.40117921.png",
+      "social_media": null,
+      "updated_at": "2021-12-30T15:08:11.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "Report24",
+        "city": null,
+        "stateCode": null,
+        "countryCode": null,
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": [
+          "cloud_flare",
+          "google_adsense",
+          "taboola_ads",
+          "wordpress",
+          "vimeo",
+          "google_analytics",
+          "google_tag_manager"
+        ]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 4, "remaining_api_calls": 96 }
+  },
+  "https://zeitpunkt.ch/": {
+    "domain": {
+      "categories": [
+        { "confidence": 0.52, "name": "/People & Society/Religion & Belief" }
+      ],
+      "domain_url": "https://zeitpunkt.ch",
+      "logo_url": "https://klazify.s3.amazonaws.com/1545871891165075623662648a8ccd3e92.45031129.png",
+      "social_media": null,
+      "updated_at": "2022-04-23T23:23:56.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "Zeitpunkt",
+        "city": null,
+        "stateCode": null,
+        "countryCode": "CH",
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": ["cloud_flare", "drupal", "piwik", "twitter_button"]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 6, "remaining_api_calls": 94 }
+  },
+  "https://journalistenwatch.com/": {
+    "domain": {
+      "categories": [{ "confidence": 0.75, "name": "/News" }],
+      "domain_url": "http://journalistenwatch.com",
+      "logo_url": "https://klazify.s3.amazonaws.com/20202750651634933214617319decf2663.18799802.png",
+      "social_media": null,
+      "updated_at": "2021-10-22T20:06:54.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "Journalistenwatch",
+        "city": null,
+        "stateCode": null,
+        "countryCode": null,
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": [
+          "paypal",
+          "wordpress",
+          "apache",
+          "google_adsense",
+          "google_analytics",
+          "google_tag_manager"
+        ]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 6, "remaining_api_calls": 94 }
+  },
+  "https://www.unzensuriert.at/": {
+    "domain": {
+      "categories": [{ "confidence": 0.63, "name": "/Arts & Entertainment" }],
+      "domain_url": "https://www.unzensuriert.at",
+      "logo_url": "https://klazify.s3.amazonaws.com/1766895446163532190661790832a99979.96457894.png",
+      "social_media": null,
+      "updated_at": "2021-10-27T08:05:06.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "Unzensuriert",
+        "city": null,
+        "stateCode": null,
+        "countryCode": "AT",
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": [
+          "cloud_flare",
+          "facebook_advertiser",
+          "youtube",
+          "wordpress",
+          "facebook_connect",
+          "double_click",
+          "twitter_button",
+          "facebook_social_plugins",
+          "yesware",
+          "piwik",
+          "google_analytics",
+          "google_tag_manager"
+        ]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 6, "remaining_api_calls": 94 }
+  },
+  "https://uncutnews.ch/": {
+    "domain": {
+      "categories": [{ "confidence": 0.63, "name": "/News" }],
+      "domain_url": "https://www.uncutnews.ch/",
+      "logo_url": "https://klazify.s3.amazonaws.com/2002887108165712259762c5af25d662b4.17045158.png",
+      "social_media": null,
+      "updated_at": "2021-10-27T04:00:49.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": null,
+        "city": null,
+        "stateCode": null,
+        "countryCode": "CH",
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": ["cloudinary", "amazon_s3", "wordpress", "nginx", "youtube"]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 1, "remaining_api_calls": 99 }
+  },
+  "https://auf1.tv/": {
+    "domain": {
+      "categories": [
+        { "confidence": 0.52, "name": "/Arts & Entertainment/TV & Video" }
+      ],
+      "domain_url": "https://auf1.tv",
+      "logo_url": "https://klazify.s3.amazonaws.com/511972401165712259862c5af2602ab07.16913135.png",
+      "social_media": null,
+      "updated_at": "2021-12-06T05:10:55.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "error": {
+        "type": "rate_limit",
+        "message": "Rate limit exceeded. Limit is 20 requests per minute. Rate limit will be reset in 28 seconds."
+      }
+    },
+    "api_usage": { "this_month_api_calls": 3, "remaining_api_calls": 97 }
+  },
+  "https://www.info-direkt.eu/": {
+    "domain": {
+      "categories": [{ "confidence": 0.61, "name": "/News", "IAB12": "News" }],
+      "domain_url": "https://www.info-direkt.eu/",
+      "logo_url": "https://klazify.s3.amazonaws.com/1724087173165712259962c5af276e6322.49487347.png",
+      "social_media": null,
+      "updated_at": "2022-07-06T15:49:59.000000Z"
+    },
+    "success": true,
+    "objects": {
+      "company": {
+        "name": "Info-DIREKT",
+        "city": "Linz",
+        "stateCode": null,
+        "countryCode": "AT",
+        "employeesRange": null,
+        "revenue": null,
+        "raised": null,
+        "tags": [],
+        "tech": [
+          "cloud_flare",
+          "google_adsense",
+          "wordpress",
+          "twitter_button",
+          "google_analytics",
+          "google_tag_manager"
+        ]
+      }
+    },
+    "api_usage": { "this_month_api_calls": 4, "remaining_api_calls": 96 }
+  },
+  "https://transition-news.org/": {
+    "domain": {
+      "categories": [{ "confidence": 0.92, "name": "/News", "IAB12": "News" }],
+      "domain_url": "https://transition-news.org/",
+      "logo_url": null,
+      "social_media": null,
+      "updated_at": "2022-07-06T15:50:02.000000Z"
+    },
+    "success": true,
+    "api_usage": { "this_month_api_calls": 4, "remaining_api_calls": 96 }
+  },
+  "https://apolut.net/": {
+    "domain": {
+      "categories": [{ "confidence": 0.51, "name": "/News", "IAB12": "News" }],
+      "domain_url": "https://apolut.net/",
+      "logo_url": null,
+      "social_media": null,
+      "updated_at": "2022-07-06T15:50:02.000000Z"
+    },
+    "success": true,
+    "api_usage": { "this_month_api_calls": 5, "remaining_api_calls": 95 }
+  },
+  "https://nuoflix.de/": {
+    "domain": {
+      "categories": [
+        {
+          "confidence": 0.75,
+          "name": "/Arts & Entertainment",
+          "IAB1": "Arts & Entertainment"
+        }
+      ],
+      "domain_url": "https://nuoflix.de/",
+      "logo_url": null,
+      "social_media": null,
+      "updated_at": "2022-07-06T15:50:03.000000Z"
+    },
+    "success": true,
+    "api_usage": { "this_month_api_calls": 4, "remaining_api_calls": 96 }
+  }
+}

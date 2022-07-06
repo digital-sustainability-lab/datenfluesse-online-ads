@@ -1,55 +1,25 @@
 const axios = require("axios");
 const fs = require("fs");
-const company_data = require("./company_data.json");
+const company_data = require("./company_data_alt.json");
 
 urls = [
-  "https://www.Google.com",
-  "https://www.Youtube.com",
-  "https://www.Facebook.com",
-  "https://www.Google.ch",
-  "https://www.Wikipedia.org",
-  "https://www.Instagram.com",
-  "https://www.Reddit.com",
-  "https://www.20min.ch",
-  "https://www.Blick.ch",
-  "https://www.Srf.ch",
-  "https://www.Linkedin.com",
-  "https://www.Bing.com",
-  "https://www.Admin.ch",
-  "https://www.Live.com",
-  "https://www.Yahoo.com",
-  "https://www.Twitter.com",
-  "https://www.Whatsapp.com",
-  "https://www.Ricardo.ch",
-  "https://www.Galaxus.ch",
-  "https://www.Duckduckgo.com",
-  "https://www.Microsoft.com",
-  "https://www.Digitec.ch",
-  "https://www.Aliexpress.com",
-  "https://www.Watson.ch",
-  "https://www.Deepl.com",
-  "https://www.Microsoftonline.com",
-  "https://www.Github.com",
-  "https://www.Amazon.de",
-  "https://www.Bluewin.ch",
-  "https://www.Post.ch",
-  "https://www.Swisscom.ch",
-  "https://www.Fandom.com",
-  "https://www.Sbb.ch",
-  "https://www.Amazon.com",
-  "https://www.Netflix.com",
-  "https://www.Booking.com",
-  "https://www.Zoom.us",
-  "https://www.Paypal.com",
-  "https://www.9gag.com",
-  "https://www.Tiktok.com",
-  "https://www.Twitch.tv",
-  "https://www.Stackoverflow.com",
-  "https://www.T.co",
-  "https://www.Office.com",
-  "https://www.Rts.ch",
-  "https://www.Tutti.ch",
+  "https://de.news-front.info/",
+  "https://journalistenwatch.com/",
+  "https://www.compact-online.de/",
+  "https://www.unzensuriert.at/",
+  "https://www.wochenblick.at/",
+  "https://report24.news/",
+  "https://www.info-direkt.eu/",
+  "https://auf1.tv/",
+  "https://uncutnews.ch/",
+  "https://transition-news.org/",
+  "https://zeitpunkt.ch/",
+  "https://nuoflix.de/",
+  "https://apolut.net/",
 ];
+
+api =
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc5OTEyNmZiZjZkOTE0NGUyMGNjNjFiYmM5ZWY1YWUzYWRmZWQzNjRhMDhiMDgzNjVhZWMzZjA0MDk3MzZhN2I5Y2Q2MWQxNjdhMjRiYzAiLCJpYXQiOjE2NTUzNzE3NjgsIm5iZiI6MTY1NTM3MTc2OCwiZXhwIjoxNjg2OTA3NzY4LCJzdWIiOiI2Mzk2Iiwic2NvcGVzIjpbXX0.HAMnC8fd8Ud2YyYP4L6ckCQM-qQB-Psucm5DWB4JDjYpR6rBq0fekkplrx1BR-01kUMv1uHxcAS8WV9skCmdNg";
 
 fullList = {};
 promises = [];
@@ -92,19 +62,25 @@ for (const key in company_data) {
   }
   let allCategories = [];
   let categories = [];
-  for (const cat of company_data[key].domain.categories) {
-    categories = cat.name.split("/");
-    categories = [...new Set(categories)];
-    categories = categories.filter((el) => el);
-    allCategories.push(...categories);
+  if (company_data[key].domain) {
+    for (const cat of company_data[key].domain.categories) {
+      categories = cat.name.split("/");
+      categories = [...new Set(categories)];
+      categories = categories.filter((el) => el);
+      allCategories.push(...categories);
+    }
   }
   allCategories = [...new Set(allCategories)];
   cleanedObject[key].categories.push(...allCategories);
 }
 
-fs.writeFileSync("./clean_company_data.json", JSON.stringify(cleanedObject), {
-  encoding: "utf8",
-});
+fs.writeFileSync(
+  "./clean_company_data_alt.json",
+  JSON.stringify(cleanedObject),
+  {
+    encoding: "utf8",
+  }
+);
 
 // urls.forEach((url) => {
 //   settings = {

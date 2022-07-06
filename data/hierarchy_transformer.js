@@ -1,6 +1,6 @@
-const company_data = require("./company_data.json");
-const domains = require("./domains.json");
-const pdomains = require("./3p_domains.json");
+const company_data = require("./company_data_alt.json");
+const domains = require("./domains_alt.json");
+const pdomains = require("./domains_alt3.json");
 const fs = require("fs");
 
 hierarchy = {
@@ -49,7 +49,11 @@ function getCategoriesAndChildren(data) {
 function addDomains() {
   for (const element of hierarchy.children) {
     for (const child of element.children) {
-      let name = domains.find((website) => website.name == child.name);
+      let temp = child.name.slice(0, -1);
+      temp = temp.replace("https://www.", "");
+      temp = temp.replace("https://de.", "");
+      temp = temp.replace("https://", "");
+      let name = domains.find((website) => website.name == temp);
       if (name) {
         child.value = name.thirdParties.length;
         child.children = name.thirdParties.map((obj) => {
