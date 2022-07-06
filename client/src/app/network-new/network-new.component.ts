@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import * as d3 from 'd3';
-import { network } from './network';
 import { colors } from './colors'
 import { category_data } from './category_data';
 import { DataService } from '../data.service';
+import { network_alt } from '../data/network_alt';
+
 
 @Component({
   selector: 'app-network-new',
@@ -15,7 +16,7 @@ export class NetworkNewComponent implements OnInit {
 
   history: any[] = []
 
-  alldata = JSON.parse(JSON.stringify(network))
+  alldata: any
 
   colors: any = colors
 
@@ -23,7 +24,7 @@ export class NetworkNewComponent implements OnInit {
 
   nodeList: any[] = [];
 
-  data = JSON.parse(JSON.stringify(network))
+  data: any
 
   categories: any = category_data
 
@@ -51,6 +52,19 @@ export class NetworkNewComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
+  ngOnInit(): void {
+    // this.initNodeList()
+    this.initSVGs()
+    this.dataService.getDataSet().subscribe((data: any) => {
+      debugger
+      this.data = JSON.parse(JSON.stringify(data))
+      this.alldata = JSON.parse(JSON.stringify(data))
+      this.update(this.data)
+    })
+
+
+  }
+
   changeSelection(value: number[]) {
     this.filterById(value)
     this.update(this.data)
@@ -73,11 +87,6 @@ export class NetworkNewComponent implements OnInit {
     this.nodeList.unshift({ name: 'show all' })
   }
 
-  ngOnInit(): void {
-    this.initNodeList()
-    this.initSVGs()
-    this.update(this.data)
-  }
 
   onResize(event: any) {
     d3.select(".svg-content").attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight);

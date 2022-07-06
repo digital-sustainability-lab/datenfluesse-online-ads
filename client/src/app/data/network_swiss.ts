@@ -1,4 +1,4 @@
-export const network = {
+export const network_swiss = {
   "nodes": [
     { "id": 1, "name": "20min.ch", "count": 23 },
     { "id": 2, "name": "adnxs.com", "count": 8 },

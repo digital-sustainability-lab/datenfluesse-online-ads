@@ -4,7 +4,7 @@ import { DOMAINS } from '../DOMAINS';
 import { DataService } from '../data.service';
 import { Domain } from '../interfaces';
 import { NetworkNewComponent } from '../network-new/network-new.component';
-import { network } from '../network-new/network';
+import { network_swiss } from '../data/network_swiss';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ThemePalette } from '@angular/material/core';
 import { example } from '../hierarch-bar/example';
@@ -39,23 +39,32 @@ export class NetworkMenuComponent implements OnInit {
     subCheckBoxes: [],
   };
 
-  domains: Domain[] = DOMAINS;
+  domains: any
   ids: number[] = [];
-  network = network;
+  network: any
   categories = example.children.slice(); // makes categories not reference the category data
 
-  constructor(private networkComp: NetworkNewComponent) {}
+  constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.domains.forEach((element) => {
-      if (this.domainCheckBoxes.subCheckBoxes) {
-        this.domainCheckBoxes.subCheckBoxes.push({
-          name: element.name,
-          completed: false,
-          color: 'primary',
-        });
-      }
-    });
+    this.dataService.getDataSet().subscribe((data: any) => {
+      this.network = JSON.parse(JSON.stringify(data))
+    })
+    this.dataService.getDomain().subscribe((data: any) => {
+      this.domains = data
+      this.domainCheckBoxes.subCheckBoxes = []
+      this.domains.forEach((element: any) => {
+        if (this.domainCheckBoxes.subCheckBoxes) {
+          this.domainCheckBoxes.subCheckBoxes.push({
+            name: element.name,
+            completed: false,
+            color: 'primary',
+          });
+        }
+      });
+    })
+
+
 
     this.categories.shift();
     if (this.categories) {
@@ -168,7 +177,7 @@ export class NetworkMenuComponent implements OnInit {
 
   getId(name: string): number {
     let id = -1;
-    network.nodes.forEach((element) => {
+    this.network.nodes.forEach((element: any) => {
       if (element.name && element.name == name) {
         id = element.id;
       }

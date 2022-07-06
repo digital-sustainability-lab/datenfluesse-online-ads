@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { flare } from './flare';
-import { example } from './example';
 import { MatLabel } from '@angular/material/form-field';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -13,23 +13,37 @@ import { MatLabel } from '@angular/material/form-field';
 export class HierarchBarComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+
+
+  svg: any
 
   ngOnInit(): void {
-    debugger
-    this.create()
+    this.dataService.getHierarchy().subscribe((data: any) => {
+      this.data = data
+      this.root = d3.hierarchy(this.data)
+        .sort((a: any, b: any) => b.data.value - a.data.value)
+        .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
+      this.create()
+    })
+
   }
 
 
   create() {
-    const svg = d3.select('#my_dataviz')
+
+    if (this.svg) {
+      this.svg.remove()
+    }
+
+    this.svg = d3.select('#my_dataviz')
       .append("svg")
       .attr("width", this.width)
       .attr("height", this.height)
 
     this.x.domain([0, this.root.data.value]);
 
-    svg.append("rect")
+    this.svg.append("rect")
       .attr("class", "background")
       .attr("pointer-events", "all")
       .attr("width", this.width)
@@ -38,20 +52,20 @@ export class HierarchBarComponent implements OnInit {
       .attr("x", (d: any) => { return this.margin.left })
       .attr("width", this.width - this.margin.left)
       .attr("cursor", "pointer")
-      .on("click", (event, d) => this.up(svg, d));
+      .on("click", (event: any, d: any) => this.up(this.svg, d));
 
 
 
-    svg.append("g")
+    this.svg.append("g")
       .call(this.xAxis);
 
-    svg.append("g")
+    this.svg.append("g")
       .call(this.yAxis);
 
-    this.down(svg, this.root);
+    this.down(this.svg, this.root);
   }
 
-  data = example
+  data: any
 
   barStep = 27
 
@@ -99,9 +113,7 @@ export class HierarchBarComponent implements OnInit {
 
   // .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
 
-  root = d3.hierarchy(example)
-    .sort((a: any, b: any) => b.data.value - a.data.value)
-    .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
+  root: any
 
 
   // Creates a set of bars for the given data node, at the specified index.
@@ -284,7 +296,7 @@ export class HierarchBarComponent implements OnInit {
 
   }
 
-  updateLabel (depth: any)  {
+  updateLabel(depth: any) {
     if (depth == '1') {
       return '# 3rd party request Domains';
     } else if (depth == '2') {
