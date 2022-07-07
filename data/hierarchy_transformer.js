@@ -1,6 +1,6 @@
-const company_data = require("./company_data_alt.json");
-const domains = require("./domains_alt.json");
-const pdomains = require("./domains_alt3.json");
+const company_data = require("./company_data_all.json");
+const domains = require("./domains_all.json");
+const pdomains = require("./domains_all3.json");
 const fs = require("fs");
 
 hierarchy = {
@@ -13,30 +13,34 @@ function getCategoriesAndChildren(data) {
   for (const key in data) {
     hierarchy.children[0].children.push({ name: key, children: [], value: 0 });
     hierarchy.children[0].value += 1;
-    for (const cats of data[key].domain.categories) {
-      if (cats.confidence > 0.75) {
-        const catsToAdd = cats.name.split("/");
-        for (const category of catsToAdd) {
-          if (category) {
-            let found = hierarchy.children.find((cat) => cat.name == category);
-            if (!found) {
-              hierarchy.children.push({
-                name: category,
-                children: [{ name: key, children: [], value: 0 }],
-                value: 1,
-              });
-            } else {
-              let index = hierarchy.children.indexOf(found);
-              let exists = hierarchy.children[index].children.find(
-                (site) => site.name == key
+    if (data[key].domain) {
+      for (const cats of data[key].domain.categories) {
+        if (cats.confidence > 0.75) {
+          const catsToAdd = cats.name.split("/");
+          for (const category of catsToAdd) {
+            if (category) {
+              let found = hierarchy.children.find(
+                (cat) => cat.name == category
               );
-              if (!exists) {
-                hierarchy.children[index].value += 1;
-                hierarchy.children[index].children.push({
-                  name: key,
-                  children: [],
-                  value: 0,
+              if (!found) {
+                hierarchy.children.push({
+                  name: category,
+                  children: [{ name: key, children: [], value: 0 }],
+                  value: 1,
                 });
+              } else {
+                let index = hierarchy.children.indexOf(found);
+                let exists = hierarchy.children[index].children.find(
+                  (site) => site.name == key
+                );
+                if (!exists) {
+                  hierarchy.children[index].value += 1;
+                  hierarchy.children[index].children.push({
+                    name: key,
+                    children: [],
+                    value: 0,
+                  });
+                }
               }
             }
           }
@@ -81,6 +85,6 @@ function addDomains() {
 getCategoriesAndChildren(company_data);
 addDomains();
 
-fs.writeFileSync("./hierarchy.json", JSON.stringify(hierarchy), {
+fs.writeFileSync("./hierarchy_all.json", JSON.stringify(hierarchy), {
   encoding: "utf8",
 });

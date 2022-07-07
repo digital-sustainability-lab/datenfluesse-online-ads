@@ -5,7 +5,7 @@ const network = {
   links: [],
 };
 
-const networkStructure = JSON.parse(fs.readFileSync("./domains_alt.json"));
+const networkStructure = JSON.parse(fs.readFileSync("./domains_all.json"));
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
@@ -41,14 +41,14 @@ networkStructure.forEach((element, i) => {
       network.links.push({
         source: index,
         target: idx,
-        id: `${idl}_swiss`,
+        id: idl,
         name: nested.requestDomain,
       });
     }
   });
 });
 
-fs.writeFileSync("./network_alt.json", JSON.stringify(network), {
+fs.writeFileSync("./network_all.json", JSON.stringify(network), {
   encoding: "utf8",
 });
 

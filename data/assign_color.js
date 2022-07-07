@@ -1,4 +1,4 @@
-const data = require("./clean_company_data_alt.json");
+const data = require("./clean_company_data_all.json");
 const fs = require("fs");
 
 const colors = [

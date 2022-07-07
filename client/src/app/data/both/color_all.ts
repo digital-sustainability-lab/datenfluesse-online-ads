@@ -1,4 +1,4 @@
-{
+export const color_all = {
   "News": "#a6cee3",
   "Reference": "#1f78b4",
   "Arts & Entertainment": "#b2df8a",
