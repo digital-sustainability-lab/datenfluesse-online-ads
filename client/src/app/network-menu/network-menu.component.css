@@ -11,25 +11,6 @@
   max-height: 80vh;
 }
 
-::ng-deep .mat-accordion, .mat-card, .mat-expansion-panel {
-  box-shadow: none;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-::ng-deep .mat-panel-title, .mat-expansion-panel-header {
-  pointer-events: none;
-}
-
-::ng-deep .mat-expansion-indicator {
-  pointer-events: all;
-  padding: 0 5px;
-}
-
-::ng-deep .mat-checkbox {
-  pointer-events: all;
-}
-
 hr {
   margin: 0;
 }

@@ -16,6 +16,16 @@ export class AppComponent {
 
   constructor(private dataService: DataService) { }
 
+  active: string = 'swiss'
+
+  ngOnInit(): void {
+    this.dataService.getActiveData().subscribe((data: string) => {
+      this.active = data
+      debugger
+    }
+    )
+  }
+
   changeDataSet(data: string) {
     this.dataService.changeDataSet(data)
   }

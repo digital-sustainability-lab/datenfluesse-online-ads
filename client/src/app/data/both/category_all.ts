@@ -1,14 +1,12 @@
 export const category_all = {
-  "https://journalistenwatch.com/": {
+  "journalistenwatch.com": {
     "categories": ["News"],
     "name": "Journalistenwatch",
     "tags": []
   },
-  "https://www.wochenblick.at/": {
-    "categories": ["Reference", "Language Resources"]
-  },
-  "https://auf1.tv/": { "categories": ["Arts & Entertainment", "TV & Video"] },
-  "https://galaxus.ch ": {
+  "wochenblick.at": { "categories": ["Reference", "Language Resources"] },
+  "auf1.tv": { "categories": ["Arts & Entertainment", "TV & Video"] },
+  "galaxus.ch": {
     "categories": ["Shopping"],
     "name": "Digitec Galaxus",
     "city": "Zürich",
@@ -24,16 +22,16 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://srf.ch ": {
+  "srf.ch": {
     "categories": ["Arts & Entertainment", "Music & Audio", "Radio"]
   },
-  "https://www.unzensuriert.at/": {
+  "unzensuriert.at": {
     "categories": ["Arts & Entertainment"],
     "name": "Unzensuriert",
     "countryCode": "AT",
     "tags": []
   },
-  "https://google.ch ": {
+  "google.ch": {
     "categories": ["Internet & Telecom", "Web Services", "Reference"],
     "name": "Google",
     "countryCode": "CH",
@@ -47,19 +45,19 @@ export const category_all = {
       "Mobile"
     ]
   },
-  "https://www.info-direkt.eu/": {
+  "info-direkt.eu": {
     "categories": ["News"],
     "name": "Info-DIREKT",
     "city": "Linz",
     "countryCode": "AT",
     "tags": []
   },
-  "https://de.news-front.info/": {
+  "news-front.info": {
     "categories": ["News"],
     "name": "News Front",
     "tags": []
   },
-  "https://netflix.com": {
+  "netflix.com": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -75,14 +73,10 @@ export const category_all = {
     "revenue": 20156447000,
     "tags": ["Entertainment & Recreation", "B2C", "Mobile"]
   },
-  "https://watson.ch ": { "categories": ["Computers & Electronics"] },
-  "https://nuoflix.de/": { "categories": ["Arts & Entertainment"] },
-  "https://uncutnews.ch/": {
-    "categories": ["News"],
-    "countryCode": "CH",
-    "tags": []
-  },
-  "https://live.com ": {
+  "watson.ch": { "categories": ["Computers & Electronics"] },
+  "nuoflix.de": { "categories": ["Arts & Entertainment"] },
+  "uncutnews.ch": { "categories": ["News"], "countryCode": "CH", "tags": [] },
+  "live.com": {
     "categories": [
       "Internet & Telecom",
       "Email & Messaging",
@@ -91,7 +85,7 @@ export const category_all = {
       "Business & Productivity Software"
     ]
   },
-  "https://whatsapp.com ": {
+  "whatsapp.com": {
     "categories": [
       "Internet & Telecom",
       "Email & Messaging",
@@ -105,7 +99,7 @@ export const category_all = {
     "employeesRange": "1K-5K",
     "tags": ["Internet", "Technology", "Web Services & Apps", "Mobile", "B2C"]
   },
-  "https://paypal.com ": {
+  "paypal.com": {
     "categories": [
       "Business & Industrial",
       "Business Services",
@@ -127,7 +121,7 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://ricardo.ch": {
+  "ricardo.ch": {
     "categories": ["Shopping"],
     "name": "Ricardo",
     "city": "Zug",
@@ -136,13 +130,13 @@ export const category_all = {
     "employeesRange": "51-250",
     "tags": ["Internet"]
   },
-  "https://zeitpunkt.ch/": {
+  "zeitpunkt.ch": {
     "categories": ["People & Society", "Religion & Belief"],
     "name": "Zeitpunkt",
     "countryCode": "CH",
     "tags": []
   },
-  "https://aliexpress.com ": {
+  "aliexpress.com": {
     "categories": ["Shopping", "Apparel"],
     "name": "AliExpress",
     "city": "San Mateo",
@@ -157,12 +151,10 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://apolut.net/": { "categories": ["News"] },
-  "https://sbb.ch ": {
-    "categories": ["Business & Industrial", "Travel", "Bus & Rail"]
-  },
-  "https://admin.ch ": { "categories": ["Law & Government", "Government"] },
-  "https://wikipedia.org ": {
+  "apolut.net": { "categories": ["News"] },
+  "sbb.ch": { "categories": ["Business & Industrial", "Travel", "Bus & Rail"] },
+  "admin.ch": { "categories": ["Law & Government", "Government"] },
+  "wikipedia.org": {
     "categories": ["Reference"],
     "name": "Wikipedia",
     "city": "Dhaka",
@@ -176,7 +168,7 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://post.ch ": {
+  "post.ch": {
     "categories": [
       "Business & Industrial",
       "Transportation & Logistics",
@@ -189,7 +181,7 @@ export const category_all = {
     "employeesRange": "5K-10K",
     "tags": ["Shipping & Logistics", "B2B", "B2C"]
   },
-  "https://deepl.com ": {
+  "deepl.com": {
     "categories": [
       "Reference",
       "Language Resources",
@@ -202,7 +194,7 @@ export const category_all = {
     "employeesRange": "51-250",
     "tags": ["Internet"]
   },
-  "https://digitec.ch": {
+  "digitec.ch": {
     "categories": [
       "Computers & Electronics",
       "Consumer Electronics",
@@ -223,10 +215,10 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://9gag.com ": {
+  "9gag.com": {
     "categories": ["Arts & Entertainment", "Humor", "Funny Pictures & Videos"]
   },
-  "https://instagram.com": {
+  "instagram.com": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -251,7 +243,7 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://blick.ch ": {
+  "blick.ch": {
     "categories": ["Business & Industrial"],
     "name": "Blick",
     "city": "Zürich",
@@ -260,7 +252,7 @@ export const category_all = {
     "employeesRange": "1-10",
     "tags": []
   },
-  "https://bing.com ": {
+  "bing.com": {
     "categories": ["Internet & Telecom"],
     "name": "Microsoft Bing",
     "city": "Redmond",
@@ -270,12 +262,12 @@ export const category_all = {
     "raised": 20600000,
     "tags": ["Technology", "Web Services & Apps", "Internet", "B2B"]
   },
-  "https://report24.news/": {
+  "report24.news": {
     "categories": ["Law & Government", "Public Safety", "Crime & Justice"],
     "name": "Report24",
     "tags": []
   },
-  "https://tiktok.com ": {
+  "tiktok.com": {
     "categories": ["Arts & Entertainment"],
     "name": "TikTok",
     "city": "Culver City",
@@ -285,8 +277,8 @@ export const category_all = {
     "raised": 116600000,
     "tags": ["Internet", "Technology", "Web Services & Apps", "Mobile", "B2C"]
   },
-  "https://yahoo.com ": { "categories": ["News"] },
-  "https://booking.com ": {
+  "yahoo.com": { "categories": ["News"] },
+  "booking.com": {
     "categories": ["Travel", "Hotels & Accommodations"],
     "name": "Booking.com",
     "city": "Amsterdam",
@@ -295,7 +287,7 @@ export const category_all = {
     "employeesRange": "10K-50K",
     "tags": ["Internet", "Technology", "B2C", "Marketplace"]
   },
-  "https://rts.ch ": {
+  "rts.ch": {
     "categories": ["Arts & Entertainment", "Music & Audio", "Radio"],
     "name": "RTS",
     "city": "Geneva",
@@ -304,10 +296,8 @@ export const category_all = {
     "employeesRange": "1K-5K",
     "tags": ["Broadcasting"]
   },
-  "https://swisscom.ch ": {
-    "categories": ["Internet & Telecom", "Service Providers"]
-  },
-  "https://tutti.ch": {
+  "swisscom.ch": { "categories": ["Internet & Telecom", "Service Providers"] },
+  "tutti.ch": {
     "categories": ["Shopping", "Classifieds"],
     "name": "tutti.ch",
     "city": "Zürich",
@@ -316,7 +306,7 @@ export const category_all = {
     "employeesRange": "11-50",
     "tags": ["Internet", "Technology", "Web Services & Apps", "B2C"]
   },
-  "https://twitch.tv ": {
+  "twitch.tv": {
     "categories": [
       "Arts & Entertainment",
       "Online Media",
@@ -333,7 +323,7 @@ export const category_all = {
     "raised": 35000000,
     "tags": ["Internet", "Technology", "Mobile", "B2C"]
   },
-  "https://20min.ch ": {
+  "20min.ch": {
     "categories": ["News"],
     "name": "20 Minuten",
     "city": "Zürich",
@@ -342,8 +332,8 @@ export const category_all = {
     "employeesRange": "51-250",
     "tags": ["Media"]
   },
-  "https://duckduckgo.com ": { "categories": ["People & Society"] },
-  "https://youtube.com ": {
+  "duckduckgo.com": { "categories": ["People & Society"] },
+  "youtube.com": {
     "categories": [
       "Arts & Entertainment",
       "TV & Video",
@@ -358,14 +348,14 @@ export const category_all = {
     "raised": 200000,
     "tags": ["Internet", "Technology", "B2C", "Mobile"]
   },
-  "https://bluewin.ch ": {
+  "bluewin.ch": {
     "categories": ["Sports", "News"],
     "name": "blue News",
     "countryCode": "CH",
     "employeesRange": "1-10",
     "tags": []
   },
-  "https://twitter.com ": {
+  "twitter.com": {
     "categories": [
       "Online Communities",
       "Social Networks",
@@ -381,7 +371,7 @@ export const category_all = {
     "revenue": 3459329000,
     "tags": ["Internet", "Technology", "B2C", "Mobile"]
   },
-  "https://linkedin.com ": {
+  "linkedin.com": {
     "categories": ["Online Communities", "Social Networks"],
     "name": "LinkedIn",
     "city": "Sunnyvale",
@@ -391,7 +381,7 @@ export const category_all = {
     "revenue": 2990911000,
     "tags": ["Internet", "Technology", "SAAS", "B2C", "Mobile", "B2B"]
   },
-  "https://reddit.com ": {
+  "reddit.com": {
     "categories": ["Online Communities", "Social Networks"],
     "name": "Reddit",
     "city": "San Francisco",
@@ -408,10 +398,8 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://facebook.com ": {
-    "categories": ["Online Communities", "Social Networks"]
-  },
-  "https://github.com ": {
+  "facebook.com": { "categories": ["Online Communities", "Social Networks"] },
+  "github.com": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -434,7 +422,7 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://microsoftonline.com ": {
+  "microsoftonline.com": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -445,10 +433,8 @@ export const category_all = {
       "Engineering & Technology"
     ]
   },
-  "https://microsoft.com ": {
-    "categories": ["Computers & Electronics", "Software"]
-  },
-  "https://amazon.com ": {
+  "microsoft.com": { "categories": ["Computers & Electronics", "Software"] },
+  "amazon.com": {
     "categories": ["Business & Industrial", "News"],
     "name": "Amazon",
     "city": "Seattle",
@@ -464,7 +450,7 @@ export const category_all = {
       "B2C"
     ]
   },
-  "https://amazon.de": {
+  "amazon.de": {
     "categories": [
       "Computers & Electronics",
       "Consumer Electronics",
@@ -483,7 +469,7 @@ export const category_all = {
       "B2B"
     ]
   },
-  "https://stackoverflow.com": {
+  "stackoverflow.com": {
     "categories": [
       "Science",
       "Computer Science",
@@ -501,8 +487,8 @@ export const category_all = {
     "raised": 153000000,
     "tags": ["Forums", "Internet", "B2B", "Marketplace"]
   },
-  "https://transition-news.org/": { "categories": ["News"] },
-  "https://zoom.us ": {
+  "transition-news.org": { "categories": ["News"] },
+  "zoom.us": {
     "categories": [
       "Computers & Electronics",
       "Software",
@@ -526,7 +512,7 @@ export const category_all = {
       "Enterprise"
     ]
   },
-  "https://fandom.com ": {
+  "fandom.com": {
     "categories": ["Arts & Entertainment", "Movies"],
     "name": "Fandom",
     "city": "San Francisco",
@@ -536,10 +522,10 @@ export const category_all = {
     "raised": 22750000,
     "tags": ["Internet", "Technology", "Media", "B2C", "Mobile"]
   },
-  "https://t.co ": { "categories": [] },
-  "https://fffice.com ": { "categories": [] },
-  "https://www.compact-online.de/": { "categories": [] },
-  "https://google.com": {
+  "t.co": { "categories": [] },
+  "fffice.com": { "categories": [] },
+  "compact-online.de": { "categories": [] },
+  "google.com": {
     "categories": ["Internet & Telecom"],
     "name": "Google",
     "city": "Mountain View",

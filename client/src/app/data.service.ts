@@ -25,10 +25,13 @@ import { category_all } from './data/both/category_all';
 export class DataService {
 
 
+  private activeDataSource = new BehaviorSubject<any>('swiss')
+
+  private activeData = this.activeDataSource.asObservable()
+
   private currentDataSetSource = new BehaviorSubject<any>({ network: network_swiss, domain: domain_swiss, hierarchy: hierarchy_swiss, color: color_swiss, color3p: color3p_swiss, category: category_swiss })
 
   private currenttDataSet = this.currentDataSetSource.asObservable()
-
 
   private selectedNodeSource = new BehaviorSubject({})
 
@@ -38,6 +41,10 @@ export class DataService {
 
   getCurrentDataSet() {
     return this.currenttDataSet
+  }
+
+  getActiveData() {
+    return this.activeData
   }
 
   setCurrentDataSet(data: any) {
@@ -54,12 +61,15 @@ export class DataService {
 
   changeDataSet(data: string) {
     if (data == 'all') {
+      this.activeDataSource.next('all')
       this.setCurrentDataSet({ network: network_all, domain: domain_all, color3p: color3p_all, color: color_all, hierarchy: hierarchy_all, category: category_all })
     }
     if (data == 'alt') {
+      this.activeDataSource.next('alt')
       this.setCurrentDataSet({ network: network_alt, domain: domain_alt, hierarchy: hierarchy_alt, color: color_alt, color3p: color3p_alt, category: category_alt })
     }
     if (data == 'swiss') {
+      this.activeDataSource.next('swiss')
       this.setCurrentDataSet({ network: network_swiss, domain: domain_swiss, hierarchy: hierarchy_swiss, color: color_swiss, color3p: color3p_swiss, category: category_swiss })
     }
   }

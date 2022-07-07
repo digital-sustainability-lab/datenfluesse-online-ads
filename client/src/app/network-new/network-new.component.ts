@@ -4,7 +4,8 @@ import * as d3 from 'd3';
 
 import { DataService } from '../data.service';
 
-
+import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-network-new',
@@ -12,6 +13,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./network-new.component.css']
 })
 export class NetworkNewComponent implements OnInit {
+
 
   history: any[] = []
 
@@ -55,8 +57,8 @@ export class NetworkNewComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.initSVGs()
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.initSVGs()
       this.data = JSON.parse(JSON.stringify(data.network))
       this.alldata = JSON.parse(JSON.stringify(data.network))
       this.categories = data.category
@@ -98,6 +100,7 @@ export class NetworkNewComponent implements OnInit {
   }
 
   initSVGs() {
+    if (this.svg) d3.selectAll("svg").remove()
     this.svg = d3.select("#network")
       .append("svg")
       .attr("viewBox", '0 0 ' + window.innerWidth + ' ' + window.innerHeight)
@@ -169,6 +172,7 @@ export class NetworkNewComponent implements OnInit {
     this.node
       .attr("r", (d: any) => this.getRadius(d))
       .attr("fill", (d: any) => this.getColor(d))
+      .style("stroke", (d: any) => this.getOutline(d))
       .on('click', this.selectNode.bind(this))
       .on('mouseover', (d: any) => {
         this.setSelectedNode(d)
@@ -177,17 +181,33 @@ export class NetworkNewComponent implements OnInit {
           if (this.belongsToGroup(d.currentTarget.__data__.id, node)) return this.getColor(node)
           return "#B8B8B8"
         })
+          .style('opacity', (node: any) => {
+            if (this.belongsToGroup(d.currentTarget.__data__.id, node)) return 1
+            return 0.2
+          })
+        this.text_element
+          .style('opacity', (node: any) => {
+            if (this.belongsToGroup(d.currentTarget.__data__.id, node)) return 1
+            return 0.2
+          })
         this.link
           .style('stroke', (link_d: any) => {
             return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? '#69b3b2' : '#b8b8b8';
           })
           .style('stroke-width', (link_d: any) => { return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? 4 : 1; })
+          .style('opacity', (link_d: any) => { return link_d.source.id === d.currentTarget.__data__.id || link_d.target.id === d.currentTarget.__data__.id ? 1 : 0.2; })
       })
       .on('mouseout', () => {
-        this.node.style('fill', (d: any) => this.getColor(d))
+        this.node
+          .style('fill', (d: any) => this.getColor(d))
+          .style('opacity', 1)
         this.link
           .style('stroke', '#aaa')
           .style('stroke-width', '1')
+          .style('opacity', 1)
+
+        this.text_element
+          .style('opacity', 1)
       })
 
     // this.node.style('fill', 'black')
@@ -200,17 +220,23 @@ export class NetworkNewComponent implements OnInit {
     this.simulation.alpha(1).alphaTarget(0).restart();
   }
 
+  getOutline(element: any) {
+    let name = element.name
+    debugger
+    if (this.categories[name]) {
+      return 'transparent'
+    }
+    if (this.color3p[element.country]) {
+      return 'red'
+    }
+    return 'transparent'
+  }
+
   getColor(element: any) {
     let name = element.name
     debugger
     if (this.categories[name]) {
       const category = this.categories[name].categories[0]
-      return this.colors[category]
-    } else if (this.categories['https://' + name + '/']) {
-      const category = this.categories['https://' + name + '/'].categories[0]
-      return this.colors[category]
-    } else if (this.categories['https://www.' + name + '/']) {
-      const category = this.categories['https://www.' + name + '/'].categories[0]
       return this.colors[category]
     }
     if (this.color3p[element.country]) {

@@ -43,7 +43,7 @@ export class NetworkMenuComponent implements OnInit {
   network: any
   color: any
   color3p: any
-  categories = example.children.slice(); // makes categories not reference the category data
+  categories: any; // makes categories not reference the category data
 
   constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
 
@@ -54,6 +54,7 @@ export class NetworkMenuComponent implements OnInit {
       debugger
       this.network = JSON.parse(JSON.stringify(data.network))
       this.domains = data.domain
+      this.categories = data.hierarchy.children.slice()
       debugger
       this.domainCheckBoxes.subCheckBoxes = []
       this.domains.forEach((element: any) => {
@@ -73,10 +74,10 @@ export class NetworkMenuComponent implements OnInit {
     this.categories.shift();
     if (this.categories) {
       let noCat = this.domainCheckBoxes.subCheckBoxes?.slice();
-      this.categories.forEach((element) => {
+      this.categories.forEach((element: any) => {
         if (this.categoryCheckBoxes.subCheckBoxes) {
           let subChildren: CheckBox[] = [];
-          element.children.forEach((subElement) => {
+          element.children.forEach((subElement: any) => {
             subChildren.push({
               name: subElement.name,
               completed: false,

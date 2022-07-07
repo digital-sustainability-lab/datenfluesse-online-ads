@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { DataService } from '../data.service';
 
@@ -11,15 +11,19 @@ import { DataService } from '../data.service';
 export class HierarchBarComponent implements OnInit {
 
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private elementRef: ElementRef) { }
 
+  ngOndestroy() {
+    this.elementRef.nativeElement.remove();
+  }
 
   svg: any
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
-      this.data = data.hierarchy
-      this.root = d3.hierarchy(data.hierarchy)
+      debugger
+      this.data = JSON.parse(JSON.stringify(data.hierarchy))
+      this.root = d3.hierarchy(JSON.parse(JSON.stringify(data.hierarchy)))
         .sort((a: any, b: any) => b.data.value - a.data.value)
         .eachAfter((d: any) => d.index = d.parent ? d.parent.index = d.parent.index + 1 || 0 : 0)
       this.create()
@@ -29,7 +33,7 @@ export class HierarchBarComponent implements OnInit {
 
 
   create() {
-
+    debugger
     if (this.svg) {
       this.svg.remove()
     }
