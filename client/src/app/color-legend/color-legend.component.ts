@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { colors } from '../network-new/colors'
 
 @Component({
@@ -8,7 +8,8 @@ import { colors } from '../network-new/colors'
 })
 export class ColorLegendComponent implements OnInit {
 
-  data = colors
+
+  @Input() data: any
 
   constructor() { }
 

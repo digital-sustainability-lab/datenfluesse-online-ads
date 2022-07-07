@@ -9,69 +9,25 @@ const domainParser = require("./parse-domains");
 const { privateDecrypt } = require("crypto");
 
 domainParser.parseDomains();
-const network = {
-  nodes: [],
-  links: [],
-};
 
-// const parsedReport = papa.parse(
-//   fs.readFileSync("./per_site_network_report_subset.csv", { encoding: "utf8" })
-// );
-// const domainRows = parsedReport.data.slice(1);
-// const domainMap = domainRows.reduce((map, row, index) => {
-//   if (!map[row[0]]) map[row[0]] = { thirdParties: [] };
-//   map[row[0]].thirdParties.push(createThirdPartyDomain(row));
-//   return map;
-// }, {});
-// const domains = Object.keys(domainMap).map((key) => {
-//   return { name: key, ...domainMap[key] };
-// });
-// console.log(domains);
-// fs.writeFileSync("./domains_subset.json", JSON.stringify(domains), {
-//   encoding: "utf8",
-// });
-// function createThirdPartyDomain(row) {
-//   return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
-// }
-
-const networkStructure = JSON.parse(fs.readFileSync("./domains.json"));
-networkStructure.forEach((element, i) => {
-  let idx = 1;
-  if (network.nodes.length > 0) {
-    idx = network.nodes[network.nodes.length - 1].id + 1;
-  }
-  let found = network.nodes.find((node) => node.name == element.name);
-  if (!found) {
-    network.nodes.push({ id: idx, name: element.name, count: 0 });
-  } else {
-    idx = found.id;
-  }
-  element.thirdParties.forEach((nested, k) => {
-    let plus = network.nodes.find((node) => node.id == idx);
-    let plusIdx = network.nodes.indexOf(plus);
-    network.nodes[plusIdx]["count"] += 1;
-    const obj = network.nodes.find((node) => node.name == nested.requestDomain);
-    let idl = 1;
-    if (network.links.length > 0) {
-      idl = network.links[network.links.length - 1].id + 1;
-    }
-    if (obj) {
-      let objIdx = network.nodes.indexOf(obj);
-      network.nodes[objIdx].count += 1;
-      network.links.push({ source: obj.id, target: idx, id: idl });
-    } else {
-      let index = getHighestIdx(network.nodes) + 1;
-      network.nodes.push({ id: index, name: nested.requestDomain, count: 1 });
-      network.links.push({ source: index, target: idx, id: idl });
-    }
-  });
+const parsedReport = papa.parse(
+  fs.readFileSync("./per_site_network_report.csv", {
+    encoding: "utf8",
+  })
+);
+const domainRows = parsedReport.data.slice(1);
+const domainMap = domainRows.reduce((map, row, index) => {
+  if (!map[row[0]]) map[row[0]] = { thirdParties: [] };
+  map[row[0]].thirdParties.push(createThirdPartyDomain(row));
+  return map;
+}, {});
+const domains = Object.keys(domainMap).map((key) => {
+  return { name: key, ...domainMap[key] };
 });
-
-fs.writeFileSync("./network.json", JSON.stringify(network), {
+console.log(domains);
+fs.writeFileSync("./domains_alt.json", JSON.stringify(domains), {
   encoding: "utf8",
 });
-
-function getHighestIdx(array) {
-  array = array.map((element) => element.id);
-  return Math.max(...array);
+function createThirdPartyDomain(row) {
+  return { requestDomain: row[1], owner: row[2], ownerCountry: row[3] };
 }

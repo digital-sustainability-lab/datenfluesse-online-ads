@@ -3,15 +3,24 @@
   <div class="icon_wrapper">
     <a mat-button [routerLink]="'/bar'" routerLinkActive="active">
       <div class="icon">
-        <fa-icon [icon]="faChartBar"></fa-icon>
+        BAR
+        <!-- <fa-icon [icon]="faChartBar"></fa-icon> -->
       </div>
     </a>
     <a mat-button [routerLink]="'/network'" routerLinkActive="active">
       <div class="icon">
-        <fa-icon [icon]="fadiagram"></fa-icon>
+        NETWORK
+        <!-- <fa-icon [icon]="fadiagram"></fa-icon> -->
       </div>
     </a>
   </div>
+</div>
+<div class="data">
+  <ul>
+    <li [ngClass]="{'bording': active == 'all'}" (click)="changeDataSet('all')">Swiss & Alt</li>
+    <li [ngClass]="{'bording': active == 'swiss'}" (click)="changeDataSet('swiss')">Swiss only</li>
+    <li [ngClass]="{'bording': active == 'alt'}" (click)="changeDataSet('alt')">Alt only</li>
+  </ul>
 </div>
 <div class="wrapper" style="
     display: flex;
@@ -19,6 +28,5 @@
     width: 100%;
     justify-content: center;
   ">
-
   <router-outlet></router-outlet>
 </div>

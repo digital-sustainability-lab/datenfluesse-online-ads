@@ -1,4 +1,4 @@
-export const category_data = {
+export const category_swiss = {
     "youtube.com": {
         "categories": [
             "Arts & Entertainment",

@@ -11,6 +11,10 @@
   max-height: 80vh;
 }
 
+hr {
+  margin: 0;
+}
+
 .checkBox {
   display: flex;
 }

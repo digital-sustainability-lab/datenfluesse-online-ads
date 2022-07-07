@@ -4,13 +4,12 @@ import { DOMAINS } from '../DOMAINS';
 import { DataService } from '../data.service';
 import { Domain } from '../interfaces';
 import { NetworkNewComponent } from '../network-new/network-new.component';
-import { network } from '../network-new/network';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import {ThemePalette} from '@angular/material/core';
-import {example} from '../hierarch-bar/example';
+import { ThemePalette } from '@angular/material/core';
+import { example } from '../hierarch-bar/example';
 import { index } from 'd3';
 import { CheckboxControlValueAccessor } from '@angular/forms';
-
+import { elementAt } from 'rxjs';
 
 export interface CheckBox {
   name: string;
@@ -22,10 +21,9 @@ export interface CheckBox {
 @Component({
   selector: 'app-network-menu',
   templateUrl: './network-menu.component.html',
-  styleUrls: ['./network-menu.component.css']
+  styleUrls: ['./network-menu.component.css'],
 })
 export class NetworkMenuComponent implements OnInit {
-
   domainCheckBoxes: CheckBox = {
     name: 'all',
     completed: false,
@@ -34,92 +32,175 @@ export class NetworkMenuComponent implements OnInit {
   };
 
   categoryCheckBoxes: CheckBox = {
-    name: "all",
+    name: 'all',
     completed: false,
-    color: "primary",
-    subCheckBoxes: []
+    color: 'primary',
+    subCheckBoxes: [],
   };
 
-  domains : Domain[] = DOMAINS;
-  ids:number[] = [];
-  network = network;
-  categories = example.children.slice(); // makes categories not reference the category data
-  
-  allComplete: boolean = false;
+  domains: any
+  ids: number[] = [];
+  network: any
+  color: any
+  color3p: any
+  categories: any; // makes categories not reference the category data
 
-  constructor(private networkComp : NetworkNewComponent) {
-  }
+  constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
 
   ngOnInit(): void {
-      this.domains.forEach(element => {
-        if(this.domainCheckBoxes.subCheckBoxes) {
-          this.domainCheckBoxes.subCheckBoxes.push({name:element.name, completed:false, color:'primary'});
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.color = data.color
+      this.color3p = data.color3p
+      debugger
+      this.network = JSON.parse(JSON.stringify(data.network))
+      this.domains = data.domain
+      this.categories = data.hierarchy.children.slice()
+      debugger
+      this.domainCheckBoxes.subCheckBoxes = []
+      this.domains.forEach((element: any) => {
+        if (this.domainCheckBoxes.subCheckBoxes) {
+          this.domainCheckBoxes.subCheckBoxes.push({
+            name: element.name,
+            completed: false,
+            color: 'primary',
+          });
         }
       });
-      
-      this.categories.shift();
-      if (this.categories) {
-        this.categories.forEach(element => {
-          if(this.categoryCheckBoxes.subCheckBoxes) {
-            let subChildren:CheckBox[] = [];
-            element.children.forEach(subElement => {
-              subChildren.push({name:subElement.name, completed:false, color:"primary"});
+    })
+
+
+
+
+    this.categories.shift();
+    if (this.categories) {
+      let noCat = this.domainCheckBoxes.subCheckBoxes?.slice();
+      this.categories.forEach((element: any) => {
+        if (this.categoryCheckBoxes.subCheckBoxes) {
+          let subChildren: CheckBox[] = [];
+          element.children.forEach((subElement: any) => {
+            subChildren.push({
+              name: subElement.name,
+              completed: false,
+              color: 'primary',
             });
-            this.categoryCheckBoxes.subCheckBoxes.push({name:element.name, completed:false, color:"primary", subCheckBoxes:subChildren});
-          }
-        });
-      }
-  }
-  
-    updateAllComplete(checkBox:CheckBox) {
-      this.allComplete = checkBox.subCheckBoxes != null && checkBox.subCheckBoxes.every(t => t.completed);
-    }
-  
-    someComplete(checkBox:CheckBox): boolean {
-      if (checkBox.subCheckBoxes == null) {
-        return false;
-      }
-      return checkBox.subCheckBoxes.filter(t => t.completed).length > 0;
-    }
-
-    setAll(completed:boolean, checkBox:CheckBox) {
-      let id = this.getId(checkBox.name);
-      if(checkBox.subCheckBoxes) {
-        checkBox.subCheckBoxes.forEach(subCheckBox => {this.setAll(completed, subCheckBox)});
-        checkBox.completed = completed;
-      } else if (completed) {
-        this.addId(id);
-        checkBox.completed = completed;
-      } else {
-        this.removeId(id);
-        checkBox.completed = completed;
-      }
-    }
-
-    getId(name:string): number {
-      let id = -1;
-      network.nodes.forEach(element => {
-        if(element.name && element.name == name) {
-          id = element.id;
+            if (noCat) {
+              noCat = noCat.filter((t) => t.name != subElement.name);
+            }
+          });
+          this.categoryCheckBoxes.subCheckBoxes.push({
+            name: element.name,
+            completed: false,
+            color: 'primary',
+            subCheckBoxes: subChildren,
+          });
         }
       });
-      return id;
+      // adding in categoryless domains
+      this.categoryCheckBoxes.subCheckBoxes?.push({
+        name: 'No Category',
+        completed: false,
+        color: 'primary',
+        subCheckBoxes: noCat,
+      });
     }
+  }
 
-    addId(id:number) {
-      if(this.ids.indexOf(id) != 1) {
-        this.ids.push(id);
+  someComplete(checkBox: CheckBox): boolean {
+    if (checkBox.subCheckBoxes == null) {
+      return false;
+    }
+    return (
+      checkBox.subCheckBoxes.filter((t) => t.completed).length > 0 &&
+      !(
+        checkBox.subCheckBoxes.filter((t) => t.completed).length ==
+        checkBox.subCheckBoxes.length
+      )
+    );
+  }
+
+  allComplete(checkBox: CheckBox) {
+    if (
+      checkBox.subCheckBoxes?.filter((t) => t.completed).length ==
+      checkBox.subCheckBoxes?.length
+    ) {
+      checkBox.completed = true;
+    } else {
+      checkBox.completed = false;
+    }
+  }
+
+  updateCheckBoxes(event: MatCheckboxChange, checkBox: CheckBox) {
+    let id = this.getId(checkBox.name);
+    let checked = event.checked;
+    if (id != -1) {
+      this.setIndividuals(checked, id);
+    } else {
+      checkBox.subCheckBoxes?.forEach((element) => {
+        this.setIndividuals(checked, this.getId(element.name));
+      });
+    }
+  }
+
+  setIndividuals(checked: boolean, id: number) {
+    this.domainCheckBoxes.subCheckBoxes?.forEach((element) => {
+      if (this.getId(element.name) == id) {
+        element.completed = checked;
+        if (checked) {
+          this.addId(id);
+        } else {
+          this.removeId(id);
+        }
       }
+    });
+    this.categoryCheckBoxes.subCheckBoxes?.forEach((element) => {
+      element.subCheckBoxes?.forEach((subElement) => {
+        if (this.getId(subElement.name) == id) {
+          subElement.completed = checked;
+          if (checked) {
+            this.addId(id);
+          } else {
+            this.removeId(id);
+          }
+        }
+      });
+      this.someComplete(element);
+      this.allComplete(element);
+    });
+  }
+
+  setAll(event: MatCheckboxChange, checkBox: CheckBox) {
+    this.domainCheckBoxes.completed = event.checked;
+    this.domainCheckBoxes.subCheckBoxes?.forEach((element) => {
+      this.updateCheckBoxes(event, element);
+    });
+
+    this.categoryCheckBoxes.completed = event.checked;
+    this.categoryCheckBoxes.subCheckBoxes?.forEach((element) => {
+      this.updateCheckBoxes(event, element);
+    });
+  }
+
+  getId(name: string): number {
+    let id = -1;
+    this.network.nodes.forEach((element: any) => {
+      if (element.name && element.name == name) {
+        id = element.id;
+      }
+    });
+    return id;
+  }
+
+  addId(id: number) {
+    if (this.ids.indexOf(id) != 1) {
+      this.ids.push(id);
     }
+  }
 
-    removeId(id:number) {
-      this.ids = this.ids.filter(number => number !== id);
-    }
-
-
+  removeId(id: number) {
+    this.ids = this.ids.filter((number) => number !== id);
+  }
 
   changeSelection() {
     this.networkComp.changeSelection(this.ids);
   }
-
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { DataService } from '../data.service';
-import { category_data } from '../network-new/category_data';
+
 
 @Component({
   selector: 'app-information',
@@ -9,7 +10,7 @@ import { category_data } from '../network-new/category_data';
 })
 export class InformationComponent implements OnInit {
 
-  categoryData: any = category_data
+  categoryData: any
 
   node: any
 
@@ -18,12 +19,19 @@ export class InformationComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getSelectedNode().subscribe((node: any) => {
-      if (this.categoryData[node]) {
-        this.node = this.categoryData[node]
-        this.name = node
-      }
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.categoryData = data.category
+      this.dataService.getSelectedNode().subscribe((node: any) => {
+        if (this.categoryData[node]) {
+          this.node = this.categoryData[node]
+          this.name = node
+        } else if (this.categoryData['https://' + node + '/']) {
+          this.node = this.categoryData['https://' + node + '/']
+          this.name = node
+        }
+      })
     })
+
 
   }
 

@@ -17,6 +17,31 @@ body {
   position: absolute;
   width: 100%;
   display: flex;
+  z-index: 200;
+}
+
+.data {
+  position: absolute;
+  top: 30%;
+  font-family: "Merriweather", serif;
+  z-index: 100;
+}
+
+.data li {
+  list-style: none;
+  cursor: pointer;
+  font-size: large;
+  margin-bottom: 5px;
+}
+
+.data ul {
+  margin-left: 0;
+  padding-left: 2px;
+}
+
+.bording {
+  border-bottom: 4px black solid;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 }
 
 .nav a {
@@ -26,7 +51,7 @@ body {
 }
 
 .icon {
-  font-size: 40px;
+  font-size: 25px;
   margin: 10px;
 }
 .wrapper {
