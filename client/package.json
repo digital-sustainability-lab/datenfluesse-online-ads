@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "git checkout gh-pages && git merge main && npm run deploy:build",
+    "deploy": "git checkout gh-pages && git pull && git merge main && npm run deploy:build",
     "deploy:build": "ng build --output-path ../docs --base-href /datenfluesse-online-ads/ && npm run deploy:push",
     "deploy:push": "git add ../docs && git commit -m 'build: prod build' && git push && git checkout main"
   },
