@@ -21,7 +21,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.dataService.getActiveData().subscribe((data: string) => {
       this.active = data
-      debugger
     }
     )
   }

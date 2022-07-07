@@ -168,7 +168,6 @@ export class NetworkNewComponent implements OnInit {
 
     //	ENTER + UPDATE
     this.node = this.node.merge(newNode);
-    debugger
     this.node
       .attr("r", (d: any) => this.getRadius(d))
       .attr("fill", (d: any) => this.getColor(d))
@@ -222,7 +221,6 @@ export class NetworkNewComponent implements OnInit {
 
   getOutline(element: any) {
     let name = element.name
-    debugger
     if (this.categories[name]) {
       return 'transparent'
     }
@@ -234,7 +232,6 @@ export class NetworkNewComponent implements OnInit {
 
   getColor(element: any) {
     let name = element.name
-    debugger
     if (this.categories[name]) {
       const category = this.categories[name].categories[0]
       return this.colors[category]
@@ -246,8 +243,13 @@ export class NetworkNewComponent implements OnInit {
   }
 
   setSelectedNode(node: any) {
-    let name = node.target.__data__.name
-    this.dataService.setSelectedNode(name);
+    debugger
+    if (node.target.__data__.country) {
+      this.dataService.setSelectedNode(node.target.__data__)
+    } else {
+      let name = node.target.__data__.name
+      this.dataService.setSelectedNode(name);
+    }
   }
 
   belongsToGroup(id: any, node: any) {

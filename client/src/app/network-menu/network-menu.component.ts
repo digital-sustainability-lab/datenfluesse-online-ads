@@ -51,11 +51,9 @@ export class NetworkMenuComponent implements OnInit {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
       this.color = data.color
       this.color3p = data.color3p
-      debugger
       this.network = JSON.parse(JSON.stringify(data.network))
       this.domains = data.domain
       this.categories = data.hierarchy.children.slice()
-      debugger
       this.domainCheckBoxes.subCheckBoxes = []
       this.domains.forEach((element: any) => {
         if (this.domainCheckBoxes.subCheckBoxes) {

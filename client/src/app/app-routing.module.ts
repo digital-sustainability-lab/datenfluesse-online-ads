@@ -8,12 +8,9 @@ import { NetworkNewComponent } from './network-new/network-new.component';
 import { PiechartComponent } from './piechart/piechart.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'pie', component: PiechartComponent },
+  { path: '', redirectTo: 'bar', pathMatch: 'full' },
   { path: 'bar', component: HierarchBarComponent },
-  { path: 'bar-chart', component: BarchartComponent },
   { path: 'network', component: NetworkNewComponent },
-  { path: 'test', component: HierarchBarComponent },
 ];
 
 @NgModule({
