@@ -16,16 +16,26 @@ export class InformationComponent implements OnInit {
 
   name: any
 
+  country: any
+
+  domain: any
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
+
       this.categoryData = data.category
       this.dataService.getSelectedNode().subscribe((node: any) => {
-        if (this.categoryData[node]) {
+        debugger
+        if (node.hasOwnProperty('country')) {
+          this.name = node.name
+          this.node = { country: node.country }
+        } else if (this.categoryData[node]) {
           this.node = this.categoryData[node]
           this.name = node
-        } else if (this.categoryData['https://' + node + '/']) {
+        }
+        else if (this.categoryData['https://' + node + '/']) {
           this.node = this.categoryData['https://' + node + '/']
           this.name = node
         }
