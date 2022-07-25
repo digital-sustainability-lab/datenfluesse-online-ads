@@ -27,7 +27,6 @@ export class InformationComponent implements OnInit {
 
       this.categoryData = data.category
       this.dataService.getSelectedNode().subscribe((node: any) => {
-        debugger
         if (node.hasOwnProperty('country')) {
           this.name = node.name
           this.node = { country: node.country }

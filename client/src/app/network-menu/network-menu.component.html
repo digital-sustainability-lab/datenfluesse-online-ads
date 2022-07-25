@@ -1,6 +1,8 @@
 <div class="menuWrapper">
   <mat-card>
     <h2>Menu</h2>
+    <button mat-stroked-button color="basic" [disabled]="backDisabled" id="back" (click)="this.navigateSelection(-1)">< previous selection</button>
+    <button mat-stroked-button color="basic" [disabled]="forwardDisabled" id="forward" (click)="this.navigateSelection(1)">next selection ></button>
   </mat-card>
 
   <hr />

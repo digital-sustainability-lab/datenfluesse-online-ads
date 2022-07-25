@@ -44,6 +44,8 @@ export class NetworkMenuComponent implements OnInit {
   color: any
   color3p: any
   categories: any; // makes categories not reference the category data
+  backDisabled: any;
+  forwardDisabled: any;
 
   constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
 
@@ -64,6 +66,8 @@ export class NetworkMenuComponent implements OnInit {
           });
         }
       });
+      this.backDisabled = true;
+      this.forwardDisabled = true;
     })
 
 
@@ -200,5 +204,26 @@ export class NetworkMenuComponent implements OnInit {
 
   changeSelection() {
     this.networkComp.changeSelection(this.ids);
+    this.handleDisability();
+  }
+
+  navigateSelection(direction:number) {
+    this.networkComp.navigateSelection(direction);
+    this.handleDisability();
+  }
+
+  handleDisability() {
+    let index = this.networkComp.historyIndex;
+    let length = this.networkComp.history.length;
+    if (index + 1 == length) {
+      this.forwardDisabled = true;
+    } else {
+      this.forwardDisabled = false;
+    }
+    if (index == 0) {
+      this.backDisabled = true;
+    } else {
+      this.backDisabled = false;
+    } 
   }
 }
