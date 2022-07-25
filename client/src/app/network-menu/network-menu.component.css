@@ -33,3 +33,7 @@ hr {
   max-height: 50vh;
   overflow: auto;
 }
+
+.mat-stroked-button {
+  margin-right: 5px;
+}

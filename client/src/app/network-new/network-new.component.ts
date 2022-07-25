@@ -7,6 +7,7 @@ import { DataService } from '../data.service';
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-network-new',
   templateUrl: './network-new.component.html',
@@ -49,7 +50,7 @@ export class NetworkNewComponent implements OnInit {
 
   text_element: any
 
-  historyIndex = -1
+  historyIndex = 0
 
   color3p: any
 
@@ -65,7 +66,12 @@ export class NetworkNewComponent implements OnInit {
       this.domain = JSON.parse(JSON.stringify(data.domain))
       this.colors = data.color
       this.color3p = data.color3p
-      this.update(this.data)
+      this.update(this.data);
+      let value:number[] = [];
+      this.data.links.forEach((element: { target: any; }) => {
+        value.push(element.target.id);
+      });
+      this.history.push(value);
     })
     // this.initNodeList()
 
@@ -73,13 +79,37 @@ export class NetworkNewComponent implements OnInit {
   }
 
   changeSelection(value: number[]) {
-    this.filterById(value)
+    this.filterById(value);
     this.update(this.data)
+    this.updateHistory(value.slice());
+  }
+
+  navigateSelection(direction:number) {
+    this.historyIndex += direction;
+    console.log('going to index: ' + this.historyIndex);
+    this.filterById(this.history[this.historyIndex]);
+    this.update(this.data);
   }
 
   updateHistory(data: any) {
-    this.history.push(data)
-    this.historyIndex += 1
+    if(!this.idsAreSame(data, this.history[this.historyIndex])) {
+      this.history = this.history.slice(0, this.historyIndex + 1);
+      this.history.push(data);
+      this.historyIndex += 1;
+    }
+  }
+
+  idsAreSame(newData: number[], currentData: number[]):boolean {
+    let same = true;
+    if(newData.length == currentData.length) {
+      for(let i = 0; i < newData.length; i++) {
+        if(newData[i] != currentData[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return false;
   }
 
   initNodeList() {
@@ -129,7 +159,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   update(data: any) {
-    // this.updateHistory(JSON.parse(JSON.stringify(data)))
     //	UPDATE
     this.link = this.link.data(data.links, function (d: any) { return d.id; });
     //	EXIT
@@ -243,7 +272,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   setSelectedNode(node: any) {
-    debugger
     if (node.target.__data__.country) {
       this.dataService.setSelectedNode(node.target.__data__)
     } else {
@@ -310,23 +338,6 @@ export class NetworkNewComponent implements OnInit {
       links = links.filter((element: any) => element.id != link.id)
     }
     return links
-  }
-
-  action(event: any) {
-    if (event == 'forward') {
-      if (this.historyIndex != this.history.length) {
-        this.update(this.history[this.historyIndex + 1])
-      }
-    }
-    if (event == 'backward') {
-
-      if (this.historyIndex != 0) {
-        this.update(this.history[this.historyIndex - 1])
-      }
-    }
-    if (event == 'reset') {
-      this.update(this.alldata)
-    }
   }
 
   filterLinks(id: number[]) {
