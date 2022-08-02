@@ -67,14 +67,7 @@ export class NetworkNewComponent implements OnInit {
       this.data.links.forEach((element: { target: any }) => {
         value.push(element.target.id);
       });
-      debugger;
-      this.history.push({
-        ids: value,
-        data: { ...this.data },
-        links: this.link,
-        nodes: this.node,
-        text_element: this.text_element,
-      });
+      this.updateHistory();
     });
     // this.initNodeList()
   }
@@ -82,35 +75,58 @@ export class NetworkNewComponent implements OnInit {
   changeSelection(value: number[]) {
     this.filterById(value);
     this.update(this.data);
-    this.updateHistory(value.slice());
+    this.updateHistory();
   }
 
   navigateSelection(direction: number) {
     this.historyIndex += direction;
     console.log('going to index: ' + this.historyIndex);
-    // this.filterById(this.history[this.historyIndex].ids);
-    this.updateByNavigation(this.history[this.historyIndex]);
+    //this.filterById(this.history[this.historyIndex].ids);
+    this.update(this.history[this.historyIndex].data);
   }
 
-  updateHistory(data: any) {
-    if (!this.idsAreSame(data, this.history[this.historyIndex].ids)) {
+  formatData(data:any):any {
+    var formatLinks: any[] = [];
+    var formatNodes: any[] = [];
+
+    data.links.forEach((link: any) => {
+      var tempLink:any = {
+        id: link.id,
+        source: link.source.id,
+        target: link.target.id,
+      };
+      if (link.name) tempLink.name = link.name;
+      formatLinks.push(tempLink); 
+    });
+    data.nodes.forEach((node: any) => {
+      var tempNode:any = {
+        id: node.id,
+        name: node.name,
+        country: node.country,
+        count: node.count
+      }
+      formatNodes.push(tempNode);
+    });
+
+    return {links:formatLinks, nodes:formatNodes};
+  }
+
+  updateHistory() {
+    var newNodes = this.formatData(this.data).nodes
+    if (this.historyIndex == 0 || !this.nodesAreSame(newNodes, this.history[this.historyIndex].data.nodes)) {
       this.history = this.history.slice(0, this.historyIndex + 1);
       this.history.push({
-        ids: data,
-        data: { ...this.data },
-        links: this.link,
-        nodes: this.node,
-        text_element: this.text_element,
+        data: this.formatData(this.data)
       });
-      this.historyIndex += 1;
+      this.historyIndex = this.history.length - 1;
     }
   }
 
-  idsAreSame(newData: number[], currentData: number[]): boolean {
+  nodesAreSame(newNodes:any, currentNodes:any): boolean {
     let same = true;
-    if (newData.length == currentData.length) {
-      for (let i = 0; i < newData.length; i++) {
-        if (newData[i] != currentData[i]) {
+    if (newNodes.length == currentNodes.length) {
+      for (let i = 0; i < newNodes.length; i++) {
+        if (newNodes[i].id != currentNodes[i].id) {
           return false;
         }
       }
@@ -152,129 +168,52 @@ export class NetworkNewComponent implements OnInit {
           this.svg.attr('transform', event.transform);
         }))
       .append('g');
+      
     this.link = this.svg.append('g').selectAll('.link');
     this.node = this.svg.append('g').selectAll('.nodes');
     this.text_element = this.svg.append('g').selectAll('text');
 
     this.simulation = d3
       .forceSimulation()
-      .force(
-        'link',
-        d3
-          .forceLink()
+      .force('link', d3.forceLink()
           .distance(500)
-          .id(function (d: any) {
-            return d.id;
-          })
-      )
-      .force(
-        'charge',
-        d3.forceManyBody().strength(function (d: any) {
-          return -500;
-        })
-      )
+          .id(function (d: any) {return d.id;}))
+      .force('charge',d3.forceManyBody()
+        .strength(function (d: any) { return -500; }))
       .force('center', d3.forceCenter(this.width / 2, this.height / 2));
   }
 
-  updateByNavigation(history: any) {
-    debugger;
-    this.link = history.links;
-    this.node = history.nodes;
-    this.text_element = history.text_element;
-    this.data = history.data;
-
-    this.link.exit().remove();
-    let newLink = this.link
-      .enter()
-      .append('line')
-      .attr('class', 'link')
-      .style('stroke', '#aaa')
-      .style('stroke-width', '1');
-    newLink.append('title').text(function (d: any) {
-      return 'source: ' + d.source + '\n' + 'target: ' + d.target;
-    });
-    this.link = this.link.merge(newLink);
-
-    this.node.exit().remove();
-    var newNode = this.node.enter().append('circle').attr('class', 'node');
-
-    this.text_element.exit().remove();
-    let newText = this.text_element
-      .enter()
-      .append('text')
-      .text((node: any) => {
-        return node.name;
-      });
-    this.text_element = this.text_element.merge(newText);
-
-    this.styleNodes(newNode);
-
-    this.simulation
-      .nodes(history.data.nodes)
-      .on('tick', this.ticked.bind(this));
-    this.simulation.force('link').links(history.data.links);
-    this.simulation.alpha(1).alphaTarget(0).restart();
-  }
-
   update(data: any) {
-    //	UPDATE
+
+    // update links
     this.link = this.link.data(data.links, function (d: any) {
       return d.id;
-    });
-    //	EXIT
-    this.link.exit().remove();
-    //	ENTER
-    let newLink = this.link
-      .enter()
-      .append('line')
-      .attr('class', 'link')
-      .style('stroke', '#aaa')
-      .style('stroke-width', '1');
+    }).join('line')
 
-    newLink.append('title').text(function (d: any) {
-      return 'source: ' + d.source + '\n' + 'target: ' + d.target;
-    });
-    //	ENTER + UPDATE
-    this.link = this.link.merge(newLink);
+    this.link
+    .style('stroke', '#aaa')
+    .style('stroke-width', '1')
+    .style('opacity', 1);
 
-    //	UPDATE
+    // update nodes
     this.node = this.node.data(data.nodes, function (d: any) {
       return d.id;
-    });
+    }).join('circle');
 
-    //	EXIT
-    this.node.exit().remove();
-
-    var newNode = this.node.enter().append('circle').attr('class', 'node');
-
+    // update text_elements
     this.text_element = this.text_element.data(data.nodes, function (d: any) {
       return d.id;
-    });
+    }).join('text').text((node:any) => node.name);
 
-    this.text_element.exit().remove();
-    //	ENTER
-    let newText = this.text_element
-      .enter()
-      .append('text')
-      .text((node: any) => {
-        return node.name;
-      });
+    this.styleNodes();
 
-    this.text_element = this.text_element.merge(newText);
-
-    //	ENTER + UPDATE
-    this.styleNodes(newNode);
-
-    // this.node.style('fill', 'black')
-    //	update simulation nodes, links, and alpha
+    //	update update simulation
     this.simulation.nodes(data.nodes).on('tick', this.ticked.bind(this));
     this.simulation.force('link').links(data.links);
     this.simulation.alpha(1).alphaTarget(0).restart();
-    this.data = data;
   }
 
-  private styleNodes(newNode: any) {
-    this.node = this.node.merge(newNode);
+  private styleNodes() {
     this.node
       .attr('r', (d: any) => this.getRadius(d))
       .attr('fill', (d: any) => this.getColor(d))
@@ -408,34 +347,31 @@ export class NetworkNewComponent implements OnInit {
       });
   }
 
-  filterById(id: number[]) {
-    this.filterLinks(id);
-    this.filterNodes(this.data.links);
-  }
-
   selectNode(event: any) {
+    debugger;
     let id = event.target.__data__.id;
     let linksToAdd = JSON.parse(JSON.stringify(this.alldata.links)).filter(
       (link: any) => link.source == id || link.target == id
     );
     linksToAdd = this.filterExistingLinks(linksToAdd);
     this.data.links.push(...linksToAdd);
+
     const ids = linksToAdd.flatMap((el: any) => {
       return [el.target, el.source];
     });
 
     let nodesToAdd = this.alldata.nodes.filter((node: any) => {
-      if (ids.includes(node.id)) return true;
-      return false;
+      return ids.includes(node.id);
     });
+
+    nodesToAdd = this.filterExistingNodes(nodesToAdd);
+    
     this.data.nodes.push(...nodesToAdd);
+    
     this.update(this.data);
+    this.updateHistory();
     // TODO history doesn't work for the navigation
-    let value: number[] = this.history[this.historyIndex].ids;
-    nodesToAdd.forEach((element: { id: number }) => {
-      value.push(element.id);
-    });
-    this.updateHistory(value);
+    // let value: number[] = this.history[this.historyIndex].ids;
   }
 
   filterExistingLinks(links: any) {
@@ -443,6 +379,18 @@ export class NetworkNewComponent implements OnInit {
       links = links.filter((element: any) => element.id != link.id);
     }
     return links;
+  }
+
+  filterExistingNodes(nodes: any) {
+    for (let node of this.data.nodes) {
+      nodes = nodes.filter((element: any) => element.id != node.id);
+    }
+    return nodes;
+  }
+
+  filterById(id: number[]) {
+    this.filterLinks(id);
+    this.filterNodes(this.data.links);
   }
 
   filterLinks(id: number[]) {
