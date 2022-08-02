@@ -37,3 +37,9 @@ hr {
 .mat-stroked-button {
   margin-right: 5px;
 }
+
+.mat-expansion-panel {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
