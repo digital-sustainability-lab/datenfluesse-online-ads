@@ -50,6 +50,8 @@
                   [color]="subCheckBox.color"
                   (change)="updateCheckBoxes($event, subCheckBox)"
                   (click)="$event.stopPropagation()"
+                  [id]="subCheckBox.name"
+                  [checked]="subCheckBox.completed"
                 >
                   {{ subCheckBox.name }}
                 </mat-checkbox>

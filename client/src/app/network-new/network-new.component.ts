@@ -7,6 +7,7 @@ import { DataService } from '../data.service';
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { NetworkService } from '../services/network.service';
 
 @Component({
   selector: 'app-network-new',
@@ -56,7 +57,10 @@ export class NetworkNewComponent implements OnInit {
 
   historyNew: number[][] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private networkService: NetworkService
+  ) {}
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
@@ -75,19 +79,10 @@ export class NetworkNewComponent implements OnInit {
       this.update(this.data);
       //todo
     });
-    // this.initNodeList()
   }
-
-  // changeSelection(value: number[]) {
-  //   this.filterById(value);
-  //   this.update(this.data);
-  //   this.updateHistory([]);
-  // }
 
   navigateSelection(direction: number) {
     this.historyIndex += direction;
-    // console.log('going to index: ' + this.historyIndex);
-    // console.log(this.historyNew[this.historyIndex]);
     this.currentIds.next(this.historyNew[this.historyIndex]);
   }
 
@@ -382,30 +377,15 @@ export class NetworkNewComponent implements OnInit {
   }
 
   selectNode(event: any) {
+    console.log(event);
+    let name = event.target.__data__.name;
     let id = event.target.__data__.id;
     this.selectionChanged([...this.currentIds.value, id]);
-    // let linksToAdd = this.alldata.links.filter(
-    //   (link: any) => link.source == id || link.target == id
-    // );
-    // linksToAdd = this.filterExistingLinks(linksToAdd);
-    // this.data.links.push(...linksToAdd);
-
-    // const ids = linksToAdd.flatMap((el: any) => {
-    //   return [el.target, el.source];
-    // });
-
-    // let nodesToAdd = this.alldata.nodes.filter((node: any) => {
-    //   return ids.includes(node.id);
-    // });
-
-    // nodesToAdd = this.filterExistingNodes(nodesToAdd);
-
-    // this.data.nodes.push(...nodesToAdd);
-
-    // this.update(this.data);
-    // this.updateHistory([]);
-    // TODO history doesn't work for the navigation
-    // let value: number[] = this.history[this.historyIndex].ids;
+    this.networkService.handleDisability(
+      this.historyIndex,
+      this.historyNew.length
+    );
+    this.networkService.updateCheckBox(name);
   }
 
   filterExistingLinks(links: any) {
@@ -448,7 +428,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   getRadius(d: any) {
-    //return d.count / 2 + 5;
     return d.count + 5;
   }
 
@@ -456,7 +435,5 @@ export class NetworkNewComponent implements OnInit {
     console.log(ids);
     this.updateHistory(ids);
     this.currentIds.next(ids);
-    //update
-    //updateHistory
   }
 }

@@ -10,6 +10,7 @@ import { example } from '../hierarch-bar/example';
 import { index } from 'd3';
 import { CheckboxControlValueAccessor } from '@angular/forms';
 import { elementAt } from 'rxjs';
+import { NetworkService } from '../services/network.service';
 
 export interface CheckBox {
   name: string;
@@ -43,11 +44,13 @@ export class NetworkMenuComponent implements OnInit {
 
   constructor(
     private networkComp: NetworkNewComponent,
-    private dataService: DataService
+    private dataService: DataService,
+    private networkService: NetworkService
   ) {}
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      console.log(data);
       this.color = data.color;
       this.color3p = data.color3p;
       this.network = JSON.parse(JSON.stringify(data.network));
@@ -66,6 +69,21 @@ export class NetworkMenuComponent implements OnInit {
       this.forwardDisabled = true;
       this.setAll(<MatCheckboxChange>{ checked: true });
       this.selectionChanged.emit(this.ids);
+    });
+    this.networkService.navigationDisabled.subscribe((navDis) => {
+      this.backDisabled = navDis.backDisabled;
+      this.forwardDisabled = navDis.forwardDisabled;
+    });
+    this.networkService.checkBoxUpdate.subscribe((checkBoxName) => {
+      const element = this.domainCheckBoxes.subCheckBoxes?.find(
+        (subCheckBox: CheckBox) => {
+          return subCheckBox.name === checkBoxName;
+        }
+      );
+      if (element) {
+        element.completed = true;
+        this.addId(this.getId(element.name));
+      }
     });
   }
 
@@ -148,26 +166,21 @@ export class NetworkMenuComponent implements OnInit {
   changeSelection() {
     this.selectionChanged.emit(this.ids);
     //this.networkComp.changeSelection(this.ids);
-    this.handleDisability();
+    this.networkService.handleDisability(
+      this.networkComp.historyIndex,
+      this.networkComp.historyNew.length
+    );
   }
 
   navigateSelection(direction: number) {
+    // @ts-ignore
+    let checkboxChecked = document.getElementById('facebook.com')['checked'];
+    console.log(checkboxChecked);
+    // checkboxChecked = !checkboxChecked;
     this.networkComp.navigateSelection(direction);
-    this.handleDisability();
-  }
-
-  handleDisability() {
-    let index = this.networkComp.historyIndex;
-    let length = this.networkComp.historyNew.length;
-    if (index + 1 == length) {
-      this.forwardDisabled = true;
-    } else {
-      this.forwardDisabled = false;
-    }
-    if (index == 0) {
-      this.backDisabled = true;
-    } else {
-      this.backDisabled = false;
-    }
+    this.networkService.handleDisability(
+      this.networkComp.historyIndex,
+      this.networkComp.historyNew.length
+    );
   }
 }
