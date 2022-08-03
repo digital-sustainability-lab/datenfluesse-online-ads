@@ -63,10 +63,6 @@ export class NetworkNewComponent implements OnInit {
       this.colors = data.color;
       this.color3p = data.color3p;
       this.update(this.data);
-      let value: number[] = [];
-      this.data.links.forEach((element: { target: any }) => {
-        value.push(element.target.id);
-      });
       this.updateHistory();
     });
     // this.initNodeList()
@@ -85,48 +81,52 @@ export class NetworkNewComponent implements OnInit {
     this.update(this.history[this.historyIndex].data);
   }
 
-  formatData(data:any):any {
+  formatData(data: any): any {
     var formatLinks: any[] = [];
     var formatNodes: any[] = [];
 
     data.links.forEach((link: any) => {
-      var tempLink:any = {
+      var tempLink: any = {
         id: link.id,
         source: link.source.id,
         target: link.target.id,
       };
       if (link.name) tempLink.name = link.name;
-      formatLinks.push(tempLink); 
+      formatLinks.push(tempLink);
     });
     data.nodes.forEach((node: any) => {
-      var tempNode:any = {
+      var tempNode: any = {
         id: node.id,
         name: node.name,
         country: node.country,
-        count: node.count
-      }
+        count: node.count,
+      };
       formatNodes.push(tempNode);
     });
 
-    return {links:formatLinks, nodes:formatNodes};
+    return { links: formatLinks, nodes: formatNodes };
   }
 
   updateHistory() {
-    var newNodes = this.formatData(this.data).nodes
-    if (this.historyIndex == 0 || !this.nodesAreSame(newNodes, this.history[this.historyIndex].data.nodes)) {
+    var newNodes = this.formatData(this.data).nodes;
+    if (
+      this.historyIndex == 0 ||
+      !this.nodesAreSame(newNodes, this.history[this.historyIndex].data.nodes)
+    ) {
       this.history = this.history.slice(0, this.historyIndex + 1);
       this.history.push({
-        data: this.formatData(this.data)
+        data: this.formatData(this.data),
       });
       this.historyIndex = this.history.length - 1;
     }
   }
 
-  nodesAreSame(newNodes:any, currentNodes:any): boolean {
-    let same = true;
-    if (newNodes.length == currentNodes.length) {
-      for (let i = 0; i < newNodes.length; i++) {
-        if (newNodes[i].id != currentNodes[i].id) {
+  nodesAreSame(newNodes: any, currentNodes: any): boolean {
+    const newIds = newNodes.map((node: any) => node.id);
+    const currentIds = currentNodes.map((node: any) => node.id);
+    if (newIds.length == currentIds.length) {
+      for (const id of newIds) {
+        if (!currentIds.includes(id)) {
           return false;
         }
       }
@@ -168,42 +168,53 @@ export class NetworkNewComponent implements OnInit {
           this.svg.attr('transform', event.transform);
         }))
       .append('g');
-      
+
     this.link = this.svg.append('g').selectAll('.link');
     this.node = this.svg.append('g').selectAll('.nodes');
     this.text_element = this.svg.append('g').selectAll('text');
 
     this.simulation = d3
       .forceSimulation()
-      .force('link', d3.forceLink()
+      .force(
+        'link',
+        d3
+          .forceLink()
           .distance(500)
-          .id(function (d: any) {return d.id;}))
-      .force('charge',d3.forceManyBody()
-        .strength(function (d: any) { return -500; }))
+          .id(function (d: any) {
+            return d.id;
+          })
+      )
+      .force(
+        'charge',
+        d3.forceManyBody().strength(function (d: any) {
+          return -500;
+        })
+      )
       .force('center', d3.forceCenter(this.width / 2, this.height / 2));
   }
 
   update(data: any) {
-
     // update links
-    this.link = this.link.data(data.links, function (d: any) {
-      return d.id;
-    }).join('line')
-
-    this.link
-    .style('stroke', '#aaa')
-    .style('stroke-width', '1')
-    .style('opacity', 1);
+    this.link = this.link
+      .data(data.links, function (d: any) {
+        return d.id;
+      })
+      .join('line');
 
     // update nodes
-    this.node = this.node.data(data.nodes, function (d: any) {
-      return d.id;
-    }).join('circle');
+    this.node = this.node
+      .data(data.nodes, function (d: any) {
+        return d.id;
+      })
+      .join('circle');
 
     // update text_elements
-    this.text_element = this.text_element.data(data.nodes, function (d: any) {
-      return d.id;
-    }).join('text').text((node:any) => node.name);
+    this.text_element = this.text_element
+      .data(data.nodes, function (d: any) {
+        return d.id;
+      })
+      .join('text')
+      .text((node: any) => node.name);
 
     this.styleNodes();
 
@@ -214,6 +225,10 @@ export class NetworkNewComponent implements OnInit {
   }
 
   private styleNodes() {
+    this.link
+      .style('stroke', '#aaa')
+      .style('stroke-width', '1')
+      .style('opacity', 1);
     this.node
       .attr('r', (d: any) => this.getRadius(d))
       .attr('fill', (d: any) => this.getColor(d))
@@ -365,9 +380,9 @@ export class NetworkNewComponent implements OnInit {
     });
 
     nodesToAdd = this.filterExistingNodes(nodesToAdd);
-    
+
     this.data.nodes.push(...nodesToAdd);
-    
+
     this.update(this.data);
     this.updateHistory();
     // TODO history doesn't work for the navigation
