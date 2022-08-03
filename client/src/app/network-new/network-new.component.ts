@@ -6,6 +6,7 @@ import { DataService } from '../data.service';
 
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-network-new',
@@ -51,6 +52,10 @@ export class NetworkNewComponent implements OnInit {
 
   color3p: any;
 
+  currentIds: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
+
+  historyNew: number[][] = [];
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -62,31 +67,36 @@ export class NetworkNewComponent implements OnInit {
       this.domain = JSON.parse(JSON.stringify(data.domain));
       this.colors = data.color;
       this.color3p = data.color3p;
+    });
+
+    this.currentIds.subscribe((ids) => {
+      if (ids.length === 0) return;
+      this.filterById(ids);
       this.update(this.data);
-      this.updateHistory();
+      //todo
     });
     // this.initNodeList()
   }
 
-  changeSelection(value: number[]) {
-    this.filterById(value);
-    this.update(this.data);
-    this.updateHistory();
-  }
+  // changeSelection(value: number[]) {
+  //   this.filterById(value);
+  //   this.update(this.data);
+  //   this.updateHistory([]);
+  // }
 
   navigateSelection(direction: number) {
     this.historyIndex += direction;
-    console.log('going to index: ' + this.historyIndex);
-    //this.filterById(this.history[this.historyIndex].ids);
-    this.update(this.history[this.historyIndex].data);
+    // console.log('going to index: ' + this.historyIndex);
+    // console.log(this.historyNew[this.historyIndex]);
+    this.currentIds.next(this.historyNew[this.historyIndex]);
   }
 
   formatData(data: any): any {
-    var formatLinks: any[] = [];
-    var formatNodes: any[] = [];
+    let formatLinks: any[] = [];
+    let formatNodes: any[] = [];
 
     data.links.forEach((link: any) => {
-      var tempLink: any = {
+      let tempLink: any = {
         id: link.id,
         source: link.source.id,
         target: link.target.id,
@@ -107,18 +117,27 @@ export class NetworkNewComponent implements OnInit {
     return { links: formatLinks, nodes: formatNodes };
   }
 
-  updateHistory() {
-    var newNodes = this.formatData(this.data).nodes;
+  updateHistory(ids: number[]) {
     if (
-      this.historyIndex == 0 ||
-      !this.nodesAreSame(newNodes, this.history[this.historyIndex].data.nodes)
+      this.historyNew.length === 0 ||
+      !this.idsAreSame(ids, this.historyNew[this.historyIndex])
     ) {
-      this.history = this.history.slice(0, this.historyIndex + 1);
-      this.history.push({
-        data: this.formatData(this.data),
-      });
-      this.historyIndex = this.history.length - 1;
+      this.historyNew = this.historyNew.slice(0, this.historyIndex + 1);
+      this.historyNew.push([...ids]);
+      this.historyIndex = this.historyNew.length - 1;
     }
+  }
+
+  private idsAreSame(newIds: number[], currentIds: number[]): boolean {
+    if (newIds.length == currentIds.length) {
+      for (const id of newIds) {
+        if (!currentIds.includes(id)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return false;
   }
 
   nodesAreSame(newNodes: any, currentNodes: any): boolean {
@@ -363,28 +382,28 @@ export class NetworkNewComponent implements OnInit {
   }
 
   selectNode(event: any) {
-    debugger;
     let id = event.target.__data__.id;
-    let linksToAdd = JSON.parse(JSON.stringify(this.alldata.links)).filter(
-      (link: any) => link.source == id || link.target == id
-    );
-    linksToAdd = this.filterExistingLinks(linksToAdd);
-    this.data.links.push(...linksToAdd);
+    this.selectionChanged([...this.currentIds.value, id]);
+    // let linksToAdd = this.alldata.links.filter(
+    //   (link: any) => link.source == id || link.target == id
+    // );
+    // linksToAdd = this.filterExistingLinks(linksToAdd);
+    // this.data.links.push(...linksToAdd);
 
-    const ids = linksToAdd.flatMap((el: any) => {
-      return [el.target, el.source];
-    });
+    // const ids = linksToAdd.flatMap((el: any) => {
+    //   return [el.target, el.source];
+    // });
 
-    let nodesToAdd = this.alldata.nodes.filter((node: any) => {
-      return ids.includes(node.id);
-    });
+    // let nodesToAdd = this.alldata.nodes.filter((node: any) => {
+    //   return ids.includes(node.id);
+    // });
 
-    nodesToAdd = this.filterExistingNodes(nodesToAdd);
+    // nodesToAdd = this.filterExistingNodes(nodesToAdd);
 
-    this.data.nodes.push(...nodesToAdd);
+    // this.data.nodes.push(...nodesToAdd);
 
-    this.update(this.data);
-    this.updateHistory();
+    // this.update(this.data);
+    // this.updateHistory([]);
     // TODO history doesn't work for the navigation
     // let value: number[] = this.history[this.historyIndex].ids;
   }
@@ -431,5 +450,13 @@ export class NetworkNewComponent implements OnInit {
   getRadius(d: any) {
     //return d.count / 2 + 5;
     return d.count + 5;
+  }
+
+  selectionChanged(ids: any) {
+    console.log(ids);
+    this.updateHistory(ids);
+    this.currentIds.next(ids);
+    //update
+    //updateHistory
   }
 }

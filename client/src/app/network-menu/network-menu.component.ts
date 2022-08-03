@@ -24,6 +24,8 @@ export interface CheckBox {
   styleUrls: ['./network-menu.component.css'],
 })
 export class NetworkMenuComponent implements OnInit {
+  @Output('selectionChanged') selectionChanged = new EventEmitter();
+
   domainCheckBoxes: CheckBox = {
     name: 'all',
     completed: false,
@@ -31,80 +33,40 @@ export class NetworkMenuComponent implements OnInit {
     subCheckBoxes: [],
   };
 
-  categoryCheckBoxes: CheckBox = {
-    name: 'all',
-    completed: false,
-    color: 'primary',
-    subCheckBoxes: [],
-  };
-
-  domains: any
+  domains: any;
   ids: number[] = [];
-  network: any
-  color: any
-  color3p: any
-  categories: any; // makes categories not reference the category data
+  network: any;
+  color: any;
+  color3p: any;
   backDisabled: any;
   forwardDisabled: any;
 
-  constructor(private networkComp: NetworkNewComponent, private dataService: DataService) { }
+  constructor(
+    private networkComp: NetworkNewComponent,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
-      this.color = data.color
-      this.color3p = data.color3p
-      this.network = JSON.parse(JSON.stringify(data.network))
-      this.domains = data.domain
-      this.categories = data.hierarchy.children.slice()
-      this.domainCheckBoxes.subCheckBoxes = []
+      this.color = data.color;
+      this.color3p = data.color3p;
+      this.network = JSON.parse(JSON.stringify(data.network));
+      this.domains = data.domain;
+      this.domainCheckBoxes.subCheckBoxes = [];
       this.domains.forEach((element: any) => {
         if (this.domainCheckBoxes.subCheckBoxes) {
           this.domainCheckBoxes.subCheckBoxes.push({
             name: element.name,
-            completed: false,
+            completed: true,
             color: 'primary',
           });
         }
       });
       this.backDisabled = true;
       this.forwardDisabled = true;
-    })
-
-
-
-
-    this.categories.shift();
-    if (this.categories) {
-      let noCat = this.domainCheckBoxes.subCheckBoxes?.slice();
-      this.categories.forEach((element: any) => {
-        if (this.categoryCheckBoxes.subCheckBoxes) {
-          let subChildren: CheckBox[] = [];
-          element.children.forEach((subElement: any) => {
-            subChildren.push({
-              name: subElement.name,
-              completed: false,
-              color: 'primary',
-            });
-            if (noCat) {
-              noCat = noCat.filter((t) => t.name != subElement.name);
-            }
-          });
-          this.categoryCheckBoxes.subCheckBoxes.push({
-            name: element.name,
-            completed: false,
-            color: 'primary',
-            subCheckBoxes: subChildren,
-          });
-        }
-      });
-      // adding in categoryless domains
-      this.categoryCheckBoxes.subCheckBoxes?.push({
-        name: 'No Category',
-        completed: false,
-        color: 'primary',
-        subCheckBoxes: noCat,
-      });
-    }
+      this.setAll(<MatCheckboxChange>{ checked: true });
+      this.selectionChanged.emit(this.ids);
+    });
   }
 
   someComplete(checkBox: CheckBox): boolean {
@@ -154,30 +116,11 @@ export class NetworkMenuComponent implements OnInit {
         }
       }
     });
-    this.categoryCheckBoxes.subCheckBoxes?.forEach((element) => {
-      element.subCheckBoxes?.forEach((subElement) => {
-        if (this.getId(subElement.name) == id) {
-          subElement.completed = checked;
-          if (checked) {
-            this.addId(id);
-          } else {
-            this.removeId(id);
-          }
-        }
-      });
-      this.someComplete(element);
-      this.allComplete(element);
-    });
   }
 
-  setAll(event: MatCheckboxChange, checkBox: CheckBox) {
+  setAll(event: MatCheckboxChange) {
     this.domainCheckBoxes.completed = event.checked;
     this.domainCheckBoxes.subCheckBoxes?.forEach((element) => {
-      this.updateCheckBoxes(event, element);
-    });
-
-    this.categoryCheckBoxes.completed = event.checked;
-    this.categoryCheckBoxes.subCheckBoxes?.forEach((element) => {
       this.updateCheckBoxes(event, element);
     });
   }
@@ -193,28 +136,29 @@ export class NetworkMenuComponent implements OnInit {
   }
 
   addId(id: number) {
-    if (this.ids.indexOf(id) != 1) {
+    if (!this.ids.includes(id)) {
       this.ids.push(id);
     }
   }
 
-  removeId(id: number) {
-    this.ids = this.ids.filter((number) => number !== id);
+  removeId(idToRemove: number) {
+    this.ids = this.ids.filter((id) => id !== idToRemove);
   }
 
   changeSelection() {
-    this.networkComp.changeSelection(this.ids);
+    this.selectionChanged.emit(this.ids);
+    //this.networkComp.changeSelection(this.ids);
     this.handleDisability();
   }
 
-  navigateSelection(direction:number) {
+  navigateSelection(direction: number) {
     this.networkComp.navigateSelection(direction);
     this.handleDisability();
   }
 
   handleDisability() {
     let index = this.networkComp.historyIndex;
-    let length = this.networkComp.history.length;
+    let length = this.networkComp.historyNew.length;
     if (index + 1 == length) {
       this.forwardDisabled = true;
     } else {
@@ -224,6 +168,6 @@ export class NetworkMenuComponent implements OnInit {
       this.backDisabled = true;
     } else {
       this.backDisabled = false;
-    } 
+    }
   }
 }
