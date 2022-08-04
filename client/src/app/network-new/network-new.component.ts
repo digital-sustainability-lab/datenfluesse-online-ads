@@ -75,7 +75,9 @@ export class NetworkNewComponent implements OnInit {
 
     this.currentIds.subscribe((ids) => {
       if (ids.length === 0) return;
-      this.filterById(ids);
+      this.data = this.filterById(ids);
+      let checkBoxNames = this.getNames(this.data);
+      this.networkService.updateCheckBox(checkBoxNames);
       this.update(this.data);
       //todo
     });
@@ -86,36 +88,11 @@ export class NetworkNewComponent implements OnInit {
     this.currentIds.next(this.historyNew[this.historyIndex]);
   }
 
-  formatData(data: any): any {
-    let formatLinks: any[] = [];
-    let formatNodes: any[] = [];
-
-    data.links.forEach((link: any) => {
-      let tempLink: any = {
-        id: link.id,
-        source: link.source.id,
-        target: link.target.id,
-      };
-      if (link.name) tempLink.name = link.name;
-      formatLinks.push(tempLink);
-    });
-    data.nodes.forEach((node: any) => {
-      var tempNode: any = {
-        id: node.id,
-        name: node.name,
-        country: node.country,
-        count: node.count,
-      };
-      formatNodes.push(tempNode);
-    });
-
-    return { links: formatLinks, nodes: formatNodes };
-  }
-
   updateHistory(ids: number[]) {
+    const idsSet = new Set(ids);
     if (
       this.historyNew.length === 0 ||
-      !this.idsAreSame(ids, this.historyNew[this.historyIndex])
+      !this.dataIsSame(idsSet, this.historyNew[this.historyIndex])
     ) {
       this.historyNew = this.historyNew.slice(0, this.historyIndex + 1);
       this.historyNew.push([...ids]);
@@ -123,42 +100,16 @@ export class NetworkNewComponent implements OnInit {
     }
   }
 
-  private idsAreSame(newIds: number[], currentIds: number[]): boolean {
-    if (newIds.length == currentIds.length) {
-      for (const id of newIds) {
-        if (!currentIds.includes(id)) {
-          return false;
-        }
+  private dataIsSame(newIds: any, currentIds: any): boolean {
+    let newData = this.filterById([...newIds]);
+    let currentData = this.filterById(currentIds);
+    if (newData.nodes.length === currentData.nodes.length) {
+      for (let newNode of newData.nodes) {
+        if (!currentData.nodes.includes(newNode)) return false;
       }
       return true;
     }
     return false;
-  }
-
-  nodesAreSame(newNodes: any, currentNodes: any): boolean {
-    const newIds = newNodes.map((node: any) => node.id);
-    const currentIds = currentNodes.map((node: any) => node.id);
-    if (newIds.length == currentIds.length) {
-      for (const id of newIds) {
-        if (!currentIds.includes(id)) {
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
-  }
-
-  initNodeList() {
-    this.alldata.nodes.forEach((node: any) => {
-      if (node.name) {
-        this.nodeList.push({ name: node.name, count: node.count, id: node.id });
-      }
-    });
-    this.nodeList.sort(function (a, b) {
-      return b.count - a.count;
-    });
-    this.nodeList.unshift({ name: 'show all' });
   }
 
   onResize(event: any) {
@@ -300,6 +251,12 @@ export class NetworkNewComponent implements OnInit {
       });
   }
 
+  private getNames(data: any): string[] {
+    return data.nodes
+      .filter((node: any) => this.currentIds.value.includes(node.id))
+      .map((node: any) => node.name);
+  }
+
   getOutline(element: any) {
     let name = element.name;
     if (this.categories[name]) {
@@ -377,15 +334,12 @@ export class NetworkNewComponent implements OnInit {
   }
 
   selectNode(event: any) {
-    console.log(event);
-    let name = event.target.__data__.name;
     let id = event.target.__data__.id;
     this.selectionChanged([...this.currentIds.value, id]);
     this.networkService.handleDisability(
       this.historyIndex,
       this.historyNew.length
     );
-    this.networkService.updateCheckBox(name);
   }
 
   filterExistingLinks(links: any) {
@@ -402,26 +356,27 @@ export class NetworkNewComponent implements OnInit {
     return nodes;
   }
 
-  filterById(id: number[]) {
-    this.filterLinks(id);
-    this.filterNodes(this.data.links);
+  filterById(ids: number[]): any {
+    let links = this.filterLinks(ids);
+    return {
+      links: links,
+      nodes: this.filterNodes(links),
+    };
   }
 
   filterLinks(id: number[]) {
-    this.data.links = JSON.parse(JSON.stringify(this.alldata.links)).filter(
-      (el: any) => {
-        if (id.includes(el.source)) return true;
-        if (id.includes(el.target)) return true;
-        return false;
-      }
-    );
+    return JSON.parse(JSON.stringify(this.alldata.links)).filter((el: any) => {
+      if (id.includes(el.source)) return true;
+      if (id.includes(el.target)) return true;
+      return false;
+    });
   }
 
   filterNodes(links: any[]) {
     const ids = links.flatMap((el: any) => {
       return [el.source, el.target];
     });
-    this.data.nodes = this.alldata.nodes.filter((el: any) => {
+    return this.alldata.nodes.filter((el: any) => {
       if (ids.includes(el.id)) return true;
       return false;
     });
@@ -432,7 +387,6 @@ export class NetworkNewComponent implements OnInit {
   }
 
   selectionChanged(ids: any) {
-    console.log(ids);
     this.updateHistory(ids);
     this.currentIds.next(ids);
   }

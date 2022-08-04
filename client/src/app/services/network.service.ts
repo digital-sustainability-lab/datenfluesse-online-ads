@@ -15,7 +15,7 @@ export class NetworkService {
   navigationDisabled: Subject<NavigationDisabled> =
     new Subject<NavigationDisabled>();
 
-  checkBoxUpdate: Subject<string> = new Subject<string>();
+  checkBoxUpdate: Subject<string[]> = new Subject<string[]>();
 
   handleDisability(historyIndex: number, historyLength: number) {
     let navigationDisabled: NavigationDisabled = {
@@ -25,7 +25,7 @@ export class NetworkService {
     this.navigationDisabled.next(navigationDisabled);
   }
 
-  updateCheckBox(checkBox: string) {
-    this.checkBoxUpdate.next(checkBox);
+  updateCheckBox(checkBoxNames: string[]) {
+    this.checkBoxUpdate.next(checkBoxNames);
   }
 }
