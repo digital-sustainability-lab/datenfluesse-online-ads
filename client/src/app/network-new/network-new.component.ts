@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import * as d3 from 'd3';
 
 import { DataService } from '../data.service';
-
-import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
-import { faChartBar } from '@fortawesome/free-solid-svg-icons';
-import { BehaviorSubject, Subject } from 'rxjs';
 import { NetworkService } from '../services/network.service';
 
 @Component({
@@ -15,15 +10,7 @@ import { NetworkService } from '../services/network.service';
   styleUrls: ['./network-new.component.css'],
 })
 export class NetworkNewComponent implements OnInit {
-  history: any[] = [];
-
-  alldata: any;
-
   colors: any;
-
-  toppings = new FormControl('');
-
-  nodeList: any[] = [];
 
   data: any;
 
@@ -37,79 +24,29 @@ export class NetworkNewComponent implements OnInit {
 
   simulation: any;
 
-  width: any = 2000;
-
-  height: any = 1000;
-
-  domain: any;
-
-  radius = 10;
-
-  text_nodes: any;
-
   text_element: any;
-
-  historyIndex = 0;
 
   color3p: any;
 
-  currentIds: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
-
-  historyNew: number[][] = [];
-
   constructor(
     private dataService: DataService,
-    private networkService: NetworkService
+    public networkService: NetworkService
   ) {}
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
       this.initSVGs();
-      this.data = JSON.parse(JSON.stringify(data.network));
-      this.alldata = JSON.parse(JSON.stringify(data.network));
       this.categories = data.category;
-      this.domain = JSON.parse(JSON.stringify(data.domain));
       this.colors = data.color;
       this.color3p = data.color3p;
     });
 
-    this.currentIds.subscribe((ids) => {
-      if (ids.length === 0) return;
-      this.data = this.filterById(ids);
-      let checkBoxNames = this.getNames(this.data);
-      this.networkService.updateCheckBox(checkBoxNames);
+    this.networkService.currentIds.subscribe((ids: Set<number>) => {
+      if (ids.size === 0) return;
+      this.networkService.updateIds(ids);
+      this.data = this.networkService.generateDataByIds(ids);
       this.update(this.data);
-      //todo
     });
-  }
-
-  navigateSelection(direction: number) {
-    this.historyIndex += direction;
-    this.currentIds.next(this.historyNew[this.historyIndex]);
-  }
-
-  updateHistory(ids: number[]) {
-    const idsSet = new Set(ids);
-    if (
-      this.historyNew.length === 0 ||
-      !this.dataIsSame(idsSet, this.historyNew[this.historyIndex])
-    ) {
-      this.historyNew = this.historyNew.slice(0, this.historyIndex + 1);
-      this.historyNew.push([...ids]);
-      this.historyIndex = this.historyNew.length - 1;
-    }
-  }
-
-  private dataIsSame(newIds: any, currentIds: any): boolean {
-    let newData = this.filterById([...newIds]);
-    let currentData = this.filterById(currentIds);
-    if (newData.nodes.length === currentData.nodes.length) {
-      for (let newNode of newData.nodes) {
-        if (!currentData.nodes.includes(newNode)) return false;
-      }
-      return true;
-    }
-    return false;
   }
 
   onResize(event: any) {
@@ -155,7 +92,12 @@ export class NetworkNewComponent implements OnInit {
           return -500;
         })
       )
-      .force('center', d3.forceCenter(this.width / 2, this.height / 2));
+      .force(
+        'center',
+        d3
+          .forceCenter(window.innerWidth / 2, window.innerHeight / 2)
+          .strength(0.1)
+      );
   }
 
   update(data: any) {
@@ -183,7 +125,7 @@ export class NetworkNewComponent implements OnInit {
 
     this.styleNodes();
 
-    //	update update simulation
+    //	update simulation
     this.simulation.nodes(data.nodes).on('tick', this.ticked.bind(this));
     this.simulation.force('link').links(data.links);
     this.simulation.alpha(1).alphaTarget(0).restart();
@@ -251,60 +193,12 @@ export class NetworkNewComponent implements OnInit {
       });
   }
 
-  private getNames(data: any): string[] {
-    return data.nodes
-      .filter((node: any) => this.currentIds.value.includes(node.id))
-      .map((node: any) => node.name);
-  }
-
-  getOutline(element: any) {
-    let name = element.name;
-    if (this.categories[name]) {
-      return 'transparent';
-    }
-    if (this.color3p[element.country]) {
-      return 'red';
-    }
-    return 'transparent';
-  }
-
-  getColor(element: any) {
-    let name = element.name;
-    if (this.categories[name]) {
-      const category = this.categories[name].categories[0];
-      return this.colors[category];
-    }
-    if (this.color3p[element.country]) {
-      return this.color3p[element.country];
-    }
-    return '#808080';
-  }
-
-  setSelectedNode(node: any) {
-    if (node.target.__data__.country) {
-      this.dataService.setSelectedNode(node.target.__data__);
-    } else {
-      let name = node.target.__data__.name;
-      this.dataService.setSelectedNode(name);
-    }
-  }
-
-  belongsToGroup(id: any, node: any) {
-    if (id == node.id) return true;
-    let statement = false;
-    this.data.links.forEach((link: any) => {
-      if (link.source.id == id && link.target.id == node.id) statement = true;
-      if (link.source.id == node.id && link.target.id == id) statement = true;
-      return false;
-    });
-    return statement;
+  selectNode(event: any) {
+    this.networkService.selectNode(event);
   }
 
   ticked() {
     this.node
-      // set this if we want to trap it within a div
-      // .attr("cx", (d: any) => { return d.x = Math.max(this.radius, Math.min(this.width - this.radius, d.x)); })
-      // .attr("cy", (d: any) => { return d.y = Math.max(this.radius, Math.min(this.height - this.radius, d.y)); })
       .attr('cx', (d: any) => {
         return d.x;
       })
@@ -333,61 +227,50 @@ export class NetworkNewComponent implements OnInit {
       });
   }
 
-  selectNode(event: any) {
-    let id = event.target.__data__.id;
-    this.selectionChanged([...this.currentIds.value, id]);
-    this.networkService.handleDisability(
-      this.historyIndex,
-      this.historyNew.length
-    );
-  }
-
-  filterExistingLinks(links: any) {
-    for (let link of this.data.links) {
-      links = links.filter((element: any) => element.id != link.id);
+  getOutline(element: any) {
+    let name = element.name;
+    if (this.categories[name]) {
+      return 'transparent';
     }
-    return links;
-  }
-
-  filterExistingNodes(nodes: any) {
-    for (let node of this.data.nodes) {
-      nodes = nodes.filter((element: any) => element.id != node.id);
+    if (this.color3p[element.country]) {
+      return 'red';
     }
-    return nodes;
+    return 'transparent';
   }
 
-  filterById(ids: number[]): any {
-    let links = this.filterLinks(ids);
-    return {
-      links: links,
-      nodes: this.filterNodes(links),
-    };
-  }
-
-  filterLinks(id: number[]) {
-    return JSON.parse(JSON.stringify(this.alldata.links)).filter((el: any) => {
-      if (id.includes(el.source)) return true;
-      if (id.includes(el.target)) return true;
-      return false;
-    });
-  }
-
-  filterNodes(links: any[]) {
-    const ids = links.flatMap((el: any) => {
-      return [el.source, el.target];
-    });
-    return this.alldata.nodes.filter((el: any) => {
-      if (ids.includes(el.id)) return true;
-      return false;
-    });
+  getColor(element: any) {
+    let name = element.name;
+    if (this.categories[name]) {
+      const category = this.categories[name].categories[0];
+      return this.colors[category];
+    }
+    if (this.color3p[element.country]) {
+      return this.color3p[element.country];
+    }
+    return '#808080';
   }
 
   getRadius(d: any) {
     return d.count + 5;
   }
 
-  selectionChanged(ids: any) {
-    this.updateHistory(ids);
-    this.currentIds.next(ids);
+  setSelectedNode(node: any) {
+    if (node.target.__data__.country) {
+      this.dataService.setSelectedNode(node.target.__data__);
+    } else {
+      let name = node.target.__data__.name;
+      this.dataService.setSelectedNode(name);
+    }
+  }
+
+  belongsToGroup(id: any, node: any) {
+    if (id == node.id) return true;
+    let statement = false;
+    this.data.links.forEach((link: any) => {
+      if (link.source.id == id && link.target.id == node.id) statement = true;
+      if (link.source.id == node.id && link.target.id == id) statement = true;
+      return false;
+    });
+    return statement;
   }
 }

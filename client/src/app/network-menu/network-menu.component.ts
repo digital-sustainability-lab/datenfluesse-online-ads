@@ -26,6 +26,7 @@ export interface CheckBox {
 })
 export class NetworkMenuComponent implements OnInit {
   @Output('selectionChanged') selectionChanged = new EventEmitter();
+  @Output('onNavigateSelection') onNavigateSelection = new EventEmitter();
 
   domainCheckBoxes: CheckBox = {
     name: 'all',
@@ -35,7 +36,7 @@ export class NetworkMenuComponent implements OnInit {
   };
 
   domains: any;
-  ids: number[] = [];
+  ids: Set<number> = new Set();
   network: any;
   color: any;
   color3p: any;
@@ -43,7 +44,6 @@ export class NetworkMenuComponent implements OnInit {
   forwardDisabled: any;
 
   constructor(
-    private networkComp: NetworkNewComponent,
     private dataService: DataService,
     private networkService: NetworkService
   ) {}
@@ -163,30 +163,39 @@ export class NetworkMenuComponent implements OnInit {
   }
 
   addId(id: number) {
-    if (!this.ids.includes(id)) {
-      this.ids.push(id);
-    }
+    this.ids.add(id);
   }
 
   removeId(idToRemove: number) {
-    this.ids = this.ids.filter((id) => id !== idToRemove);
+    this.ids.delete(idToRemove);
+  }
+
+  private getCheckedIds() {
+    let idSet = new Set<number>();
+    if (this.domainCheckBoxes.subCheckBoxes) {
+      for (let subCheckBox of this.domainCheckBoxes.subCheckBoxes) {
+        if (subCheckBox.completed) {
+          idSet.add(this.getId(subCheckBox.name));
+        }
+      }
+    }
+    return idSet;
   }
 
   changeSelection() {
+    this.ids = this.getCheckedIds();
     this.selectionChanged.emit(this.ids);
-    //this.networkComp.changeSelection(this.ids);
-    this.networkService.handleDisability(
-      this.networkComp.historyIndex,
-      this.networkComp.historyNew.length
+    this.networkService.handleDisabled(
+      this.networkService.historyIndex,
+      this.networkService.history.length
     );
   }
 
   navigateSelection(direction: number) {
-    // checkboxChecked = !checkboxChecked;
-    this.networkComp.navigateSelection(direction);
-    this.networkService.handleDisability(
-      this.networkComp.historyIndex,
-      this.networkComp.historyNew.length
+    this.onNavigateSelection.emit(direction);
+    this.networkService.handleDisabled(
+      this.networkService.historyIndex,
+      this.networkService.history.length
     );
   }
 }
