@@ -50,7 +50,6 @@ export class NetworkMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
-      console.log(data);
       this.color = data.color;
       this.color3p = data.color3p;
       this.network = JSON.parse(JSON.stringify(data.network));
@@ -74,15 +73,25 @@ export class NetworkMenuComponent implements OnInit {
       this.backDisabled = navDis.backDisabled;
       this.forwardDisabled = navDis.forwardDisabled;
     });
-    this.networkService.checkBoxUpdate.subscribe((checkBoxName) => {
-      const element = this.domainCheckBoxes.subCheckBoxes?.find(
-        (subCheckBox: CheckBox) => {
-          return subCheckBox.name === checkBoxName;
+    this.networkService.checkBoxUpdate.subscribe((checkBoxNames: string[]) => {
+      let elements = [];
+      for (let name of checkBoxNames) {
+        elements.push(
+          this.domainCheckBoxes.subCheckBoxes?.find((subCheckBox: CheckBox) => {
+            return subCheckBox.name === name;
+          })
+        );
+      }
+      if (this.domainCheckBoxes.subCheckBoxes) {
+        for (let subCheckBox of this.domainCheckBoxes.subCheckBoxes) {
+          subCheckBox.completed = false;
         }
-      );
-      if (element) {
-        element.completed = true;
-        this.addId(this.getId(element.name));
+      }
+      for (let element of elements) {
+        if (element) {
+          element.completed = true;
+          this.addId(this.getId(element.name));
+        }
       }
     });
   }
@@ -173,9 +182,6 @@ export class NetworkMenuComponent implements OnInit {
   }
 
   navigateSelection(direction: number) {
-    // @ts-ignore
-    let checkboxChecked = document.getElementById('facebook.com')['checked'];
-    console.log(checkboxChecked);
     // checkboxChecked = !checkboxChecked;
     this.networkComp.navigateSelection(direction);
     this.networkService.handleDisability(
