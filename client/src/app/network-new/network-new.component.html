@@ -2,6 +2,7 @@
   <div id="network" (window:resize)="onResize($event)"></div>
   <app-information></app-information>
   <app-network-menu
-    (selectionChanged)="selectionChanged($event)"
+    (selectionChanged)="networkService.selectionChanged($event)"
+    (onNavigateSelection)="networkService.navigateSelection($event)"
   ></app-network-menu>
 </div>
