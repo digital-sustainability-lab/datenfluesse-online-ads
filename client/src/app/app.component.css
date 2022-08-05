@@ -22,7 +22,7 @@ body {
 
 .data {
   position: absolute;
-  top: 30%;
+  top: 150px;
   font-family: "Merriweather", serif;
   z-index: 100;
 }

@@ -35,6 +35,7 @@ export class NetworkNewComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.networkService.init();
       this.initSVGs();
       this.categories = data.category;
       this.colors = data.color;
@@ -88,8 +89,8 @@ export class NetworkNewComponent implements OnInit {
       )
       .force(
         'charge',
-        d3.forceManyBody().strength(function (d: any) {
-          return -500;
+        d3.forceManyBody().strength((d: any) => {
+          return this.calcForce(d.count);
         })
       )
       .force(
@@ -98,6 +99,10 @@ export class NetworkNewComponent implements OnInit {
           .forceCenter(window.innerWidth / 2, window.innerHeight / 2)
           .strength(0.1)
       );
+  }
+
+  private calcForce(count: number): number {
+    return (Math.log10(count) + 1) * -600;
   }
 
   update(data: any) {
