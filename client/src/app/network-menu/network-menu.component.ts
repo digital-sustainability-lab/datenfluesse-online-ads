@@ -16,6 +16,7 @@ export interface CheckBox {
   name: string;
   completed: boolean;
   color: ThemePalette;
+  indeterminate?: boolean;
   subCheckBoxes?: CheckBox[];
 }
 
@@ -31,6 +32,7 @@ export class NetworkMenuComponent implements OnInit {
   domainCheckBoxes: CheckBox = {
     name: 'all',
     completed: false,
+    indeterminate: false,
     color: 'primary',
     subCheckBoxes: [],
   };
@@ -93,20 +95,21 @@ export class NetworkMenuComponent implements OnInit {
           this.addId(this.getId(element.name));
         }
       }
+      this.handleSuperCheckBox(this.domainCheckBoxes);
     });
   }
 
-  someComplete(checkBox: CheckBox): boolean {
-    if (checkBox.subCheckBoxes == null) {
-      return false;
+  handleSuperCheckBox(checkBox: CheckBox) {
+    if (checkBox.hasOwnProperty('indeterminate') && checkBox.subCheckBoxes) {
+      const numCheckedSubCheckBoxes = checkBox.subCheckBoxes.filter(
+        (subCheckBox: CheckBox) => subCheckBox.completed
+      ).length;
+      checkBox.indeterminate =
+        checkBox.subCheckBoxes.length !== numCheckedSubCheckBoxes &&
+        numCheckedSubCheckBoxes !== 0;
+      checkBox.completed =
+        checkBox.subCheckBoxes.length === numCheckedSubCheckBoxes;
     }
-    return (
-      checkBox.subCheckBoxes.filter((t) => t.completed).length > 0 &&
-      !(
-        checkBox.subCheckBoxes.filter((t) => t.completed).length ==
-        checkBox.subCheckBoxes.length
-      )
-    );
   }
 
   allComplete(checkBox: CheckBox) {
@@ -130,6 +133,7 @@ export class NetworkMenuComponent implements OnInit {
         this.setIndividuals(checked, this.getId(element.name));
       });
     }
+    this.handleSuperCheckBox(this.domainCheckBoxes);
   }
 
   setIndividuals(checked: boolean, id: number) {

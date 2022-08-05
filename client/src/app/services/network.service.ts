@@ -47,7 +47,9 @@ export class NetworkService {
 
   checkBoxUpdate: Subject<string[]> = new Subject<string[]>();
 
-  private init() {
+  init() {
+    this.history = this.history.slice(0, 0);
+    this.historyIndex = 0;
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
       this._alldata = { ...data.network };
     });
@@ -58,6 +60,8 @@ export class NetworkService {
     const data = this.generateDataByIds(ids);
     let checkBoxNames = this.getNames(data);
     this.updateCheckBox(checkBoxNames);
+    console.log('going to history index: ' + this.historyIndex);
+    console.log(this.history);
   }
 
   selectionChanged(ids: any) {
@@ -72,7 +76,7 @@ export class NetworkService {
 
   selectNode(event: any) {
     let id = event.target.__data__.id;
-    let newIds = this.currentIds.value;
+    let newIds = new Set<number>(this.currentIds.value);
     newIds.add(id);
     this.selectionChanged(newIds);
     this.handleDisabled(this.historyIndex, this.history.length);
@@ -81,8 +85,9 @@ export class NetworkService {
   updateHistory(ids: Set<number>) {
     const newIds = new Set(ids);
     if (
-      this.history.length === 0 ||
-      !this.dataIsSame(newIds, this.history[this.historyIndex])
+      (this.history.length === 0 ||
+        !this.dataIsSame(newIds, this.history[this.historyIndex])) &&
+      ids.size !== 0
     ) {
       this.history = this.history.slice(0, this.historyIndex + 1);
       this.history.push(newIds);

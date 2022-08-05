@@ -34,7 +34,7 @@
             <mat-checkbox
               class="example-margin"
               [color]="domainCheckBoxes.color"
-              [indeterminate]="someComplete(domainCheckBoxes)"
+              [indeterminate]="domainCheckBoxes.indeterminate"
               (change)="setAll($event)"
               (click)="$event.stopPropagation()"
               [checked]="true"
