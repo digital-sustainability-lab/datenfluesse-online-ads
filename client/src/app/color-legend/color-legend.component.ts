@@ -1,20 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { colors } from '../network-new/colors'
+import { colors } from '../network/colors';
 
 @Component({
   selector: 'app-color-legend',
   templateUrl: './color-legend.component.html',
-  styleUrls: ['./color-legend.component.css']
+  styleUrls: ['./color-legend.component.css'],
 })
 export class ColorLegendComponent implements OnInit {
+  @Input() data: any;
 
+  constructor() {}
 
-  @Input() data: any
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 }

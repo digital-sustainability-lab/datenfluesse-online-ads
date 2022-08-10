@@ -5,11 +5,14 @@ import { DataService } from '../data.service';
 import { NetworkService } from '../services/network.service';
 
 @Component({
-  selector: 'app-network-new',
-  templateUrl: './network-new.component.html',
-  styleUrls: ['./network-new.component.css'],
+  selector: 'app-network',
+  templateUrl: './network.component.html',
+  styleUrls: ['./network.component.css'],
 })
-export class NetworkNewComponent implements OnInit {
+/**
+ * the network component mainly handles the visual part of the network viz
+ */
+export class NetworkComponent implements OnInit {
   colors: any;
 
   data: any;
@@ -33,15 +36,21 @@ export class NetworkNewComponent implements OnInit {
     public networkService: NetworkService
   ) {}
 
+  /**
+   * sets up the svg subscribes to different observables.
+   */
   ngOnInit(): void {
+    this.initSVGs();
+    // this subscription is mainly to set up some initial values for the visualization
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
       this.networkService.init();
-      this.initSVGs();
       this.categories = data.category;
       this.colors = data.color;
       this.color3p = data.color3p;
     });
 
+    // this subscription observes if the ids of all the nodes to be shown have changed.
+    // some refactoring here would be good as updateIds has nothing to do with the visualization
     this.networkService.currentIds.subscribe((ids: Set<number>) => {
       if (ids.size === 0) return;
       this.networkService.updateIds(ids);
@@ -105,10 +114,16 @@ export class NetworkNewComponent implements OnInit {
     return (Math.log10(count) + 1) * -600;
   }
 
+  /**
+   * the update function updates the network graph. all the .exit() and .enter() functions are handled automatically by the d3 integrated .join() function
+   * @param data the network data that is generated in network service
+   */
   update(data: any) {
+    console.log('update called');
+    console.log(data);
     // update links
     this.link = this.link
-      .data(data.links, function (d: any) {
+      .data(data.links, (d: any) => {
         return d.id;
       })
       .join('line');
@@ -136,6 +151,10 @@ export class NetworkNewComponent implements OnInit {
     this.simulation.alpha(1).alphaTarget(0).restart();
   }
 
+  /**
+   * styleNodes is just for breaking apart the big update function.
+   * functionality stayed the same
+   */
   private styleNodes() {
     this.link
       .style('stroke', '#aaa')
@@ -193,11 +212,14 @@ export class NetworkNewComponent implements OnInit {
           .style('stroke', '#aaa')
           .style('stroke-width', '1')
           .style('opacity', 1);
-
         this.text_element.style('opacity', 1);
       });
   }
 
+  /**
+   * selectNode is the function called when clicking a node
+   * @param event the event data is sent to networkService where it gets handled
+   */
   selectNode(event: any) {
     this.networkService.selectNode(event);
   }
