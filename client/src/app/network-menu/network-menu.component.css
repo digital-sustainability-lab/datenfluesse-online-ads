@@ -29,6 +29,10 @@ hr {
   list-style: none;
 }
 
+.mat-checkbox {
+  overflow: hidden;
+}
+
 .wrapping {
   max-height: 50vh;
   overflow: auto;
