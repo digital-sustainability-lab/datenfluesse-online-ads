@@ -1,6 +1,15 @@
-<mat-toolbar class="toolbar">
-  <div class="link_wrapper">
-    <a mat-button [routerLink]="'/bar'"> Bar Chart </a>
-    <a mat-button [routerLink]="'/network'"> Network</a>
-  </div>
-</mat-toolbar>
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="'/bar'" routerLinkActive="active"> bar </a>
+    </li>
+    <li>
+      <a [routerLink]="'/network'" routerLinkActive="active"> network </a>
+    </li>
+    <li>
+      <a [routerLink]="'/types-sizes'" routerLinkActive="active">
+        request details
+      </a>
+    </li>
+  </ul>
+</nav>

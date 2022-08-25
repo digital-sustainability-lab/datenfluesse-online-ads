@@ -2,24 +2,6 @@ body {
   margin: 0;
 }
 
-.icon_wrapper {
-  cursor: pointer;
-  display: flex;
-  z-index: 200;
-}
-
-.active {
-  border-bottom: 4px black solid;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-}
-
-.nav {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  z-index: 200;
-}
-
 .data {
   position: absolute;
   top: 150px;
@@ -42,17 +24,6 @@ body {
 .bording {
   border-bottom: 4px black solid;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-}
-
-.nav a {
-  color: black;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.icon {
-  font-size: 25px;
-  margin: 10px;
 }
 .wrapper {
   background-image: url("../assets/img/bg-striped.png");
