@@ -1,17 +1,32 @@
-.link_wrapper {
-  display: flex;
+.active {
+  border-bottom: 2px black solid;
+  background-color: #00000022;
+}
+
+nav {
+  position: absolute;
   width: 100%;
+  z-index: 200;
 }
 
-.link_wrapper a {
-  margin-right: 10px;
-  text-decoration: none;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  cursor: pointer;
+}
+
+nav ul li {
+  display: flex;
+}
+
+nav ul li a {
+  text-transform: uppercase;
+  font-size: 1.5em;
   color: black;
-  font-family: "Merriweather", serif;
-}
-
-.toolbar {
-  border-bottom: 1px solid #000000;
-  height: min-content;
-  padding: 2px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  cursor: pointer;
 }
