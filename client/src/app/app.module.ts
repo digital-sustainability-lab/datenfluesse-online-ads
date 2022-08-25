@@ -27,6 +27,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { BarchartTypesSizesComponent } from './barchart-types-sizes/barchart-types-sizes.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatButtonModule } from '@angular/material/button';
     BarComponent,
     HierarchBarComponent,
     NetworkMenuComponent,
+    BarchartTypesSizesComponent,
   ],
   imports: [
     FontAwesomeModule,

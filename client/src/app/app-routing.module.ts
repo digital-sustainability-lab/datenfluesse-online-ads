@@ -6,10 +6,12 @@ import { BarchartComponent } from './barchart/barchart.component';
 import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
 import { NetworkComponent } from './network/network.component';
 import { PiechartComponent } from './piechart/piechart.component';
+import { BarchartTypesSizesComponent } from './barchart-types-sizes/barchart-types-sizes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bar', pathMatch: 'full' },
   { path: 'bar', component: HierarchBarComponent },
+  { path: 'types-sizes', component: BarchartTypesSizesComponent },
   { path: 'network', component: NetworkComponent },
 ];
 
