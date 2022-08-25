@@ -173,46 +173,47 @@ export class NetworkComponent implements OnInit {
               return this.getColor(node);
             if (this.belongsToGroup(d.currentTarget.__data__.id, node))
               return this.getColor(node);
-            return '#B8B8B8';
+            return this.getColor(node) + '33';
           })
-          .style('opacity', (node: any) => {
+          .style('stroke', (node: any) => {
             if (this.belongsToGroup(d.currentTarget.__data__.id, node))
-              return 1;
-            return 0.2;
+              return this.getOutline(node);
+            return this.getOutline(node) + '33';
           });
-        this.text_element.style('opacity', (node: any) => {
-          if (this.belongsToGroup(d.currentTarget.__data__.id, node)) return 1;
-          return 0.2;
+        // .style('opacity', (node: any) => {
+        //   if (this.belongsToGroup(d.currentTarget.__data__.id, node))
+        //     return 1;
+        //   return 0.2;
+        // });
+        this.text_element.style('fill', (node: any) => {
+          if (this.belongsToGroup(d.currentTarget.__data__.id, node))
+            return '#000000';
+          return '#00000033';
         });
         this.link
           .style('stroke', (link_d: any) => {
             return link_d.source.id === d.currentTarget.__data__.id ||
               link_d.target.id === d.currentTarget.__data__.id
               ? '#69b3b2'
-              : '#b8b8b8';
+              : '#b8b8b833';
           })
           .style('stroke-width', (link_d: any) => {
             return link_d.source.id === d.currentTarget.__data__.id ||
               link_d.target.id === d.currentTarget.__data__.id
               ? 4
               : 1;
-          })
-          .style('opacity', (link_d: any) => {
-            return link_d.source.id === d.currentTarget.__data__.id ||
-              link_d.target.id === d.currentTarget.__data__.id
-              ? 1
-              : 0.2;
           });
+        // .style('opacity', (link_d: any) => {
+        //   return link_d.source.id === d.currentTarget.__data__.id ||
+        //     link_d.target.id === d.currentTarget.__data__.id
+        //     ? 1
+        //     : 0.2;
+        // });
       })
       .on('mouseout', () => {
-        this.node
-          .style('fill', (d: any) => this.getColor(d))
-          .style('opacity', 1);
-        this.link
-          .style('stroke', '#aaa')
-          .style('stroke-width', '1')
-          .style('opacity', 1);
-        this.text_element.style('opacity', 1);
+        this.node.style('fill', (d: any) => this.getColor(d));
+        this.link.style('stroke', '#aaa').style('stroke-width', '1');
+        this.text_element.style('fill', '#000000');
       });
   }
 
@@ -257,12 +258,12 @@ export class NetworkComponent implements OnInit {
   getOutline(element: any) {
     let name = element.name;
     if (this.categories[name]) {
-      return 'transparent';
+      return '#ffffff00';
     }
     if (this.color3p[element.country]) {
-      return 'red';
+      return '#ff0000';
     }
-    return 'transparent';
+    return '#ffffff00';
   }
 
   getColor(element: any) {
