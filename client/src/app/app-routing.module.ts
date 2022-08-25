@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { BarComponent } from './bar/bar.component';
-import { BarchartComponent } from './barchart/barchart.component';
 import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
 import { NetworkComponent } from './network/network.component';
-import { PiechartComponent } from './piechart/piechart.component';
 import { BarchartTypesSizesComponent } from './barchart-types-sizes/barchart-types-sizes.component';
 
 const routes: Routes = [
