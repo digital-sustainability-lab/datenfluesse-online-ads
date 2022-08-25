@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-hierarch-bar',

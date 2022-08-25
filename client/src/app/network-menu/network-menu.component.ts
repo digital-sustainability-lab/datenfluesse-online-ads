@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ThemePalette } from '@angular/material/core';
 import { NetworkService } from '../services/network.service';
