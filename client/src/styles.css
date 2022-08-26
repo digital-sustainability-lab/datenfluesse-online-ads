@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#intro {
+  text-align: center;
+  margin-bottom: 35px;
+  padding-top: 5px;
+  margin-top: 10px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h4 {
+  font-family: "Stick No Bills", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

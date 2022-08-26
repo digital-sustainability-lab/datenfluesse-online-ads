@@ -5,7 +5,7 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-hierarch-bar',
   templateUrl: './hierarch-bar.component.html',
-  styleUrls: ['./hierarch-bar.component.css'],
+  styleUrls: ['./hierarch-bar.component.css', '../../styles.css'],
 })
 export class HierarchBarComponent implements OnInit {
   constructor(
