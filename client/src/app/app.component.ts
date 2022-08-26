@@ -1,31 +1,29 @@
 import { Component } from '@angular/core';
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
-import { DataService } from './data.service';
-
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'client';
-  fadiagram = faProjectDiagram
-  faChartBar = faChartBar
+  fadiagram = faProjectDiagram;
+  faChartBar = faChartBar;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
-  active: string = 'swiss'
+  active: string = 'swiss';
 
   ngOnInit(): void {
     this.dataService.getActiveData().subscribe((data: string) => {
-      this.active = data
-    }
-    )
+      this.active = data;
+    });
   }
 
   changeDataSet(data: string) {
-    this.dataService.changeDataSet(data)
+    this.dataService.changeDataSet(data);
   }
 }

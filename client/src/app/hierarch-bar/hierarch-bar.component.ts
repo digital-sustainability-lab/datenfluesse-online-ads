@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-hierarch-bar',
   templateUrl: './hierarch-bar.component.html',
-  styleUrls: ['./hierarch-bar.component.css'],
+  styleUrls: ['./hierarch-bar.component.css', '../../styles.css'],
 })
 export class HierarchBarComponent implements OnInit {
   constructor(

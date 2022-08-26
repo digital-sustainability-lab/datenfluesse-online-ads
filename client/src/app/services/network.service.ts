@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 
 interface NavigationDisabled {
   forwardDisabled: boolean;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { NetworkService } from '../services/network.service';
 
 @Component({
