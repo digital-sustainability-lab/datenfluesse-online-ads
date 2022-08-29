@@ -12,8 +12,6 @@ export class BarchartTypesSizesComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.typesSizesService.getData();
-    this.groups = this.typesSizesService.getGroups(this.data.chartData);
-    this.subgroups = this.typesSizesService.getSubgroups(this.data.chartData);
     this.createSVG(this.data);
   }
 
@@ -35,8 +33,6 @@ export class BarchartTypesSizesComponent implements OnInit {
       this.svg.remove();
     }
 
-    console.log(data);
-
     this.svg = d3
       .select('#barchart')
       .append('svg')
@@ -50,7 +46,7 @@ export class BarchartTypesSizesComponent implements OnInit {
 
     this.x = d3
       .scaleBand()
-      .domain(this.groups)
+      .domain(data.meta.groups)
       .range([0, this.width])
       .padding(0.2);
     this.svg
@@ -61,39 +57,13 @@ export class BarchartTypesSizesComponent implements OnInit {
       .attr('transform', 'translate(-10,0)rotate(-45)')
       .style('text-anchor', 'end');
 
-    const max = this.typesSizesService.getYMax(data.chartData);
-
-    this.y = d3.scaleLinear().domain([0, max]).range([this.height, 0]);
+    this.y = d3
+      .scaleLinear()
+      .domain([0, data.meta.maxTotal])
+      .range([this.height, 0]);
     this.svg.append('g').call(d3.axisLeft(this.y));
 
-    this.barValue = this.svg
-      .selectAll('.barValue')
-      .data(data.chartData)
-      .enter()
-      .append('text');
-
-    this.color = d3
-      .scaleOrdinal()
-      .domain(this.subgroups)
-      .range([
-        '#ee0088',
-        '#ee8800',
-        '#88ee00',
-        '#ffccaa',
-        '#ccffaa',
-        '#ccaaff',
-        '#99bbff',
-        '#99ffbb',
-        '#ff99bb',
-        '#cc44aa',
-        '#ccaa44',
-        '#aacc44',
-        '#338899',
-        '#339988',
-        '#993388',
-      ]);
-
-    const stackedData = d3.stack().keys(this.subgroups)(data.chartData);
+    const stackedData = d3.stack().keys(data.meta.subgroups)(data.chartData);
 
     this.svg
       .append('g')
@@ -101,12 +71,16 @@ export class BarchartTypesSizesComponent implements OnInit {
       // Enter in the stack data = loop key per key = group per group
       .data(stackedData)
       .join('g')
-      .attr('fill', (d: any) => this.color(d.key))
+      .attr('fill', (d: any) => {
+        return data.meta.color[d.key];
+      })
       .selectAll('rect')
       // enter a second time = loop subgroup per subgroup to add all rectangles
       .data((d: any) => d)
       .join('rect')
-      .attr('x', (d: any) => this.x(d.data.name))
+      .attr('x', (d: any) => {
+        return this.x(d.data.meta.name);
+      })
       .attr('y', (d: any) => this.y(d[1]))
       .attr('height', (d: any) => {
         return this.y(d[0]) - this.y(d[1]);
@@ -117,15 +91,19 @@ export class BarchartTypesSizesComponent implements OnInit {
       .selectAll('.barValue')
       .data(data.chartData)
       .join('text')
+      // TODO calculation for y and x are bad
       .attr('y', (d: any) => {
-        console.log(d);
-        return d;
+        return (
+          this.height - (this.height / data.meta.maxTotal) * d.meta.total - 5
+        );
       })
       .attr('x', (d: any, i: any) => {
-        console.log(d);
-        console.log(i);
-        return 30 + i * 40;
+        return this.width * (1 / data.chartData.length) * i + 20;
       })
-      .text((d: any) => d.name);
+      .text((d: any) => {
+        return d.meta.total;
+      })
+      .style('font-size', 12)
+      .style('text-anchor', 'middle');
   }
 }

@@ -1,0 +1,25 @@
+<div class="menuWrapper">
+  <mat-card>
+    <h2>Menu</h2>
+  </mat-card>
+
+  <hr />
+
+  <mat-accordion class="networkPanelWrapper">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>category legend</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="list" *ngFor="let subgroup of data.meta.subgroups">
+          <div
+            class="list-element"
+            [style.background-color]="data.meta.color[subgroup]"
+          ></div>
+          {{ subgroup }}
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <hr />
+  </mat-accordion>
+</div>

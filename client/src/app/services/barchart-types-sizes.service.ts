@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { types_sizes } from '../data/both/types_sizes';
 
 @Injectable({
@@ -8,27 +9,26 @@ import { types_sizes } from '../data/both/types_sizes';
 export class BarchartTypesSizesService {
   constructor() {}
 
-  groups: any;
-  subgroups: any;
+  rawData: any = types_sizes;
 
-  data: any = types_sizes;
+  color: any;
 
   getData() {
     return {
-      raw: this.data,
-      chartData: this.generateTypeChartData(this.data),
+      chartData: this.generateTypeChartData(this.rawData),
+      meta: this.generateMetaData(this.rawData),
     };
   }
 
   getGroups(chartData: any) {
-    return chartData.map((d: any) => d.name);
+    return chartData.map((d: any) => d.meta.name);
   }
 
-  getSubgroups(chartData: any) {
-    let subgroups = new Set();
+  getSubgroups(chartData: any): Set<string> {
+    let subgroups = new Set<string>();
     for (let group of chartData) {
       for (let subgroup in group) {
-        if (subgroup != 'name') {
+        if (subgroup != 'meta') {
           subgroups.add(subgroup);
         }
       }
@@ -46,60 +46,84 @@ export class BarchartTypesSizesService {
         }
       }
     }
+
     for (let page in data) {
-      let group: { name: string; [type: string]: any } = {
-        name: page,
+      let group: {
+        // TODO add color to group
+        meta: {
+          name: string;
+          total: number;
+        };
+        [type: string]: any;
+      } = {
+        meta: { name: page, total: 0 },
       };
       for (let subgroup of subgroups) {
         group[subgroup] = 0;
       }
+      let total = 0;
       for (let thirdParty in data[page]) {
         for (let request of data[page][thirdParty]) {
           group[request.type]++;
+          // TODO don't calc total like this
+          total++;
         }
       }
+      group.meta.total = total;
       typeData.push(group);
     }
     return typeData;
   }
 
-  generatePayloadChartData(data: any) {
-    let typeData = [];
-    let subgroups = new Set<string>();
-    for (let page in data) {
-      for (let thirdParty in data[page]) {
-        for (let request of data[page][thirdParty]) {
-          subgroups.add(request.type);
-        }
-      }
+  generateMetaData(data: any) {
+    let meta = {
+      groups: this.getGroups(this.generateTypeChartData(data)),
+      subgroups: this.getSubgroups(this.generateTypeChartData(data)),
+      // scale: linear / log
+      maxTotal: this.getYMax(this.generateTypeChartData(data)),
+      color: {},
+    };
+
+    meta.color = this.getColor(meta.subgroups);
+
+    return meta;
+  }
+
+  getColor(subgroups: any) {
+    let color: any = {};
+
+    let colorScale = d3
+      .scaleOrdinal()
+      .domain(subgroups)
+      .range([
+        '#ee0088',
+        '#ee8800',
+        '#88ee00',
+        '#ffccaa',
+        '#ccffaa',
+        '#ccaaff',
+        '#99bbff',
+        '#99ffbb',
+        '#ff99bb',
+        '#cc44aa',
+        '#ccaa44',
+        '#aacc44',
+        '#338899',
+        '#339988',
+        '#993388',
+      ]);
+
+    for (let subgroup of subgroups) {
+      color[subgroup] = colorScale(subgroup);
     }
-    for (let page in data) {
-      let group: { name: string; [type: string]: any } = {
-        name: page,
-      };
-      for (let subgroup of subgroups) {
-        group[subgroup] = 0;
-      }
-      for (let thirdParty in data[page]) {
-        for (let request of data[page][thirdParty]) {
-          group[request.type] += request.size;
-        }
-      }
-      typeData.push(group);
-    }
-    return typeData;
+
+    return color;
   }
 
   getYMax(chartData: any) {
     let max = 0;
     for (let group of chartData) {
-      let currentMax = 0;
-      for (let value in group) {
-        if (value != 'name') {
-          currentMax += group[value];
-        }
-      }
-      max = Math.max(max, currentMax);
+      max = Math.max(group.meta.total, max);
     }
     return max * 1.1;
   }
