@@ -1,0 +1,72 @@
+.menuWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 700;
+  line-height: 18px;
+  background-color: #fff;
+  box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
+  border-radius: 5px;
+  font-size: 1rem;
+  max-height: 80vh;
+}
+
+.colorMapping {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 600;
+  line-height: 18px;
+  background: white;
+  background: rgba(255, 255, 255);
+  box-shadow: 6px 6px 12px rgb(0 0 0 / 18%);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+}
+
+.list-element {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 5px;
+}
+
+hr {
+  margin: 0;
+}
+
+.checkBox {
+  display: flex;
+}
+
+.applyButton {
+  margin-top: 10px;
+}
+
+.checkBoxes ul {
+  padding: 0 0 0 10px;
+  margin: 0;
+  list-style: none;
+}
+
+.mat-checkbox {
+  overflow: hidden;
+}
+
+.wrapping {
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.mat-stroked-button {
+  margin-right: 5px;
+}
+
+.mat-expansion-panel {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
