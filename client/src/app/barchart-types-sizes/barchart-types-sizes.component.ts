@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import { BarchartTypesSizesService } from '../services/barchart-types-sizes.service';
 
@@ -24,6 +24,7 @@ export class BarchartTypesSizesComponent implements OnInit {
   x: any;
   y: any;
   barValue: any;
+  tooltip: any;
   groups: any = [];
   subgroups: any = [];
   color: any;
@@ -63,6 +64,8 @@ export class BarchartTypesSizesComponent implements OnInit {
       .range([this.height, 0]);
     this.svg.append('g').call(d3.axisLeft(this.y));
 
+    this.tooltip = d3.select('.infoTooltip');
+
     const stackedData = d3.stack().keys(data.meta.subgroups)(data.chartData);
 
     this.svg
@@ -87,23 +90,66 @@ export class BarchartTypesSizesComponent implements OnInit {
       })
       .attr('width', this.x.bandwidth());
 
-    this.barValue = this.svg
-      .selectAll('.barValue')
-      .data(data.chartData)
-      .join('text')
-      // TODO calculation for y and x are bad
-      .attr('y', (d: any) => {
-        return (
-          this.height - (this.height / data.meta.maxTotal) * d.meta.total - 5
-        );
+    this.tooltip = d3
+      .select('#barchart')
+      .append('div')
+      .style('position', 'fixed')
+      .style('visibility', 'hidden')
+      .style('background-color', '#dddddd')
+      .style('padding', '15px')
+      .style('box-shadow', '0 0 5px #888');
+
+    this.svg
+      .selectAll('rect')
+      .on('mouseover', (e: any) => {
+        this.tooltip.style('visibility', 'visible');
+        this.fillTooltip(e);
       })
-      .attr('x', (d: any, i: any) => {
-        return this.width * (1 / data.chartData.length) * i + 20;
+      .on('mousemove', (e: any) => {
+        this.handleTooltipPos(e);
       })
-      .text((d: any) => {
-        return d.meta.total;
-      })
-      .style('font-size', 12)
-      .style('text-anchor', 'middle');
+      .on('mouseout', (e: any) => {
+        this.tooltip.style('visibility', 'hidden');
+      });
+  }
+
+  fillTooltip(e: any) {
+    const data = e.target.__data__.data;
+
+    this.tooltip.selectAll('*').remove();
+
+    this.tooltip.append('h3').text('Page: ' + data.meta.name);
+
+    this.tooltip
+      .append('p')
+      .style('font-weight', 'bold')
+      .text(' Total requests: ' + data.meta.total);
+    this.tooltip.append('div').text('Third party request types:');
+
+    for (let type in data) {
+      if (e.target.__data__[1] - e.target.__data__[0] === data[type]) {
+        this.tooltip
+          .append('div')
+          .style('font-weight', 'bold')
+          .text(type + ': ' + data[type]);
+      } else if (type !== 'meta') {
+        this.tooltip.append('div').text(type + ': ' + data[type]);
+      }
+    }
+  }
+
+  handleTooltipPos(e: any) {
+    const height = this.tooltip._groups[0][0].clientHeight;
+    const width = this.tooltip._groups[0][0].clientWidth;
+    if (e.pageY + height > window.innerHeight) {
+      this.tooltip.style('top', e.pageY - height - 10 + 'px');
+    } else {
+      this.tooltip.style('top', e.pageY + 10 + 'px');
+    }
+    if (e.pageX + width > window.innerWidth) {
+      this.tooltip.style('left', e.pageX - width - 10 + 'px');
+    } else {
+      this.tooltip.style('left', e.pageX + 10 + 'px');
+    }
   }
 }

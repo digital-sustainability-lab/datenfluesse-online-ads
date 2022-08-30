@@ -14,6 +14,5 @@ export class TypesSizesMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.typesService.getData();
-    console.log(this.data);
   }
 }
