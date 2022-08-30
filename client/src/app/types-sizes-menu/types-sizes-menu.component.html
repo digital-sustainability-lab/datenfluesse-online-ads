@@ -8,6 +8,20 @@
   <mat-accordion class="networkPanelWrapper">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
+        <mat-panel-title>data to show</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <button value="request" (click)="updateDataToShow($event)">
+          Number of Requests
+        </button>
+        <button value="payload" (click)="updateDataToShow($event)">
+          Payload size
+        </button>
+      </div>
+    </mat-expansion-panel>
+    <hr />
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
         <mat-panel-title>category legend</mat-panel-title>
       </mat-expansion-panel-header>
       <div>

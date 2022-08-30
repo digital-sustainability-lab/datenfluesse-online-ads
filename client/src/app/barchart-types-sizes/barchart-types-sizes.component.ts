@@ -11,11 +11,14 @@ export class BarchartTypesSizesComponent implements OnInit {
   constructor(private typesSizesService: BarchartTypesSizesService) {}
 
   ngOnInit(): void {
-    this.data = this.typesSizesService.getData();
-    this.createSVG(this.data);
+    this.createSVG();
+    this.typesSizesService.data.subscribe((data: any) => {
+      this.data = data;
+      this.update(this.data);
+    });
   }
 
-  margin = { top: 30, right: 30, bottom: 70, left: 60 };
+  margin = { top: 30, right: 30, bottom: 110, left: 60 };
   width = 2000 - this.margin.left - this.margin.right;
   height = 1000 - this.margin.top - this.margin.bottom;
   data: any;
@@ -29,10 +32,14 @@ export class BarchartTypesSizesComponent implements OnInit {
   subgroups: any = [];
   color: any;
 
-  createSVG(data: any) {
+  createSVG() {
     if (this.svg) {
       this.svg.remove();
     }
+  }
+
+  update(data: any) {
+    d3.selectAll('#barchart > svg').remove();
 
     this.svg = d3
       .select('#barchart')
@@ -113,6 +120,10 @@ export class BarchartTypesSizesComponent implements OnInit {
       });
   }
 
+  alert(event: any) {
+    alert(event);
+  }
+
   fillTooltip(e: any) {
     const data = e.target.__data__.data;
 
@@ -141,15 +152,15 @@ export class BarchartTypesSizesComponent implements OnInit {
   handleTooltipPos(e: any) {
     const height = this.tooltip._groups[0][0].clientHeight;
     const width = this.tooltip._groups[0][0].clientWidth;
-    if (e.pageY + height > window.innerHeight) {
-      this.tooltip.style('top', e.pageY - height - 10 + 'px');
+    if (e.clientY + height > window.innerHeight) {
+      this.tooltip.style('top', e.clientY - height - 10 + 'px');
     } else {
-      this.tooltip.style('top', e.pageY + 10 + 'px');
+      this.tooltip.style('top', e.clientY + 10 + 'px');
     }
-    if (e.pageX + width > window.innerWidth) {
-      this.tooltip.style('left', e.pageX - width - 10 + 'px');
+    if (e.clientX + width > window.innerWidth) {
+      this.tooltip.style('left', e.clientX - width - 10 + 'px');
     } else {
-      this.tooltip.style('left', e.pageX + 10 + 'px');
+      this.tooltip.style('left', e.clientX + 10 + 'px');
     }
   }
 }
