@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { types_sizes } from '../data/both/types_sizes';
 
 @Injectable({
@@ -11,45 +11,71 @@ export class BarchartTypesSizesService {
 
   rawData: any = types_sizes;
 
-  color: any;
+  data: Subject<any> = new Subject<any>();
 
-  getData() {
-    return {
-      chartData: this.generateTypeChartData(this.rawData),
-      meta: this.generateMetaData(this.rawData),
-    };
+  dataFilter: BehaviorSubject<string> = new BehaviorSubject<string>('request');
+
+  init() {
+    this.dataFilter.subscribe((dataFilter: string) => {
+      this.updateData(dataFilter);
+    });
+  }
+
+  updateData(dataSelection: string) {
+    let data = { chartData: {}, meta: {} };
+
+    console.log(dataSelection);
+
+    data.chartData = this.generateTypeChartData(this.rawData, dataSelection);
+
+    data.meta = this.generateMetaData(data.chartData);
+
+    console.log(data);
+
+    data = this.sortByTotal(data);
+
+    this.data.next(data);
+  }
+
+  sortByTotal(data: any) {
+    //sorting by total
+    data.chartData = data.chartData
+      .sort((a: any, b: any) => {
+        return a.meta.total - b.meta.total;
+      })
+      .reverse();
+
+    // sorting groups too. otherwise it wouldn't have an effect on the barchart
+    data.meta.groups = data.meta.groups.sort((a: any, b: any) => {
+      const chartNames = data.chartData.map((d: any) => d.meta.name);
+      return chartNames.indexOf(a) - chartNames.indexOf(b);
+    });
+
+    return data;
   }
 
   getGroups(chartData: any) {
     return chartData.map((d: any) => d.meta.name);
   }
 
-  getSubgroups(chartData: any): Set<string> {
-    let subgroups = new Set<string>();
+  getSubgroups(chartData: any): string[] {
+    let subgroups: string[] = [];
     for (let group of chartData) {
       for (let subgroup in group) {
-        if (subgroup != 'meta') {
-          subgroups.add(subgroup);
+        if (subgroup != 'meta' && !subgroups.includes(subgroup)) {
+          subgroups.push(subgroup);
         }
       }
     }
     return subgroups;
   }
 
-  generateTypeChartData(data: any) {
+  generateTypeChartData(rawData: any, dataSelection: string) {
     let typeData = [];
-    let subgroups = new Set<string>();
-    for (let page in data) {
-      for (let thirdParty in data[page]) {
-        for (let request of data[page][thirdParty]) {
-          subgroups.add(request.type);
-        }
-      }
-    }
+    let subgroups = this.getSubgroupsByRawdata(rawData);
 
-    for (let page in data) {
+    for (let page in rawData) {
       let group: {
-        // TODO add color to group
         meta: {
           name: string;
           total: number;
@@ -62,11 +88,10 @@ export class BarchartTypesSizesService {
         group[subgroup] = 0;
       }
       let total = 0;
-      for (let thirdParty in data[page]) {
-        for (let request of data[page][thirdParty]) {
-          group[request.type]++;
-          // TODO don't calc total like this
-          total++;
+      for (let thirdParty in rawData[page]) {
+        for (let request of rawData[page][thirdParty]) {
+          group[request.type] += this.calcAmount(request, dataSelection);
+          total += this.calcAmount(request, dataSelection);
         }
       }
       group.meta.total = total;
@@ -75,14 +100,42 @@ export class BarchartTypesSizesService {
     return typeData;
   }
 
+  getSubgroupsByRawdata(rawData: any): string[] {
+    let subgroups = new Set<string>();
+    for (let page in rawData) {
+      for (let thirdParty in rawData[page]) {
+        for (let request of rawData[page][thirdParty]) {
+          subgroups.add(request.type);
+        }
+      }
+    }
+    return [...subgroups];
+  }
+
+  calcAmount(request: any, dataSelection: string) {
+    if (dataSelection === 'request') {
+      return 1;
+    } else if (dataSelection === 'payload') {
+      return Math.round(request.size / 1000);
+    }
+    return 1;
+  }
+
   generateMetaData(data: any) {
     let meta = {
-      groups: this.getGroups(this.generateTypeChartData(data)),
-      subgroups: this.getSubgroups(this.generateTypeChartData(data)),
+      groups: this.getGroups(data),
+      subgroups: this.getSubgroups(data),
       // scale: linear / log
-      maxTotal: this.getYMax(this.generateTypeChartData(data)),
+      maxTotal: this.getYMax(data),
       color: {},
     };
+    // let meta = {
+    //   groups: this.getGroups(this.generateTypeChartData(data, 'request')),
+    //   subgroups: this.getSubgroups(this.generateTypeChartData(data, 'request')),
+    //   // scale: linear / log
+    //   maxTotal: this.getYMax(this.generateTypeChartData(data, 'request')),
+    //   color: {},
+    // };
 
     meta.color = this.getColor(meta.subgroups);
 

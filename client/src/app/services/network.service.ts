@@ -75,7 +75,7 @@ export class NetworkService {
 
   /**
    * updateIds is called by the network component ensures that the checkboxes are up to date
-   * @param ids the node ids are about to be used for the update function
+   * @param ids the node ids that are about to be used for the update function
    * @returns makes nothing when there are no ids to display
    */
   updateIds(ids: Set<number>) {
@@ -95,7 +95,7 @@ export class NetworkService {
   }
 
   /**
-   * is called by the network menu components when going back of forward in the history
+   * is called by the network menu components when going back or forward in the history
    * @param direction the direction is either -1 (for going back) or +1 (for going forward)
    */
   navigateSelection(direction: number) {

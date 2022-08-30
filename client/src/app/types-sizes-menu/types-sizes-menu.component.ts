@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
 import { BarchartTypesSizesService } from '../services/barchart-types-sizes.service';
 
 @Component({
@@ -8,11 +7,18 @@ import { BarchartTypesSizesService } from '../services/barchart-types-sizes.serv
   styleUrls: ['./types-sizes-menu.component.css'],
 })
 export class TypesSizesMenuComponent implements OnInit {
-  constructor(private typesService: BarchartTypesSizesService) {}
-
   data: any;
 
+  constructor(private typesService: BarchartTypesSizesService) {}
+
   ngOnInit(): void {
-    this.data = this.typesService.getData();
+    this.typesService.data.subscribe((data: any) => {
+      this.data = data;
+    });
+    this.typesService.init();
+  }
+
+  updateDataToShow(event: any) {
+    this.typesService.dataFilter.next(event.target.value);
   }
 }
