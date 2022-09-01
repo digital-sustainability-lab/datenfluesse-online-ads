@@ -25,6 +25,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { BarchartDetails } from './barchart-details/barchart-details.component';
 import { BarchartDetailsMenu } from './barchart-details-menu/barchart-details-menu.component';
+import { TestChartComponent } from './test-chart/test-chart.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BarchartDetailsMenu } from './barchart-details-menu/barchart-details-me
     NetworkMenuComponent,
     BarchartDetails,
     BarchartDetailsMenu,
+    TestChartComponent,
   ],
   imports: [
     FontAwesomeModule,
