@@ -1,69 +1,49 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import {
+  BehaviorSubject,
+  combineLatestWith,
+  Observable,
+  ReplaySubject,
+} from 'rxjs';
 import { types_sizes } from '../data/both/types_sizes';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BarchartDetailsService {
-  constructor() {}
-
   rawData: any = types_sizes;
 
-  data: Subject<any> = new Subject<any>();
+  data: ReplaySubject<any> = new ReplaySubject<any>(1);
 
-  dataFilter: BehaviorSubject<string> = new BehaviorSubject<string>('request');
+  dataToDisplay: Observable<any> = new Observable<any>();
 
-  init() {
-    this.dataFilter.subscribe((dataFilter: string) => {
-      this.updateData(dataFilter);
-    });
+  dataSelection: BehaviorSubject<string> = new BehaviorSubject<string>(
+    'request'
+  );
+
+  orderSelection: BehaviorSubject<string> = new BehaviorSubject<string>(
+    'value'
+  );
+
+  constructor() {
+    this.dataSelection
+      .pipe(combineLatestWith(this.orderSelection))
+      .subscribe(([dataSelection, order]: any) => {
+        this.updateData(dataSelection, order);
+      });
   }
 
-  updateData(dataSelection: string) {
+  updateData(dataSelection: string, order: string) {
     let data = { chartData: {}, meta: {} };
 
     data.chartData = this.generateChartData(this.rawData, dataSelection);
 
-    data.meta = this.generateMetaData(data.chartData);
+    data.meta = this.generateMetaData(data.chartData, dataSelection);
 
-    data = this.sortByTotal(data);
+    data = this.orderData(data, order);
 
     this.data.next(data);
-  }
-
-  sortByTotal(data: any) {
-    //sorting by total
-    data.chartData = data.chartData
-      .sort((a: any, b: any) => {
-        return a.meta.total - b.meta.total;
-      })
-      .reverse();
-
-    // sorting groups too. otherwise it wouldn't have an effect on the barchart
-    data.meta.groups = data.meta.groups.sort((a: any, b: any) => {
-      const chartNames = data.chartData.map((d: any) => d.meta.name);
-      return chartNames.indexOf(a) - chartNames.indexOf(b);
-    });
-
-    return data;
-  }
-
-  getGroups(chartData: any) {
-    return chartData.map((d: any) => d.meta.name);
-  }
-
-  getSubgroups(chartData: any): string[] {
-    let subgroups: string[] = [];
-    for (let group of chartData) {
-      for (let subgroup in group) {
-        if (subgroup != 'meta' && !subgroups.includes(subgroup)) {
-          subgroups.push(subgroup);
-        }
-      }
-    }
-    return subgroups;
   }
 
   generateChartData(rawData: any, dataSelection: string) {
@@ -117,12 +97,13 @@ export class BarchartDetailsService {
     return 1;
   }
 
-  generateMetaData(data: any) {
+  generateMetaData(data: any, dataSelection: string) {
     let meta = {
       groups: this.getGroups(data),
       subgroups: this.getSubgroups(data),
       maxTotal: this.getYMax(data),
       color: {},
+      description: this.getDescription(dataSelection),
     };
 
     meta.color = this.getColor(meta.subgroups);
@@ -130,32 +111,20 @@ export class BarchartDetailsService {
     return meta;
   }
 
-  getColor(subgroups: any) {
-    let color: any = {};
-    let colorScale = d3
-      .scaleOrdinal()
-      .domain(subgroups)
-      .range([
-        '#ee0088',
-        '#ee8800',
-        '#88ee00',
-        '#ffccaa',
-        '#ccffaa',
-        '#ccaaff',
-        '#99bbff',
-        '#99ffbb',
-        '#ff99bb',
-        '#cc44aa',
-        '#ccaa44',
-        '#aacc44',
-        '#338899',
-        '#339988',
-        '#993388',
-      ]);
-    for (let subgroup of subgroups) {
-      color[subgroup] = colorScale(subgroup);
+  getGroups(chartData: any) {
+    return chartData.map((d: any) => d.meta.name);
+  }
+
+  getSubgroups(chartData: any): string[] {
+    let subgroups: string[] = [];
+    for (let group of chartData) {
+      for (let subgroup in group) {
+        if (subgroup != 'meta' && !subgroups.includes(subgroup)) {
+          subgroups.push(subgroup);
+        }
+      }
     }
-    return color;
+    return subgroups;
   }
 
   getYMax(chartData: any) {
@@ -163,6 +132,69 @@ export class BarchartDetailsService {
     for (let group of chartData) {
       max = Math.max(group.meta.total, max);
     }
+    // TODO simply multiplying by 1.1 is not that good of a solution
     return max * 1.1;
+  }
+
+  getDescription(dataSelection: string): string {
+    if (dataSelection === 'request') {
+      return 'Number of requests made, categorized in types.';
+    } else if (dataSelection === 'payload') {
+      return 'Payload sizes of requests, categorized in types.';
+    }
+    return 'something went wrong';
+  }
+
+  getColor(subgroups: any) {
+    let color: any = {};
+    for (let [index, subgroup] of subgroups.entries()) {
+      color[subgroup] = d3.interpolateRainbow(index / (subgroups.length - 1));
+    }
+    return color;
+  }
+
+  orderData(data: any, order: string): any {
+    if (order === 'alphabetical') {
+      return this.orderAlphabetical(data, 1);
+    } else if (order === 'alphabeticalReversed') {
+      return this.orderAlphabetical(data, -1);
+    } else if (order === 'value') {
+      return this.orderBytotal(data);
+    }
+    return data;
+  }
+
+  orderAlphabetical(data: any, reverseFactor: number): any {
+    data.chartData = data.chartData.sort((a: any, b: any) => {
+      if (a.meta.name < b.meta.name) return -1 * reverseFactor;
+      if (a.meta.name > b.meta.name) return 1 * reverseFactor;
+      return 0;
+    });
+
+    data = this.orderGroups(data);
+
+    return data;
+  }
+
+  orderBytotal(data: any): any {
+    //sorting by total
+    data.chartData = data.chartData
+      .sort((a: any, b: any) => {
+        return a.meta.total - b.meta.total;
+      })
+      .reverse();
+
+    data = this.orderGroups(data);
+
+    return data;
+  }
+
+  orderGroups(data: any) {
+    // sorting groups too. otherwise it wouldn't have an effect on the barchart
+    data.meta.groups = data.meta.groups.sort((a: any, b: any) => {
+      const chartNames = data.chartData.map((d: any) => d.meta.name);
+      return chartNames.indexOf(a) - chartNames.indexOf(b);
+    });
+    return data;
   }
 }

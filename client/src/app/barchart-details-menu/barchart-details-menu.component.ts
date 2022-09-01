@@ -15,10 +15,13 @@ export class BarchartDetailsMenu implements OnInit {
     this.barchartDetailsService.data.subscribe((data: any) => {
       this.data = data;
     });
-    this.barchartDetailsService.init();
   }
 
-  updateDataToShow(event: any) {
-    this.barchartDetailsService.dataFilter.next(event.target.value);
+  updateDataToDisplay(event: any) {
+    this.barchartDetailsService.dataSelection.next(event.target.value);
+  }
+
+  updateOrder(event: any) {
+    this.barchartDetailsService.orderSelection.next(event.target.value);
   }
 }

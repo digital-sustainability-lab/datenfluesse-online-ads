@@ -8,21 +8,63 @@
   <mat-accordion class="networkPanelWrapper">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>data to show</mat-panel-title>
+        <mat-panel-title>Display options</mat-panel-title>
       </mat-expansion-panel-header>
       <div>
-        <button value="request" (click)="updateDataToShow($event)">
-          Number of Requests
-        </button>
-        <button value="payload" (click)="updateDataToShow($event)">
-          Payload size
-        </button>
+        <h3>Data to display</h3>
+        <p>
+          <input
+            type="radio"
+            id="number"
+            name="dataToDisplay"
+            value="request"
+            (click)="updateDataToDisplay($event)"
+            checked
+          />
+          <label for="number">Number of requests</label><br />
+          <input
+            type="radio"
+            id="payload"
+            name="dataToDisplay"
+            value="payload"
+            (click)="updateDataToDisplay($event)"
+          />
+          <label for="payload">Payload size</label>
+        </p>
+        <h3>Ordering</h3>
+        <p>
+          <input
+            type="radio"
+            id="value"
+            name="order"
+            value="value"
+            (click)="updateOrder($event)"
+            checked
+          />
+          <label for="value">Value</label><br />
+          <input
+            type="radio"
+            id="alphabetical"
+            name="order"
+            value="alphabetical"
+            (click)="updateOrder($event)"
+          />
+          <label for="alphabetical">Alphabetical</label><br />
+          <input
+            type="radio"
+            id="alphabeticalReversed"
+            name="order"
+            value="alphabeticalReversed"
+            (click)="updateOrder($event)"
+          />
+          <label for="alphabeticalReversed">Alphabetical reversed</label><br />
+        </p>
       </div>
     </mat-expansion-panel>
     <hr />
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-        <mat-panel-title>category legend</mat-panel-title>
+        <mat-panel-title>Category legend</mat-panel-title>
       </mat-expansion-panel-header>
       <div>
         <div class="list" *ngFor="let subgroup of data.meta.subgroups">
