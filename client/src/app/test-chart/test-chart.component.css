@@ -1,0 +1,21 @@
+.wrapper {
+  height: 100%;
+  background-image: url("../../assets/img/bg-striped.png");
+}
+
+#chart {
+  display: inline-block;
+  position: relative;
+  width: 100vw;
+  padding-bottom: 100vh;
+  height: 0;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
