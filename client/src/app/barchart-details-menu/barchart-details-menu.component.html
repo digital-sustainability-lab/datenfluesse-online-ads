@@ -1,0 +1,81 @@
+<div class="menuWrapper">
+  <mat-card>
+    <h2>Menu</h2>
+  </mat-card>
+
+  <hr />
+
+  <mat-accordion class="networkPanelWrapper">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Display options</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <h3>Data to display</h3>
+        <p>
+          <input
+            type="radio"
+            id="number"
+            name="dataToDisplay"
+            value="request"
+            (click)="updateDataToDisplay($event)"
+            checked
+          />
+          <label for="number">Number of requests</label><br />
+          <input
+            type="radio"
+            id="payload"
+            name="dataToDisplay"
+            value="payload"
+            (click)="updateDataToDisplay($event)"
+          />
+          <label for="payload">Payload size</label>
+        </p>
+        <h3>Ordering</h3>
+        <p>
+          <input
+            type="radio"
+            id="value"
+            name="order"
+            value="value"
+            (click)="updateOrder($event)"
+            checked
+          />
+          <label for="value">Value</label><br />
+          <input
+            type="radio"
+            id="alphabetical"
+            name="order"
+            value="alphabetical"
+            (click)="updateOrder($event)"
+          />
+          <label for="alphabetical">Alphabetical</label><br />
+          <input
+            type="radio"
+            id="alphabeticalReversed"
+            name="order"
+            value="alphabeticalReversed"
+            (click)="updateOrder($event)"
+          />
+          <label for="alphabeticalReversed">Alphabetical reversed</label><br />
+        </p>
+      </div>
+    </mat-expansion-panel>
+    <hr />
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Category legend</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="list" *ngFor="let subgroup of data.meta.subgroups">
+          <div
+            class="list-element"
+            [style.background-color]="data.meta.color[subgroup]"
+          ></div>
+          {{ subgroup }}
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <hr />
+  </mat-accordion>
+</div>

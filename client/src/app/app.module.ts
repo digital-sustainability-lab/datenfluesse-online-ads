@@ -23,8 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { BarchartTypesSizesComponent } from './barchart-types-sizes/barchart-types-sizes.component';
-import { TypesSizesMenuComponent } from './types-sizes-menu/types-sizes-menu.component';
+import { BarchartDetails } from './barchart-details/barchart-details.component';
+import { BarchartDetailsMenu } from './barchart-details-menu/barchart-details-menu.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,8 @@ import { TypesSizesMenuComponent } from './types-sizes-menu/types-sizes-menu.com
     InformationComponent,
     HierarchBarComponent,
     NetworkMenuComponent,
-    BarchartTypesSizesComponent,
-    TypesSizesMenuComponent,
+    BarchartDetails,
+    BarchartDetailsMenu,
   ],
   imports: [
     FontAwesomeModule,

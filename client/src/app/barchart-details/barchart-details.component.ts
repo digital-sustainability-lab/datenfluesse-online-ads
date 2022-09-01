@@ -1,23 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import * as d3 from 'd3';
-import { BarchartTypesSizesService } from '../services/barchart-types-sizes.service';
+import { BehaviorSubject } from 'rxjs';
+import { BarchartDetailsService } from '../services/barchart-details.service';
 
 @Component({
-  selector: 'app-barchart-types-sizes',
-  templateUrl: './barchart-types-sizes.component.html',
-  styleUrls: ['./barchart-types-sizes.component.css', '../../styles.css'],
+  selector: 'app-barchart-details',
+  templateUrl: './barchart-details.component.html',
+  styleUrls: ['./barchart-details.component.css', '../../styles.css'],
 })
-export class BarchartTypesSizesComponent implements OnInit {
-  constructor(private typesSizesService: BarchartTypesSizesService) {}
-
-  ngOnInit(): void {
-    this.createSVG();
-    this.typesSizesService.data.subscribe((data: any) => {
-      this.data = data;
-      this.update(this.data);
-    });
-  }
-
+export class BarchartDetails implements OnInit {
   margin = { top: 30, right: 30, bottom: 110, left: 60 };
   width = 2000 - this.margin.left - this.margin.right;
   height = 1000 - this.margin.top - this.margin.bottom;
@@ -28,14 +27,19 @@ export class BarchartTypesSizesComponent implements OnInit {
   y: any;
   barValue: any;
   tooltip: any;
-  groups: any = [];
-  subgroups: any = [];
+  groups: any;
+  subgroups: any;
   color: any;
+  description: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  createSVG() {
-    if (this.svg) {
-      this.svg.remove();
-    }
+  constructor(private barchartDetailsService: BarchartDetailsService) {}
+
+  ngOnInit(): void {
+    this.barchartDetailsService.data.subscribe((data: any) => {
+      this.data = data;
+      this.description.next(data.meta.description);
+      this.update(this.data);
+    });
   }
 
   update(data: any) {
@@ -73,7 +77,9 @@ export class BarchartTypesSizesComponent implements OnInit {
 
     this.tooltip = d3.select('.infoTooltip');
 
-    const stackedData = d3.stack().keys(data.meta.subgroups)(data.chartData);
+    const stackedData = d3.stack().keys(data.meta.subgroups.reverse())(
+      data.chartData
+    );
 
     this.svg
       .append('g')

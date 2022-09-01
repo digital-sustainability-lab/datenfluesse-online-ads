@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
+import { BarchartDetailsService } from './services/barchart-details.service';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class AppComponent {
   fadiagram = faProjectDiagram;
   faChartBar = faChartBar;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private barchartDetailsService: BarchartDetailsService
+  ) {}
 
   active: string = 'swiss';
 
