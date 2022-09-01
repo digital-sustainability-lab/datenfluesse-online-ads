@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
-import { BarchartTypesSizesService } from '../services/barchart-types-sizes.service';
+import { BarchartDetailsService } from '../services/barchart-details.service';
 
 @Component({
-  selector: 'app-barchart-types-sizes',
-  templateUrl: './barchart-types-sizes.component.html',
-  styleUrls: ['./barchart-types-sizes.component.css', '../../styles.css'],
+  selector: 'app-barchart-details',
+  templateUrl: './barchart-details.component.html',
+  styleUrls: ['./barchart-details.component.css', '../../styles.css'],
 })
-export class BarchartTypesSizesComponent implements OnInit {
-  constructor(private typesSizesService: BarchartTypesSizesService) {}
+export class BarchartDetails implements OnInit {
+  constructor(private typesSizesService: BarchartDetailsService) {}
 
   ngOnInit(): void {
     this.createSVG();

@@ -6,7 +6,7 @@ import { types_sizes } from '../data/both/types_sizes';
 @Injectable({
   providedIn: 'root',
 })
-export class BarchartTypesSizesService {
+export class BarchartDetailsService {
   constructor() {}
 
   rawData: any = types_sizes;
@@ -24,13 +24,9 @@ export class BarchartTypesSizesService {
   updateData(dataSelection: string) {
     let data = { chartData: {}, meta: {} };
 
-    console.log(dataSelection);
-
-    data.chartData = this.generateTypeChartData(this.rawData, dataSelection);
+    data.chartData = this.generateChartData(this.rawData, dataSelection);
 
     data.meta = this.generateMetaData(data.chartData);
-
-    console.log(data);
 
     data = this.sortByTotal(data);
 
@@ -70,7 +66,7 @@ export class BarchartTypesSizesService {
     return subgroups;
   }
 
-  generateTypeChartData(rawData: any, dataSelection: string) {
+  generateChartData(rawData: any, dataSelection: string) {
     let typeData = [];
     let subgroups = this.getSubgroupsByRawdata(rawData);
 
@@ -125,17 +121,9 @@ export class BarchartTypesSizesService {
     let meta = {
       groups: this.getGroups(data),
       subgroups: this.getSubgroups(data),
-      // scale: linear / log
       maxTotal: this.getYMax(data),
       color: {},
     };
-    // let meta = {
-    //   groups: this.getGroups(this.generateTypeChartData(data, 'request')),
-    //   subgroups: this.getSubgroups(this.generateTypeChartData(data, 'request')),
-    //   // scale: linear / log
-    //   maxTotal: this.getYMax(this.generateTypeChartData(data, 'request')),
-    //   color: {},
-    // };
 
     meta.color = this.getColor(meta.subgroups);
 
@@ -144,7 +132,6 @@ export class BarchartTypesSizesService {
 
   getColor(subgroups: any) {
     let color: any = {};
-
     let colorScale = d3
       .scaleOrdinal()
       .domain(subgroups)
@@ -165,11 +152,9 @@ export class BarchartTypesSizesService {
         '#339988',
         '#993388',
       ]);
-
     for (let subgroup of subgroups) {
       color[subgroup] = colorScale(subgroup);
     }
-
     return color;
   }
 
