@@ -43,6 +43,8 @@ export class BarchartDetailsService {
 
     data = this.orderData(data, order);
 
+    console.log(data);
+
     this.data.next(data);
   }
 
@@ -55,16 +57,18 @@ export class BarchartDetailsService {
         meta: {
           name: string;
           total: number;
+          domains: string[];
         };
         [type: string]: any;
       } = {
-        meta: { name: page, total: 0 },
+        meta: { name: page, total: 0, domains: [] },
       };
       for (let subgroup of subgroups) {
         group[subgroup] = 0;
       }
       let total = 0;
       for (let thirdParty in rawData[page]) {
+        group.meta['domains'].push(thirdParty);
         for (let request of rawData[page][thirdParty]) {
           group[request.type] += this.calcAmount(request, dataSelection);
           total += this.calcAmount(request, dataSelection);
