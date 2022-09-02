@@ -14,7 +14,7 @@ const objects = JSON.parse(data);
 let dataMap = new Map();
 
 for (let object of objects) {
-  let key = generateKeyString(object.page);
+  let key = object.page;
   if (!dataMap.has(key)) {
     dataMap.set(key, []);
   }
@@ -35,7 +35,7 @@ let inbetween = JSON.stringify(result).length;
 // console.log(result);
 
 for (let page in result) {
-  // console.log(page);
+  console.log(page);
   let thirdPartyMap = new Map();
   for (let request of result[page]) {
     if (!thirdPartyMap.has(request.third_party_domain)) {
@@ -56,8 +56,6 @@ for (let page in result) {
   result[page] = thirdParties;
 }
 
-console.log(result);
-
 function generateKeyString(key) {
   key = key.substr(8).toLowerCase();
   if (key.lastIndexOf("/") == key.length - 1) {
@@ -69,10 +67,10 @@ function generateKeyString(key) {
   return key;
 }
 
-fs.writeFile("test.json", JSON.stringify(result), (err) => {
-  if (err) {
-    console.error(err);
-  }
-  console.log("success");
-  // file written successfully
-});
+// fs.writeFile("test.json", JSON.stringify(result), (err) => {
+//   if (err) {
+//     console.error(err);
+//   }
+//   console.log("success");
+//   // file written successfully
+// });
