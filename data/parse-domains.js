@@ -2,11 +2,13 @@ const papa = require("papaparse");
 const fs = require("fs");
 
 const domainRows = papa
-  .parse(fs.readFileSync("./per_site_network_report.csv", { encoding: "utf8" }))
+  .parse(
+    fs.readFileSync("./per_site_network_report_new.csv", { encoding: "utf8" })
+  )
   .data.slice(1);
 
 const thirdParyDomains = papa
-  .parse(fs.readFileSync("./3p_domains.csv", { encoding: "utf8" }))
+  .parse(fs.readFileSync("./3p_domains_new.csv", { encoding: "utf8" }))
   .data.slice(1);
 
 module.exports = {
