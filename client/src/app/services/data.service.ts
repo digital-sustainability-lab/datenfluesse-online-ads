@@ -18,6 +18,8 @@ import { color3p_all } from '../data/both/color3p_all';
 import { color_all } from '../data/both/color_all';
 import { hierarchy_all } from '../data/both/hierarchy_all';
 import { category_all } from '../data/both/category_all';
+import { network_schwaiger } from '../data/schwaiger/newtork_schwaiger';
+import { domain_schwaiger } from '../data/schwaiger/domain_schwaiger';
 
 @Injectable({
   providedIn: 'root',
@@ -92,6 +94,17 @@ export class DataService {
       this.setCurrentDataSet({
         network: network_swiss,
         domain: domain_swiss,
+        hierarchy: hierarchy_swiss,
+        color: color_swiss,
+        color3p: color3p_swiss,
+        category: category_swiss,
+      });
+    }
+    if (data == 'schwaiger') {
+      this.activeDataSource.next('schwaiger');
+      this.setCurrentDataSet({
+        network: network_schwaiger,
+        domain: domain_schwaiger,
         hierarchy: hierarchy_swiss,
         color: color_swiss,
         color3p: color3p_swiss,

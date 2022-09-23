@@ -5,7 +5,9 @@ const network = {
   links: [],
 };
 
-const networkStructure = JSON.parse(fs.readFileSync("./domains_all.json"));
+const networkStructure = JSON.parse(
+  fs.readFileSync("./domains_schwaiger.json")
+);
 networkStructure.forEach((element, i) => {
   let idx = 1;
   if (network.nodes.length > 0) {
@@ -48,7 +50,7 @@ networkStructure.forEach((element, i) => {
   });
 });
 
-fs.writeFileSync("./network_all.json", JSON.stringify(network), {
+fs.writeFileSync("./network_schwaiger.json", JSON.stringify(network), {
   encoding: "utf8",
 });
 

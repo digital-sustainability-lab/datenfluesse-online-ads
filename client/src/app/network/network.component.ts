@@ -43,6 +43,7 @@ export class NetworkComponent implements OnInit {
     this.initSVGs();
     // this subscription is mainly to set up some initial values for the visualization
     this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      debugger;
       this.networkService.init();
       this.categories = data.category;
       this.colors = data.color;
