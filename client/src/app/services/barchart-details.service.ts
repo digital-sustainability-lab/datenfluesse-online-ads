@@ -6,13 +6,15 @@ import {
   Observable,
   ReplaySubject,
 } from 'rxjs';
-import { types_sizes } from '../data/both/types_sizes';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BarchartDetailsService {
-  rawData: any = types_sizes;
+  rawData: BehaviorSubject<any> = new BehaviorSubject<any>(
+    this.dataService.getCurrentDataSet()
+  );
 
   data: ReplaySubject<any> = new ReplaySubject<any>(1);
 
@@ -26,18 +28,25 @@ export class BarchartDetailsService {
     'value'
   );
 
-  constructor() {
+  constructor(private dataService: DataService) {
+    this.init();
+  }
+
+  init() {
+    this.dataService.getCurrentDataSet().subscribe((data: any) => {
+      this.rawData.next(data.types);
+    });
     this.dataSelection
-      .pipe(combineLatestWith(this.orderSelection))
-      .subscribe(([dataSelection, order]: any) => {
-        this.updateData(dataSelection, order);
+      .pipe(combineLatestWith(this.orderSelection, this.rawData))
+      .subscribe(([dataSelection, order, rawData]: any) => {
+        this.updateData(dataSelection, order, rawData);
       });
   }
 
-  updateData(dataSelection: string, order: string) {
+  updateData(dataSelection: string, order: string, rawData: any) {
     let data = { chartData: {}, meta: {} };
 
-    data.chartData = this.generateChartData(this.rawData, dataSelection);
+    data.chartData = this.generateChartData(rawData, dataSelection);
 
     data.meta = this.generateMetaData(data.chartData, dataSelection);
 
@@ -108,6 +117,8 @@ export class BarchartDetailsService {
       maxTotal: this.getYMax(data),
       color: {},
       description: this.getDescription(dataSelection),
+      xLabel: this.getXLabel(dataSelection),
+      yLabel: this.getYLabel(dataSelection),
     };
 
     meta.color = this.getColor(meta.subgroups);
@@ -145,6 +156,24 @@ export class BarchartDetailsService {
       return 'Number of requests made, categorized in types.';
     } else if (dataSelection === 'payload') {
       return 'Payload sizes of requests, categorized in types.';
+    }
+    return 'something went wrong';
+  }
+
+  getXLabel(dataSelection: string): string {
+    if (dataSelection === 'request') {
+      return 'Pages';
+    } else if (dataSelection === 'payload') {
+      return 'Pages';
+    }
+    return 'something went wrong';
+  }
+
+  getYLabel(dataSelection: string): string {
+    if (dataSelection === 'request') {
+      return 'Number of requests';
+    } else if (dataSelection === 'payload') {
+      return 'Payload sizes in kilobytes';
     }
     return 'something went wrong';
   }

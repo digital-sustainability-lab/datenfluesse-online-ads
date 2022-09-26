@@ -263,6 +263,12 @@ function parseNetwork(parsed) {
 
 function parseHierarchy(parsed) {
   console.log(parsed);
+
+  let hierarchy = {
+    name: "hierarchy",
+    value: 100,
+    children: [{ name: "all categories", value: 0, children: [] }],
+  };
 }
 
 function writeFile(data, filePath, fileEnding = "") {

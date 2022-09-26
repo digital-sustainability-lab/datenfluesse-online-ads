@@ -20,6 +20,9 @@ import { hierarchy_all } from '../data/both/hierarchy_all';
 import { category_all } from '../data/both/category_all';
 import { network_schwaiger } from '../data/schwaiger/newtork_schwaiger';
 import { domain_schwaiger } from '../data/schwaiger/domain_schwaiger';
+import { types_all } from '../data/both/types_all';
+import { types_swiss } from '../data/swiss/types_swiss';
+import { types_alt } from '../data/alt/types_alt';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +39,7 @@ export class DataService {
     color: color_swiss,
     color3p: color3p_swiss,
     category: category_swiss,
+    types: types_swiss,
   });
 
   private currenttDataSet = this.currentDataSetSource.asObservable();
@@ -76,6 +80,7 @@ export class DataService {
         color: color_all,
         hierarchy: hierarchy_all,
         category: category_all,
+        types: types_all,
       });
     }
     if (data == 'alt') {
@@ -87,6 +92,7 @@ export class DataService {
         color: color_alt,
         color3p: color3p_alt,
         category: category_alt,
+        types: types_alt,
       });
     }
     if (data == 'swiss') {
@@ -98,6 +104,7 @@ export class DataService {
         color: color_swiss,
         color3p: color3p_swiss,
         category: category_swiss,
+        types: types_swiss,
       });
     }
     if (data == 'schwaiger') {
@@ -109,6 +116,7 @@ export class DataService {
         color: color_swiss,
         color3p: color3p_swiss,
         category: category_swiss,
+        types: null,
       });
     }
   }
