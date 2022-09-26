@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const data = fs.readFileSync("types_sizes.json", { encoding: "utf-8" });
+const data = fs.readFileSync("raw_data.json", { encoding: "utf-8" });
 const countryData = fs.readFileSync("clean_company_data_all.json", {
   encoding: "utf-8",
 });
@@ -73,23 +73,37 @@ let alt = objects.filter((o) => {
   return altPages.includes(o.page);
 });
 
-let result = parseTypes(objects);
-let resultSwiss = parseTypes(swiss);
-let resultAlt = parseTypes(alt);
+let parsed = parseData(objects);
+let parsedSwiss = parseData(swiss);
+let parsedAlt = parseData(alt);
 
-let network = parseNetwork(result);
-let networkSwiss = parseNetwork(resultSwiss);
-let networkAlt = parseNetwork(resultAlt);
+let types = parseTypes(parsed);
+let typesSwiss = parseTypes(parsedSwiss);
+let typesAlt = parseTypes(parsedAlt);
 
-writeTypes(result, "parsed/types_sizes_parsed_all.json");
-writeTypes(resultSwiss, "parsed/types_sizes_parsed_swiss.json");
-writeTypes(resultAlt, "parsed/types_sizes_parsed_alt.json");
+let domains = parseDomains(parsed);
+let domainsSwiss = parseDomains(parsedSwiss);
+let domainsAlt = parseDomains(parsedAlt);
 
-writeNetwork(network, "parsed/network_all.json");
-writeNetwork(networkSwiss, "parsed/network_swiss.json");
-writeNetwork(networkAlt, "parsed/network_alt.json");
+let network = parseNetwork(parsed);
+let networkSwiss = parseNetwork(parsedSwiss);
+let networkAlt = parseNetwork(parsedAlt);
 
-function parseTypes(objects) {
+let hierarchy = parseHierarchy(parsed);
+
+writeFile(types, "parsed/types_all");
+writeFile(typesSwiss, "parsed/types_swiss");
+writeFile(typesAlt, "parsed/types_alt");
+
+writeFile(domains, "parsed/domains_all");
+writeFile(domainsSwiss, "parsed/domains_swiss");
+writeFile(domainsAlt, "parsed/domains_alt");
+
+writeFile(network, "parsed/network_all");
+writeFile(networkSwiss, "parsed/network_swiss");
+writeFile(networkAlt, "parsed/network_alt");
+
+function parseData(objects) {
   let dataMap = new Map();
 
   for (let object of objects) {
@@ -104,7 +118,7 @@ function parseTypes(objects) {
   dataMap.forEach((val, key) => {
     key = formatPageName(key);
     const entries = val.map((entry) => {
-      const { country, id, page, ...rest } = entry;
+      const { id, page, ...rest } = entry;
       return rest;
     });
     result[key] = entries;
@@ -133,7 +147,42 @@ function parseTypes(objects) {
   return result;
 }
 
-function parseNetwork(result) {
+function parseTypes(parsed) {
+  parsed = JSON.parse(JSON.stringify(parsed));
+  for (let page in parsed) {
+    for (let domain in parsed[page]) {
+      parsed[page][domain] = parsed[page][domain].map((entry) => {
+        const { country, owner, ...rest } = entry;
+        return rest;
+      });
+    }
+  }
+  return parsed;
+}
+
+function parseDomains(parsed) {
+  let resultDomains = [];
+  for (let page in parsed) {
+    let domains = {
+      name: page,
+      thirdParties: [],
+    };
+    for (let domain in parsed[page]) {
+      // console.log(parsed[page][domain]);
+      let singleDomain = {
+        requestDomain: domain,
+        owner: parsed[page][domain][0].owner,
+        ownerCountry: parsed[page][domain][0].country,
+        ownerLineage: "TODO",
+      };
+      domains.thirdParties.push(singleDomain);
+    }
+    resultDomains.push(domains);
+  }
+  return resultDomains;
+}
+
+function parseNetwork(parsed) {
   const network = {
     nodes: [],
     links: [],
@@ -141,7 +190,7 @@ function parseNetwork(result) {
 
   let pageId = 0;
 
-  for (let page in result) {
+  for (let page in parsed) {
     pageNode = {
       id: pageId,
       name: formatPageName(page),
@@ -157,16 +206,16 @@ function parseNetwork(result) {
   let nodeId = 100;
   let linkId = 0;
 
-  for (let page in result) {
+  for (let page in parsed) {
     let pageNode = network.nodes.find(
       (node) => node.name === formatPageName(page)
     );
 
-    for (let domain in result[page]) {
+    for (let domain in parsed[page]) {
       let node;
       let country = undefined;
-      if (result[page][domain][0]["country"]) {
-        country = result[page][domain][0]["country"];
+      if (parsed[page][domain][0]["country"]) {
+        country = parsed[page][domain][0]["country"];
       }
       if (!nodeExists(network, domain)) {
         node = {
@@ -185,8 +234,8 @@ function parseNetwork(result) {
         name: domain,
         requestData: [],
       };
-      for (let request in result[page][domain]) {
-        let requestData = result[page][domain][request];
+      for (let request in parsed[page][domain]) {
+        let requestData = parsed[page][domain][request];
         link.requestData.push({
           extension: requestData.extension,
           type: requestData.type,
@@ -212,22 +261,26 @@ function parseNetwork(result) {
   return network;
 }
 
-function writeTypes(result, filePath) {
-  fs.writeFile(filePath, JSON.stringify(result), (err) => {
-    if (err) {
-      console.error(err);
-    }
-    console.log("success saving to " + filePath);
-    // file written successfully
-  });
+function parseHierarchy(parsed) {
+  console.log(parsed);
+
+  let hierarchy = {
+    name: "hierarchy",
+    value: 100,
+    children: [{ name: "all categories", value: 0, children: [] }],
+  };
 }
 
-function writeNetwork(network, filePath) {
-  fs.writeFile(filePath, JSON.stringify(network), (err) => {
+function writeFile(data, filePath, fileEnding = "") {
+  let fullPath = filePath;
+  if (fileEnding != "") {
+    fullPath += "." + fileEnding;
+  }
+  fs.writeFile(fullPath, JSON.stringify(data), (err) => {
     if (err) {
       console.error(err);
     }
-    console.log("success saving to " + filePath);
+    console.log("success saving to " + fullPath);
     // file written successfully
   });
 }

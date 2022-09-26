@@ -1,4 +1,4 @@
-export const types_sizes = {
+export const types_all = {
   '20min.ch': {
     'da-services.ch': [
       { extension: 'js', type: 'script', size: 73000 },
