@@ -10,15 +10,6 @@ const domains3Percent = papa.parse(
   }
 ).data;
 
-const domains3 = papa.parse(
-  fs.readFileSync("raw_data/3p_domains.csv", {
-    encoding: "utf-8",
-  }),
-  {
-    header: true,
-  }
-).data;
-
 const data = fs.readFileSync("raw_data/sql_req.json", { encoding: "utf-8" });
 
 const countryData = fs.readFileSync("clean_company_data_all.json", {
@@ -276,12 +267,10 @@ let schwaiger = objects.filter((o) => {
   return schwaigerPages.includes(o.page);
 });
 
-let parsed = parseData(objects);
-let parsedSwiss = parseData(swiss);
-let parsedAlt = parseData(alt);
-let parsedSchwaiger = parseData(schwaiger);
-
-// let dP = domainP(objects);
+let parsed = parseSQL(objects);
+let parsedSwiss = parseSQL(swiss);
+let parsedAlt = parseSQL(alt);
+let parsedSchwaiger = parseSQL(schwaiger);
 
 let types = parseTypes(parsed);
 let typesSwiss = parseTypes(parsedSwiss);
@@ -293,12 +282,15 @@ let domainsSwiss = parseDomains(parsedSwiss);
 let domainsAlt = parseDomains(parsedAlt);
 let domainsSchwaiger = parseDomains(parsedSchwaiger);
 
+let domainPercentages = parseDomainPercentages(objects);
+let domainPercentagesSwiss = parseDomainPercentages(swiss);
+let domainPercentagesAlt = parseDomainPercentages(alt);
+let domainPercentagesSchwaiger = parseDomainPercentages(schwaiger);
+
 let network = parseNetwork(parsed);
 let networkSwiss = parseNetwork(parsedSwiss);
 let networkAlt = parseNetwork(parsedAlt);
 let networkSchwaiger = parseNetwork(parsedSchwaiger);
-
-let domainPercentages = parseDomainPercentages(domains3Percent);
 
 let hierarchy = parseHierarchy(parsed);
 
@@ -312,12 +304,17 @@ writeFile(domainsSwiss, "parsed/domains_swiss");
 writeFile(domainsAlt, "parsed/domains_alt");
 writeFile(domainsSchwaiger, "parsed/domains_schwaiger");
 
+writeFile(domainPercentages, "parsed/domainPercentages");
+writeFile(domainPercentagesSwiss, "parsed/domainPercentagesSwiss");
+writeFile(domainPercentagesAlt, "parsed/domainPercentagesAlt");
+writeFile(domainPercentagesSchwaiger, "parsed/domainPercentagesSchwaiger");
+
 writeFile(network, "parsed/network_all");
 writeFile(networkSwiss, "parsed/network_swiss");
 writeFile(networkAlt, "parsed/network_alt");
 writeFile(networkSchwaiger, "parsed/network_schwaiger");
 
-function parseData(objects) {
+function parseSQL(objects) {
   let dataMap = new Map();
 
   for (let object of objects) {
@@ -374,72 +371,69 @@ function parseTypes(parsed) {
   return parsed;
 }
 
-// function domainP(objects) {
-//   let domainPercentages = [];
-//   let important = [];
-//   const pages = [];
-//   for (let o of objects) {
-//     if (!pages.find((p) => p == o.page)) {
-//       pages.push(o.page);
-//     }
-//   }
-//   for (let entry of objects) {
-//     if (
-//       !important.find(
-//         (i) => i.page == entry.page && i.domain == entry.third_party_domain
-//       )
-//     ) {
-//       important.push({
-//         page: entry.page,
-//         domain: entry.third_party_domain,
-//       });
-//     }
-//   }
-//   let percentages = [];
-//   for (let entry of important) {
-//     let foundEntry = percentages.find((p) => p.domain == entry.domain);
-//     if (!foundEntry) {
-//       foundEntry = {
-//         domain: entry.domain,
-//         count: 0,
-//         percentage: 0,
-//       };
-//       percentages.push(foundEntry);
-//     }
-//     foundEntry.count++;
-//   }
-//   for (let percentage of percentages) {
-//     percentage.percentage =
-//       Math.round((1 / pages.length) * percentage.count * 100) / 100;
-//   }
-//   console.log(percentages);
-// }
+function calcDomainPercentages(objects) {
+  const pagesAndDomains = [];
+  const pages = [];
+  const percentages = [];
+  for (let o of objects) {
+    if (!pages.find((p) => p == o.page)) {
+      pages.push(o.page);
+    }
+  }
+  for (let o of objects) {
+    if (
+      !pagesAndDomains.find(
+        (pad) => pad.page == o.page && pad.domain == o.third_party_domain
+      )
+    ) {
+      pagesAndDomains.push({
+        page: o.page,
+        domain: o.third_party_domain,
+      });
+    }
+  }
+  for (let pad of pagesAndDomains) {
+    let foundEntry = percentages.find((p) => p.domain == pad.domain);
+    if (!foundEntry) {
+      foundEntry = {
+        domain: pad.domain,
+        count: 0,
+        percentage: 0,
+      };
+      percentages.push(foundEntry);
+    }
+    foundEntry.count++;
+  }
+  for (let percentage of percentages) {
+    percentage.percentage =
+      Math.round((1 / pages.length) * percentage.count * 10000) / 100;
+  }
+  return percentages;
+}
 
-function parseDomainPercentages(domains3Percent) {
+function parseDomainPercentages(objects) {
+  let calculatedPercentages = calcDomainPercentages(objects);
+  for (let cP of calculatedPercentages) {
+    let foundObject = objects.find((o) => o.third_party_domain == cP.domain);
+    if (foundObject) {
+      cP.owner = foundObject.owner;
+      cP.country = foundObject.country;
+    }
+  }
+
   let domainPercentages = [];
-  for (let domain of domains3Percent) {
-    let foundDomain = domainPercentages.find(
-      (d) => d.name == domain.percent_total
-    );
+  for (let cP of calculatedPercentages) {
+    let foundDomain = domainPercentages.find((d) => d.name == cP.percentage);
     if (!foundDomain) {
       foundDomain = {
-        name: domain.percent_total,
+        name: cP.percentage,
         thirdParties: [],
       };
       domainPercentages.push(foundDomain);
     }
-    let requestDomain = "";
-    let owner = "";
-    let ownerCountry = "";
-    if (domain.domain != "") {
-      requestDomain = domain.domain;
-    }
-    if (domain.owner != "") {
-      owner = domain.owner;
-    }
-    if (domain.owner_country != "") {
-      ownerCountry = domain.owner_country;
-    }
+    let requestDomain = cP.domain;
+    let owner = getOwner(cP.domain);
+    let ownerCountry = cP.country;
     foundDomain.thirdParties.push({
       requestDomain: requestDomain,
       owner: owner,
@@ -447,7 +441,20 @@ function parseDomainPercentages(domains3Percent) {
     });
   }
   domainPercentages = domainPercentages.filter((d) => d.name != "");
-  return domainPercentages;
+  return domainPercentages.sort((a, b) => b.name - a.name);
+}
+
+function getOwner(page) {
+  let domain = domains3Percent.find((domain) => {
+    return domain.domain == page;
+  });
+  if (domain) {
+    if (domain.owner == "") {
+      return undefined;
+    }
+    return domain.owner;
+  }
+  return undefined;
 }
 
 function parseDomains(parsed) {
@@ -476,7 +483,7 @@ function parseDomains(parsed) {
 }
 
 function getOwnerLineage(page) {
-  let domain = domains3.find((domain) => {
+  let domain = domains3Percent.find((domain) => {
     return domain.domain == page;
   });
   if (domain) {
