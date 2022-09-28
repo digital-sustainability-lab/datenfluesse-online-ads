@@ -1,6 +1,26 @@
 const fs = require("fs");
+const papa = require("papaparse");
 
-const data = fs.readFileSync("raw_data.json", { encoding: "utf-8" });
+const domains3Percent = papa.parse(
+  fs.readFileSync("raw_data/3p_domains.csv", {
+    encoding: "utf-8",
+  }),
+  {
+    header: true,
+  }
+).data;
+
+const domains3 = papa.parse(
+  fs.readFileSync("raw_data/3p_domains.csv", {
+    encoding: "utf-8",
+  }),
+  {
+    header: true,
+  }
+).data;
+
+const data = fs.readFileSync("raw_data/sql_req.json", { encoding: "utf-8" });
+
 const countryData = fs.readFileSync("clean_company_data_all.json", {
   encoding: "utf-8",
 });
@@ -65,6 +85,185 @@ let altPages = [
   "https://zeitpunkt.ch/",
 ];
 
+let schwaigerPages = [
+  "https://achgut.com",
+  "https://addendum.org",
+  "https://adpunktum.de",
+  "https://alles-schallundrauch.blogspot.com",
+  "https://allesroger.at",
+  "https://alpenparlament.tv",
+  "https://alpenschau.com",
+  "https://alternativreport.de",
+  "https://alternativemedien.online",
+  "https://alternativepresseschau.wordpress.com",
+  "https://anderweltonline.com",
+  "https://anonymousnews.ru",
+  "https://antikrieg.com",
+  "https://antilobby.wordpress.com",
+  "https://aufgewachter.wordpress.com",
+  "https://austrianetz.com",
+  "https://bachheimer.com",
+  "https://pressecop24.com",
+  "https://berliner-express.com",
+  "https://berlinjournal.biz",
+  "https://bewusst.tv",
+  "https://bildblog.de",
+  "https://blauenarzisse.de",
+  "https://cashkurs.com",
+  "https://cicero.de",
+  "https://compact-online.de",
+  "https://contramagazin.com",
+  "https://daslamm.ch",
+  "https://ddbnews.wordpress.com",
+  "https://de.europenews.dk",
+  "https://de.news-front.info",
+  "https://de.sott.net",
+  "https://de.sputniknews.com",
+  "https://denken-macht-frei.info",
+  "https://derfunke.at",
+  "https://derwaechter.net",
+  "https://deutsch.rt.com",
+  "https://deutsche-mittelstands-nachrichten.de",
+  "https://deutsche-wirtschafts-nachrichten.de",
+  "https://deutschelobby.com",
+  "https://deutschlandkurier.de",
+  "https://diefreiemeinung.de",
+  "https://dieunbestechlichen.com",
+  "https://dossier.at",
+  "https://ef-magazin.de",
+  "https://eingeschenkt.tv",
+  "https://einprozent.de",
+  "https://epochtimes.de",
+  "https://erstaunlich.at",
+  "https://exomagazin.tv",
+  "https://expresszeitung.com",
+  "https://exsuscitati.wordpress.com",
+  "https://extremnews.com",
+  "https://faktum-magazin.de",
+  "https://ffd365.de",
+  "https://fischundfleisch.com",
+  "https://fk-un.de",
+  "https://free21.org",
+  "https://freebsdler-unglaubliches.blogspot.com",
+  "https://freie-medien.tv",
+  "https://freie-presse.net",
+  "https://freie-welt.eu",
+  "https://freie-nachrichten.de",
+  "https://freiesicht.org",
+  "https://freiewelt.net",
+  "https://freitum.de",
+  "https://gegenargument.at",
+  "https://gegenfrage.com",
+  "https://geolitico.de",
+  "https://german-foreign-policy.com",
+  "https://graswurzel.net",
+  "https://halle-leaks.de",
+  "https://hintergrund.de",
+  "https://info-direkt.eu",
+  "https://infosperber.ch",
+  "https://internetz-zeitung.eu",
+  "https://journal21.ch",
+  "https://journalistenwatch.com",
+  "https://jungefreiheit.de",
+  "https://jungewelt.de",
+  "https://kenfm.de",
+  "https://kla.tv",
+  "https://konkret-magazin.de",
+  "https://kontrast.at",
+  "https://kopp-report.de",
+  "https://kraftzeitung.net",
+  "https://krautreporter.de",
+  "https://krisenfrei.com",
+  "https://kf.neopresse.com",
+  "https://kritischeperspektive.com",
+  "https://legitim.ch",
+  "https://links-netz.de",
+  "https://linksnet.de",
+  "https://lobbycontrol.de",
+  "https://menschenzeitung.de",
+  "https://mietspiegelnews.com",
+  "https://mosaik-blog.at",
+  "https://nachdenkseiten.de",
+  "https://neopresse.com",
+  "https://netkompakt.de",
+  "https://netzfrauen.org",
+  "https://news.feed-reader.net",
+  "https://news2day.net",
+  "https://newsde.eu",
+  "https://newskritik.com",
+  "https://newstopaktuell.wordpress.com",
+  "https://ngo-online.de",
+  "https://noch.info",
+  "https://novo-argumente.com",
+  "https://npr.news.eulu.info",
+  "https://nrhz.de",
+  "https://nuoviso.tv",
+  "https://oesterreich.press",
+  "https://pappenheim-aktuell.com",
+  "https://perspective-daily.de",
+  "https://peymani.de",
+  "https://philosophia-perennis.com",
+  "https://pi-news.net",
+  "https://politaia.org",
+  "https://politikstube.com",
+  "https://politikversagen.net",
+  "https://politnews.org",
+  "https://politonline.ch",
+  "https://pravda-tv.com",
+  "https://preussischeranzeiger.de",
+  "https://propagandafront.de",
+  "https://propagandaschau.wordpress.com",
+  "https://publicomag.com",
+  "https://qpress.de",
+  "https://quer-denken.tv",
+  "https://quotenqueen.wordpress.com",
+  "https://radio-utopie.de",
+  "https://republik.ch",
+  "https://rf-news.de",
+  "https://roteanneliese.ch",
+  "https://rubikon.news",
+  "https://sachsen-depesche.de",
+  "https://scharf-links.de",
+  "https://schweizerzeit.ch",
+  "https://sezession.de",
+  "https://smopo.ch",
+  "https://tagesstimme.com",
+  "https://tagnews.de",
+  "https://telepolis.de",
+  "https://terra-kurier.de",
+  "https://terraherz.wordpress.com",
+  "https://theeuropean.de",
+  "https://theintelligence.de",
+  "https://tichyseinblick.de",
+  "https://topzeitung.com",
+  "https://trend.infopartisan.net",
+  "https://truth24.net",
+  "https://uebermedien.de",
+  "https://un-vogtland.de",
+  "https://uncut-news.ch",
+  "https://ungeheuerliches.de",
+  "https://unser-mitteleuropa.com",
+  "https://unsere-zeit.de",
+  "https://unsere-zeitung.at",
+  "https://unzensuriert.at",
+  "https://unzensuriert.de",
+  "https://volksverpetzer.de",
+  "https://votum1.de",
+  "https://wakenews.net",
+  "https://watergate.tv",
+  "https://welt-im-wandel.tv",
+  "https://weltnetz.tv",
+  "https://weltwoche.ch",
+  "https://wochenblick.at",
+  "https://yoice.net",
+  "https://zaronews.world",
+  "https://zeit-zum-aufwachen.blogspot.com",
+  "https://zensiertevideos.de",
+  "https://zuercherin.com",
+  "https://zuerst.de",
+  "https://zurzeit.at",
+];
+
 let swiss = objects.filter((o) => {
   return swissPages.includes(o.page);
 });
@@ -73,35 +272,50 @@ let alt = objects.filter((o) => {
   return altPages.includes(o.page);
 });
 
+let schwaiger = objects.filter((o) => {
+  return schwaigerPages.includes(o.page);
+});
+
 let parsed = parseData(objects);
 let parsedSwiss = parseData(swiss);
 let parsedAlt = parseData(alt);
+let parsedSchwaiger = parseData(schwaiger);
+
+// let dP = domainP(objects);
 
 let types = parseTypes(parsed);
 let typesSwiss = parseTypes(parsedSwiss);
 let typesAlt = parseTypes(parsedAlt);
+let typesSchwaiger = parseTypes(parsedSchwaiger);
 
 let domains = parseDomains(parsed);
 let domainsSwiss = parseDomains(parsedSwiss);
 let domainsAlt = parseDomains(parsedAlt);
+let domainsSchwaiger = parseDomains(parsedSchwaiger);
 
 let network = parseNetwork(parsed);
 let networkSwiss = parseNetwork(parsedSwiss);
 let networkAlt = parseNetwork(parsedAlt);
+let networkSchwaiger = parseNetwork(parsedSchwaiger);
+
+let domainPercentages = parseDomainPercentages(domains3Percent);
 
 let hierarchy = parseHierarchy(parsed);
 
 writeFile(types, "parsed/types_all");
 writeFile(typesSwiss, "parsed/types_swiss");
 writeFile(typesAlt, "parsed/types_alt");
+writeFile(typesSchwaiger, "parsed/types_schwaiger");
 
 writeFile(domains, "parsed/domains_all");
 writeFile(domainsSwiss, "parsed/domains_swiss");
 writeFile(domainsAlt, "parsed/domains_alt");
+writeFile(domainsSchwaiger, "parsed/domains_schwaiger");
 
 writeFile(network, "parsed/network_all");
 writeFile(networkSwiss, "parsed/network_swiss");
 writeFile(networkAlt, "parsed/network_alt");
+writeFile(networkSchwaiger, "parsed/network_schwaiger");
 
 function parseData(objects) {
   let dataMap = new Map();
@@ -160,6 +374,82 @@ function parseTypes(parsed) {
   return parsed;
 }
 
+// function domainP(objects) {
+//   let domainPercentages = [];
+//   let important = [];
+//   const pages = [];
+//   for (let o of objects) {
+//     if (!pages.find((p) => p == o.page)) {
+//       pages.push(o.page);
+//     }
+//   }
+//   for (let entry of objects) {
+//     if (
+//       !important.find(
+//         (i) => i.page == entry.page && i.domain == entry.third_party_domain
+//       )
+//     ) {
+//       important.push({
+//         page: entry.page,
+//         domain: entry.third_party_domain,
+//       });
+//     }
+//   }
+//   let percentages = [];
+//   for (let entry of important) {
+//     let foundEntry = percentages.find((p) => p.domain == entry.domain);
+//     if (!foundEntry) {
+//       foundEntry = {
+//         domain: entry.domain,
+//         count: 0,
+//         percentage: 0,
+//       };
+//       percentages.push(foundEntry);
+//     }
+//     foundEntry.count++;
+//   }
+//   for (let percentage of percentages) {
+//     percentage.percentage =
+//       Math.round((1 / pages.length) * percentage.count * 100) / 100;
+//   }
+//   console.log(percentages);
+// }
+
+function parseDomainPercentages(domains3Percent) {
+  let domainPercentages = [];
+  for (let domain of domains3Percent) {
+    let foundDomain = domainPercentages.find(
+      (d) => d.name == domain.percent_total
+    );
+    if (!foundDomain) {
+      foundDomain = {
+        name: domain.percent_total,
+        thirdParties: [],
+      };
+      domainPercentages.push(foundDomain);
+    }
+    let requestDomain = "";
+    let owner = "";
+    let ownerCountry = "";
+    if (domain.domain != "") {
+      requestDomain = domain.domain;
+    }
+    if (domain.owner != "") {
+      owner = domain.owner;
+    }
+    if (domain.owner_country != "") {
+      ownerCountry = domain.owner_country;
+    }
+    foundDomain.thirdParties.push({
+      requestDomain: requestDomain,
+      owner: owner,
+      ownerCountry: ownerCountry,
+    });
+  }
+  domainPercentages = domainPercentages.filter((d) => d.name != "");
+  return domainPercentages;
+}
+
 function parseDomains(parsed) {
   let resultDomains = [];
   for (let page in parsed) {
@@ -168,18 +458,34 @@ function parseDomains(parsed) {
       thirdParties: [],
     };
     for (let domain in parsed[page]) {
-      // console.log(parsed[page][domain]);
+      let ownerCountry = undefined;
+      if (parsed[page][domain][0].country) {
+        ownerCountry = parsed[page][domain][0].country;
+      }
       let singleDomain = {
         requestDomain: domain,
         owner: parsed[page][domain][0].owner,
-        ownerCountry: parsed[page][domain][0].country,
-        ownerLineage: "TODO",
+        ownerCountry: ownerCountry,
+        ownerLineage: getOwnerLineage(domain),
       };
       domains.thirdParties.push(singleDomain);
     }
     resultDomains.push(domains);
   }
   return resultDomains;
+}
+
+function getOwnerLineage(page) {
+  let domain = domains3.find((domain) => {
+    return domain.domain == page;
+  });
+  if (domain) {
+    if (domain.owner_lineage == "") {
+      return undefined;
+    }
+    return domain.owner_lineage;
+  }
+  return undefined;
 }
 
 function parseNetwork(parsed) {
@@ -262,8 +568,6 @@ function parseNetwork(parsed) {
 }
 
 function parseHierarchy(parsed) {
-  console.log(parsed);
-
   let hierarchy = {
     name: "hierarchy",
     value: 100,
@@ -280,7 +584,7 @@ function writeFile(data, filePath, fileEnding = "") {
     if (err) {
       console.error(err);
     }
-    console.log("success saving to " + fullPath);
+    // console.log("success saving to " + fullPath);
     // file written successfully
   });
 }
@@ -288,6 +592,9 @@ function writeFile(data, filePath, fileEnding = "") {
 function formatPageName(key) {
   if (key.indexOf("https://") != -1) {
     key = key.substr(8).toLowerCase();
+  }
+  if (key.indexOf("http://") != -1) {
+    key = key.substr(7).toLowerCase();
   }
   if (key.lastIndexOf("/") == key.length - 1) {
     key = key.substr(0, key.length - 1);
