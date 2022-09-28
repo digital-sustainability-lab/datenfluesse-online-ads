@@ -16,6 +16,12 @@ const countryData = fs.readFileSync("clean_company_data_all.json", {
   encoding: "utf-8",
 });
 
+const companyData = JSON.parse(
+  fs.readFileSync("company_data_all.json", {
+    encoding: "utf-8",
+  })
+);
+
 const objects = JSON.parse(data);
 
 let swissPages = [
@@ -292,7 +298,22 @@ let networkSwiss = parseNetwork(parsedSwiss);
 let networkAlt = parseNetwork(parsedAlt);
 let networkSchwaiger = parseNetwork(parsedSchwaiger);
 
-let hierarchy = parseHierarchy(parsed);
+let hierarchy = parseHierarchy(companyData, domains, domainPercentages);
+let hierarchySwiss = parseHierarchy(
+  companyData,
+  domainsSwiss,
+  domainPercentagesSwiss
+);
+let hierarchyAlt = parseHierarchy(
+  companyData,
+  domainsAlt,
+  domainPercentagesAlt
+);
+let hierarchySchwaiger = parseHierarchy(
+  companyData,
+  domainsSchwaiger,
+  domainPercentagesSchwaiger
+);
 
 writeFile(types, "parsed/types_all");
 writeFile(typesSwiss, "parsed/types_swiss");
@@ -304,15 +325,20 @@ writeFile(domainsSwiss, "parsed/domains_swiss");
 writeFile(domainsAlt, "parsed/domains_alt");
 writeFile(domainsSchwaiger, "parsed/domains_schwaiger");
 
-writeFile(domainPercentages, "parsed/domainPercentages");
-writeFile(domainPercentagesSwiss, "parsed/domainPercentagesSwiss");
-writeFile(domainPercentagesAlt, "parsed/domainPercentagesAlt");
-writeFile(domainPercentagesSchwaiger, "parsed/domainPercentagesSchwaiger");
+writeFile(domainPercentages, "parsed/domainPercentages_all");
+writeFile(domainPercentagesSwiss, "parsed/domainPercentages_swiss");
+writeFile(domainPercentagesAlt, "parsed/domainPercentages_alt");
+writeFile(domainPercentagesSchwaiger, "parsed/domainPercentages_schwaiger");
 
 writeFile(network, "parsed/network_all");
 writeFile(networkSwiss, "parsed/network_swiss");
 writeFile(networkAlt, "parsed/network_alt");
 writeFile(networkSchwaiger, "parsed/network_schwaiger");
+
+writeFile(hierarchy, "parsed/hierarchy_all");
+writeFile(hierarchySwiss, "parsed/hierarchy_swiss");
+writeFile(hierarchyAlt, "parsed/hierarchy_alt");
+writeFile(hierarchySchwaiger, "parsed/hierarchy_schwaiger");
 
 function parseSQL(objects) {
   let dataMap = new Map();
@@ -574,12 +600,83 @@ function parseNetwork(parsed) {
   return network;
 }
 
-function parseHierarchy(parsed) {
+function parseHierarchy(companyData, domains, domainPercentages) {
   let hierarchy = {
     name: "hierarchy",
     value: 100,
     children: [{ name: "all categories", value: 0, children: [] }],
   };
+
+  for (const key in companyData) {
+    hierarchy.children[0].children.push({ name: key, children: [], value: 0 });
+    hierarchy.children[0].value += 1;
+    if (companyData[key].domain) {
+      for (const cats of companyData[key].domain.categories) {
+        if (cats.confidence > 0.75) {
+          const catsToAdd = cats.name.split("/");
+          for (const category of catsToAdd) {
+            if (category) {
+              let found = hierarchy.children.find(
+                (cat) => cat.name == category
+              );
+              if (!found) {
+                hierarchy.children.push({
+                  name: category,
+                  children: [{ name: key, children: [], value: 0 }],
+                  value: 1,
+                });
+              } else {
+                let index = hierarchy.children.indexOf(found);
+                let exists = hierarchy.children[index].children.find(
+                  (site) => site.name == key
+                );
+                if (!exists) {
+                  hierarchy.children[index].value += 1;
+                  hierarchy.children[index].children.push({
+                    name: key,
+                    children: [],
+                    value: 0,
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  for (const element of hierarchy.children) {
+    for (const child of element.children) {
+      let temp = child.name.slice(0, -1);
+      temp = temp.replace("https://www.", "");
+      temp = temp.replace("https://de.", "");
+      temp = temp.replace("https://", "");
+      let name = domains.find((website) => website.name == temp);
+      if (name) {
+        child.value = name.thirdParties.length;
+        child.children = name.thirdParties.map((obj) => {
+          let finalValue = 0;
+          for (const perc of domainPercentages) {
+            let found = perc.thirdParties.find(
+              (el) => el.requestDomain == obj.requestDomain
+            );
+            if (found) {
+              finalValue = parseInt(perc.name, 10);
+              break;
+            }
+          }
+          if (finalValue) {
+            return { name: obj.requestDomain, value: finalValue };
+          } else {
+            return { name: obj.requestDomain, value: 0 };
+          }
+        });
+      }
+    }
+  }
+
+  return hierarchy;
 }
 
 function writeFile(data, filePath, fileEnding = "") {
