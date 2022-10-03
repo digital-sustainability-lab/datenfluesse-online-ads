@@ -177,11 +177,19 @@ export class BarchartDetailsService {
   }
 
   getColor(subgroups: any) {
-    let color: any = {};
-    for (let [index, subgroup] of subgroups.entries()) {
-      color[subgroup] = d3.interpolateRainbow(index / (subgroups.length - 1));
-    }
-    return color;
+    return {
+      script: 'rgb(110, 64, 170)',
+      xhr: 'rgb(191, 60, 175)',
+      fetch: 'rgb(254, 75, 131)',
+      image: 'rgb(255, 120, 71)',
+      document: 'rgb(226, 183, 47)',
+      stylesheet: 'rgb(175, 240, 91)',
+      font: 'rgb(82, 246, 103)',
+      ping: 'rgb(29, 223, 163)',
+      other: 'rgb(35, 171, 216)',
+      media: 'rgb(76, 110, 219)',
+      preflight: 'rgb(110, 64, 170)',
+    };
   }
 
   orderData(data: any, order: string): any {
