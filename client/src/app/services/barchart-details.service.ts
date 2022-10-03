@@ -52,8 +52,6 @@ export class BarchartDetailsService {
 
     data = this.orderData(data, order);
 
-    console.log(data);
-
     this.data.next(data);
   }
 

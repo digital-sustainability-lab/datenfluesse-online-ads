@@ -1,0 +1,1 @@
+export const country_color = {"undefined":"#67001f","US":"#b2182b","DE":"#d6604d","CA":"#f4a582","JP":"#fddbc7","IN":"#ffffff","UK":"#e0e0e0","BE":"#bababa","FR":"#878787","DK":"#4d4d4d","RU":"#1a1a1a","SE":"#543005","CN":"#8c510a","NL":"#bf812d","NO":"#dfc27d","MT":"#d9ef8b","IE":"#a6d96a","SG":"#66bd63","IT":"#1a9850","TW":"#006837"}

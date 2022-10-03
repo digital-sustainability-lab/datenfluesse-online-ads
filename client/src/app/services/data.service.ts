@@ -2,27 +2,26 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { network_alt } from '../data/alt/network_alt';
 import { network_swiss } from '../data/swiss/network_swiss';
-import { network_all } from '../data/both/network_all';
-import { domain_all } from '../data/both/domain_all';
-import { domain_swiss } from '../data/swiss/domain_swiss';
-import { domain_alt } from '../data/alt/domain_alt';
-import { hierarchy_alt } from '../data/alt/hierarchy_alt';
-import { hierarchy_swiss } from '../data/swiss/hierarchy_swiss';
-import { color_alt } from '../data/alt/color_alt';
-import { color_swiss } from '../data/swiss/color';
-import { color3p_alt } from '../data/alt/color3p';
-import { color3p_swiss } from '../data/swiss/color3p';
+import { types_alt } from '../data/alt/types_alt';
+import { domain_swiss } from '../data/swiss/domains_swiss';
+import { category_color } from '../data/category_colors';
+import { country_color } from '../data/country_colors';
+import { network_both } from '../data/both/network_both';
+import { domain_both } from '../data/both/domains_both';
+import { category_both } from '../data/both/category_both';
+import { types_both } from '../data/both/types_both';
+import { domain_alt } from '../data/alt/domains_alt';
+import { network_schwaiger } from '../data/schwaiger/network_schwaiger';
+import { domain_schwaiger } from '../data/schwaiger/domains_schwaiger';
+import { types_schwaiger } from '../data/schwaiger/types_schwaiger';
 import { category_alt } from '../data/alt/category_alt';
 import { category_swiss } from '../data/swiss/category_swiss';
-import { color3p_all } from '../data/both/color3p_all';
-import { color_all } from '../data/both/color_all';
-import { hierarchy_all } from '../data/both/hierarchy_all';
-import { category_all } from '../data/both/category_all';
-import { network_schwaiger } from '../data/schwaiger/newtork_schwaiger';
-import { domain_schwaiger } from '../data/schwaiger/domain_schwaiger';
-import { types_all } from '../data/both/types_all';
 import { types_swiss } from '../data/swiss/types_swiss';
-import { types_alt } from '../data/alt/types_alt';
+import { hierarchy_swiss } from '../data/swiss/hierarchy_swiss';
+import { hierarchy_alt } from '../data/alt/hierarchy_alt';
+import { hierarchy_both } from '../data/both/hierarchy_both';
+import { hierarchy_schwaiger } from '../data/schwaiger/hierarchy_schwaiger';
+import { category_schwaiger } from '../data/schwaiger/category_schwaiger';
 
 @Injectable({
   providedIn: 'root',
@@ -36,10 +35,10 @@ export class DataService {
     network: network_swiss,
     domain: domain_swiss,
     hierarchy: hierarchy_swiss,
-    color: color_swiss,
-    color3p: color3p_swiss,
     category: category_swiss,
     types: types_swiss,
+    color: category_color,
+    color3p: country_color,
   });
 
   private currenttDataSet = this.currentDataSetSource.asObservable();
@@ -74,13 +73,13 @@ export class DataService {
     if (data == 'all') {
       this.activeDataSource.next('all');
       this.setCurrentDataSet({
-        network: network_all,
-        domain: domain_all,
-        color3p: color3p_all,
-        color: color_all,
-        hierarchy: hierarchy_all,
-        category: category_all,
-        types: types_all,
+        network: network_both,
+        domain: domain_both,
+        hierarchy: hierarchy_both,
+        category: category_both,
+        types: types_both,
+        color: category_color,
+        color3p: country_color,
       });
     }
     if (data == 'alt') {
@@ -89,10 +88,10 @@ export class DataService {
         network: network_alt,
         domain: domain_alt,
         hierarchy: hierarchy_alt,
-        color: color_alt,
-        color3p: color3p_alt,
         category: category_alt,
         types: types_alt,
+        color: category_color,
+        color3p: country_color,
       });
     }
     if (data == 'swiss') {
@@ -101,10 +100,10 @@ export class DataService {
         network: network_swiss,
         domain: domain_swiss,
         hierarchy: hierarchy_swiss,
-        color: color_swiss,
-        color3p: color3p_swiss,
         category: category_swiss,
         types: types_swiss,
+        color: category_color,
+        color3p: country_color,
       });
     }
     if (data == 'schwaiger') {
@@ -112,11 +111,11 @@ export class DataService {
       this.setCurrentDataSet({
         network: network_schwaiger,
         domain: domain_schwaiger,
-        hierarchy: hierarchy_swiss,
-        color: color_swiss,
-        color3p: color3p_swiss,
-        category: category_swiss,
-        types: null,
+        hierarchy: hierarchy_schwaiger,
+        category: category_schwaiger,
+        types: types_schwaiger,
+        color: category_color,
+        color3p: country_color,
       });
     }
   }
