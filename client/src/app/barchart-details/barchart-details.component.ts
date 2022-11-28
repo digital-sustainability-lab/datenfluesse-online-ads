@@ -29,6 +29,7 @@ export class BarchartDetails implements OnInit {
   yLabel: string = '';
   barValue: any;
   tooltip: any;
+  tooltipDescription: string = '';
   groups: any;
   subgroups: any;
   color: any;
@@ -42,6 +43,10 @@ export class BarchartDetails implements OnInit {
       this.description.next(data.meta.description);
       this.xLabel = data.meta.xLabel;
       this.yLabel = data.meta.yLabel;
+      this.tooltipDescription = 'Total Payload size (kB):';
+      if (data.meta.yLabel.match('request')) {
+        this.tooltipDescription = 'Total requests:';
+      }
       this.update(this.data);
     });
   }
@@ -166,7 +171,7 @@ export class BarchartDetails implements OnInit {
     this.tooltip
       .append('p')
       .style('font-weight', 'bold')
-      .text(' Total requests: ' + data.meta.total);
+      .text(this.tooltipDescription + data.meta.total);
     this.tooltip.append('div').text('Third party request types:');
 
     for (let type in data) {

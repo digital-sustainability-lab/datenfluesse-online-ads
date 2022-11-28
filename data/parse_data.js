@@ -1,6 +1,21 @@
 const fs = require("fs");
 const axios = require("axios");
 const papa = require("papaparse");
+const { parse } = require("path");
+
+const AD_SITES_RAW = JSON.parse(
+  fs.readFileSync("ad_sites.json", {
+    encoding: "utf-8",
+  })
+);
+
+const adSites = [];
+
+for (let adSite of AD_SITES_RAW.filter((s) => s.category == "ad")) {
+  adSites.push(...adSite.domains);
+}
+
+console.log(adSites);
 
 const domains3Percent = papa.parse(
   fs.readFileSync("raw_data/3p_domains.csv", {
@@ -20,6 +35,7 @@ const companyData = JSON.parse(
 const cleanCompanyData = parseCleanCompanyData(companyData);
 
 const data = fs.readFileSync("raw_data/sql_req.json", { encoding: "utf-8" });
+
 const objects = JSON.parse(data);
 
 let swissPages = [
