@@ -30,9 +30,7 @@ export class BarchartDetails implements OnInit {
   barValue: any;
   tooltip: any;
   tooltipDescription: string = '';
-  groups: any;
-  subgroups: any;
-  color: any;
+  tooltipCategory: string = '';
   description: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private barchartDetailsService: BarchartDetailsService) {}
@@ -46,6 +44,10 @@ export class BarchartDetails implements OnInit {
       this.tooltipDescription = 'Total Payload size (kB):';
       if (data.meta.yLabel.match('request')) {
         this.tooltipDescription = 'Total requests:';
+      }
+      this.tooltipCategory = 'types';
+      if (data.meta.categorization == 'category') {
+        this.tooltipCategory = 'categories';
       }
       this.update(this.data);
     });
@@ -157,10 +159,6 @@ export class BarchartDetails implements OnInit {
       });
   }
 
-  alert(event: any) {
-    alert(event);
-  }
-
   fillTooltip(e: any) {
     const data = e.target.__data__.data;
 
@@ -172,7 +170,9 @@ export class BarchartDetails implements OnInit {
       .append('p')
       .style('font-weight', 'bold')
       .text(this.tooltipDescription + data.meta.total);
-    this.tooltip.append('div').text('Third party request types:');
+    this.tooltip
+      .append('div')
+      .text('Third party request ' + this.tooltipCategory + ':');
 
     for (let type in data) {
       if (e.target.__data__[1] - e.target.__data__[0] === data[type]) {

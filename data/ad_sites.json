@@ -52,6 +52,39 @@
     ]
   },
   {
+    "name": "Facebook",
+    "homepage": "https://www.facebook.com",
+    "category": "social",
+    "domains": [
+      "*.facebook.com",
+      "*.atlassbx.com",
+      "*.fbsbx.com",
+      "fbcdn-photos-e-a.akamaihd.net",
+      "*.facebook.net",
+      "*.fbcdn.net"
+    ],
+    "examples": [
+      "www.facebook.com",
+      "connect.facebook.net",
+      "staticxx.facebook.com",
+      "static.xx.fbcdn.net",
+      "m.facebook.com",
+      "an.facebook.com",
+      "platform-lookaside.fbsbx.com"
+    ],
+    "products": [
+      {
+        "name": "Facebook Messenger Customer Chat",
+        "facades": [
+          {
+            "name": "React Live Chat Loader",
+            "repo": "https://github.com/calibreapp/react-live-chat-loader"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "Instagram",
     "homepage": "https://www.instagram.com",
     "category": "social",
@@ -206,6 +239,36 @@
     "examples": ["use.typekit.net", "p.typekit.net"]
   },
   {
+    "name": "YouTube",
+    "homepage": "https://youtube.com",
+    "category": "video",
+    "domains": [
+      "*.youtube.com",
+      "*.ggpht.com",
+      "*.youtube-nocookie.com",
+      "*.ytimg.com"
+    ],
+    "examples": [
+      "www.youtube.com",
+      "s.ytimg.com",
+      "yt3.ggpht.com",
+      "img.youtube.com",
+      "fcmatch.youtube.com"
+    ],
+    "products": [
+      {
+        "name": "YouTube Embedded Player",
+        "urlPatterns": ["youtube.com/embed/"],
+        "facades": [
+          {
+            "name": "Lite YouTube",
+            "repo": "https://github.com/paulirish/lite-youtube-embed"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "Twitter",
     "homepage": "https://twitter.com",
     "category": "social",
@@ -328,6 +391,24 @@
     "examples": [
       "audiag.112.2o7.net",
       "du8783wkf05yr.cloudfront.net/NS_mbox.js"
+    ]
+  },
+  {
+    "name": "Adobe Tag Manager",
+    "company": "Adobe",
+    "homepage": "https://www.adobe.com/experience-platform/",
+    "category": "tag-manager",
+    "domains": [
+      "*.adobedtm.com",
+      "*.demdex.net",
+      "*.everesttech.net",
+      "sstats.adobe.com",
+      "hbrt.adobe.com"
+    ],
+    "examples": [
+      "assets.adobedtm.com",
+      "sync-tm.everesttech.net",
+      "cm.everesttech.net"
     ]
   },
   {
@@ -575,6 +656,25 @@
     "homepage": "https://freshdesk.com/",
     "category": "customer-success",
     "domains": ["d36mpcpuzc4ztk.cloudfront.net"]
+  },
+  {
+    "name": "Help Scout",
+    "homepage": "https://www.helpscout.net/",
+    "category": "customer-success",
+    "domains": ["djtflbt20bdde.cloudfront.net", "*.helpscout.net"],
+    "examples": ["beacon-v2.helpscout.net"],
+    "products": [
+      {
+        "name": "Help Scout Beacon",
+        "urlPatterns": ["beacon-v2.helpscout.net"],
+        "facades": [
+          {
+            "name": "React Live Chat Loader",
+            "repo": "https://github.com/calibreapp/react-live-chat-loader"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Alexa",
@@ -835,6 +935,24 @@
     "category": "utility",
     "domains": ["*.pusher.com", "*.pusherapp.com"],
     "examples": ["stats.pusher.com"]
+  },
+  {
+    "name": "Drift",
+    "homepage": "https://www.drift.com/",
+    "category": "marketing",
+    "domains": ["*.drift.com", "*.driftt.com"],
+    "examples": ["js.driftt.com", "api.drift.com"],
+    "products": [
+      {
+        "name": "Drift Live Chat",
+        "facades": [
+          {
+            "name": "React Live Chat Loader",
+            "repo": "https://github.com/calibreapp/react-live-chat-loader"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Sentry",
@@ -1555,6 +1673,37 @@
     "category": "analytics",
     "domains": ["*.marketo.com", "*.mktoresp.com", "*.marketo.net"],
     "examples": ["munchkin.marketo.net"]
+  },
+  {
+    "name": "Intercom",
+    "homepage": "https://www.intercom.com",
+    "category": "customer-success",
+    "domains": ["*.intercomcdn.com", "*.intercom.io"],
+    "examples": [
+      "js.intercomcdn.com",
+      "api-iam.intercom.io",
+      "widget.intercom.io",
+      "nexus-websocket-a.intercom.io"
+    ],
+    "products": [
+      {
+        "name": "Intercom Widget",
+        "urlPatterns": [
+          "widget.intercom.io",
+          "js.intercomcdn.com/shim.latest.js"
+        ],
+        "facades": [
+          {
+            "name": "React Live Chat Loader",
+            "repo": "https://github.com/calibreapp/react-live-chat-loader"
+          },
+          {
+            "name": "Intercom Facade",
+            "repo": "https://github.com/danielbachhuber/intercom-facade/"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Unpkg",

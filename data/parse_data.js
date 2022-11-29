@@ -1,21 +1,12 @@
 const fs = require("fs");
 const axios = require("axios");
 const papa = require("papaparse");
-const { parse } = require("path");
 
-const AD_SITES_RAW = JSON.parse(
+const THIRD_PARTY_CATS = JSON.parse(
   fs.readFileSync("ad_sites.json", {
     encoding: "utf-8",
   })
 );
-
-const adSites = [];
-
-for (let adSite of AD_SITES_RAW.filter((s) => s.category == "ad")) {
-  adSites.push(...adSite.domains);
-}
-
-console.log(adSites);
 
 const domains3Percent = papa.parse(
   fs.readFileSync("raw_data/3p_domains.csv", {
@@ -527,9 +518,23 @@ function parseTypes(parsed) {
   parsed = JSON.parse(JSON.stringify(parsed));
   for (let page in parsed) {
     for (let domain in parsed[page]) {
+      let category = THIRD_PARTY_CATS.find(
+        (thirdParty) =>
+          thirdParty.domains.find((thirdPartydomain) =>
+            thirdPartydomain.includes(domain)
+          ) != null
+      )?.category;
+
+      if (!category) category = "unknown";
+
+      if (THIRD_PARTY_CATS.find((el) => el.domains.includes(domain)) != null) {
+        category = THIRD_PARTY_CATS.find((el) =>
+          el.domains.includes(domain)
+        ).category;
+      }
       parsed[page][domain] = parsed[page][domain].map((entry) => {
         const { country, owner, ...rest } = entry;
-        return rest;
+        return { ...rest, category };
       });
     }
   }

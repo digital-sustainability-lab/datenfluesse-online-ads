@@ -11,7 +11,27 @@
         <mat-panel-title>Display options</mat-panel-title>
       </mat-expansion-panel-header>
       <div>
-        <h3>Data to display</h3>
+        <h3>Categorization</h3>
+        <p>
+          <input
+            type="radio"
+            id="type"
+            name="categorization"
+            value="type"
+            (click)="updateCategorization($event)"
+            checked
+          />
+          <label for="type">Request type</label><br />
+          <input
+            type="radio"
+            id="category"
+            name="categorization"
+            value="category"
+            (click)="updateCategorization($event)"
+          />
+          <label for="category">Request category</label>
+        </p>
+        <h3>Values to display</h3>
         <p>
           <input
             type="radio"
