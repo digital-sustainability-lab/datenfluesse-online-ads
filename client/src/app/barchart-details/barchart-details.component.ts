@@ -18,18 +18,19 @@ import { BarchartDetailsService } from '../services/barchart-details.service';
 })
 export class BarchartDetails implements OnInit {
   margin = { top: 30, right: 30, bottom: 110, left: 60 };
-  width = 2000 - this.margin.left - this.margin.right;
-  height = 1000 - this.margin.top - this.margin.bottom;
+  width = 1500 - this.margin.left - this.margin.right;
+  height = 800 - this.margin.top - this.margin.bottom;
   data: any;
   stackedData: any;
   svg: any;
   x: any;
   y: any;
+  xLabel: string = '';
+  yLabel: string = '';
   barValue: any;
   tooltip: any;
-  groups: any;
-  subgroups: any;
-  color: any;
+  tooltipDescription: string = '';
+  tooltipCategory: string = '';
   description: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private barchartDetailsService: BarchartDetailsService) {}
@@ -38,6 +39,16 @@ export class BarchartDetails implements OnInit {
     this.barchartDetailsService.data.subscribe((data: any) => {
       this.data = data;
       this.description.next(data.meta.description);
+      this.xLabel = data.meta.xLabel;
+      this.yLabel = data.meta.yLabel;
+      this.tooltipDescription = 'Total Payload size (kB):';
+      if (data.meta.yLabel.match('request')) {
+        this.tooltipDescription = 'Total requests:';
+      }
+      this.tooltipCategory = 'types';
+      if (data.meta.categorization == 'category') {
+        this.tooltipCategory = 'categories';
+      }
       this.update(this.data);
     });
   }
@@ -69,17 +80,39 @@ export class BarchartDetails implements OnInit {
       .attr('transform', 'translate(-10,0)rotate(-45)')
       .style('text-anchor', 'end');
 
+    this.svg
+      .append('text')
+      .attr('class', 'x label')
+      .attr(
+        'transform',
+        'translate(' +
+          (this.width + 20) +
+          ',' +
+          (this.height + 15) +
+          ')rotate(-90)'
+      )
+      .text(this.xLabel);
+
     this.y = d3
       .scaleLinear()
       .domain([0, data.meta.maxTotal])
       .range([this.height, 0]);
     this.svg.append('g').call(d3.axisLeft(this.y));
 
+    this.svg
+      .append('text')
+      .attr('class', 'y label')
+      .attr('y', -15)
+      .attr('dy', '.75em')
+      .text(this.yLabel);
+
     this.tooltip = d3.select('.infoTooltip');
 
-    const stackedData = d3.stack().keys(data.meta.subgroups.reverse())(
-      data.chartData
-    );
+    let subgroupsReversed = JSON.parse(
+      JSON.stringify(data.meta.subgroups)
+    ).reverse();
+
+    const stackedData = d3.stack().keys(subgroupsReversed)(data.chartData);
 
     this.svg
       .append('g')
@@ -126,10 +159,6 @@ export class BarchartDetails implements OnInit {
       });
   }
 
-  alert(event: any) {
-    alert(event);
-  }
-
   fillTooltip(e: any) {
     const data = e.target.__data__.data;
 
@@ -140,8 +169,10 @@ export class BarchartDetails implements OnInit {
     this.tooltip
       .append('p')
       .style('font-weight', 'bold')
-      .text(' Total requests: ' + data.meta.total);
-    this.tooltip.append('div').text('Third party request types:');
+      .text(this.tooltipDescription + data.meta.total);
+    this.tooltip
+      .append('div')
+      .text('Third party request ' + this.tooltipCategory + ':');
 
     for (let type in data) {
       if (e.target.__data__[1] - e.target.__data__[0] === data[type]) {

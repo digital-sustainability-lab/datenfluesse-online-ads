@@ -119,8 +119,6 @@ export class NetworkComponent implements OnInit {
    * @param data the network data that is generated in network service
    */
   update(data: any) {
-    console.log('update called');
-    console.log(data);
     // update links
     this.link = this.link
       .data(data.links, (d: any) => {
@@ -272,9 +270,9 @@ export class NetworkComponent implements OnInit {
       const category = this.categories[name].categories[0];
       return this.colors[category];
     }
-    if (this.color3p[element.country]) {
-      return this.color3p[element.country];
-    }
+    // if (this.color3p[element.country]) {
+    //   return this.color3p[element.country];
+    // }
     return '#808080';
   }
 

@@ -1,158 +1,139 @@
 const axios = require("axios");
 const fs = require("fs");
-const company_data = require("./company_data_all.json");
 
 urls = [
-  "https://de.news-front.info/",
-  "https://journalistenwatch.com/",
-  "https://www.compact-online.de/",
-  "https://www.unzensuriert.at/",
-  "https://www.wochenblick.at/",
-  "https://report24.news/",
-  "https://www.info-direkt.eu/",
-  "https://auf1.tv/",
-  "https://uncutnews.ch/",
-  "https://transition-news.org/",
-  "https://zeitpunkt.ch/",
-  "https://nuoflix.de/",
-  "https://apolut.net/",
-  "https://google.com",
-  "https://youtube.com ",
-  "https://facebook.com ",
-  "https://google.ch ",
-  "https://wikipedia.org ",
-  "https://instagram.com",
-  "https://reddit.com ",
-  "https://20min.ch ",
-  "https://blick.ch ",
-  "https://srf.ch ",
-  "https://linkedin.com ",
-  "https://bing.com ",
-  "https://admin.ch ",
-  "https://live.com ",
-  "https://yahoo.com ",
-  "https://twitter.com ",
-  "https://whatsapp.com ",
-  "https://ricardo.ch",
-  "https://galaxus.ch ",
-  "https://duckduckgo.com ",
-  "https://microsoft.com ",
-  "https://digitec.ch",
-  "https://aliexpress.com ",
-  "https://watson.ch ",
-  "https://deepl.com ",
-  "https://microsoftonline.com ",
-  "https://github.com ",
-  "https://amazon.de",
-  "https://bluewin.ch ",
-  "https://post.ch ",
-  "https://swisscom.ch ",
-  "https://fandom.com ",
-  "https://sbb.ch ",
-  "https://amazon.com ",
-  "https://netflix.com",
-  "https://booking.com ",
-  "https://zoom.us ",
-  "https://paypal.com ",
-  "https://9gag.com ",
-  "https://tiktok.com ",
-  "https://twitch.tv ",
-  "https://stackoverflow.com",
-  "https://t.co ",
-  "https://fffice.com ",
-  "https://rts.ch ",
-  "https://tutti.ch",
+  "http://antikrieg.com",
+  "http://austrianetz.com",
+  "http://berliner-express.com",
+  "http://bewusst.tv",
+  "http://de.europenews.dk",
+  "http://denken-macht-frei.info",
+  "http://erstaunlich.at",
+  "http://exomagazin.tv",
+  "http://faktum-magazin.de",
+  "http://ffd365.de",
+  "http://fk-un.de",
+  "http://free21.org",
+  "http://freie-medien.tv",
+  "http://freie-nachrichten.de",
+  "http://freitum.de",
+  "http://gegenargument.at",
+  "http://gegenfrage.com",
+  "http://german-foreign-policy.com",
+  "http://journal21.ch",
+  "http://jungefreiheit.de",
+  "http://jungewelt.de",
+  "http://kenfm.de",
+  "http://kraftzeitung.net",
+  "http://kritischeperspektive.com",
+  "http://links-netz.de",
+  "http://mietspiegelnews.com",
+  "http://netkompakt.de",
+  "http://news2day.net",
+  "http://noch.info",
+  "http://nrhz.de",
+  "http://oesterreich.press",
+  "http://pappenheim-aktuell.com",
+  "http://politonline.ch",
+  "http://propagandafront.de",
+  "http://quer-denken.tv",
+  "http://roteanneliese.ch",
+  "http://rubikon.news",
+  "http://scharf-links.de",
+  "http://trend.infopartisan.net",
+  "http://truth24.net",
+  "http://ungeheuerliches.de",
+  "http://unsere-zeit.de",
+  "http://volksverpetzer.de",
+  "http://votum1.de",
+  "https://achgut.com",
+  "https://addendum.org",
+  "https://adpunktum.de",
+  "https://alles-schallundrauch.blogspot.com",
+  "https://alpenparlament.tv",
+  "https://alpenschau.com",
+  "https://alternativepresseschau.wordpress.com",
+  "https://anderweltonline.com",
+  "https://anonymousnews.ru",
+  "https://antilobby.wordpress.com",
+  "https://aufgewachter.wordpress.com",
+  "https://bachheimer.com",
+  "https://berlinjournal.biz",
+  "https://bildblog.de",
+  "https://blauenarzisse.de",
+  "https://cashkurs.com",
+  "https://cicero.de",
+  "https://compact-online.de",
+  "https://daslamm.ch",
+  "https://ddbnews.wordpress.com",
+  "https://de.news-front.info",
+  "https://de.sott.net",
+  "https://derfunke.at",
+  "https://derwaechter.net",
+  "https://deutsch.rt.com",
+  "https://deutsche-mittelstands-nachrichten.de",
+  "https://deutsche-wirtschafts-nachrichten.de",
+  "https://deutschelobby.com",
+  "https://deutschlandkurier.de",
+  "https://diefreiemeinung.de",
+  "https://dieunbestechlichen.com",
+  "https://dossier.at",
+  "https://ef-magazin.de",
+  "https://eingeschenkt.tv",
+  "https://einprozent.de",
+  "https://epochtimes.de",
+  "https://expresszeitung.com",
+  "https://exsuscitati.wordpress.com",
+  "https://extremnews.com",
+  "https://fischundfleisch.com",
+  "https://freebsdler-unglaubliches.blogspot.com",
+  "https://freie-presse.net",
+  "https://freie-welt.eu",
+  "https://freiesicht.org",
+  "https://freiewelt.net",
+  "https://geolitico.de",
+  "https://graswurzel.net",
+  "https://hintergrund.de",
+  "https://info-direkt.eu",
+  "https://internetz-zeitung.eu",
+  "https://journalistenwatch.com",
+  "https://kf.neopresse.com",
+  "https://kla.tv",
+  "https://konkret-magazin.de",
+  "https://kontrast.at",
 ];
 
 api =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc5OTEyNmZiZjZkOTE0NGUyMGNjNjFiYmM5ZWY1YWUzYWRmZWQzNjRhMDhiMDgzNjVhZWMzZjA0MDk3MzZhN2I5Y2Q2MWQxNjdhMjRiYzAiLCJpYXQiOjE2NTUzNzE3NjgsIm5iZiI6MTY1NTM3MTc2OCwiZXhwIjoxNjg2OTA3NzY4LCJzdWIiOiI2Mzk2Iiwic2NvcGVzIjpbXX0.HAMnC8fd8Ud2YyYP4L6ckCQM-qQB-Psucm5DWB4JDjYpR6rBq0fekkplrx1BR-01kUMv1uHxcAS8WV9skCmdNg";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGUyMDNmNTgwMmExZmZjNTllMjllZGIyOGJlZmUwNGI0YzUxZGY3MzU1MzYyNzkzNzAzYTMzNThjOGNlMTJiNzdmMzk0YWM4Yjk3OTcwYTIiLCJpYXQiOjE2NjQ3ODU5OTksIm5iZiI6MTY2NDc4NTk5OSwiZXhwIjoxNjk2MzIxOTk5LCJzdWIiOiI3NzE5Iiwic2NvcGVzIjpbXX0.D1gaWdFMwirYP1uQviTjJQFHj7ahpzDO9_A2cksc4hvr1j-6GTJKAjLwKCZRMhRlRtFu9iMOl-yg0a6yca_nYw";
 
 fullList = {};
 promises = [];
 
-cleanedObject = {};
-
-for (const key in company_data) {
-  cleanedObject[key] = {};
-  cleanedObject[key].categories = [];
-  if (company_data[key].objects) {
-    if (company_data[key].objects.company) {
-      if (company_data[key].objects.company.name) {
-        cleanedObject[key].name = company_data[key].objects.company.name;
-      }
-      if (company_data[key].objects.company.city) {
-        cleanedObject[key].city = company_data[key].objects.company.city;
-      }
-      if (company_data[key].objects.company.stateCode) {
-        cleanedObject[key].stateCode =
-          company_data[key].objects.company.stateCode;
-      }
-      if (company_data[key].objects.company.countryCode) {
-        cleanedObject[key].countryCode =
-          company_data[key].objects.company.countryCode;
-      }
-      if (company_data[key].objects.company.employeesRange) {
-        cleanedObject[key].employeesRange =
-          company_data[key].objects.company.employeesRange;
-      }
-      if (company_data[key].objects.company.revenue) {
-        cleanedObject[key].revenue = company_data[key].objects.company.revenue;
-      }
-      if (company_data[key].objects.company.raised) {
-        cleanedObject[key].raised = company_data[key].objects.company.raised;
-      }
-      if (company_data[key].objects.company.tags) {
-        cleanedObject[key].tags = company_data[key].objects.company.tags;
-      }
-    }
-  }
-  let allCategories = [];
-  let categories = [];
-  if (company_data[key].domain) {
-    for (const cat of company_data[key].domain.categories) {
-      categories = cat.name.split("/");
-      categories = [...new Set(categories)];
-      categories = categories.filter((el) => el);
-      allCategories.push(...categories);
-    }
-  }
-  allCategories = [...new Set(allCategories)];
-  cleanedObject[key].categories.push(...allCategories);
-}
-
-fs.writeFileSync(
-  "./clean_company_data_all.json",
-  JSON.stringify(cleanedObject),
-  {
-    encoding: "utf8",
-  }
-);
-
-// urls.forEach((url) => {
-//   settings = {
-//     async: true,
-//     crossDomain: true,
-//     url: "https://www.klazify.com/api/categorize",
-//     method: "POST",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${api}`,
-//       "cache-control": "no-cache",
-//     },
-//     processData: false,
-//     data: `{"url":"${url}"}\n`,
-//   };
-//   promises.push(
-//     axios(settings).then((response) => {
-//       fullList[url] = response.data;
-//     })
-//   );
-// });
+urls.forEach((url) => {
+  settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://www.klazify.com/api/categorize",
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${api}`,
+      "cache-control": "no-cache",
+    },
+    processData: false,
+    data: `{"url":"${url}"}\n`,
+  };
+  promises.push(
+    axios(settings).then((response) => {
+      fullList[url] = response.data;
+    })
+  );
+});
 
 // Promise.all(promises).then(() => {
 //   console.log("promises", promises);
-//   fs.writeFileSync("./company_data_all.json", JSON.stringify(fullList), {
+//   fs.writeFileSync("parsed/klazify_data_all.json", JSON.stringify(fullList), {
 //     encoding: "utf8",
 //   });
 // });
