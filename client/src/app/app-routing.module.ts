@@ -4,9 +4,11 @@ import { HierarchBarComponent } from './hierarch-bar/hierarch-bar.component';
 import { NetworkComponent } from './network/network.component';
 import { BarchartDetails } from './barchart-details/barchart-details.component';
 import { TestChartComponent } from './test-chart/test-chart.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'bar', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LandingPageComponent },
   { path: 'bar', component: HierarchBarComponent },
   { path: 'details', component: BarchartDetails },
   { path: 'network', component: NetworkComponent },

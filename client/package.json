@@ -9,7 +9,7 @@
     "test": "ng test",
     "deploy": "git checkout gh-pages && git pull && git merge main && npm run deploy:build",
     "deploy:build": "ng build --output-path ../docs --base-href /datenfluesse-online-ads/ && npm run deploy:push",
-    "deploy:push": "git add ../docs && git commit -m 'build: prod build' && git push && git checkout main"
+    "deploy:push": "cd .. && git add . && git commit -m 'build: prod build' && git push && git checkout main"
   },
   "private": true,
   "dependencies": {
