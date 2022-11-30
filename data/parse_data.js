@@ -2,6 +2,12 @@ const fs = require("fs");
 const axios = require("axios");
 const papa = require("papaparse");
 
+const THIRD_PARTY_CATS = JSON.parse(
+  fs.readFileSync("ad_sites.json", {
+    encoding: "utf-8",
+  })
+);
+
 const domains3Percent = papa.parse(
   fs.readFileSync("raw_data/3p_domains.csv", {
     encoding: "utf-8",
@@ -20,6 +26,7 @@ const companyData = JSON.parse(
 const cleanCompanyData = parseCleanCompanyData(companyData);
 
 const data = fs.readFileSync("raw_data/sql_req.json", { encoding: "utf-8" });
+
 const objects = JSON.parse(data);
 
 let swissPages = [
@@ -511,9 +518,23 @@ function parseTypes(parsed) {
   parsed = JSON.parse(JSON.stringify(parsed));
   for (let page in parsed) {
     for (let domain in parsed[page]) {
+      let category = THIRD_PARTY_CATS.find(
+        (thirdParty) =>
+          thirdParty.domains.find((thirdPartydomain) =>
+            thirdPartydomain.includes(domain)
+          ) != null
+      )?.category;
+
+      if (!category) category = "unknown";
+
+      if (THIRD_PARTY_CATS.find((el) => el.domains.includes(domain)) != null) {
+        category = THIRD_PARTY_CATS.find((el) =>
+          el.domains.includes(domain)
+        ).category;
+      }
       parsed[page][domain] = parsed[page][domain].map((entry) => {
         const { country, owner, ...rest } = entry;
-        return rest;
+        return { ...rest, category };
       });
     }
   }

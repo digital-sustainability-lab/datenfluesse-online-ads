@@ -1,0 +1,20 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingPageContent {
+  max-width: 1000px;
+  padding: 50px;
+  background-color: white;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}

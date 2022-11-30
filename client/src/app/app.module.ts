@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BarchartDetails } from './barchart-details/barchart-details.component';
 import { BarchartDetailsMenu } from './barchart-details-menu/barchart-details-menu.component';
 import { TestChartComponent } from './test-chart/test-chart.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TestChartComponent } from './test-chart/test-chart.component';
     BarchartDetails,
     BarchartDetailsMenu,
     TestChartComponent,
+    LandingPageComponent,
   ],
   imports: [
     FontAwesomeModule,

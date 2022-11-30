@@ -28,6 +28,10 @@ export class BarchartDetailsService {
     'value'
   );
 
+  categorySelection: BehaviorSubject<string> = new BehaviorSubject<string>(
+    'type'
+  );
+
   constructor(private dataService: DataService) {
     this.init();
   }
@@ -37,27 +41,50 @@ export class BarchartDetailsService {
       this.rawData.next(data.types);
     });
     this.dataSelection
-      .pipe(combineLatestWith(this.orderSelection, this.rawData))
-      .subscribe(([dataSelection, order, rawData]: any) => {
-        this.updateData(dataSelection, order, rawData);
+      .pipe(
+        combineLatestWith(
+          this.orderSelection,
+          this.rawData,
+          this.categorySelection
+        )
+      )
+      .subscribe(([dataSelection, order, rawData, categorySelection]: any) => {
+        this.updateData(dataSelection, order, rawData, categorySelection);
       });
   }
 
-  updateData(dataSelection: string, order: string, rawData: any) {
+  updateData(
+    dataSelection: string,
+    order: string,
+    rawData: any,
+    categorySelection: string
+  ) {
     let data = { chartData: {}, meta: {} };
 
-    data.chartData = this.generateChartData(rawData, dataSelection);
+    data.chartData = this.generateChartData(
+      rawData,
+      dataSelection,
+      categorySelection
+    );
 
-    data.meta = this.generateMetaData(data.chartData, dataSelection);
+    data.meta = this.generateMetaData(
+      data.chartData,
+      dataSelection,
+      categorySelection
+    );
 
     data = this.orderData(data, order);
 
     this.data.next(data);
   }
 
-  generateChartData(rawData: any, dataSelection: string) {
-    let typeData = [];
-    let subgroups = this.getSubgroupsByRawdata(rawData);
+  generateChartData(
+    rawData: any,
+    dataSelection: string,
+    categorySelection: string
+  ) {
+    let categoryData = [];
+    let subgroups = this.getSubgroupsByRawdata(rawData, categorySelection);
 
     for (let page in rawData) {
       let group: {
@@ -66,7 +93,7 @@ export class BarchartDetailsService {
           total: number;
           domains: string[];
         };
-        [type: string]: any;
+        [category: string]: any;
       } = {
         meta: { name: page, total: 0, domains: [] },
       };
@@ -77,22 +104,25 @@ export class BarchartDetailsService {
       for (let thirdParty in rawData[page]) {
         group.meta['domains'].push(thirdParty);
         for (let request of rawData[page][thirdParty]) {
-          group[request.type] += this.calcAmount(request, dataSelection);
+          group[request[categorySelection]] += this.calcAmount(
+            request,
+            dataSelection
+          );
           total += this.calcAmount(request, dataSelection);
         }
       }
       group.meta.total = total;
-      typeData.push(group);
+      categoryData.push(group);
     }
-    return typeData;
+    return categoryData;
   }
 
-  getSubgroupsByRawdata(rawData: any): string[] {
+  getSubgroupsByRawdata(rawData: any, categorySelection: string): string[] {
     let subgroups = new Set<string>();
     for (let page in rawData) {
       for (let thirdParty in rawData[page]) {
         for (let request of rawData[page][thirdParty]) {
-          subgroups.add(request.type);
+          subgroups.add(request[categorySelection]);
         }
       }
     }
@@ -100,21 +130,24 @@ export class BarchartDetailsService {
   }
 
   calcAmount(request: any, dataSelection: string) {
-    if (dataSelection === 'request') {
-      return 1;
-    } else if (dataSelection === 'payload') {
+    if (dataSelection === 'payload') {
       return Math.round(request.size / 1000);
     }
     return 1;
   }
 
-  generateMetaData(data: any, dataSelection: string) {
+  generateMetaData(
+    data: any,
+    dataSelection: string,
+    categorySelection: string
+  ) {
     let meta = {
       groups: this.getGroups(data),
       subgroups: this.getSubgroups(data),
       maxTotal: this.getYMax(data),
       color: {},
-      description: this.getDescription(dataSelection),
+      description: this.getDescription(dataSelection, categorySelection),
+      categorization: categorySelection,
       xLabel: this.getXLabel(dataSelection),
       yLabel: this.getYLabel(dataSelection),
     };
@@ -149,11 +182,17 @@ export class BarchartDetailsService {
     return max * 1.1;
   }
 
-  getDescription(dataSelection: string): string {
+  getDescription(dataSelection: string, categorySelection: string): string {
+    let result = '';
     if (dataSelection === 'request') {
-      return 'Number of requests made, categorized in types.';
+      result += 'Number of requests made, categorized in ';
     } else if (dataSelection === 'payload') {
-      return 'Payload sizes of requests, categorized in types.';
+      result += 'Payload sizes of requests, categorized in ';
+    }
+    if (categorySelection === 'category') {
+      return result + 'categories.';
+    } else if (categorySelection === 'type') {
+      return result + 'types.';
     }
     return 'something went wrong';
   }
@@ -177,19 +216,11 @@ export class BarchartDetailsService {
   }
 
   getColor(subgroups: any) {
-    return {
-      script: 'rgb(110, 64, 170)',
-      xhr: 'rgb(191, 60, 175)',
-      fetch: 'rgb(254, 75, 131)',
-      image: 'rgb(255, 120, 71)',
-      document: 'rgb(226, 183, 47)',
-      stylesheet: 'rgb(175, 240, 91)',
-      font: 'rgb(82, 246, 103)',
-      ping: 'rgb(29, 223, 163)',
-      other: 'rgb(35, 171, 216)',
-      media: 'rgb(76, 110, 219)',
-      preflight: 'rgb(110, 64, 170)',
-    };
+    let color: any = {};
+    for (let [index, category] of subgroups.entries()) {
+      color[category] = d3.interpolateSpectral(index / subgroups.length);
+    }
+    return color;
   }
 
   orderData(data: any, order: string): any {

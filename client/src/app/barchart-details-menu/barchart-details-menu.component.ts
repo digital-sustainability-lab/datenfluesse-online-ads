@@ -21,6 +21,10 @@ export class BarchartDetailsMenu implements OnInit {
     this.barchartDetailsService.dataSelection.next(event.target.value);
   }
 
+  updateCategorization(event: any) {
+    this.barchartDetailsService.categorySelection.next(event.target.value);
+  }
+
   updateOrder(event: any) {
     this.barchartDetailsService.orderSelection.next(event.target.value);
   }
