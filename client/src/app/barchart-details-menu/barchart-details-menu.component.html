@@ -86,6 +86,12 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Category legend</mat-panel-title>
       </mat-expansion-panel-header>
+      <a
+        *ngIf="data.meta.categorization == 'category'"
+        href="https://www.thirdpartyweb.today/entity-data"
+        target="_blank"
+        >Source for categorization</a
+      >
       <div>
         <div class="list" *ngFor="let subgroup of data.meta.subgroups">
           <div
