@@ -14,6 +14,7 @@ export class BarchartDetailsMenu implements OnInit {
   ngOnInit(): void {
     this.barchartDetailsService.data.subscribe((data: any) => {
       this.data = data;
+      console.log(data.meta);
     });
   }
 
