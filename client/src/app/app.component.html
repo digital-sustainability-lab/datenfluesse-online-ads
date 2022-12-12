@@ -1,23 +1,23 @@
 <app-navbar></app-navbar>
 <div class="data">
   <ul>
-    <li [ngClass]="{ bording: active == 'all' }" (click)="changeDataSet('all')">
-      Swiss & Alt
-    </li>
     <li
       [ngClass]="{ bording: active == 'swiss' }"
       (click)="changeDataSet('swiss')"
     >
-      Swiss only
+      Popular Swiss Sites
     </li>
     <li [ngClass]="{ bording: active == 'alt' }" (click)="changeDataSet('alt')">
-      Alt only
+      Alternative Media Sites
+    </li>
+    <li [ngClass]="{ bording: active == 'all' }" (click)="changeDataSet('all')">
+      Popular & Alternative
     </li>
     <li
       [ngClass]="{ bording: active == 'schwaiger' }"
       (click)="changeDataSet('schwaiger')"
     >
-      Alt Schwaiger
+      Alternative Media Schwaiger
     </li>
   </ul>
 </div>
@@ -31,4 +31,11 @@
   "
 >
   <router-outlet></router-outlet>
+</div>
+<div class="download">
+  <mat-icon
+    (click)="downloadZipFile()"
+    matTooltip="Download the raw data of all datasets"
+    >cloud_download</mat-icon
+  >
 </div>

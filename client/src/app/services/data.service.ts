@@ -11,8 +11,6 @@ import { domain_both } from '../data/both/domains_both';
 import { category_both } from '../data/both/category_both';
 import { types_both } from '../data/both/types_both';
 import { domain_alt } from '../data/alt/domains_alt';
-import { network_schwaiger } from '../data/schwaiger/network_schwaiger';
-import { domain_schwaiger } from '../data/schwaiger/domains_schwaiger';
 import { types_schwaiger } from '../data/schwaiger/types_schwaiger';
 import { category_alt } from '../data/alt/category_alt';
 import { category_swiss } from '../data/swiss/category_swiss';
@@ -22,6 +20,8 @@ import { hierarchy_alt } from '../data/alt/hierarchy_alt';
 import { hierarchy_both } from '../data/both/hierarchy_both';
 import { hierarchy_schwaiger } from '../data/schwaiger/hierarchy_schwaiger';
 import { category_schwaiger } from '../data/schwaiger/category_schwaiger';
+import { network_schwaiger } from '../data/schwaiger/network_schwaiger';
+import { domains_schwaiger } from '../data/schwaiger/domains_schwaiger';
 
 @Injectable({
   providedIn: 'root',
@@ -110,7 +110,7 @@ export class DataService {
       this.activeDataSource.next('schwaiger');
       this.setCurrentDataSet({
         network: network_schwaiger,
-        domain: domain_schwaiger,
+        domain: domains_schwaiger,
         hierarchy: hierarchy_schwaiger,
         category: category_schwaiger,
         types: types_schwaiger,
