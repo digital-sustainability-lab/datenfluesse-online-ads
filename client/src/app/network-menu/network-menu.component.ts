@@ -9,7 +9,7 @@ export interface CheckBox {
   completed: boolean;
   color: ThemePalette;
   indeterminate?: boolean;
-  subCheckBoxes?: CheckBox[];
+  subCheckboxes?: CheckBox[];
 }
 
 @Component({
@@ -29,7 +29,7 @@ export class NetworkMenuComponent implements OnInit {
     completed: false,
     indeterminate: false,
     color: 'primary',
-    subCheckBoxes: [],
+    subCheckboxes: [],
   };
 
   domains: any;
@@ -63,10 +63,10 @@ export class NetworkMenuComponent implements OnInit {
       this.color3p = data.color3p;
       this.network = JSON.parse(JSON.stringify(data.network));
       this.domains = data.domain;
-      this.domainCheckBoxes.subCheckBoxes = [];
+      this.domainCheckBoxes.subCheckboxes = [];
       this.domains.forEach((element: any) => {
-        if (this.domainCheckBoxes.subCheckBoxes) {
-          this.domainCheckBoxes.subCheckBoxes.push({
+        if (this.domainCheckBoxes.subCheckboxes) {
+          this.domainCheckBoxes.subCheckboxes.push({
             name: element.name,
             completed: true,
             color: 'primary',
@@ -91,13 +91,13 @@ export class NetworkMenuComponent implements OnInit {
       let elements = [];
       for (let name of checkBoxNames) {
         elements.push(
-          this.domainCheckBoxes.subCheckBoxes?.find((subCheckBox: CheckBox) => {
+          this.domainCheckBoxes.subCheckboxes?.find((subCheckBox: CheckBox) => {
             return subCheckBox.name === name;
           })
         );
       }
-      if (this.domainCheckBoxes.subCheckBoxes) {
-        for (let subCheckBox of this.domainCheckBoxes.subCheckBoxes) {
+      if (this.domainCheckBoxes.subCheckboxes) {
+        for (let subCheckBox of this.domainCheckBoxes.subCheckboxes) {
           subCheckBox.completed = false;
         }
       }
@@ -116,15 +116,15 @@ export class NetworkMenuComponent implements OnInit {
    * @param checkBox the superCheckBox to be handled (for this file momentarily only this.domainCheckBoxes)
    */
   handleSuperCheckBox(checkBox: CheckBox) {
-    if (checkBox.hasOwnProperty('indeterminate') && checkBox.subCheckBoxes) {
-      const numCheckedSubCheckBoxes = checkBox.subCheckBoxes.filter(
+    if (checkBox.hasOwnProperty('indeterminate') && checkBox.subCheckboxes) {
+      const numCheckedSubCheckBoxes = checkBox.subCheckboxes.filter(
         (subCheckbox: CheckBox) => subCheckbox.completed
       ).length;
       checkBox.indeterminate =
-        checkBox.subCheckBoxes.length !== numCheckedSubCheckBoxes &&
+        checkBox.subCheckboxes.length !== numCheckedSubCheckBoxes &&
         numCheckedSubCheckBoxes !== 0;
       checkBox.completed =
-        checkBox.subCheckBoxes.length === numCheckedSubCheckBoxes;
+        checkBox.subCheckboxes.length === numCheckedSubCheckBoxes;
     }
   }
 
@@ -139,7 +139,7 @@ export class NetworkMenuComponent implements OnInit {
     if (id != -1) {
       this.setIndividuals(checked, id);
     } else {
-      checkBox.subCheckBoxes?.forEach((element) => {
+      checkBox.subCheckboxes?.forEach((element) => {
         this.setIndividuals(checked, this.getId(element.name));
       });
     }
@@ -152,7 +152,7 @@ export class NetworkMenuComponent implements OnInit {
    * @param id the id that will be added or removed based on the parameter checked
    */
   setIndividuals(checked: boolean, id: number) {
-    this.domainCheckBoxes.subCheckBoxes?.forEach((element) => {
+    this.domainCheckBoxes.subCheckboxes?.forEach((element) => {
       if (this.getId(element.name) == id) {
         element.completed = checked;
         if (checked) {
@@ -170,7 +170,7 @@ export class NetworkMenuComponent implements OnInit {
    */
   setAll(event: MatCheckboxChange) {
     this.domainCheckBoxes.completed = event.checked;
-    this.domainCheckBoxes.subCheckBoxes?.forEach((element) => {
+    this.domainCheckBoxes.subCheckboxes?.forEach((element) => {
       this.updateCheckBoxes(event, element);
     });
   }
@@ -212,8 +212,8 @@ export class NetworkMenuComponent implements OnInit {
    */
   private getCheckedIds() {
     let idSet = new Set<number>();
-    if (this.domainCheckBoxes.subCheckBoxes) {
-      for (let subCheckBox of this.domainCheckBoxes.subCheckBoxes) {
+    if (this.domainCheckBoxes.subCheckboxes) {
+      for (let subCheckBox of this.domainCheckBoxes.subCheckboxes) {
         if (subCheckBox.completed) {
           idSet.add(this.getId(subCheckBox.name));
         }

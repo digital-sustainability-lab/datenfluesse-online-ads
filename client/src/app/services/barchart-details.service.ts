@@ -32,6 +32,10 @@ export class BarchartDetailsService {
     'type'
   );
 
+  filterSubgroups: BehaviorSubject<string[] | undefined> = new BehaviorSubject<
+    string[] | undefined
+  >(undefined);
+
   constructor(private dataService: DataService) {
     this.init();
   }
@@ -45,32 +49,56 @@ export class BarchartDetailsService {
         combineLatestWith(
           this.orderSelection,
           this.rawData,
-          this.categorySelection
+          this.categorySelection,
+          this.filterSubgroups
         )
       )
-      .subscribe(([dataSelection, order, rawData, categorySelection]: any) => {
-        this.updateData(dataSelection, order, rawData, categorySelection);
-      });
+      .subscribe(
+        ([
+          dataSelection,
+          order,
+          rawData,
+          categorySelection,
+          filterSubgroups,
+        ]: any) => {
+          this.updateData(
+            dataSelection,
+            order,
+            rawData,
+            categorySelection,
+            filterSubgroups
+          );
+        }
+      );
   }
 
   updateData(
     dataSelection: string,
     order: string,
     rawData: any,
-    categorySelection: string
+    categorySelection: string,
+    filterSubgroups: string[] | undefined
   ) {
     let data = { chartData: {}, meta: {} };
+
+    let subgroupsUnfiltered = this.getSubgroupsByRawdata(
+      rawData,
+      categorySelection
+    );
 
     data.chartData = this.generateChartData(
       rawData,
       dataSelection,
-      categorySelection
+      categorySelection,
+      filterSubgroups
     );
 
     data.meta = this.generateMetaData(
       data.chartData,
       dataSelection,
-      categorySelection
+      categorySelection,
+      filterSubgroups,
+      subgroupsUnfiltered
     );
 
     data = this.orderData(data, order);
@@ -81,10 +109,17 @@ export class BarchartDetailsService {
   generateChartData(
     rawData: any,
     dataSelection: string,
-    categorySelection: string
+    categorySelection: string,
+    filterSubgroups: string[] | undefined
   ) {
     let categoryData = [];
     let subgroups = this.getSubgroupsByRawdata(rawData, categorySelection);
+
+    if (filterSubgroups) {
+      subgroups = subgroups.filter((subgroup) =>
+        filterSubgroups.includes(subgroup)
+      );
+    }
 
     for (let page in rawData) {
       let group: {
@@ -104,11 +139,14 @@ export class BarchartDetailsService {
       for (let thirdParty in rawData[page]) {
         group.meta['domains'].push(thirdParty);
         for (let request of rawData[page][thirdParty]) {
-          group[request[categorySelection]] += this.calcAmount(
-            request,
-            dataSelection
-          );
-          total += this.calcAmount(request, dataSelection);
+          // if the request categorization is included in the filtered subgroups, then add it
+          if (subgroups.includes(request[categorySelection])) {
+            group[request[categorySelection]] += this.calcAmount(
+              request,
+              dataSelection
+            );
+            total += this.calcAmount(request, dataSelection);
+          }
         }
       }
       group.meta.total = total;
@@ -139,11 +177,15 @@ export class BarchartDetailsService {
   generateMetaData(
     data: any,
     dataSelection: string,
-    categorySelection: string
+    categorySelection: string,
+    filterSubgroups: string[] | undefined,
+    subgroupsUnfiltered: string[]
   ) {
+    console.log(data);
     let meta = {
       groups: this.getGroups(data),
-      subgroups: this.getSubgroups(data),
+      subgroups: this.getSubgroups(data, filterSubgroups),
+      subgroupsUnfiltered: subgroupsUnfiltered,
       maxTotal: this.getYMax(data),
       color: {},
       description: this.getDescription(dataSelection, categorySelection),
@@ -152,7 +194,7 @@ export class BarchartDetailsService {
       yLabel: this.getYLabel(dataSelection),
     };
 
-    meta.color = this.getColor(meta.subgroups);
+    meta.color = this.getColor(meta.subgroupsUnfiltered);
 
     return meta;
   }
@@ -161,7 +203,10 @@ export class BarchartDetailsService {
     return chartData.map((d: any) => d.meta.name);
   }
 
-  getSubgroups(chartData: any): string[] {
+  getSubgroups(
+    chartData: any,
+    filterSubgroups?: string[] | undefined
+  ): string[] {
     let subgroups: string[] = [];
     for (let group of chartData) {
       for (let subgroup in group) {
@@ -169,6 +214,11 @@ export class BarchartDetailsService {
           subgroups.push(subgroup);
         }
       }
+    }
+    if (filterSubgroups) {
+      return subgroups.filter((subgroup: string) =>
+        filterSubgroups.includes(subgroup)
+      );
     }
     return subgroups;
   }

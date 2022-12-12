@@ -8,6 +8,52 @@
   <mat-accordion class="networkPanelWrapper">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
+        <mat-panel-title>Filter</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="wrapping">
+        <section class="checkboxes">
+          <span class="superCheckBox">
+            <mat-checkbox
+              class="example-margin"
+              [color]="checkboxes.color"
+              [indeterminate]="checkboxes.indeterminate"
+              (change)="setAll($event)"
+              (click)="$event.stopPropagation()"
+              [checked]="checkboxes.completed"
+            >
+              {{ checkboxes.name }}
+            </mat-checkbox>
+          </span>
+          <span>
+            <ul>
+              <li *ngFor="let subCheckbox of checkboxes.subCheckboxes">
+                <mat-checkbox
+                  [(ngModel)]="subCheckbox.completed"
+                  [color]="subCheckbox.color"
+                  (change)="handleSuperCheckbox(checkboxes)"
+                  (click)="$event.stopPropagation()"
+                  [id]="subCheckbox.name"
+                  [checked]="subCheckbox.completed"
+                >
+                  {{ subCheckbox.name }}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </section>
+      </div>
+      <button
+        (click)="applyFilter()"
+        mat-flat-button
+        class="applyButton"
+        color="primary"
+      >
+        Apply
+      </button>
+    </mat-expansion-panel>
+    <hr />
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
         <mat-panel-title>Display options</mat-panel-title>
       </mat-expansion-panel-header>
       <div>
@@ -93,7 +139,10 @@
         >Source for categorization</a
       >
       <div>
-        <div class="list" *ngFor="let subgroup of data.meta.subgroups">
+        <div
+          class="list"
+          *ngFor="let subgroup of data.meta.subgroupsUnfiltered"
+        >
           <div
             class="list-element"
             [style.background-color]="data.meta.color[subgroup]"
