@@ -44,16 +44,16 @@
           </span>
           <span>
             <ul>
-              <li *ngFor="let subCheckBox of domainCheckBoxes.subCheckBoxes">
+              <li *ngFor="let subCheckbox of domainCheckBoxes.subCheckboxes">
                 <mat-checkbox
-                  [(ngModel)]="subCheckBox.completed"
-                  [color]="subCheckBox.color"
-                  (change)="updateCheckBoxes($event, subCheckBox)"
+                  [(ngModel)]="subCheckbox.completed"
+                  [color]="subCheckbox.color"
+                  (change)="updateCheckBoxes($event, subCheckbox)"
                   (click)="$event.stopPropagation()"
-                  [id]="subCheckBox.name"
-                  [checked]="subCheckBox.completed"
+                  [id]="subCheckbox.name"
+                  [checked]="subCheckbox.completed"
                 >
-                  {{ subCheckBox.name }}
+                  {{ subCheckbox.name }}
                 </mat-checkbox>
               </li>
             </ul>
