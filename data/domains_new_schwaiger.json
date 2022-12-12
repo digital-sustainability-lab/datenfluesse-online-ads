@@ -1,0 +1,6077 @@
+[
+  {
+    "name": "achgut.com",
+    "thirdParties": [
+      { "requestDomain": "cdntrf.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ioam.de",
+        "owner": "INFOnline",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "opencmp.net", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "addendum.org",
+    "thirdParties": [
+      {
+        "requestDomain": "brightcove.com",
+        "owner": "Brightcove",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "alpenparlament.tv",
+    "thirdParties": [
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "newrelic.com",
+        "owner": "New Relic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "nr-data.net",
+        "owner": "New Relic",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vimeo.com", "owner": "Vimeo", "ownerCountry": "US" },
+      {
+        "requestDomain": "vimeocdn.com",
+        "owner": "Vimeo",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "alpenschau.com",
+    "thirdParties": [
+      { "requestDomain": "1rx.io", "owner": "Blinkx", "ownerCountry": "US" },
+      {
+        "requestDomain": "360yield.com",
+        "owner": "Improve Digital",
+        "ownerCountry": "NL"
+      },
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adgrx.com", "owner": "AdGear", "ownerCountry": "CA" },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "admanmedia.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "admedo.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      { "requestDomain": "adpartner.pro", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adtarget.com.tr", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adtelligent.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "audrte.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bidr.io", "owner": "Beeswax", "ownerCountry": "US" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bidtheatre.com",
+        "owner": "Bidtheatre",
+        "ownerCountry": "SE"
+      },
+      {
+        "requestDomain": "bluekai.com",
+        "owner": "Oracle Blue Kai",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "contextweb.com",
+        "owner": "PulsePoint",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cookieless-data.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "creativecdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "crwdcntrl.net",
+        "owner": "Lotame",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ctnsnet.com",
+        "owner": "Crimtan",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "de17a.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "demdex.net",
+        "owner": "Adobe Audience Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dotomi.com",
+        "owner": "Dotomi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "e-planning.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "e-volution.ai", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "erne.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "eu-1-id5-sync.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "everesttech.net",
+        "owner": "Adobe Experience Cloud",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "exelator.com",
+        "owner": "exelate",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "eyeota.net",
+        "owner": "Eyeota",
+        "ownerCountry": "SG"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fiftyt.com",
+        "owner": "Fifty Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "fwmrm.net",
+        "owner": "FreeWheel",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gemius.pl", "owner": "Gemius", "ownerCountry": "PL" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleusercontent.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "id5-sync.com",
+        "owner": "ID5 Technology",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "idealmedia.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "imrworldwide.com",
+        "owner": "Nielsen Online",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "inmobi.com",
+        "owner": "Inmobi",
+        "ownerCountry": "IN"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "iprom.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "kargo.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "krxd.net",
+        "owner": "Salesforce DMP",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "lijit.com", "owner": "Sovrn", "ownerCountry": "US" },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "media.net",
+        "owner": "Media.net",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mgid.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "onaudience.com",
+        "owner": "OnAudience",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "onetag-sys.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pinterest.com",
+        "owner": "Pinterest",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "playground.xyz", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rfihub.com",
+        "owner": "Rocketfuel",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "richaudience.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rtbsystem.org", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "semasio.net",
+        "owner": "Semasio",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "simpli.fi",
+        "owner": "simpli.fi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sitescout.com",
+        "owner": "SiteScout",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "smadex.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "spotim.market", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "spotimmedia.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stackadapt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tapad.com", "owner": "TapAd", "ownerCountry": "US" },
+      {
+        "requestDomain": "tidaltv.com",
+        "owner": "Videology Group",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "tribalfusion.com",
+        "owner": "Tribal Fusion",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "truffle.bid", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "turn.com", "owner": "Turn", "ownerCountry": "US" },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "tynt.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vidoomy.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "vitaminum.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "w.org", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "walmart.com",
+        "owner": "Walmart",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "weborama.fr",
+        "owner": "Weborama",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "widespace.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "zeotap.com", "owner": "Zeotap", "ownerCountry": "DE" }
+    ]
+  },
+  {
+    "name": "anderweltonline.com",
+    "thirdParties": [
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "anonymousnews.org",
+    "thirdParties": [
+      { "requestDomain": "anonymousnews.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "bachheimer.com",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gvs-bullion.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tradingview-widget.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "tradingview.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "berlinjournal.biz",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "bildblog.de",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "typekit.net",
+        "owner": "Adobe Fonts",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vgwort.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "blauenarzisse.de",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "blogspot.com",
+    "thirdParties": [
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "addthisedge.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "assoc-amazon.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "blogblog.com",
+        "owner": "Blogger",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "blogger.com",
+        "owner": "Blogger",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "bookcdn.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "booked.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "googlecode.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleusercontent.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlevideo.com",
+        "owner": "Google Video",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "iraqbodycount.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "moatads.com", "owner": "Moat", "ownerCountry": "US" },
+      { "requestDomain": "nachdenkseiten.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "net-news-express.de",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "radio-utopie.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "revolvermaps.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "ssl-images-amazon.com",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "statcounter.com",
+        "owner": "Statcounter",
+        "ownerCountry": "IE"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twittercounter.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "tynt.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "cashkurs.com",
+    "thirdParties": [
+      { "requestDomain": "boerse-go.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "guidants.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "plyr.io", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "cicero.de",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "360yield.com",
+        "owner": "Improve Digital",
+        "ownerCountry": "NL"
+      },
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "adkernel.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adscale.de",
+        "owner": "AdScale",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ampproject.org",
+        "owner": "Amp Project",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "awin1.com", "owner": "AWIN", "ownerCountry": "DE" },
+      { "requestDomain": "bic-media.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bidr.io", "owner": "Beeswax", "ownerCountry": "US" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "confiant-integrations.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "conrad.ch", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "criteo.net",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "crwdcntrl.net",
+        "owner": "Lotame",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "de17a.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "etracker.com",
+        "owner": "etracker",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "etracker.de",
+        "owner": "etracker",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ibillboard.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "indexww.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "linkedin.com",
+        "owner": "LinkedIn",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "m6r.eu", "owner": "Ströer", "ownerCountry": "DE" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "matomo.cloud", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "nativendo.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "omnitagjs.com",
+        "owner": "ADYOULIKE",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "onaudience.com",
+        "owner": "OnAudience",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "otto.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "privacy-mgmt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "redintelligence.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sharethrough.com",
+        "owner": "Sharethrough",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "signalize.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "simpli.fi",
+        "owner": "simpli.fi",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "smaato.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "sportradarserving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tapad.com", "owner": "TapAd", "ownerCountry": "US" },
+      { "requestDomain": "teads.tv", "owner": "Teads", "ownerCountry": "US" },
+      { "requestDomain": "trafficroots.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tremorhub.com",
+        "owner": "Tremor Video",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "turn.com", "owner": "Turn", "ownerCountry": "US" },
+      { "requestDomain": "userreport.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "xplosion.de",
+        "owner": "xplosion Interactive",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      {
+        "requestDomain": "yieldlove-ad-serving.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "yieldlove.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "compact-online.de",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "daslamm.ch",
+    "thirdParties": [
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stripe.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stripe.network", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "derfunke.at",
+    "thirdParties": [
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fontawesome.com",
+        "owner": "Fonticons",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "derwaechter.net",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "deutsche-mittelstands-nachrichten.de",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "deutsche-wirtschafts-nachrichten.de",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "createjs.com",
+        "owner": "CreateJS",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "wallstreet-online.de",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "yieldlab.net",
+        "owner": "Yieldlab",
+        "ownerCountry": "DE"
+      }
+    ]
+  },
+  {
+    "name": "deutschelobby.com",
+    "thirdParties": [
+      { "requestDomain": "resultboiji.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "deutschlandkurier.de",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "diefreiemeinung.de",
+    "thirdParties": [
+      { "requestDomain": "beratungsflat.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "blogcounter.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bloggeramt.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "net-news-express.de",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "printfriendly.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "topblogs.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "topnewsinfo.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "dieunbestechlichen.com",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "trustedshops.com",
+        "owner": "Trusted Shops",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "dossier.at",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "typekit.net",
+        "owner": "Adobe Fonts",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "ef-magazin.de",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "eingeschenkt.tv",
+    "thirdParties": [
+      {
+        "requestDomain": "cdninstagram.com",
+        "owner": "Instagram",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "einprozent.de",
+    "thirdParties": [
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "lbry.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odycdn.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odysee.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odysee.tv", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "epochtimes.de",
+    "thirdParties": [
+      { "requestDomain": "cookiebot.eu", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "eulu.info",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "expresszeitung.com",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "hotjar.com",
+        "owner": "Hotjar",
+        "ownerCountry": "MT"
+      },
+      { "requestDomain": "issuu.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "isu.pub", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantcount.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "extremnews.com",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "faktum-magazin.de",
+    "thirdParties": [
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "media-amazon.com",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "feed-reader.net",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "fischundfleisch.com",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "polyfill.io", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "free21.org",
+    "thirdParties": [
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "freie-welt.eu",
+    "thirdParties": [
+      {
+        "requestDomain": "freeprivacypolicy.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tsecurity.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "freiesicht.org",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "freiewelt.net",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "geolitico.de",
+    "thirdParties": [
+      { "requestDomain": "adnxs-simple.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "cdntrf.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jquery.com",
+        "owner": "JS Foundation",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "opencmp.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "plista.com", "owner": "plista", "ownerCountry": "DE" }
+    ]
+  },
+  {
+    "name": "graswurzel.net",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "heise.de",
+    "thirdParties": [
+      { "requestDomain": "cloudimg.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ix.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mateti.net",
+        "owner": "Webtrekk",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "privacy-mgmt.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "upscore.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "info-direkt.eu",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "infosperber.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mailerlite.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "mlcdn.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "internetz-zeitung.eu",
+    "thirdParties": [
+      { "requestDomain": "b37mrtl.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "wikimedia.org",
+        "owner": "Wikimedia Foundation",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "journalistenwatch.com",
+    "thirdParties": [
+      { "requestDomain": "ad.style", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fontawesome.com",
+        "owner": "Fonticons",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "foremedia.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "fraudscore.ai", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "media.net",
+        "owner": "Media.net",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "pubtagmanager.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "webpushr.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "jungefreiheit.de",
+    "thirdParties": [
+      { "requestDomain": "jf-buchdienst.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "kla.tv",
+    "thirdParties": [
+      { "requestDomain": "klagemauer.tv", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "kontrast.at",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "headroom.at", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "kopp-report.de",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflareinsights.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "sendinblue.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "sibautomation.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "krautreporter.de",
+    "thirdParties": [
+      {
+        "requestDomain": "chartbeat.com",
+        "owner": "Chartbeat",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "chartbeat.net",
+        "owner": "Chartbeat",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "webflow.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "krisenfrei.com",
+    "thirdParties": [
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      { "requestDomain": "anti-spiegel.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "free21.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "gemius.pl", "owner": "Gemius", "ownerCountry": "PL" },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      { "requestDomain": "goldbroker.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "goldswitzerland.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gravatar.com",
+        "owner": "Gravatar",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "histats.com",
+        "owner": "HiStats",
+        "ownerCountry": "IT"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "qpress.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "trustpilot.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "wordpress.com",
+        "owner": "Wordpress",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "legitim.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "parastorage.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pinterest.com",
+        "owner": "Pinterest",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "visitor-analytics.io",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "wix.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wixstatic.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "linksnet.de",
+    "thirdParties": [
+      { "requestDomain": "in-berlin.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "m-v.tv",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "michael-vogt.tv", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "menschenzeitung.de",
+    "thirdParties": [
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "kachelmannwetter.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twimg.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "walmart.com",
+        "owner": "Walmart",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "mosaik-blog.at",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gravatar.com",
+        "owner": "Gravatar",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "nachdenkseiten.de",
+    "thirdParties": [
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "neopresse.com",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "cleverpush.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jquery.com",
+        "owner": "JS Foundation",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wh2120.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "netkompakt.de",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "imgur.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "netzfrauen.org",
+    "thirdParties": [
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "news-front.info",
+    "thirdParties": [
+      { "requestDomain": "2kita.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "addthisedge.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "github.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "luxadv.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "moatads.com", "owner": "Moat", "ownerCountry": "US" },
+      { "requestDomain": "yadro.ru", "owner": "Yadro", "ownerCountry": "RU" },
+      { "requestDomain": "yandex.ru", "owner": "Yandex", "ownerCountry": "RU" }
+    ]
+  },
+  {
+    "name": "ngo-online.de",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      { "requestDomain": "adkernel.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adsafeprotected.com",
+        "owner": "Integral Ad Science",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "appier.net",
+        "owner": "Appier",
+        "ownerCountry": "TW"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gemius.pl", "owner": "Gemius", "ownerCountry": "PL" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "outbrain.com",
+        "owner": "Outbrain",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "outbrainimg.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "smaato.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stackadapt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tribalfusion.com",
+        "owner": "Tribal Fusion",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "walmart.com",
+        "owner": "Walmart",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "zemanta.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "novo-argumente.com",
+    "thirdParties": [
+      {
+        "requestDomain": "fonts.net",
+        "owner": "Fonts.com",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "nrhz.de",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "nuoflix.de",
+    "thirdParties": [
+      { "requestDomain": "b-cdn.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "nuoviso.tv", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "perspective-daily.de",
+    "thirdParties": [
+      { "requestDomain": "imgix.net", "owner": "Imgix", "ownerCountry": "US" },
+      {
+        "requestDomain": "perspective-daily.com",
+        "owner": "",
+        "ownerCountry": ""
+      }
+    ]
+  },
+  {
+    "name": "peymani.de",
+    "thirdParties": [
+      { "requestDomain": "bod.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bod.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "partner-versicherung.de",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "philosophia-perennis.com",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gravatar.com",
+        "owner": "Gravatar",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "pi-news.net",
+    "thirdParties": [
+      { "requestDomain": "ad.style", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adspect.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fwmrm.net",
+        "owner": "FreeWheel",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "laptops-fair.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "mmnews.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "pubtagmanager.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "sendpulse.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "stickyadstv.com",
+        "owner": "StickyADS.tv",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vidoomy.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "politikstube.com",
+    "thirdParties": [
+      { "requestDomain": "ad.style", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "pubtagmanager.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "truepush.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "politikversagen.net",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "politnews.org",
+    "thirdParties": [
+      { "requestDomain": "apolut.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "awin1.com", "owner": "AWIN", "ownerCountry": "DE" },
+      { "requestDomain": "b37mrtl.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      { "requestDomain": "conrad.ch", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gab.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "jungefreiheit.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "latina-press.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "nachdenkseiten.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odycdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "philosophia-perennis.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "politikstube.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "redintelligence.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "politonline.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "pravda-tv.com",
+    "thirdParties": [
+      { "requestDomain": "1rx.io", "owner": "Blinkx", "ownerCountry": "US" },
+      {
+        "requestDomain": "33across.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "360yield.com",
+        "owner": "Improve Digital",
+        "ownerCountry": "NL"
+      },
+      { "requestDomain": "4dex.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "a-mo.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ad-score.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ad.gt", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ad.style", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adcropper.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adgrx.com", "owner": "AdGear", "ownerCountry": "CA" },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "adleadevent.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "advertising.com",
+        "owner": "ONE by Aol",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "audrte.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ayads.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bannerflow.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bidr.io", "owner": "Beeswax", "ownerCountry": "US" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bidtheatre.com",
+        "owner": "Bidtheatre",
+        "ownerCountry": "SE"
+      },
+      {
+        "requestDomain": "bluekai.com",
+        "owner": "Oracle Blue Kai",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "brainlyads.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "connectad.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "consensu.org",
+        "owner": "IAB Europe",
+        "ownerCountry": "BE"
+      },
+      {
+        "requestDomain": "contextweb.com",
+        "owner": "PulsePoint",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cookieless-data.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "cpx.to", "owner": "Avocet", "ownerCountry": "UK" },
+      {
+        "requestDomain": "creative-serving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "creativecdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "criteo.net",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "crwdcntrl.net",
+        "owner": "Lotame",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cryptobrowser.site",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "cryptobrowser.store",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "ctnsnet.com",
+        "owner": "Crimtan",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "de17a.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "demdex.net",
+        "owner": "Adobe Audience Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dotomi.com",
+        "owner": "Dotomi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "e-planning.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "erne.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "eu-1-id5-sync.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "everesttech.net",
+        "owner": "Adobe Experience Cloud",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "exelator.com",
+        "owner": "exelate",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fiftyt.com",
+        "owner": "Fifty Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "fwmrm.net",
+        "owner": "FreeWheel",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "hadronid.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "id5-sync.com",
+        "owner": "ID5 Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "imrworldwide.com",
+        "owner": "Nielsen Online",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "iprom.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "krxd.net",
+        "owner": "Salesforce DMP",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "leadplace.fr", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "liadm.com",
+        "owner": "LiveIntent",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "lijit.com", "owner": "Sovrn", "ownerCountry": "US" },
+      {
+        "requestDomain": "linkedin.com",
+        "owner": "LinkedIn",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "nrich.ai", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "omnitagjs.com",
+        "owner": "ADYOULIKE",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "onaudience.com",
+        "owner": "OnAudience",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "onetag-sys.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "outbrain.com",
+        "owner": "Outbrain",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "outbrainimg.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "playground.xyz", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "powerad.ai", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "pubtagmanager.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantcast.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantcount.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rfihub.com",
+        "owner": "Rocketfuel",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "richaudience.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rqtrk.eu", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sascdn.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "sddan.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "semasio.net",
+        "owner": "Semasio",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "sharethrough.com",
+        "owner": "Sharethrough",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "simpli.fi",
+        "owner": "simpli.fi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sitescout.com",
+        "owner": "SiteScout",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "smilewanted.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "splicky.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "sportradarserving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "stackadapt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "stickyadstv.com",
+        "owner": "StickyADS.tv",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tapad.com", "owner": "TapAd", "ownerCountry": "US" },
+      { "requestDomain": "themoneytizer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tidaltv.com",
+        "owner": "Videology Group",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tmyzer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tribalfusion.com",
+        "owner": "Tribal Fusion",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "truffle.bid", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "turn.com", "owner": "Turn", "ownerCountry": "US" },
+      {
+        "requestDomain": "unrulymedia.com",
+        "owner": "Unruly",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "vidoomy.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "vitaminum.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "weborama.fr",
+        "owner": "Weborama",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "widespace.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "zemanta.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "zeotap.com",
+        "owner": "Zeotap",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "zprk.io", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "pressecop24.com",
+    "thirdParties": [
+      { "requestDomain": "1rx.io", "owner": "Blinkx", "ownerCountry": "US" },
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "33across.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "360yield.com",
+        "owner": "Improve Digital",
+        "ownerCountry": "NL"
+      },
+      {
+        "requestDomain": "3lift.com",
+        "owner": "TripleLift",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "4dex.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "a-mo.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ad4m.at", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adgrx.com", "owner": "AdGear", "ownerCountry": "CA" },
+      {
+        "requestDomain": "adhigh.net",
+        "owner": "GetIntent",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "adleadevent.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "admedo.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs-simple.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      { "requestDomain": "adsafety.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "advangelists.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "aidata.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "andbeyond.media", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "audrte.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "avct.cloud", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "betweendigital.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "bidr.io", "owner": "Beeswax", "ownerCountry": "US" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bidtheatre.com",
+        "owner": "Bidtheatre",
+        "ownerCountry": "SE"
+      },
+      {
+        "requestDomain": "bluekai.com",
+        "owner": "Oracle Blue Kai",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "bnmla.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bumlam.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "company-target.com",
+        "owner": "Demandbase",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "connectad.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "contextweb.com",
+        "owner": "PulsePoint",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "cpx.to", "owner": "Avocet", "ownerCountry": "UK" },
+      {
+        "requestDomain": "creative-serving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "creativecdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "criteo.net",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "crwdcntrl.net",
+        "owner": "Lotame",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ctnsnet.com",
+        "owner": "Crimtan",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "de17a.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "deepintent.com",
+        "owner": "DeepIntent",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "demdex.net",
+        "owner": "Adobe Audience Manager",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "digitaleast.mobi", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "disqus.com",
+        "owner": "Disqus",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dotomi.com",
+        "owner": "Dotomi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dyntrk.com",
+        "owner": "Dynadmic",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "e-planning.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "emxdgt.com",
+        "owner": "Engine Media Exchange",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "erne.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "eu-1-id5-sync.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "everesttech.net",
+        "owner": "Adobe Experience Cloud",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "exelator.com",
+        "owner": "exelate",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fiftyt.com",
+        "owner": "Fifty Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "fwmrm.net",
+        "owner": "FreeWheel",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "goldsilbershop.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gumgum.com",
+        "owner": "Gumgum",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "id5-sync.com",
+        "owner": "ID5 Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "imrworldwide.com",
+        "owner": "Nielsen Online",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "inmobi.com",
+        "owner": "Inmobi",
+        "ownerCountry": "IN"
+      },
+      { "requestDomain": "ipredictive.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "iprom.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "iqzone.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "krxd.net",
+        "owner": "Salesforce DMP",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "leadplace.fr", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "lijit.com", "owner": "Sovrn", "ownerCountry": "US" },
+      {
+        "requestDomain": "linkedin.com",
+        "owner": "LinkedIn",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "media.net",
+        "owner": "Media.net",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "minutemedia-prebid.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "omnitagjs.com",
+        "owner": "ADYOULIKE",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "onaudience.com",
+        "owner": "OnAudience",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "onetag-sys.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "opera.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "otm-r.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "outbrain.com",
+        "owner": "Outbrain",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "playground.xyz", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "pubmine.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantcast.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantcount.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rfihub.com",
+        "owner": "Rocketfuel",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "richaudience.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rqtrk.eu", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sascdn.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "scoota.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "sddan.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "semasio.net",
+        "owner": "Semasio",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "servenobid.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "serverbid.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "sharethrough.com",
+        "owner": "Sharethrough",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "simpli.fi",
+        "owner": "simpli.fi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sitescout.com",
+        "owner": "SiteScout",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "smaato.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "smartstream.tv", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "smilewanted.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "smrtb.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "socdm.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "sonobi.com",
+        "owner": "Sonobi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sportradarserving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "stackadapt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "stickyadstv.com",
+        "owner": "StickyADS.tv",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tapad.com", "owner": "TapAd", "ownerCountry": "US" },
+      {
+        "requestDomain": "taptapnetworks.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "teads.tv", "owner": "Teads", "ownerCountry": "US" },
+      {
+        "requestDomain": "technoratimedia.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "telegram-cdn.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "telegram.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "themoneytizer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tidaltv.com",
+        "owner": "Videology Group",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tmyzer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tns-counter.ru",
+        "owner": "EDFACT",
+        "ownerCountry": "RU"
+      },
+      { "requestDomain": "toast.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tremorhub.com",
+        "owner": "Tremor Video",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "tribalfusion.com",
+        "owner": "Tribal Fusion",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "truffle.bid", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "turn.com", "owner": "Turn", "ownerCountry": "US" },
+      {
+        "requestDomain": "tynt.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "videobyte.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "w55c.net", "owner": "DataXu", "ownerCountry": "US" },
+      {
+        "requestDomain": "weborama.fr",
+        "owner": "Weborama",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "wetter.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "wettercomassets.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "widespace.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "yandex.ru", "owner": "Yandex", "ownerCountry": "RU" },
+      { "requestDomain": "zemanta.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "zeotap.com", "owner": "Zeotap", "ownerCountry": "DE" }
+    ]
+  },
+  {
+    "name": "propagandafront.de",
+    "thirdParties": [
+      { "requestDomain": "bloggerei.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "publicomag.com",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "qpress.de",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ecomm.events", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ecwid.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gravatar.com",
+        "owner": "Gravatar",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "histats.com",
+        "owner": "HiStats",
+        "ownerCountry": "IT"
+      },
+      { "requestDomain": "paypal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "responsivevoice.org",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "w.org", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "webpushr.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "radio-utopie.de",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rmbl.ws", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "rumble.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "republik.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "project-r.construction",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "repub.ch", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "rf-news.de",
+    "thirdParties": [
+      {
+        "requestDomain": "typekit.net",
+        "owner": "Adobe Fonts",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "roteanneliese.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "amazonaws.com",
+        "owner": "Amazon Web Services",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cloudflareinsights.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "donorbox.org", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "getmdl.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "recaptcha.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stripe.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "stripe.network", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "rt.com",
+    "thirdParties": [
+      { "requestDomain": "b37mrtl.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "getreplybox.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "lp4.io", "owner": "Linkpulse", "ownerCountry": "NO" },
+      {
+        "requestDomain": "mail.ru",
+        "owner": "Mail.Ru Group",
+        "ownerCountry": "RU"
+      },
+      { "requestDomain": "mycdn.me", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "pingdom.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "russiatoday.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "scorecardresearch.com",
+        "owner": "ScorecardResearch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vk.com", "owner": "Vkontakte", "ownerCountry": "RU" },
+      { "requestDomain": "yandex.ru", "owner": "Yandex", "ownerCountry": "RU" },
+      { "requestDomain": "yastatic.net", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "scharf-links.de",
+    "thirdParties": [
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "amazon.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "assoc-amazon.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "media-amazon.com",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "schweizerzeit.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "sezession.de",
+    "thirdParties": [
+      {
+        "requestDomain": "cloudflareinsights.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "grimmhold.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "sott.net",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "yandex.ru", "owner": "Yandex", "ownerCountry": "RU" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "tagesstimme.com",
+    "thirdParties": [
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "typekit.net",
+        "owner": "Adobe Fonts",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "tagnews.de",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gemius.pl", "owner": "Gemius", "ownerCountry": "PL" },
+      { "requestDomain": "geoplugin.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "media.net",
+        "owner": "Media.net",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rfihub.com",
+        "owner": "Rocketfuel",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "walmart.com",
+        "owner": "Walmart",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "terra-kurier.de",
+    "thirdParties": [
+      { "requestDomain": "vcounter.de", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "theeuropean.de",
+    "thirdParties": [
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adscale.de",
+        "owner": "AdScale",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazonaws.com",
+        "owner": "Amazon Web Services",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "emailsys1a.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "privacy-mgmt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "yieldlove-ad-serving.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "yieldlove.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "theintelligence.de",
+    "thirdParties": [
+      { "requestDomain": "1rx.io", "owner": "Blinkx", "ownerCountry": "US" },
+      { "requestDomain": "4dex.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adleadevent.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "aniview.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "cpx.to", "owner": "Avocet", "ownerCountry": "UK" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "eu-1-id5-sync.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "id5-sync.com",
+        "owner": "ID5 Technology",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "leadplace.fr", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "onetag-sys.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantcount.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rqtrk.eu", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sascdn.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "sddan.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "themoneytizer.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "tmyzer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "unrulymedia.com",
+        "owner": "Unruly",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "unrulyvideo.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "zeotap.com", "owner": "Zeotap", "ownerCountry": "DE" }
+    ]
+  },
+  {
+    "name": "tichyseinblick.de",
+    "thirdParties": [
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "confiant-integrations.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ioam.de",
+        "owner": "INFOnline",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "linkedin.com",
+        "owner": "LinkedIn",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "printfriendly.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "privacy-mgmt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "spotxchange.com",
+        "owner": "Spot X Change",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "tremorhub.com",
+        "owner": "Tremor Video",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "xing-share.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      {
+        "requestDomain": "yieldlove-ad-serving.net",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "yieldlove.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "topzeitung.com",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "truth24.net",
+    "thirdParties": [
+      {
+        "requestDomain": "abendzeitung-muenchen.de",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "addtoany.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bild.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bz-berlin.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "jungefreiheit.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "twimg.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "welt.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "uebermedien.de",
+    "thirdParties": [
+      { "requestDomain": "steadycdn.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "steadyhq.com", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "un-vogtland.de",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "uncutnews.ch",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "t.me", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "telegram-cdn.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "telegram.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "tg.dev", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "twimg.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "wikimedia.org",
+        "owner": "Wikimedia Foundation",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "unser-mitteleuropa.com",
+    "thirdParties": [
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mailerlite.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "statcounter.com",
+        "owner": "Statcounter",
+        "ownerCountry": "IE"
+      },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "unsere-zeitung.at",
+    "thirdParties": [
+      { "requestDomain": "addtoany.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "blogheim.at", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlevideo.com",
+        "owner": "Google Video",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ots.at", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "unzensuriert.at",
+    "thirdParties": [
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "unzensuriert.de",
+    "thirdParties": [
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "unzensuriert.at", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "wakenews.net",
+    "thirdParties": [
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "happy-school.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wakenews.tv", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "welt-im-wandel.tv",
+    "thirdParties": [
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fontawesome.com",
+        "owner": "Fonticons",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jquery.com",
+        "owner": "JS Foundation",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mailerlite.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "mlcdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "usercentrics.eu", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "weltnetz.tv",
+    "thirdParties": [
+      { "requestDomain": "deepseatools.de", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "fontawesome.com",
+        "owner": "Fonticons",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jsdelivr.net",
+        "owner": "jsDelivr",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "weltwoche.ch",
+    "thirdParties": [
+      { "requestDomain": "addtoany.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      { "requestDomain": "adnz.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "app-us1.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cxense.com",
+        "owner": "Cxense",
+        "ownerCountry": "NO"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "jwplayer.com",
+        "owner": "Longtail Ad Solutions",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ubembed.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "wochenblick.at",
+    "thirdParties": [
+      { "requestDomain": "1rx.io", "owner": "Blinkx", "ownerCountry": "US" },
+      {
+        "requestDomain": "360yield.com",
+        "owner": "Improve Digital",
+        "ownerCountry": "NL"
+      },
+      { "requestDomain": "4dex.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "a-mo.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ad4m.at", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adform.net",
+        "owner": "AdForm",
+        "ownerCountry": "DK"
+      },
+      { "requestDomain": "adgrx.com", "owner": "AdGear", "ownerCountry": "CA" },
+      {
+        "requestDomain": "adition.com",
+        "owner": "Adition Technologies",
+        "ownerCountry": "DE"
+      },
+      { "requestDomain": "adleadevent.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "admanmedia.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "admedo.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs-simple.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adnxs.com", "owner": "Xandr", "ownerCountry": "US" },
+      { "requestDomain": "adotmob.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adpartner.pro", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "adsrvr.org",
+        "owner": "The Trade Desk",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adtarget.com.tr", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "adtelligent.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "audrte.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bidr.io", "owner": "Beeswax", "ownerCountry": "US" },
+      {
+        "requestDomain": "bidswitch.net",
+        "owner": "Bidswitch",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "bidtheatre.com",
+        "owner": "Bidtheatre",
+        "ownerCountry": "SE"
+      },
+      {
+        "requestDomain": "bluekai.com",
+        "owner": "Oracle Blue Kai",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "cloudfront.net",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "connectad.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "contextweb.com",
+        "owner": "PulsePoint",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "cookieless-data.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "cpx.to", "owner": "Avocet", "ownerCountry": "UK" },
+      {
+        "requestDomain": "creative-serving.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "creativecdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "criteo.com",
+        "owner": "Criteo",
+        "ownerCountry": "FR"
+      },
+      {
+        "requestDomain": "crwdcntrl.net",
+        "owner": "Lotame",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ctnsnet.com",
+        "owner": "Crimtan",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "de17a.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "deltawelt.ch", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "demdex.net",
+        "owner": "Adobe Audience Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dotomi.com",
+        "owner": "Dotomi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "e-planning.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "e-volution.ai", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "erne.co", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "eu-1-id5-sync.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "everesttech.net",
+        "owner": "Adobe Experience Cloud",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "exelator.com",
+        "owner": "exelate",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "eyeota.net",
+        "owner": "Eyeota",
+        "ownerCountry": "SG"
+      },
+      {
+        "requestDomain": "fiftyt.com",
+        "owner": "Fifty Technology",
+        "ownerCountry": "UK"
+      },
+      {
+        "requestDomain": "fwmrm.net",
+        "owner": "FreeWheel",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "id5-sync.com",
+        "owner": "ID5 Technology",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "idealmedia.io", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "imrworldwide.com",
+        "owner": "Nielsen Online",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "inmobi.com",
+        "owner": "Inmobi",
+        "ownerCountry": "IN"
+      },
+      { "requestDomain": "iprom.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "krxd.net",
+        "owner": "Salesforce DMP",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "leadplace.fr", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "lijit.com", "owner": "Sovrn", "ownerCountry": "US" },
+      {
+        "requestDomain": "linkedin.com",
+        "owner": "LinkedIn",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "loginbereich.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "loopme.me", "owner": "Loopme", "ownerCountry": "UK" },
+      {
+        "requestDomain": "mathtag.com",
+        "owner": "Media Math",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "mgid.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "nrich.ai", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "omnitagjs.com",
+        "owner": "ADYOULIKE",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "onaudience.com",
+        "owner": "OnAudience",
+        "ownerCountry": "UK"
+      },
+      { "requestDomain": "onesignal.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "onetag-sys.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "peertube.fr", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "playground.xyz", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantcount.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "richaudience.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "rqtrk.eu", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "rtbsystem.org", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sascdn.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "sddan.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "semasio.net",
+        "owner": "Semasio",
+        "ownerCountry": "DE"
+      },
+      {
+        "requestDomain": "sharethrough.com",
+        "owner": "Sharethrough",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "simpli.fi",
+        "owner": "simpli.fi",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "sitescout.com",
+        "owner": "SiteScout",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "smilewanted.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "spotim.market", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "spotimmedia.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "spotxchange.com",
+        "owner": "Spot X Change",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "springserve.com",
+        "owner": "SpringServe",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "stackadapt.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "stickyadstv.com",
+        "owner": "StickyADS.tv",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "taboola.com",
+        "owner": "Taboola",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tapad.com", "owner": "TapAd", "ownerCountry": "US" },
+      { "requestDomain": "themoneytizer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tidaltv.com",
+        "owner": "Videology Group",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "tmyzer.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "tribalfusion.com",
+        "owner": "Tribal Fusion",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "truffle.bid", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "turn.com", "owner": "Turn", "ownerCountry": "US" },
+      {
+        "requestDomain": "tynt.com",
+        "owner": "33Across",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "vidoomy.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "weborama.fr",
+        "owner": "Weborama",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "widespace.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "yahoo.com", "owner": "Yahoo", "ownerCountry": "US" },
+      { "requestDomain": "yandex.ru", "owner": "Yandex", "ownerCountry": "RU" },
+      { "requestDomain": "yastatic.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "zemanta.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "zeotap.com", "owner": "Zeotap", "ownerCountry": "DE" }
+    ]
+  },
+  {
+    "name": "wordpress.com",
+    "thirdParties": [
+      { "requestDomain": "argumentua.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "b37mrtl.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "belta.by", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bing.com", "owner": "Bing", "ownerCountry": "US" },
+      {
+        "requestDomain": "classicalmusicnews.ru",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "dan-news.info", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "dixinews.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "dnr-news.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "donbass-name.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "dropboxusercontent.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "dw.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "flagcounter.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "foto-planeta.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleusercontent.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gravatar.com",
+        "owner": "Gravatar",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "heidelberg.de", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "igotoworld.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "iz.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "lug-info.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "mariupol-news.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "media.net",
+        "owner": "Media.net",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "minds.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "mininfodnr.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "news-front.info", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "novorosinform.org", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odycdn.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "omnitagjs.com",
+        "owner": "ADYOULIKE",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "outbrain.com",
+        "owner": "Outbrain",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "outbrainimg.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pinterest.com",
+        "owner": "Pinterest",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "polldaddy.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "priazovstep.ru", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "printfriendly.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "pubmine.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "revolvermaps.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ria.ru", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "sascdn.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "shr.su", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "smartadserver.com",
+        "owner": "Smart AdServer",
+        "ownerCountry": "FR"
+      },
+      { "requestDomain": "sndcdn.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "soundcloud.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "teads.tv", "owner": "Teads", "ownerCountry": "US" },
+      { "requestDomain": "telegram-cdn.org", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "twimg.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "twitter.com",
+        "owner": "Twitter",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "userapi.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "verfassunggebende-versammlung.com",
+        "owner": "",
+        "ownerCountry": ""
+      },
+      { "requestDomain": "vk.com", "owner": "Vkontakte", "ownerCountry": "RU" },
+      { "requestDomain": "vvaktuell.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "webme.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "yandex.net",
+        "owner": "Yandex",
+        "ownerCountry": "RU"
+      },
+      { "requestDomain": "youtu.be", "owner": "YouTube", "ownerCountry": "US" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "ytimg.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "zavtra.ru", "owner": "", "ownerCountry": "" }
+    ]
+  },
+  {
+    "name": "wpcomstaging.com",
+    "thirdParties": [
+      {
+        "requestDomain": "2mdn.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "addtoany.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "bitchute.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "cloudflare.com",
+        "owner": "Cloudflare",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gegenstimme.tv", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "lbry.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odycdn.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odysee.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "odysee.tv", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "plyr.io", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "rmbl.ws", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "rumble.com", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "vitaminum.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "w.org", "owner": "Wordpress", "ownerCountry": "US" },
+      { "requestDomain": "websale.net", "owner": "", "ownerCountry": "" },
+      { "requestDomain": "wp.com", "owner": "Wordpress", "ownerCountry": "US" },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "zaronews.world",
+    "thirdParties": [
+      {
+        "requestDomain": "amazon-adsystem.com",
+        "owner": "Amazon Marketing Services",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "assoc-amazon.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "disqus.com",
+        "owner": "Disqus",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google-analytics.com",
+        "owner": "Google Analytics",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagmanager.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "pantercon.net", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "ssl-images-amazon.com",
+        "owner": "Amazon",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "zuercherin.com",
+    "thirdParties": [
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ggpht.com", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "youtube.com",
+        "owner": "YouTube",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "ytimg.com", "owner": "YouTube", "ownerCountry": "US" }
+    ]
+  },
+  {
+    "name": "zuerst.de",
+    "thirdParties": [
+      {
+        "requestDomain": "bootstrapcdn.com",
+        "owner": "StackPath",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  {
+    "name": "zurzeit.at",
+    "thirdParties": [
+      {
+        "requestDomain": "addthis.com",
+        "owner": "AddThis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "adingo.jp", "owner": "Fluct", "ownerCountry": "JP" },
+      {
+        "requestDomain": "agkn.com",
+        "owner": "Neustar Marketing",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "casalemedia.com",
+        "owner": "Index Exchange",
+        "ownerCountry": "CA"
+      },
+      {
+        "requestDomain": "doubleclick.net",
+        "owner": "DoubleClick",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.com",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "facebook.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "fbcdn.net",
+        "owner": "Facebook",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "gemius.pl", "owner": "Gemius", "ownerCountry": "PL" },
+      { "requestDomain": "google.ch", "owner": "Google", "ownerCountry": "US" },
+      {
+        "requestDomain": "google.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleadservices.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googleapis.com",
+        "owner": "Google APIs",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googlesyndication.com",
+        "owner": "AdSense",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "googletagservices.com",
+        "owner": "Google Tag Manager",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "gstatic.com",
+        "owner": "Google",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "innovid.com",
+        "owner": "Innovid",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "mookie1.com",
+        "owner": "Xaxis",
+        "ownerCountry": "US"
+      },
+      { "requestDomain": "openx.net", "owner": "OpenX", "ownerCountry": "US" },
+      { "requestDomain": "paypalobjects.com", "owner": "", "ownerCountry": "" },
+      {
+        "requestDomain": "pubmatic.com",
+        "owner": "PubMatic",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "quantserve.com",
+        "owner": "Quantcast",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rlcdn.com",
+        "owner": "LiveRamp",
+        "ownerCountry": "US"
+      },
+      {
+        "requestDomain": "rubiconproject.com",
+        "owner": "Rubicon Project",
+        "ownerCountry": "US"
+      }
+    ]
+  },
+  { "name": "", "thirdParties": [{}] }
+]

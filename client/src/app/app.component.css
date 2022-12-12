@@ -28,3 +28,15 @@ body {
 .wrapper {
   background-image: url("../assets/img/bg-striped.png");
 }
+.download {
+  position: fixed;
+  bottom: 30px;
+  right: 60px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+mat-icon {
+  font-size: 50px;
+  color: rgb(58, 58, 58);
+}

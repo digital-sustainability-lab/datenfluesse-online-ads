@@ -73,6 +73,7 @@ export class NetworkMenuComponent implements OnInit {
           });
         }
       });
+      debugger;
       this.backDisabled = true;
       this.forwardDisabled = true;
       // initialize all the checkboxes as checked
